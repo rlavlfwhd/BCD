@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: Story_074
+  m_EditorClassIdentifier: 
+  storyNumber: 74
+  storyLevelMin: 0
+  storyLevelMax: 0
+  MainImage: {fileID: 2800000, guid: ef175728ad4eb594c998c20996cc6c78, type: 3}
+  voice: 
+  storytype: 2
+  storyDone: 0
+  storyText: "\uB791\uC740 \uC0B0\uC774\uAC00 \uD604\uC7AC \uB9C8\uC744\uC5D0 \uC788\uC9C0
+    \uC54A\uACE0 \uB370\uB9AC\uACE0 \uC628 \n\uC778\uAC04\uACFC \uC5EC\uD589\uC744
+    \uD558\uACE0 \uC788\uB2E4\uACE0 \uC54C\uB824\uC8FC\uBA70 \n\n\uB2F9\uC2E0\uC5D0\uAC8C
+    \uD559\uC744 \uD558\uB298 \uC704\uB85C \uB0A0\uB9AC\uBA74 \uD559\uC774 \uC0B0\uC5D0\uAC8C\uB85C
+    \n\uC548\uB0B4\uD574 \uC904 \uAC83\uC774\uB77C\uACE0 \uB9D0\uD588\uB2E4.\n\uADF8\uB9AC\uACE0
+    \uB9CC\uC57D \uC778\uAC04\uC138\uACC4\uB85C \uB3CC\uC544\uAC00\uACE0 \uC2F6\uB2E4\uBA74
+    \n\uD559\uC758 \uAF2C\uB9AC\uB97C \uC811\uC5B4 \uB2E4\uC2DC \uD559\uC744 \uB0A0\uB9AC\uB77C\uACE0
+    \uC54C\uB824\uC8FC\uC5C8\uB2E4.\n\n\uB2F9\uC2E0\uC740 \uB791\uC5D0\uAC8C \uACE0\uB9D9\uB2E4\uACE0
+    \uC778\uC0AC\uD558\uBA70 \uC885\uC774\uD559\uC774 \n\uAC00\uB9AC\uD0A4\uB294
+    \uACF3\uC744 \uB530\uB77C\uAC14\uB2E4."
+  options:
+  - optionText: "\uBAA8\uD5D8 \uACC4\uC18D\uD558\uAE30"
+    buttonText: "\uBAA8\uD5D8 \uACC4\uC18D\uD558\uAE30"
+    eventCheck:
+      checkvalue: 0
+      eventType: 0
+      sucessResult:
+      - resultType: 5
+        value: 0
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 2
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
+      failResult: []

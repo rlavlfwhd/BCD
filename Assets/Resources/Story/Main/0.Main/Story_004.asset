@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: Story_004
+  m_EditorClassIdentifier: 
+  storyNumber: 4
+  storyLevelMin: 0
+  storyLevelMax: 0
+  MainImage: {fileID: 2800000, guid: ef175728ad4eb594c998c20996cc6c78, type: 3}
+  voice: 
+  storytype: 2
+  storyDone: 0
+  storyText: "\uB2F9\uC2E0\uC774 \uB3D9\uC0DD\uC774 \uC788\uB294 \uACF3\uC73C\uB85C
+    \uB2E4\uAC00\uAC00\uC790\r\n\uB3D9\uC0DD\uC740 \uB180\uB78D\uAC8C\uB3C4 \uD560\uC544\uBC84\uC9C0\uC758
+    \uC774\uC57C\uAE30\uC5D0 \uB098\uC624\uB294 \n\uB3C4\uAE68\uBE44\uC640 \uC774\uC57C\uAE30\uB97C
+    \uB098\uB204\uACE0 \uC788\uC5C8\uB2E4.\n\r\n\"\uB108! \uB0B4 \uB3D9\uC0DD\uC5D0\uAC8C\uC11C
+    \uB5A8\uC5B4\uC838\"\r\n\r\n\uB2F9\uC2E0\uC740 \uC2E4\uC81C\uB85C \uB3C4\uAE68\uBE44\uAC00
+    \uC788\uB2E4\uB294 \uC0AC\uC2E4\uC5D0 \uB180\uB77C\uBA70\n\uADFC\uCC98\uC5D0
+    \uC788\uB294 \uC0BD\uC744 \uB4E4\uACE0 \uB3C4\uAE68\uBE44\uB97C \uC704\uD611\uD588\uB2E4.\r\n\r\n\uADF8\uB7EC\uC790
+    \uB2F9\uC2E0\uC744 \uBC1C\uACAC\uD55C \uB3C4\uAE68\uBE44\uAC00 \uB208\uC744 \uD06C\uAC8C
+    \uB728\uB354\uB2C8 \n\uC774\uB0B4 \uB3D9\uC0DD\uC744 \uB370\uB9AC\uACE0 \uB3C4\uB9DD\uCCE4\uB2E4."
+  options:
+  - optionText: "\uAC70\uAE30\uC11C!"
+    buttonText: "\uAC70\uAE30\uC11C!"
+    eventCheck:
+      checkvalue: 0
+      eventType: 0
+      sucessResult:
+      - resultType: 4
+        value: 5
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 0
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
+      failResult: []

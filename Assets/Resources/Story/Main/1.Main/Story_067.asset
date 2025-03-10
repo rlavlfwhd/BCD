@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: Story_067
+  m_EditorClassIdentifier: 
+  storyNumber: 67
+  storyLevelMin: 0
+  storyLevelMax: 0
+  MainImage: {fileID: 2800000, guid: ef175728ad4eb594c998c20996cc6c78, type: 3}
+  voice: 
+  storytype: 2
+  storyDone: 0
+  storyText: "\uB2F9\uC2E0\uC744 \uAC74\uB4E4\uC778 \uAC74 \uBC14\uB85C \uB2E4\uC2DC
+    \uB3CC\uC544\uC628 \n\uBE57\uC790\uB8E8 \uB3C4\uAE68\uBE44\uC600\uB2E4.\r\n\n\r\uBE57\uC790\uB8E8
+    \uB3C4\uAE68\uBE44\uB294 '\uC0B0\uC774'\uC774\uAC00 \uC815\uACBD\uC0B0\uC5D0
+    \uC790\uC8FC \uAC04\uB2E4\uACE0 \n\uC54C\uB824\uC8FC\uACE0 \uB3D9\uC0DD\uC744
+    \uCC3E\uAE30\uB97C \uBE4C\uC5B4\uC8FC\uBA70 \n\uB2E4\uB978 \uB3C4\uAE68\uBE44\uB4E4\uC744
+    \uB530\uB77C\uAC14\uB2E4.\r\n\r\n\uB2F9\uC2E0\uC740 \uCC3B\uC794 \uB3C4\uAE68\uBE44\uC5D0\uAC8C
+    \uACE0\uB9D9\uB2E4\uACE0 \uC778\uC0AC\uD558\uBA70 \n\uC7A5\uACBD\uC0B0\uC73C\uB85C
+    \uD5A5\uD588\uB2E4."
+  options:
+  - optionText: "\uBAA8\uD5D8 \uACC4\uC18D\uD558\uAE30"
+    buttonText: "\uBAA8\uD5D8 \uACC4\uC18D\uD558\uAE30"
+    eventCheck:
+      checkvalue: 0
+      eventType: 0
+      sucessResult:
+      - resultType: 5
+        value: 0
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 2
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
+      failResult: []

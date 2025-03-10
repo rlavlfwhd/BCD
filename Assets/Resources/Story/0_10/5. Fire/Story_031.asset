@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: Story_031
+  m_EditorClassIdentifier: 
+  storyNumber: 31
+  storyLevelMin: 0
+  storyLevelMax: 10
+  MainImage: {fileID: 2800000, guid: 47025068bd0637f4198d9ad6878629d9, type: 3}
+  voice: 
+  storytype: 0
+  storyDone: 0
+  storyText: "\uB2F9\uC2E0\uC740 \uAE38\uC744 \uAC77\uB2E4 \uACF5\uC911\uC744 \uB5A0\uB2E4\uB2C8\uB294
+    \n\uC870\uADF8\uB9C8\uD55C \uD478\uB978 \uBE5B\uB4E4\uC744 \uB9C8\uC8FC\uCCE4\uB2E4.\r\n\n\uADF8\uB9AC\uACE0
+    \uB2F9\uC2E0 \uC8FC\uC704\uB97C \uBE59\uAE00\uBE59\uAE00 \uB3CC\uBA70 \uD0A4\uB4DD\uAC70\uB9AC\uB358
+    \n\uD478\uB978 \uBE5B\uB4E4\uC740 \uB2F9\uC2E0\uACFC \uB208\uC774 \uB9C8\uC8FC\uCE58\uC790
+    \n\uD391 \uC18C\uB9AC\uC640 \uD568\uAED8 \uBD88\uAF43\uC73C\uB85C \uBCC0\uD588\uACE0\r
+    \n\n\uB9C8\uCE58 \uB2F9\uC2E0\uC5D0\uAC8C \uC774\uB9AC\uC624\uB77C\uB294 \uB4EF,
+    \n\uD55C \uC904\uB85C \uB098\uB780\uD788 \uC11C \uAE38\uC744 \uB9CC\uB4E4\uC5C8\uB2E4."
+  options:
+  - optionText: "\uB530\uB77C\uAC04\uB2E4"
+    buttonText: "\uB530\uB77C\uAC04\uB2E4"
+    eventCheck:
+      checkvalue: 0
+      eventType: 0
+      sucessResult:
+      - resultType: 4
+        value: 32
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 0
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
+      failResult:
+      - resultType: 4
+        value: 33
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 0
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
+  - optionText: "\uB530\uB77C\uAC00\uC9C0 \uC54A\uB294\uB2E4"
+    buttonText: "\uB530\uB77C\uAC00\uC9C0 \uC54A\uB294\uB2E4"
+    eventCheck:
+      checkvalue: 0
+      eventType: 0
+      sucessResult:
+      - resultType: 4
+        value: 34
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 0
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
+      failResult: []

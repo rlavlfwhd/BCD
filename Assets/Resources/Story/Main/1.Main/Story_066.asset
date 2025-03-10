@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: Story_066
+  m_EditorClassIdentifier: 
+  storyNumber: 66
+  storyLevelMin: 0
+  storyLevelMax: 0
+  MainImage: {fileID: 2800000, guid: ef175728ad4eb594c998c20996cc6c78, type: 3}
+  voice: 
+  storytype: 2
+  storyDone: 0
+  storyText: "\uB2F9\uC2E0\uC774 \uBB38\uC81C\uB97C \uB9DE\uCD94\uC9C0 \uBABB\uD588\uB2E4.\n\uB3C4\uAE68\uBE44\uB4E4\uC740
+    \uAE4C\uB974\uB974 \uC6C3\uC73C\uBA70 \uC778\uAC04\uACFC\uC758 \n\uB0B4\uAE30\uC5D0\uC11C
+    \uC790\uC2E0\uB4E4\uC774 \uC774\uACBC\uB2E4\uACE0 \uC88B\uC544\uD588\uB2E4.\r\n\r\n\uB3C4\uAE68\uBE44\uB4E4\uC740
+    \uB2F9\uC2E0\uC5D0\uAC8C \uB2E4\uAC00\uC640 \uBB38\uC81C\uB97C \uB9DE\uCD94\uC9C0
+    \uBABB\uD588\uC73C\uB2C8 \r\n\uC815\uBCF4\uB97C \uC8FC\uC9C0 \uC54A\uACA0\uB2E4\uACE0
+    \uB9D0\uD558\uBA70 \uB5A0\uB0AC\uB2E4.\r\n\r\n\uB2F9\uC2E0\uC740 \uB5A0\uB098\uAC00\uB294
+    \uB3C4\uAE68\uBE44\uB4E4\uC744 \uBCF4\uBA70 \uD55C \uC228\uC744 \uC26C\uACE0
+    \n\uBC14\uB2E5\uC5D0 \uC8FC\uC800\uC549\uC544 \uC774\uC81C \uC5B4\uB5BB\uAC8C
+    \uD574\uC57C \uD560\uC9C0 \uACE0\uBBFC\uD588\uB2E4. \n\n\uADF8\uB54C \uB204\uAD70\uAC00
+    \uB2F9\uC2E0\uC744 \uD1A1\uD1A1 \uAC74\uB4E4\uC5C8\uB2E4."
+  options:
+  - optionText: "\uB204\uAD6C..."
+    buttonText: "\uB204\uAD6C..."
+    eventCheck:
+      checkvalue: 0
+      eventType: 0
+      sucessResult:
+      - resultType: 4
+        value: 67
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 2
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
+      failResult: []
