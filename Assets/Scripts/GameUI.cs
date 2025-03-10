@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;               //UI를 컨트롤 할 것이라서 추가
 using TMPro;                        // TextMeshPro를 사용하기 위해 필요
 
+// XXXXXXXXXXXXXXXXXX
+
 public class GameUI : MonoBehaviour
 {
     public static GameUI Instance;

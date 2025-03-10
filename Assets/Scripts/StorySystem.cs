@@ -23,7 +23,7 @@ public class StorySystem : MonoBehaviour
     private string currentText = "";            // 현재까지 표시된 텍스트
     public TMP_Text textComponent;              // TextMeshPro 컴포넌트
     public TMP_Text storyIndex;                 // storyIndex 
-    public Image imageComponent;                    
+    public Image imageComponent;
 
     public Button[] buttonWay = new Button[3];
     public TMP_Text[] buttonWayText = new TMP_Text[3];

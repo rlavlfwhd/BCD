@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// XXXXXXXXXXXXXXX
+
 [CreateAssetMenu(fileName = "NewMonster", menuName = "ScriptableObjects/MonsterModel")]
 public class MonsterModel : ScriptableObject
 {
