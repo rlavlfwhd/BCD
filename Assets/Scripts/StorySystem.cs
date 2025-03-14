@@ -5,18 +5,13 @@ using TMPro;                        // TextMeshPro를 사용하기 위해 필요
 using UnityEngine;
 using System;
 
+
 public class StorySystem : MonoBehaviour
 {
     public static StorySystem Instance;                 //간단한 싱글톤 화
 
     public StoryModel currentStoryModel;
 
-    public enum TEXTSYSTEM    
-    {
-        DOING,
-        SELECT,
-        DONE
-    }
 
     public float delay = 0.1f;                  // 각 글자가 나타나는 데 걸리는 시간
     public string fullText;                     // 전체 표시할 텍스트
@@ -55,7 +50,7 @@ public class StorySystem : MonoBehaviour
         for (int i = 0; i < currentStoryModel.options.Length; i++)
         {
             buttonWayText[i].text = currentStoryModel.options[i].buttonText;
-        }        
+        }
     }
 
     public void CoShowText()
@@ -77,12 +72,6 @@ public class StorySystem : MonoBehaviour
 
     IEnumerator ShowText()
     {
-
-        if(currentStoryModel.voice != "")
-        {
-            SoundManager.instance.PlaySound(currentStoryModel.voice);
-        }
-
         if (currentStoryModel.MainImage != null)
         {
             // Texture2D를 Sprite로 변환
@@ -95,7 +84,7 @@ public class StorySystem : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"Unable to load texture: { currentStoryModel.MainImage.name}");
+            Debug.LogError($"Unable to load texture: {currentStoryModel.MainImage.name}");
         }
 
         for (int i = 0; i <= fullText.Length; i++)
@@ -107,7 +96,7 @@ public class StorySystem : MonoBehaviour
 
         for (int i = 0; i < currentStoryModel.options.Length; i++)
         {
-            buttonWay[i].gameObject.SetActive(true); 
+            buttonWay[i].gameObject.SetActive(true);
             yield return new WaitForSeconds(delay);
         }
 
@@ -116,86 +105,27 @@ public class StorySystem : MonoBehaviour
 
     public void OnWayClick(int index)
     {
-        bool CheckEventTypeNone = false;        //기본으로 NONE일때는 무조건 성공이라 실패시 다시 불리는것 피하기
         StoryModel playStoryModel = currentStoryModel;
-        Debug.Log(index);
+        Debug.Log($"[OnWayClick] 선택한 옵션 인덱스: {index}");
 
-        if (playStoryModel.options[index].eventCheck.eventType == StoryModel.EventCheck.EventType.NONE)
-        {
-            for (int i = 0; i < playStoryModel.options[index].eventCheck.sucessResult.Length; i++)
-            {
-                GameSystem.Instance.ApplyChoice(currentStoryModel.options[index].eventCheck.sucessResult[i]);
-                CheckEventTypeNone = true;
-            }
-        }
+        // 선택된 옵션 가져오기
+        StoryModel.Option selectedOption = playStoryModel.options[index];
 
-        bool CheckValue = false;
+        // 성공 결과가 있는 경우 실행
+        if (selectedOption.eventCheck.sucessResult.Length > 0)
+        {
+            ProcessResult(selectedOption.eventCheck.sucessResult);
+        }
+    }
 
-        if (playStoryModel.options[index].eventCheck.eventType == StoryModel.EventCheck.EventType.CheckSTR)
+    // 결과를 처리하는 함수
+    private void ProcessResult(StoryModel.Result[] results)
+    {
+        if (results.Length > 0)
         {
-            if (UnityEngine.Random.Range(0, GameSystem.Instance.stats.strength) >= playStoryModel.options[index].eventCheck.checkvalue)
-            {
-                CheckValue = true;
-            }           
+            Debug.Log($"[ProcessResult] 적용할 결과: {results[0].resultType}, 이동할 스토리 번호: {results[0].value}");
+            GameSystem.Instance.ApplyChoice(results[0]); // 첫 번째 결과만 실행
         }
-        else if (playStoryModel.options[index].eventCheck.eventType == StoryModel.EventCheck.EventType.CheckDEX)
-        {
-            if (UnityEngine.Random.Range(0, GameSystem.Instance.stats.dexterity) >= playStoryModel.options[index].eventCheck.checkvalue)
-            {
-                CheckValue = true;
-            }
-        }
-        else if (playStoryModel.options[index].eventCheck.eventType == StoryModel.EventCheck.EventType.CheckCON)
-        {
-            if (UnityEngine.Random.Range(0, GameSystem.Instance.stats.consitiution) >= playStoryModel.options[index].eventCheck.checkvalue)
-            {
-                CheckValue = true;
-            }
-        }
-        else if (playStoryModel.options[index].eventCheck.eventType == StoryModel.EventCheck.EventType.CheckINT)
-        {
-            if (UnityEngine.Random.Range(0, GameSystem.Instance.stats.Intelligence) >= playStoryModel.options[index].eventCheck.checkvalue)
-            {
-                CheckValue = true;
-            }
-        }
-        else if (playStoryModel.options[index].eventCheck.eventType == StoryModel.EventCheck.EventType.CheckCHA)
-        {
-            if (UnityEngine.Random.Range(0, GameSystem.Instance.stats.charisma) >= playStoryModel.options[index].eventCheck.checkvalue)
-            {
-                CheckValue = true;
-            }
-        }
-
-        if (playStoryModel.options[index].eventCheck.eventType == StoryModel.EventCheck.EventType.CheckXP)
-        {
-            if (GameSystem.Instance.stats.currentXpPoint >= playStoryModel.options[index].eventCheck.checkvalue)
-            {
-                CheckValue = true;
-            }
-
-        }
-            
-
-
-        if (CheckValue)
-        {
-            for (int i = 0; i < playStoryModel.options[index].eventCheck.sucessResult.Length; i++)
-            {
-                GameSystem.Instance.ApplyChoice(playStoryModel.options[index].eventCheck.sucessResult[i]);
-            }
-        }
-        else
-        {
-            if(CheckEventTypeNone == false)
-            {
-                for (int i = 0; i < playStoryModel.options[index].eventCheck.failResult.Length; i++)
-                {
-                    GameSystem.Instance.ApplyChoice(playStoryModel.options[index].eventCheck.failResult[i]);
-                }
-            }       
-        }
-
     }
 
 }

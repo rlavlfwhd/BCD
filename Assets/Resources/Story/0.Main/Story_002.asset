@@ -16,9 +16,6 @@ MonoBehaviour:
   storyLevelMin: 0
   storyLevelMax: 0
   MainImage: {fileID: 2800000, guid: ef175728ad4eb594c998c20996cc6c78, type: 3}
-  voice: 
-  storytype: 2
-  storyDone: 0
   storyText: "\uB2F9\uC2E0\uC740 \uD560\uC544\uBC84\uC9C0\uC640 \uB3D9\uC0DD\uC5D0\uAC8C
     \uB3C4\uAE68\uBE44\uB294 \uC5C6\uB2E4\uACE0 \n\uCC45\uC5D0\uC11C\uB9CC \uC788\uB294
     \uB0B4\uC6A9\uC774\uB77C\uACE0 \uB9D0\uD588\uB2E4. \n\uADF8\uB7EC\uC790 \uB2F9\uC2E0\uC758
@@ -29,25 +26,9 @@ MonoBehaviour:
     \uC4F0\uB2E4\uB4EC\uC5B4 \uC8FC\uC5C8\uACE0\n\uB3C4\uAE68\uBE44\uC5D0 \uB300\uD55C
     \uC774\uC57C\uAE30\uB97C \uB9C8\uC838 \uD574\uC8FC\uC168\uB2E4."
   options:
-  - optionText: "\uC2DC\uAC04\uC774 \uD750\uB978 \uD6C4"
-    buttonText: "\uC2DC\uAC04\uC774 \uD750\uB978 \uD6C4"
+  - buttonText: "\uC2DC\uAC04\uC774 \uD750\uB978 \uD6C4"
     eventCheck:
-      checkvalue: 0
-      eventType: 0
       sucessResult:
-      - resultType: 4
-        value: 3
+      - resultType: 0
+        value: 1
         changeSceneName: 
-        stats:
-          hpPoint: 0
-          spPoint: 0
-          currentHpPoint: 0
-          currentSpPoint: 0
-          currentXpPoint: 0
-          strength: 0
-          dexterity: 0
-          consitiution: 0
-          Intelligence: 0
-          wisdom: 0
-          charisma: 0
-      failResult: []
