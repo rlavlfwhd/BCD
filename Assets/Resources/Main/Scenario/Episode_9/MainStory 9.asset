@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: MainStory 9
+  m_EditorClassIdentifier: 
+  storyNumber: 3
+  storyLevelMin: 0
+  storyLevelMax: 0
+  MainImage: {fileID: 2800000, guid: ef175728ad4eb594c998c20996cc6c78, type: 3}
+  storyText: "-9\uC77C\uCC28-\n\n\uC624\uB298\uB3C4 \uACF5\uC8FC\uB2D8 \uBC29 \uBC16\uC5D0\uC11C
+    \uB300\uAE30\uD558\uB358 \uAE30\uC0AC\uB294 \uC9C0\uAE08 \uB4E4\uC5B4\uC640\uB2EC\uB77C\uB294
+    \uACF5\uC8FC\uC758 \uBD80\uB984\uC744 \uBC1B\uACE0 \uBC29 \uC548\uC73C\uB85C
+    \uB4E4\uC5B4\uC654\uC2B5\uB2C8\uB2E4.  \uADF8\uB7EC\uC790 \uAE30\uC0AC\uB294
+    \uC591\uC190\uC73C\uB85C \uC5B4\uB5A4 \uADF8\uB9BC\uC744 \uB4E4\uACE0 \uADF8\uC5D0\uAC8C
+    \uBCF4\uC5EC\uC8FC\uACE0\uC788\uB294 \uACF5\uC8FC\uB97C \uBD24\uC2B5\uB2C8\uB2E4.
+    \n\n\"\uD14C\uC624\uB3C4\uB974,\uB0B4\uAC00 \uADF8\uB9B0 \uADF8\uB9BC\uC774\uC57C,
+    \uC81C\uBAA9\uC740 \uC655\uC790\uC640 \uACF5\uC8FC. \uAD1C\uCC2E\uC9C0 \uC54A\uC544?
+    \uC5B8\uC820\uAC00 \uB098\uB3C4 \uC774\uB807\uAC8C \uB418\uBA74 \uC88B\uACA0\uC5B4.\"\n\n\uAE30\uC0AC\uB294
+    \uACF5\uC8FC\uC758 \uB9D0\uC744 \uB4E3\uACE0 \uADF8\uB140\uC758 \uADF8\uB9BC\uC744
+    \uBCF4\uB2C8 \uC655\uC790\uB85C \uBCF4\uC774\uB294 \uB0A8\uC790\uC640 \uACF5\uC8FC\uB85C
+    \uBCF4\uC774\uB294 \uC5EC\uC790\uAC00 \uC11C\uB85C \uC190\uC744 \uC7A1\uACE0
+    \uD589\uBCF5\uD574\uD558\uB294\uB4EF\uD55C \uB290\uB08C\uC73C\uB85C \uADF8\uB824\uC838\uC788\uB294\uAC83\uCC98\uB7FC
+    \uBCF4\uC600\uC2B5\uB2C8\uB2E4. "
+  options:
+  - buttonText: "A) \"\uACF5\uC8FC\uB2D8\uACFC \uB9CC\uB09C \uC655\uC790\uAC00 \uC704\uD5D8\uD55C
+      \uB188\uC77C\uC9C0\uB3C4 \uBAA8\uB974\uC796\uC2B5\uB2C8\uAE4C. \uB204\uAD70\uB4E0\uC9C0
+      \uC808\uB300 \uD568\uBD80\uB85C \uB9CC\uB098\uC11C\uB294 \uC548\uB429\uB2C8\uB2E4.
+      \uD3D0\uD558\uAED8\uC11C \uAC71\uC815\uD558\uC2ED\uB2C8\uB2E4.\""
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 4
+        changeSceneName: 
+  - buttonText: "B) \"\uB124, \uC5B8\uC820\uAC00 \uACF5\uC8FC\uB2D8\uB3C4 \uC88B\uC740
+      \uC790\uB97C \uB9CC\uB098\uC2E4 \uAC81\uB2C8\uB2E4.\""
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 4
+        changeSceneName: 

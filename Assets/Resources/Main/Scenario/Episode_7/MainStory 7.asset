@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: MainStory 7
+  m_EditorClassIdentifier: 
+  storyNumber: 3
+  storyLevelMin: 0
+  storyLevelMax: 0
+  MainImage: {fileID: 2800000, guid: ef175728ad4eb594c998c20996cc6c78, type: 3}
+  storyText: "-7\uC77C\uCC28-\n\n\uACF5\uC8FC\uAC00 \uC815\uC6D0\uC744 \uC0B0\uCC45\uD558\uBA70
+    \uAE30\uC0AC\uC640 \uAC78\uC5B4\uB2E4\uB2C8\uB358 \uC911 \uD070 \uB098\uBB34\uB97C
+    \uBC1C\uACAC\uD588\uC2B5\uB2C8\uB2E4.\n\n\"\uC6B0\uC640 \uD14C\uC624\uB3C4\uB974!
+    \uB098\uBB34\uAC00 \uC815\uB9D0 \uD06C\uB2E4! \uC800\uAE30\uC5D0 \uAC00\uC11C
+    \uC880 \uC26C\uC5B4\uC57C\uACA0\uC5B4.\"\n\n\uACF5\uC8FC\uB294 \uB098\uBB34\uB85C
+    \uB2E4\uAC00\uAC00 \uBC14\uB2E5\uC5D0 \uC549\uC544 \uC26C\uACE0 \uC788\uC5C8\uC2B5\uB2C8\uB2E4.
+    \n\n\uADF8\uB7F0\uB370 \uAC11\uC790\uAE30 \uB098\uBB34 \uC704\uC5D0 \uC788\uB358
+    \uC0AC\uACFC\uAC00 \uACF5\uC8FC\uB2D8 \uBA38\uB9AC \uC704\uB85C\uB5A8\uC5B4\uC84C\uC2B5\uB2C8\uB2E4.\n\n\uC774\uB97C
+    \uBCF8 \uAE30\uC0AC\uB294 \uAE5C\uC9DD \uB180\uB790\uC2B5\uB2C8\uB2E4."
+  options:
+  - buttonText: "A) \uAC80\uC740 \uC7A5\uBBF8\uB97C \uAEBE\uC5B4\uC11C \uAC74\uB128\uB2E4.
+      (\uAF43\uB9D0 - \uB2F9\uC2E0\uC740 \uC601\uC6D0\uD788 \uB098\uC758 \uAC83)"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 4
+        changeSceneName: 
+  - buttonText: "B) \uB3D9\uBC31\uAF43\uC744 \uAEBE\uC5B4\uC11C \uAC74\uB128\uB2E4.
+      (\uAF43\uB9D0 - \uADF8 \uB204\uAD6C\uBCF4\uB2E4 \uADF8\uB300\uB97C \uC0AC\uB791\uD569\uB2C8\uB2E4.)"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 4
+        changeSceneName: 

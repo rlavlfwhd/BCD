@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: Story 3_A
+  m_EditorClassIdentifier: 
+  storyNumber: 3
+  storyLevelMin: 0
+  storyLevelMax: 0
+  MainImage: {fileID: 2800000, guid: ef175728ad4eb594c998c20996cc6c78, type: 3}
+  storyText: "-3\uC77C\uCC28-\n\n\uAE30\uC0AC\uB294 \uC790\uC2E0\uC758 \uCE7C\uB85C
+    \uC950\uB97C \uCC14\uB7EC \uC8FD\uC600\uACE0, \uC790\uC2E0\uC758 \uB208 \uC78E\uC5D0\uC11C
+    \uC8FD\uC740 \uC950\uC5D0\uAC8C \uD53C\uAC00 \uB098\uC624\uB294 \uBAA8\uC2B5\uC744
+    \uBCF4\uACE0 \uACF5\uC8FC\uB294 \uACBD\uC545 \uD588\uC2B5\uB2C8\uB2E4.\n\n\"\uC73C..\uC73C\uC73C...\uD53C... 
+    \uC950\uAC00 \uC8FD\uC5C8...\""
+  options:
+  - buttonText: "A)  \"\uACF5\uC8FC\uB2D8\uC5D0\uAC8C \uC704\uD611\uC774 \uB420\uAE4C\uBD10
+      \uC8FD\uC600\uC2B5\uB2C8\uB2E4. \uC774\uC81C \uC548\uC2EC\uD558\uC2ED\uC2DC\uC624.\""
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 4
+        changeSceneName: 
+  - buttonText: "B)  \uD558\uC778\uC744 \uBD88\uB7EC \uC950\uC758 \uC2DC\uCCB4\uB97C
+      \uCE58\uC6B0\uB77C\uACE0 \uD55C\uB2E4."
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 4
+        changeSceneName: 
