@@ -12,7 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/02.GuidebookScene.unity
     guid: e7c43a912a52fce46bb64d510c5adf7d
   - enabled: 1
-    path: Assets/Scenes/03.Choicestory&record Scene.unity
+    path: Assets/Scenes/03.GuidebookScene 1.unity
+    guid: 14378bb425d7a8346bf4b80fc68f9b92
+  - enabled: 1
+    path: Assets/Scenes/04.Choicestory&record Scene.unity
     guid: 1ba8c670ab9efad4592f0b3af0dbc356
   - enabled: 1
     path: Assets/Scenes/Book1_GameScene.unity

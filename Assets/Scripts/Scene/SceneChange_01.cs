@@ -14,7 +14,7 @@ public class SceneChange_01 : MonoBehaviour
     // Update is called once per frame
     public void Change()
     {
-        SceneManager.LoadScene("03.Choicestory&record Scene");
+        SceneManager.LoadScene("03.GuidebookScene 1");
 
     }
 }
