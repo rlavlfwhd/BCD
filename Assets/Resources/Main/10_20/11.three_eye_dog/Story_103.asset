@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: Story_103
+  m_EditorClassIdentifier: 
+  storyNumber: 103
+  storyLevelMin: 10
+  storyLevelMax: 20
+  MainImage: {fileID: 2800000, guid: 1edc219c935a0cf4098da9e9eee7ef99, type: 3}
+  voice: 
+  storytype: 0
+  storyDone: 0
+  storyText: "\uB2F9\uC2E0\uC740 \uAE4A\uC740 \uC219\uC18D\uC5D0\uC11C \uB208\uC774
+    \uC138 \uAC1C \uB2EC\uB9B0 \uAC1C \n\uC2E0\uAD6C\uB97C \uBC1C\uACAC\uD588\uB2E4.
+    \r\n\r\n\uC2E0\uAD6C\uB294 \uADC0\uB97C \uCAD1\uAE0B\uAC70\uB9AC\uBA74\uC11C
+    \uB2F9\uC2E0\uC5D0\uAC8C \uB2E4\uAC00\uC654\uB2E4."
+  options:
+  - optionText: "\uC4F0\uB2E4\uB4EC\uC5B4\uC900\uB2E4"
+    buttonText: "\uC4F0\uB2E4\uB4EC\uC5B4\uC900\uB2E4"
+    eventCheck:
+      checkvalue: 0
+      eventType: 0
+      sucessResult:
+      - resultType: 4
+        value: 104
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 0
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
+      failResult: []
+  - optionText: "\uC9C0\uB098\uCE5C\uB2E4"
+    buttonText: "\uC9C0\uB098\uCE5C\uB2E4"
+    eventCheck:
+      checkvalue: 0
+      eventType: 0
+      sucessResult:
+      - resultType: 4
+        value: 105
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 0
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
+      failResult: []

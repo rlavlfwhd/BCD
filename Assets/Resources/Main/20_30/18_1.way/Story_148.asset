@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: Story_148
+  m_EditorClassIdentifier: 
+  storyNumber: 148
+  storyLevelMin: 20
+  storyLevelMax: 30
+  MainImage: {fileID: 2800000, guid: 2d814dbd19ea98e4eabe8530d78b36b8, type: 3}
+  voice: 
+  storytype: 2
+  storyDone: 0
+  storyText: "\uB2E4\uB978 \uC138\uACC4\uB97C \uC5EC\uD589\uD558\uBA70 \uC815\uC2E0\uC801
+    \uD734\uC2DD\uC774 \uD544\uC694\uD588\uB358 \n\uB2F9\uC2E0\uC740 \uAE00\uADC0\uC5D0\uC11C
+    \uBCF8 \uB300\uB85C \uD478\uB978 \uD480\uB4E4\uC774 \uBB34\uC131\uD788 \n\uC790\uB77C\uC788\uB294
+    \uC67C\uCABD \uAE38\uC744 \uC120\uD0DD\uD558\uC600\uB2E4.\r\n\r\n\uB2F9\uC2E0\uC740
+    \uAE38\uC744 \uAC78\uC73C\uBA74\uC11C \uB2E4\uB978 \uC138\uACC4\uC5D0 \uC640\uC11C
+    \n\uC624\uB79C\uB9CC\uC5D0 \uD3C9\uD654\uB86D\uB2E4\uB294 \uAC83\uC744 \uB290\uB07C\uBA70
+    \uCC9C\uCC9C\uD788 \n\uAE38\uC744 \uAC78\uC5C8\uB2E4."
+  options:
+  - optionText: "\uBAA8\uD5D8 \uACC4\uC18D\uD558\uAE30"
+    buttonText: "\uBAA8\uD5D8 \uACC4\uC18D\uD558\uAE30"
+    eventCheck:
+      checkvalue: 30
+      eventType: 8
+      sucessResult:
+      - resultType: 4
+        value: 75
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 1
+          currentXpPoint: 2
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
+      failResult:
+      - resultType: 5
+        value: 0
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 2
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0

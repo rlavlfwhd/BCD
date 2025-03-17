@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: Story_047
+  m_EditorClassIdentifier: 
+  storyNumber: 47
+  storyLevelMin: 0
+  storyLevelMax: 10
+  MainImage: {fileID: 2800000, guid: 876730d08052f4347896e37f2c129b48, type: 3}
+  voice: 
+  storytype: 2
+  storyDone: 0
+  storyText: "\uB2F9\uC2E0\uC740 \uC774\uACF3\uC5D0 \uC544\uC774\uAC00 \uC788\uB2E4\uB294
+    \uAC83\uC774 \uC758\uC544\uD588\uC9C0\uB9CC \n\uD639\uC2DC \uBAB0\uB77C \uB3C4\uC6C0\uC744
+    \uC8FC\uAE30 \uC704\uD574 \uB2E4\uAC00\uAC14\uB2E4. \n\n\uB2F9\uC2E0\uC774 \uC544\uC774\uC5D0\uAC8C
+    \uB2E4\uAC00\uAC00\uC790 \uC544\uC774\uB294 \uC21C\uC2DD\uAC04\uC5D0 \n\uADF8\uB9BC\uC790\uC758
+    \uBAA8\uC2B5\uC73C\uB85C \uBCC0\uD574 \uB2F9\uC2E0\uC744 \uB36E\uCCE4\uB2E4."
+  options:
+  - optionText: "\uC804\uD22C(\uADF8\uC2A8\uB300)"
+    buttonText: "\uC804\uD22C(\uADF8\uC2A8\uB300)"
+    eventCheck:
+      checkvalue: 0
+      eventType: 0
+      sucessResult:
+      - resultType: 4
+        value: 52
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 0
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
+      failResult:
+      - resultType: 4
+        value: 53
+        changeSceneName: 
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 0
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          Intelligence: 0
+          wisdom: 0
+          charisma: 0
