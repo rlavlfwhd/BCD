@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: HappyEnding3
+  m_EditorClassIdentifier: 
+  storyNumber: 502
+  MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
+  storyType: 0
+  storyText: "\"\uC5B4? \uC73C, \uC73C\uC74C... \uB4E3\uACE0 \uBCF4\uB2C8 \uADF8\uB7F0
+    \uAC83 \uAC19\uC544...\"\n\n\uACF5\uC8FC\uB294 \uD55C\uCC38 \uBA38\uB9AC\uB97C
+    \uC2F8\uB9E4\uBA70 \uACE0\uBBFC\uC744 \uD558\uB354\uB2C8 \uACB0\uC2EC\uD55C\uB4EF
+    \uACE0\uAC1C\uB97C \uB4E4\uC5B4 \uAE30\uC0AC\uC5D0\uAC8C \uB9D0\uD588\uC2B5\uB2C8\uB2E4.\n\n\"\uACB0\uC815\uD588\uC5B4.
+    \uD14C\uC624\uB3C4\uB974, \uB098\uC640 \uACB0\uD63C\uD574\uC918.\"\n\n\"\uBC14\uB77C\uB358
+    \uBC14\uC785\uB2C8\uB2E4, \uACF5\uC8FC\uB2D8\uC758 \uC18C\uC6D0\uC744 \uB4E4\uC5B4\uB4DC\uB9AC\uACA0\uC2B5\uB2C8\uB2E4.\"\n\n\uADF8\uB9AC\uD558\uC5EC
+    \uAC00\uC2E0\uB4E4\uC758 \uACA9\uD55C \uBC18\uB300\uC5D0\uB3C4 \uBD88\uAD6C\uD558\uACE0
+    \uAE30\uC0AC\uC640 \uACF5\uC8FC\uB294 \uD589\uBCF5\uD558\uAC8C \uACB0\uD63C\uC744
+    \uD558\uC600\uC2B5\uB2C8\uB2E4.\n\n\uC5D4\uB5291: \uAE30\uC0AC\uC640 \uACF5\uC8FC\uC758
+    \uACB0\uD63C"
+  options:
+  - buttonText: "\uC774\uC57C\uAE30 \uB05D"
+    eventCheck:
+      sucessResult:
+      - resultType: 1
+        value: 0
+        changeSceneName: 04.Choicestory&record Scene

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: BadEnding2
+  m_EditorClassIdentifier: 
+  storyNumber: 601
+  MainImage: {fileID: 0}
+  storyType: 1
+  storyText: "\"\uADF8\uB798, \uD14C\uC624\uB3C4\uB974\uAC00 \uADF8\uB807\uAC8C \uB9D0\uD55C\uB2E4\uB2C8
+    \uC548\uC2EC\uC774\uC57C! \uC548\uB374, \uB2F9\uC2E0\uC758 \uACE0\uBC31 \uBC1B\uC544\uB4DC\uB9B4\uAC8C\uC694!\"\n\n\uC655\uC790\uB294
+    \uACF5\uC8FC\uC758 \uB300\uB2F5\uC744 \uB4E3\uACE0 \uAE30\uBED0\uD558\uBA70 \uADF8\uB140\uB97C
+    \uD5A5\uD574 \uD55C\uCABD \uBB34\uB98E\uC744 \uAFC7\uACE0 \uC637 \uC548\uC5D0
+    \uC228\uACA8\uB1A8\uB358 \uBC18\uC9C0\uB97C \uAEBC\uB0B4 \uACF5\uC8FC\uC758 \uC190\uAC00\uB77D\uC5D0
+    \uB07C\uC5B4\uB123\uC5C8\uC2B5\uB2C8\uB2E4. \uADF8 \uD6C4, \uC2E0\uAD6C\uB300
+    \uC655\uAD6D \uC548\uC5D0\uC11C \uC655\uC790\uC640 \uACF5\uC8FC\uB294 \uD589\uBCF5\uD574\uD558\uBA70
+    \uACB0\uD63C\uC2DD\uC744 \uD589\uD588\uACE0, \uADF8\uB4E4\uC758 \uB4A4\uC5D0\uC11C
+    \uAE30\uC0AC\uB294 \uCC38\uAD00\uAC1D\uB4E4\uACFC \uD568\uAED8 \uBC15\uC218\uB97C
+    \uCE58\uBA70 \uCD95\uD558\uD574\uD558\uB294\uB4EF \uBCF4\uC600\uC9C0\uB9CC, \uD22C\uAD6C
+    \uC548\uC5D0\uC11C \uCC0C\uADF8\uB9B0 \uC5BC\uAD74\uACFC \uB208\uBB3C \uD55C
+    \uBC29\uC6B8\uC774 \uBCF4\uC774\uB294 \uAC83 \uAC19\uC558\uC2B5\uB2C8\uB2E4.\n\n\uC5D4\uB5292:
+    \uC655\uC790\uC640 \uACF5\uC8FC\uC758 \uACB0\uD63C"
+  options:
+  - buttonText: "\uB05D"
+    eventCheck:
+      sucessResult:
+      - resultType: 1
+        value: 0
+        changeSceneName: 04.Choicestory&record Scene

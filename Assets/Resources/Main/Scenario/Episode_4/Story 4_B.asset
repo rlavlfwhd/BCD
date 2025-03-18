@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: Story 4_B
   m_EditorClassIdentifier: 
-  storyNumber: 3
-  storyLevelMin: 0
-  storyLevelMax: 0
+  storyNumber: 20
   MainImage: {fileID: 2800000, guid: ef175728ad4eb594c998c20996cc6c78, type: 3}
+  storyType: 2
   storyText: "-4\uC77C\uCC28-\n\n\"\uC751, \uACE0\uB9C8\uC6CC \uD14C\uC624\uB3C4\uB974!
     \uADF8\uB7FC \uBE68\uB9AC \uB098\uAC00\uC790!\" \n\n\uC2E0\uB09C \uACF5\uC8FC\uB294
     \uC11C\uB458\uB7EC \uC815\uC6D0\uC73C\uB85C \uAC14\uACE0, \uBCC4\uC744 \uBC14\uB77C\uBD24\uC2B5\uB2C8\uB2E4.
@@ -32,11 +31,11 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 4
+        value: 21
         changeSceneName: 
   - buttonText: "B) \"\uACF5\uC8FC\uB2D8 \uB2E4\uCE58\uC2E0\uACF3\uC740 \uC5C6\uC73C\uC2ED\uB2C8\uAE4C?\" "
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 4
+        value: 22
         changeSceneName: 
