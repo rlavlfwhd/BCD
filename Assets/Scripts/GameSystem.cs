@@ -30,10 +30,6 @@ public class GameSystem : MonoBehaviour
 {
     public static GameSystem Instance;      //∞£¥‹«— ΩÃ±€≈Ê »≠
 
-    public const int A = 50;
-    public const int B = 100;
-    public const int C = 150;
-
     private void Awake()
     {
         Instance = this;
@@ -65,17 +61,7 @@ public class GameSystem : MonoBehaviour
         switch (result.resultType)
         {            
             case StoryModel.Result.ResultType.GoToNextStory:
-                currentStoryIndex += result.value;
-                StoryShow(currentStoryIndex);
-                break;
-
-            case StoryModel.Result.ResultType.SelectA:
-                currentStoryIndex += (result.value + A);
-                StoryShow(currentStoryIndex);
-                break;
-                
-            case StoryModel.Result.ResultType.SelectB:
-                currentStoryIndex += (result.value + B);
+                currentStoryIndex = result.value;
                 StoryShow(currentStoryIndex);
                 break;
 

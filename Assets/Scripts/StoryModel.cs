@@ -5,13 +5,19 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewStory", menuName = "ScriptableObjects/StoryModel")]
 public class StoryModel : ScriptableObject
-{
+{   
     public int storyNumber;
-    public int storyLevelMin;
-    public int storyLevelMax;
-
     public Texture2D MainImage;
         
+    public enum StoryType
+    {
+        MAIN,
+        TypeA,
+        TypeB,
+        TypeC
+    }
+
+    public StoryType storyType;
 
     [TextArea(10, 10)]
     public string storyText;
@@ -38,10 +44,7 @@ public class StoryModel : ScriptableObject
     {
         public enum ResultType : int
         {
-            GoToNextStory,
-            SelectA,
-            SelectB,
-            SelectC,
+            GoToNextStory,            
             GoToEnding
         }
 

@@ -1175,7 +1175,11 @@ MonoBehaviour:
   storyModels:
   - {fileID: 11400000, guid: 146deee9f7a063e4dbbc6af6f0491d64, type: 2}
   - {fileID: 11400000, guid: ca4e45ad38f47b54e816d268f6707f0b, type: 2}
+  - {fileID: 11400000, guid: d65e55fed5a8d0848a418de480cb65e6, type: 2}
   - {fileID: 11400000, guid: cd39449cd0f4e2a4b844b13210228a54, type: 2}
+  - {fileID: 11400000, guid: 5fbaa2f2e7aa54549b5dcd812941f187, type: 2}
+  - {fileID: 11400000, guid: 870f732eeee05164280766a79166f0f7, type: 2}
+  - {fileID: 11400000, guid: 9d2397cd59f4282498cc2d6360d80485, type: 2}
   - {fileID: 11400000, guid: ca07366a86dc2e943925fda6443a61d3, type: 2}
   currentStoryIndex: 1
 --- !u!4 &426814014
