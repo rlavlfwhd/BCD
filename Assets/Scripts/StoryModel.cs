@@ -8,6 +8,10 @@ public class StoryModel : ScriptableObject
 {   
     public int storyNumber;
     public Texture2D MainImage;
+    
+    [SerializeField]
+    public Texture2D MainImage2;
+
         
     public enum StoryType
     {
@@ -23,6 +27,7 @@ public class StoryModel : ScriptableObject
     public string storyText;
 
     public Option[] options; // 선택지 배열
+
 
 
     [System.Serializable]
