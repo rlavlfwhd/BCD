@@ -7,9 +7,7 @@ using UnityEngine;
 public class StoryModel : ScriptableObject
 {   
     public int storyNumber;
-    public Texture2D MainImage;
-    
-    [SerializeField]
+    public Texture2D MainImage;    
     public Texture2D MainImage2;
 
         

@@ -1270,12 +1270,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9ecaa440662764b94679fab571438b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStoryModel: {fileID: 11400000, guid: bb9b1b4fc5e85cd4d8fa7de777fc8321, type: 2}
+  currentStoryModel: {fileID: 11400000, guid: 146deee9f7a063e4dbbc6af6f0491d64, type: 2}
   delay: 0.01
   fullText: "\uBAA8\uD5D8\uAC00 \uC774\uC57C\uAE30 \uD14C\uC2A4\uD2B8 \uC911\uC785\uB2C8\uB2E4. "
   textComponent: {fileID: 131622094}
   storyIndex: {fileID: 1150986912}
   imageComponent: {fileID: 333998829}
+  imageComponent2: {fileID: 1091940206}
   buttonWay:
   - {fileID: 928721805}
   - {fileID: 1192923898}
@@ -1945,7 +1946,7 @@ GameObject:
   - component: {fileID: 1091940207}
   - component: {fileID: 1091940206}
   m_Layer: 5
-  m_Name: StoryImage (1)
+  m_Name: StoryImage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1990,7 +1991,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 117865c78a45d064d8c89c2ad2687a68, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2298,7 +2299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.45000002}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 165, y: -390}
+  m_AnchoredPosition: {x: 224, y: -390}
   m_SizeDelta: {x: 1742.5312, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1496363508

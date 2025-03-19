@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyNumber: 501
   MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
+  MainImage2: {fileID: 0}
   storyType: 0
   storyText: " \uC774\uB97C \uBCF8 \uAE30\uC0AC\uB294 \uC7A0\uC2DC \uACE0\uBBFC\uD558\uB294\uAC00
     \uC2F6\uB354\uB2C8 \uACF5\uC8FC\uC5D0\uAC8C \uB9D0\uD588\uC2B5\uB2C8\uB2E4.\n\"\uACF5\uC8FC\uB2D8,
@@ -33,6 +34,6 @@ MonoBehaviour:
   - buttonText: "\uC774\uC57C\uAE30 \uB05D1"
     eventCheck:
       sucessResult:
-      - resultType: 0
-        value: 502
-        changeSceneName: 
+      - resultType: 1
+        value: 0
+        changeSceneName: 04.Choicestory&record Scene
