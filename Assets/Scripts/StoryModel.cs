@@ -50,7 +50,8 @@ public class StoryModel : ScriptableObject
         public enum ResultType : int
         {
             GoToNextStory,            
-            GoToEnding
+            GoToEnding,
+            GoToChoiceScene
         }
 
         public ResultType resultType;

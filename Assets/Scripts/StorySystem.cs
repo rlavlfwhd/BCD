@@ -114,6 +114,13 @@ public class StorySystem : MonoBehaviour
         // 성공 결과가 있는 경우 실행
         if (selectedOption.eventCheck.sucessResult.Length > 0)
         {
+            string buttonText = selectedOption.buttonText.Trim();
+
+            if (buttonText != "넘어가기")
+            {
+                if (index == 0) GameSystem.Instance.choice1Count++;
+                else if (index == 1) GameSystem.Instance.choice2Count++;
+            }
             ProcessResult(selectedOption.eventCheck.sucessResult);
         }
     }

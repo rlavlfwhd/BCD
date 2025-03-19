@@ -35,13 +35,11 @@ public class GameSystem : MonoBehaviour
         Instance = this;
     }
 
-
-    //=========================================================================================
-    // ½ºÅä¸®
-    //=========================================================================================
-
     public StoryModel[] storyModels;
     public int currentStoryIndex = 1;
+
+    public int choice1Count = 0;
+    public int choice2Count = 0;
 
 #if UNITY_EDITOR
     [ContextMenu("Reset Story Models")]
@@ -65,13 +63,41 @@ public class GameSystem : MonoBehaviour
                 StoryShow(currentStoryIndex);
                 break;
 
-            case StoryModel.Result.ResultType.GoToEnding:
+            case StoryModel.Result.ResultType.GoToChoiceScene:
                 SceneManager.LoadScene(result.changeSceneName);
+                break;
+
+            case StoryModel.Result.ResultType.GoToEnding:
+                DetermineEnding();
                 break;
 
             default:
                 Debug.LogError("Unknown effect type");
                 break;
+        }
+    }
+
+    public void DetermineEnding()
+    {
+        int endingStoryIndex = -1;
+
+        if (choice1Count > choice2Count)
+        {
+            endingStoryIndex = 500;
+        }
+        else if (choice1Count < choice2Count)
+        {
+            endingStoryIndex = 600;
+        }
+
+        if(endingStoryIndex != -1)
+        {
+            currentStoryIndex = endingStoryIndex;
+            StoryShow(currentStoryIndex);
+        }
+        else
+        {
+            Debug.LogError("XXXXXXXXXXXXXX");
         }
     }
 
