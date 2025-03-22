@@ -20,6 +20,7 @@ public class StorySystem : MonoBehaviour
     public TMP_Text storyIndex;                 // storyIndex 
     public Image imageComponent;
     public Image imageComponent2;
+  
 
     public Button[] buttonWay = new Button[3];
     public TMP_Text[] buttonWayText = new TMP_Text[3];
@@ -93,6 +94,7 @@ public class StorySystem : MonoBehaviour
             // Image 컴포넌트에 스프라이트 설정
             imageComponent2.sprite = sprite;
         }
+        
         else
         {
             Debug.LogError($"Unable to load texture: {currentStoryModel.MainImage.name}");

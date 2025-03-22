@@ -17,7 +17,7 @@ using UnityEngine.SceneManagement;
         // Update is called once per frame
         public void Change()
         {
-            SceneManager.LoadScene("Scenes/Chapter1");
+            SceneManager.LoadScene("Test Scenes/Chapter1");
 
         }
     }

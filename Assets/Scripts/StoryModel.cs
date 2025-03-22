@@ -10,7 +10,8 @@ public class StoryModel : ScriptableObject
     public Texture2D MainImage;    
     public Texture2D MainImage2;
 
-        
+
+
     public enum StoryType
     {
         MAIN,
