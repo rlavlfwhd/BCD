@@ -7,6 +7,7 @@ public class ChapterCtr : MonoBehaviour
 {
     public PlayableDirector director;
     public CameraParallax cameraParallax;
+    public GameObject bindObj;
 
     void Start()
     {
@@ -18,5 +19,7 @@ public class ChapterCtr : MonoBehaviour
     void OnTimelineEnd(PlayableDirector pd)
     {
         cameraParallax.enabled = true;
+
+        bindObj.SetActive(false);
     }
 }

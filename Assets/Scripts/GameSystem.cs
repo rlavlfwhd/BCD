@@ -40,6 +40,7 @@ public class GameSystem : MonoBehaviour
 
     public int choice1Count = 0;
     public int choice2Count = 0;
+    public int choice3Count = 0;
 
 #if UNITY_EDITOR
     [ContextMenu("Reset Story Models")]
@@ -52,6 +53,42 @@ public class GameSystem : MonoBehaviour
     public void Start()
     {
         StoryShow(currentStoryIndex);
+    }
+
+    public void SaveGame(int slot)
+    {
+        if(slot < 1 || slot > 6)
+        {
+            return;
+        }
+
+        StoryModel currentStory = FindStoryModel(currentStoryIndex);
+        string imagePath = "";
+
+        if ((currentStory != null && currentStory.MainImage != null))
+        {
+            imagePath = AssetDatabase.GetAssetPath(currentStory.MainImage);
+        }
+
+        SaveSystem.SaveGame(slot, currentStoryIndex, choice1Count, choice2Count, choice3Count, imagePath);
+    }
+
+    public void LoadGame(int slot)
+    {
+        if (slot < 1 || slot > 6)
+        {
+            return;
+        }
+
+        SaveSystem.SaveData saveData = SaveSystem.LoadGame(slot);
+        if (saveData != null)
+        {
+            currentStoryIndex = saveData.currentStoryIndex;
+            choice1Count = saveData.choice1Count;
+            choice2Count = saveData.choice2Count;
+            choice3Count = saveData.choice3Count;
+            StoryShow(currentStoryIndex);
+        }
     }
 
     public void ApplyChoice(StoryModel.Result result)

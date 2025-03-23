@@ -16,8 +16,7 @@ public class StorySystem : MonoBehaviour
     public float delay = 0.1f;                  // 각 글자가 나타나는 데 걸리는 시간
     public string fullText;                     // 전체 표시할 텍스트
     private string currentText = "";            // 현재까지 표시된 텍스트
-    public TMP_Text textComponent;              // TextMeshPro 컴포넌트
-    public TMP_Text storyIndex;                 // storyIndex 
+    public TMP_Text textComponent;              // TextMeshPro 컴포넌트    
     public Image imageComponent;
     public Image imageComponent2;
   
@@ -45,9 +44,7 @@ public class StorySystem : MonoBehaviour
 
     public void StoryModelInit()
     {
-        fullText = currentStoryModel.storyText;
-
-        storyIndex.text = currentStoryModel.storyNumber.ToString();
+        fullText = currentStoryModel.storyText;        
 
         for (int i = 0; i < currentStoryModel.options.Length; i++)
         {
