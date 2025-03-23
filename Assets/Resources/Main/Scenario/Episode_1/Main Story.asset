@@ -16,7 +16,7 @@ MonoBehaviour:
   MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
   MainImage2: {fileID: 2800000, guid: 5ea5432d0a3fe664fb130babfa1e5ac9, type: 3}
   storyType: 0
-  storyText: "-1\uC77C\uCC28-\n\n\uBC14\uB78C\uC774 \uC0B0\uB73B\uD55C \uC624\uD6C4,
+  storyText: "\n-1\uC77C\uCC28-\n\n\uBC14\uB78C\uC774 \uC0B0\uB73B\uD55C \uC624\uD6C4,
     \uC2EC\uC2EC\uD55C \uACF5\uC8FC\uB294 \uBC29\uC744 \uB098\uAC00\uC11C \n\uC655\uC2E4
     \uC0AC\uB78C\uB4E4\uC774 \uC774\uC57C\uAE30 \uD558\uACE0 \uC2F6\uC5B4\uD569\uB2C8\uB2E4.
     \n\n\"\uD638\uC704\uAE30\uC0AC, \uB098 \uBC16\uC5D0 \uB098\uAC00\uACE0\uC2F6\uC5B4.\"\n\n"

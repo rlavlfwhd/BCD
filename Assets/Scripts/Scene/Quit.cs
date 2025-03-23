@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Quit : MonoBehaviour
 {
@@ -11,13 +12,9 @@ public class Quit : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Change()
     {
-        
-    }
+        SceneManager.LoadScene("MainScene");
 
-    public void Quitgame()
-    {
-        Application.Quit();
     }
 }
