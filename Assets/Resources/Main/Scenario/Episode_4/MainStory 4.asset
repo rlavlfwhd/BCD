@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: MainStory 4
   m_EditorClassIdentifier: 
   storyNumber: 18
-  MainImage: {fileID: 2800000, guid: ef175728ad4eb594c998c20996cc6c78, type: 3}
+  MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
+  MainImage2: {fileID: 2800000, guid: 5ea5432d0a3fe664fb130babfa1e5ac9, type: 3}
   storyType: 0
   storyText: "-4\uC77C\uCC28-\n\n\uC5B4\uB290 \uBC24, \uBC29\uC758 \uBC1C\uCF54\uB2C8\uC5D0\uC11C
     \uBC24\uD558\uB298\uC744 \uAC10\uC0C1\uD558\uB358 \uACF5\uC8FC\uB294 \uCC2C\uB780\uD558\uAC8C
@@ -30,7 +31,8 @@ MonoBehaviour:
       - resultType: 0
         value: 19
         changeSceneName: 
-  - buttonText: "B)  \"\uACF5\uC8FC\uB2D8, \uB2E4\uCE5C\uC2E0 \uACF3\uC740 \uC5C6\uC73C\uC2ED\uB2C8\uAE4C?\""
+  - buttonText: "B) \"\uC54C\uACA0\uC2B5\uB2C8\uB2E4. \uD558\uC9C0\uB9CC \uC81C \uC606\uC5D0
+      \uAF2D \uBD99\uC5B4 \uACC4\uC154\uC57C\uD569\uB2C8\uB2E4."
     eventCheck:
       sucessResult:
       - resultType: 0

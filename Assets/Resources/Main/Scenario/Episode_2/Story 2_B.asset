@@ -13,16 +13,14 @@ MonoBehaviour:
   m_Name: Story 2_B
   m_EditorClassIdentifier: 
   storyNumber: 10
-  MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
-  MainImage2: {fileID: 2800000, guid: 5ab342067ff53b44f874644f652252cf, type: 3}
+  MainImage: {fileID: 2800000, guid: e0c08efccc72b0947a2976d61ee5adf6, type: 3}
+  MainImage2: {fileID: 2800000, guid: 5e9249ccd25240246bedbb951d810a99, type: 3}
   storyType: 2
   storyText: "-2\uC77C\uCC28-\n\n\uACF5\uC8FC\uB294 \uBC16\uC5D0 \uB098\uAC00\uC11C
     \uAE30\uBD84\uC774 \uC88B\uC544\uBCF4\uC600\uC2B5\uB2C8\uB2E4. \n\n\uD558\uC9C0\uB9CC
     \uC815\uC6D0\uC5D0\uC11C \uAF43\uC744 \uAC10\uC0C1\uD558\uB358 \uC640\uC911 \uBC8C\uC774
     \uB0A0\uB77C\uC640\n\uACF5\uC8FC\uB97C \uC704\uD611\uD588\uC2B5\uB2C8\uB2E4.\n\n\"\uAE84\uC544\uC545\"\n\n\uADF8
-    \uC21C\uAC04 \uAE30\uC0AC\uB294 \uBC8C\uC744 \uB9C9\uC544\uC11C\uACE0, \uCAD2\uC544\uB0C8\uC2B5\uB2C8\uB2E4.
-    \n \n\n\n\uC5B4\uB514\uC120\uAC00 \uBC8C\uC774 \uB0A0\uC544\uC624\uACE0, \uAE30\uC0AC\uAC00
-    \uB9C9\uC544\uC11C\uBA70 \uCAD2\uC544\uB0C8\uC2B5\uB2C8\uB2E4. "
+    \uC21C\uAC04 \uAE30\uC0AC\uB294 \uBC8C\uC744 \uB9C9\uC544\uC11C\uACE0, \uCAD2\uC544\uB0C8\uC2B5\uB2C8\uB2E4. "
   options:
   - buttonText: "A)\" \uC774\uB807\uAC8C \uC704\uD5D8\uD558\uB2C8 \uC81C\uAC00 \uBC16\uC5D0
       \uBABB\uB098\uAC00\uAC8C \uD558\uB294 \uAC81\uB2C8\uB2E4, \uACF5\uC8FC\uB2D8.\""

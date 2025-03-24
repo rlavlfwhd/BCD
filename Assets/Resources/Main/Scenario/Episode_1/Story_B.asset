@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Story_B
   m_EditorClassIdentifier: 
   storyNumber: 3
-  MainImage: {fileID: 2800000, guid: c404335c88c407a44a17cabbbc670b4a, type: 3}
-  MainImage2: {fileID: 2800000, guid: c7ec39eb8f2e8214bade2b651365b54e, type: 3}
+  MainImage: {fileID: 2800000, guid: 5a962748c39d8494688a8fb8029db9d0, type: 3}
+  MainImage2: {fileID: 2800000, guid: fe4409a9f81d7ad40ab4d8c46aa48692, type: 3}
   storyType: 2
   storyText: "-1\uC77C\uCC28-\n\n(\uACF5\uC8FC\uB294 \uBC16\uC73C\uB85C \uB098\uC624\uAC8C
     \uB418\uC5C8\uB2E4.)\n\n\uACF5\uC8FC\uB294 \uBCF5\uB3C4\uC5D0\uC11C \uC2DC\uC885\uB4E4\uACFC
     \uC6C3\uC73C\uBA70 \uC774\uC57C\uAE30\uB97C \uB098\uB204\uACE0 \uC788\uC744 \uB54C,
     \uC694\uB9AC\uC0AC\uAC00 \uB2E4\uAC00\uC640 \uB9D0\uC744 \uAC78\uC5C8\uC2B5\uB2C8\uB2E4.\n\n\"\uC5B4\uBA38,\uACF5\uC8FC\uB2D8.
     \uC624\uB79C\uB9CC\uC5D0 \uB098\uC624\uC168\uB124\uC694! \uC81C\uAC00 \uB9CC\uB4E0
-    \uCFE0\uD0A4 \uB4DC\uC154\uBCF4\uC2E4\uB798\uC694?\" \uACF5\uC900\uB290 \uBC30\uACE0\uD30C
+    \uCFE0\uD0A4 \uB4DC\uC154\uBCF4\uC2E4\uB798\uC694?\" \uACF5\uC8FC\uB294 \uBC30\uACE0\uD30C
     \uBCF4\uC600\uC9C0\uB9CC, \uD638\uC704\uAE30\uC0AC\uC758 \uB208\uCE58\uB97C \uBCF4\uC558\uC2B5\uB2C8\uB2E4.\n\n\"\uC74C...\""
   options:
   - buttonText: "A) \uCFE0\uD0A4\uC758 \uC815\uCCB4\uB97C \uBAA8\uB974\uB2C8 \uBABB
