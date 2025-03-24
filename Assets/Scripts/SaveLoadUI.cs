@@ -61,6 +61,14 @@ public class SaveLoadUI : MonoBehaviour
                 }
             }
         }
+
+        for (int i = 0; i < loadButtons.Length; i++)
+        {
+            if (slotImages[i] != null && loadButtons[i].GetComponent<Image>() != null)
+            {
+                loadButtons[i].GetComponent<Image>().sprite = slotImages[i].sprite;
+            }
+        }
     }
 
     private Sprite LoadSpriteFromPath(string path)

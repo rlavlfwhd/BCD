@@ -35,8 +35,10 @@ public class GameSystem : MonoBehaviour
         Instance = this;
     }
 
+    public GameObject[] chapters;
     public StoryModel[] storyModels;
     public int currentStoryIndex = 1;
+    private GameObject activeChapter;
 
     public int choice1Count = 0;
     public int choice2Count = 0;
@@ -131,11 +133,7 @@ public class GameSystem : MonoBehaviour
         {
             currentStoryIndex = endingStoryIndex;
             StoryShow(currentStoryIndex);
-        }
-        else
-        {
-            Debug.LogError("XXXXXXXXXXXXXX");
-        }
+        }        
     }
 
 
@@ -147,11 +145,40 @@ public class GameSystem : MonoBehaviour
         {
             StorySystem.Instance.currentStoryModel = tempStoryModels;
             StorySystem.Instance.CoShowText();
+
+            int chapterIndex = GetChapterIndex(number);
+            ChangeChapter(chapterIndex);
         }
         else
         {
             Debug.LogError($"스토리 모델을 찾을 수 없음: {number}");
         }
+    }
+
+    private int GetChapterIndex(int storyNumber)
+    {
+        if (storyNumber == 1) return 0;
+        if (storyNumber >= 11 && storyNumber < 21) return 1;
+        if(storyNumber >= 21 && storyNumber < 31) return 2;
+        return -1;
+    }
+
+    private void ChangeChapter(int chapterIndex)
+    {
+        if(chapterIndex >= chapters.Length)
+        {
+            Debug.LogError("잘못된 챕터 인덱스!");
+            return;
+        }
+
+        if (chapters[chapterIndex].activeSelf)
+        {
+            return;
+        }
+
+
+        activeChapter = chapters[chapterIndex];
+        activeChapter.SetActive(true);
     }
 
     StoryModel FindStoryModel(int number)

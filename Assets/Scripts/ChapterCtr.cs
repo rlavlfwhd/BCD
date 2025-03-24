@@ -7,7 +7,7 @@ public class ChapterCtr : MonoBehaviour
 {
     public PlayableDirector director;
     public CameraParallax cameraParallax;
-    public GameObject bindObj;
+    public GameObject[] bindObj;
 
     void Start()
     {
@@ -20,6 +20,9 @@ public class ChapterCtr : MonoBehaviour
     {
         cameraParallax.enabled = true;
 
-        bindObj.SetActive(false);
+        foreach(GameObject obj in bindObj)
+        {
+            obj.SetActive(false);
+        }
     }
 }

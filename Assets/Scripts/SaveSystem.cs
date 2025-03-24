@@ -27,13 +27,13 @@ public class SaveSystem
         };
 
         string json = JsonUtility.ToJson(saveData, true);
-        string path = Application.persistentDataPath + "/saveSlot" + slot + "json";
+        string path = Application.persistentDataPath + "/saveSlot" + slot + ".json";
         File.WriteAllText(path, json);
     }
 
     public static SaveData LoadGame(int slot)
     {
-        string path = Application.persistentDataPath + "/saveSlot" + slot + "json";
+        string path = Application.persistentDataPath + "/saveSlot" + slot + ".json";
 
         if(File.Exists(path))
         {
