@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: Story 8_AB
+  m_EditorClassIdentifier: 
+  storyNumber: 43
+  MainImage: {fileID: 2800000, guid: e5444200a45afdc4c91a7225e4c69ec6, type: 3}
+  MainImage2: {fileID: 2800000, guid: 5faa97c6422a344488f7036cd7314900, type: 3}
+  storyType: 1
+  storyText: "-8\uC77C\uCC28-\n\n\"\uC8C4\uC1A1\uD569\uB2C8\uB2E4,\uACF5\uC8FC\uB2D8.
+    \uC81C \uD589\uB3D9\uC774 \uACF5\uC8FC\uB2D8\uAED8 \uD574\uAC00 \uB420 \uC904\uC740
+    \uBAB0\uB790\uC2B5\uB2C8\uB2E4.\"\n\n\uAE30\uC0AC\uB294 \uACF5\uC8FC\uAC00 \uC6B0\uB294
+    \uAC83\uC744 \uBCF4\uC790 \uC660\uC9C0 \uBAA8\uB974\uAC8C \uC0AC\uACFC\uB97C
+    \uB2F9\uC7A5 \uD574\uC57C\uD560 \uAC83 \uAC19\uB2E4\uACE0 \uAC15\uD558\uAC8C
+    \uB290\uAEF4, \uACF5\uC8FC\uC5D0\uAC8C \uC0AC\uACFC\uD588\uC2B5\uB2C8\uB2E4.\n\n\"\uD14C\uC624\uB3C4\uB974...
+    \uB098\uD55C\uD14C \uC0AC\uACFC\uD588\uB124... \uADF8\uB3D9\uC548 \uB0A0 \uD798\uB4E4\uAC8C
+    \uD588\uB294\uB370\uB3C4...\"\n\n\"\uADF8 \uC77C\uB4E4\uC740 \uC804\uBD80 \uACF5\uC8FC\uB2D8\uC744
+    \uC704\uD55C \uAC83\uC774\uC5C8\uC2B5\uB2C8\uB2E4. \uB098\uBE44\uB97C \uBCA4\uAC83\uB3C4
+    \uACF5\uC8FC\uB2D8\uC744 \uC704\uD55C \uAC83\uC774\uC9C0\uB9CC \uC65C\uC778\uC9C0
+    \uC0AC\uACFC\uB97C \uD574\uC57C\uB9CC \uD560 \uAC83 \uAC19\uC558\uC2B5\uB2C8\uB2E4.
+    \"\n\n\"\uADF8\uB798 \uC54C\uC558\uC5B4... \uC77C\uB2E8 \uBC29\uC73C\uB85C \uB4E4\uC5B4\uAC00\uC790.\"\n\n\uACF5\uC8FC\uB294
+    \uB208\uBB3C\uC744 \uB2E6\uACE0 \uAE30\uC0AC\uC640 \uD568\uAED8 \uBC29\uC73C\uB85C
+    \uB4E4\uC5B4\uAC14\uC2B5\uB2C8\uB2E4."
+  options:
+  - buttonText: "\uB118\uC5B4\uAC00\uAE30"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 45
+        changeSceneName: 

@@ -158,8 +158,8 @@ public class GameSystem : MonoBehaviour
     private int GetChapterIndex(int storyNumber)
     {
         if (storyNumber == 1) return 0;
-        if (storyNumber >= 11 && storyNumber < 21) return 1;
-        if(storyNumber >= 21 && storyNumber < 31) return 2;
+        //if (storyNumber >= 11 && storyNumber < 21) return 1;
+        //if(storyNumber >= 21 && storyNumber < 31) return 2;
         return -1;
     }
 

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Story 9_A
   m_EditorClassIdentifier: 
   storyNumber: 46
-  MainImage: {fileID: 2800000, guid: ef175728ad4eb594c998c20996cc6c78, type: 3}
+  MainImage: {fileID: 2800000, guid: c8149402375669b4c8bcb7a3a2c59f5e, type: 3}
+  MainImage2: {fileID: 2800000, guid: 5ea5432d0a3fe664fb130babfa1e5ac9, type: 3}
   storyType: 1
   storyText: "-9\uC77C\uCC28-\n\n\"\uC544\uB2C8... \uB098\uB294 \uADF8\uB0E5 \uADF8\uB807\uAC8C
     \uB418\uBA74 \uC88B\uACA0\uB2E4\uACE0...\"\n\n\uAE30\uC0AC\uB294 \uACF5\uC8FC\uAC00
