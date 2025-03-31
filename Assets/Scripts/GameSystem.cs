@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEditor;
-using System.Text;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
-
+using UnityEngine.Playables;  // PlayableDirector 사용을 위한 네임스페이스 추가
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(GameSystem))]
@@ -28,7 +26,7 @@ public class GameSystemEditor : Editor
 
 public class GameSystem : MonoBehaviour
 {
-    public static GameSystem Instance;      //간단한 싱글톤 화
+    public static GameSystem Instance;
 
     private void Awake()
     {
@@ -59,7 +57,7 @@ public class GameSystem : MonoBehaviour
 
     public void SaveGame(int slot)
     {
-        if(slot < 1 || slot > 6)
+        if (slot < 1 || slot > 6)
         {
             return;
         }
@@ -96,7 +94,7 @@ public class GameSystem : MonoBehaviour
     public void ApplyChoice(StoryModel.Result result)
     {
         switch (result.resultType)
-        {            
+        {
             case StoryModel.Result.ResultType.GoToNextStory:
                 currentStoryIndex = result.value;
                 StoryShow(currentStoryIndex);
@@ -129,11 +127,11 @@ public class GameSystem : MonoBehaviour
             endingStoryIndex = 600;
         }
 
-        if(endingStoryIndex != -1)
+        if (endingStoryIndex != -1)
         {
             currentStoryIndex = endingStoryIndex;
             StoryShow(currentStoryIndex);
-        }        
+        }
     }
 
 
@@ -141,7 +139,7 @@ public class GameSystem : MonoBehaviour
     {
         StoryModel tempStoryModels = FindStoryModel(number);
 
-        if(tempStoryModels != null)
+        if (tempStoryModels != null)
         {
             StorySystem.Instance.currentStoryModel = tempStoryModels;
             StorySystem.Instance.CoShowText();
@@ -158,34 +156,90 @@ public class GameSystem : MonoBehaviour
     private int GetChapterIndex(int storyNumber)
     {
         if (storyNumber == 1) return 0;
-        //if (storyNumber >= 11 && storyNumber < 21) return 1;
-        //if(storyNumber >= 21 && storyNumber < 31) return 2;
+        if (storyNumber >= 8 && storyNumber < 9) return 1;
+        if (storyNumber >= 13 && storyNumber < 14) return 2;
+        if (storyNumber >= 18 && storyNumber < 19) return 3;
+        if (storyNumber >= 23 && storyNumber < 24) return 4;
+        if (storyNumber >= 26 && storyNumber < 27) return 5;
+        if (storyNumber >= 33 && storyNumber < 34) return 6;
+        if (storyNumber >= 38 && storyNumber < 39) return 7;
+        if (storyNumber >= 45 && storyNumber < 46) return 8;
+        if (storyNumber >= 50 && storyNumber < 51) return 9;
+        if (storyNumber >= 61 && storyNumber < 62) return 10;
         return -1;
     }
 
     private void ChangeChapter(int chapterIndex)
     {
-        if(chapterIndex >= chapters.Length)
+        Debug.Log($"[ChangeChapter] 호출됨! 챕터 인덱스: {chapterIndex}");
+
+        if (chapters == null || chapters.Length == 0)
         {
-            Debug.LogError("잘못된 챕터 인덱스!");
+            Debug.LogError("챕터 배열이 비어 있습니다!");
             return;
         }
 
-        if (chapters[chapterIndex].activeSelf)
+        if (chapterIndex < 0 || chapterIndex >= chapters.Length)
         {
+            Debug.LogError($"잘못된 챕터 인덱스! index: {chapterIndex}");
             return;
         }
 
+        // 현재 활성화된 챕터가 있다면 비활성화
+        if (activeChapter != null)
+        {
+            Debug.Log($"[ChangeChapter] 이전 챕터 비활성화: {activeChapter.name}");
+            PlayableDirector prevDirector = activeChapter.GetComponent<PlayableDirector>();
+            if (prevDirector != null)
+            {
+                prevDirector.Stop(); // 타임라인 멈춤
+            }
+            activeChapter.SetActive(false); // 오브젝트 비활성화
+        }
 
+        // 새로운 챕터 활성화
         activeChapter = chapters[chapterIndex];
         activeChapter.SetActive(true);
+        Debug.Log($"[ChangeChapter] 새로운 챕터 활성화: {activeChapter.name}");
+
+        // PlayableDirector가 있는지 확인 후 실행
+        PlayableDirector newDirector = activeChapter.GetComponent<PlayableDirector>();
+        if (newDirector != null)
+        {
+            newDirector.playOnAwake = false; // 자동 실행 방지
+            newDirector.Play();
+            Debug.Log($"[ChangeChapter] PlayableDirector 실행: {newDirector.name}");
+
+            // 모든 챕터에서 타임라인 끝나면 비활성화
+            StartCoroutine(DisableChapterAfterTimeline(newDirector, activeChapter));
+        }
     }
+
+
+
+    // PlayableDirector 실행 완료 후 오브젝트 비활성화
+    private IEnumerator DisableChapterAfterTimeline(PlayableDirector director, GameObject chapter)
+    {
+        yield return new WaitForSeconds((float)director.duration); // 타임라인 길이만큼 대기
+        chapter.SetActive(false);
+        Debug.Log($"[DisableChapterAfterTimeline] 챕터 비활성화됨: {chapter.name}");
+    }
+
+    // 일정 시간 후 챕터 비활성화 (PlayableDirector가 없는 경우)
+    private IEnumerator DisableChapterAfterSeconds(GameObject chapter, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        chapter.SetActive(false);
+        Debug.Log($"[DisableChapterAfterSeconds] 챕터 비활성화됨: {chapter.name}");
+    }
+
+
 
     StoryModel FindStoryModel(int number)
     {
-        foreach(var model in storyModels)
+        foreach (var model in storyModels)
         {
-            if(model.storyNumber == number)
+            if (model.storyNumber == number)
             {
                 return model;
             }
