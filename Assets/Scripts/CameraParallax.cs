@@ -30,7 +30,9 @@ public class CameraParallax : MonoBehaviour
 
         // 부드럽게 보간하여 적용        
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
-
-
+    }
+    public void ResetToInitialPosition()
+    {
+        transform.position = initialPosition; // 원래 위치로 리셋
     }
 }

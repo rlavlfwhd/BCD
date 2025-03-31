@@ -33,6 +33,7 @@ public class GameSystem : MonoBehaviour
         Instance = this;
     }
 
+    public CameraParallax cameraParallax;
     public GameObject[] chapters;
     public StoryModel[] storyModels;
     public int currentStoryIndex = 1;
@@ -188,10 +189,10 @@ public class GameSystem : MonoBehaviour
 
         if (activeChapter != null)
         {
-            PlayableDirector prevDirector = activeChapter.GetComponent<PlayableDirector>();
+            PlayableDirector prevDirector = activeChapter.GetComponent<PlayableDirector>();                        
             if (prevDirector != null)
             {
-                prevDirector.Stop();
+                prevDirector.Stop();                
             }
             activeChapter.SetActive(false);
         }
@@ -204,7 +205,9 @@ public class GameSystem : MonoBehaviour
         {
             newDirector.playOnAwake = false;
             newDirector.Play();
-            StartCoroutine(DisableChapterAfterTimeline(newDirector, activeChapter));
+            cameraParallax.ResetToInitialPosition();
+            cameraParallax.enabled = false;
+            StartCoroutine(DisableChapterAfterTimeline(newDirector, activeChapter));            
         }
     }
 
@@ -215,6 +218,8 @@ public class GameSystem : MonoBehaviour
     {
         yield return new WaitForSeconds((float)director.duration); // 타임라인 길이만큼 대기
         chapter.SetActive(false);
+        cameraParallax.enabled = true;
+
         Debug.Log($"[DisableChapterAfterTimeline] 챕터 비활성화됨: {chapter.name}");
     }
 

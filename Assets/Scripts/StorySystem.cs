@@ -102,8 +102,6 @@ public class StorySystem : MonoBehaviour
             // Image 컴포넌트에 스프라이트 설정
             imageComponent3.sprite = sprite;
         }
-
-
         else
         {
             Debug.LogError($"Unable to load texture: {currentStoryModel.MainImage.name}");
