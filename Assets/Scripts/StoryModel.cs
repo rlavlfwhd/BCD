@@ -9,10 +9,11 @@ using UnityEngine;
         public int storyNumber;
         public Texture2D MainImage;
         public Texture2D MainImage2;
+        public Texture2D MainImage3;
 
 
 
-        public enum StoryType
+    public enum StoryType
         {
             MAIN,
             TypeA,

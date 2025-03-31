@@ -16,20 +16,19 @@ MonoBehaviour:
   MainImage: {fileID: 2800000, guid: c8149402375669b4c8bcb7a3a2c59f5e, type: 3}
   MainImage2: {fileID: 2800000, guid: 5ea5432d0a3fe664fb130babfa1e5ac9, type: 3}
   storyType: 1
-  storyText: "\n-1\uC77C\uCC28-\n\n\uACF5\uC8FC\uB2D8\uC740 \uC0B4\uC9DD \uC2AC\uD37C\uD558\uB294
-    \uB208\uCE58\uC774\uB2E4.\n\n\uB2E4\uC2DC \uC6C3\uC73C\uBA70 \uC774\uC57C\uAE30\uD569\uB2C8\uB2E4.\n\n\"\uC751,
-    \uADF8\uB7EC\uBA74, \uB098\uC880 \uBC30\uACE0\uD508\uB370 \uCFE0\uD0A4 \uC880
-    \uAC00\uC838\uB2E4 \uC904 \uC218 \uC788\uC5B4?\"\n\n\"\uC54C\uACA0\uC2B5\uB2C8\uB2E4,
-    \uACF5\uC8FC\uB2D8\" "
+  storyText: "\n-1\uC77C\uCC28-\n\n\uACF5\uC8FC\uB294 \uAE30\uC0AC\uC758 \uAC70\uC808\uC5D0
+    \uC870\uAE08 \uC0C1\uCC98\uB97C \uBC1B\uC740 \uB4EF \uC544\uC26C\uC6CC\uD558\uB294
+    \uD45C\uC815\uC744 \uC9D3\uB2E4\uAC00 \uB450\uC190\uC744 \uBAA8\uC544 \uBD80\uD0C1\uD558\uB294
+    \uC790\uC138\uB85C \uB9D0\uD569\uB2C8\uB2E4.\n\n\"\uC870\uAE08 \uBA39\uB294 \uC815\uB3C4\uB294
+    \uAD1C\uCC2E\uC796\uC544. \uC81C\uBC1C \uAC00\uC838\uB2E4 \uC8FC\uBA74 \uC548\uB3FC?\"\n"
   options:
-  - buttonText: "A)\uCFE0\uD0A4\uB97C \uC9C1\uC811 \uB9CC\uB4E4\uC5B4\uC628\uB2E4."
+  - buttonText: "A) \"\uCFE0\uD0A4\uB294 \uC808\uB300 \uC548\uB429\uB2C8\uB2E4.\""
     eventCheck:
       sucessResult:
       - resultType: 0
         value: 4
         changeSceneName: 
-  - buttonText: "B) \uAD81\uC815 \uC694\uB9AC\uC0AC\uC5D0\uAC8C \uCFE0\uD0A4\uB97C
-      \uB9E1\uAE34\uB2E4."
+  - buttonText: "B) \"...\uC54C\uACA0\uC2B5\uB2C8\uB2E4, \uBE68\uB9AC\uC624\uACA0\uC2B5\uB2C8\uB2E4.\""
     eventCheck:
       sucessResult:
       - resultType: 0
