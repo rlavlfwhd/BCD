@@ -171,46 +171,39 @@ public class GameSystem : MonoBehaviour
 
     private void ChangeChapter(int chapterIndex)
     {
-        Debug.Log($"[ChangeChapter] 호출됨! 챕터 인덱스: {chapterIndex}");
+        if (chapterIndex == -1)
+        {
+            return;
+        }
 
         if (chapters == null || chapters.Length == 0)
         {
-            Debug.LogError("챕터 배열이 비어 있습니다!");
             return;
         }
 
         if (chapterIndex < 0 || chapterIndex >= chapters.Length)
         {
-            Debug.LogError($"잘못된 챕터 인덱스! index: {chapterIndex}");
             return;
         }
 
-        // 현재 활성화된 챕터가 있다면 비활성화
         if (activeChapter != null)
         {
-            Debug.Log($"[ChangeChapter] 이전 챕터 비활성화: {activeChapter.name}");
             PlayableDirector prevDirector = activeChapter.GetComponent<PlayableDirector>();
             if (prevDirector != null)
             {
-                prevDirector.Stop(); // 타임라인 멈춤
+                prevDirector.Stop();
             }
-            activeChapter.SetActive(false); // 오브젝트 비활성화
+            activeChapter.SetActive(false);
         }
 
-        // 새로운 챕터 활성화
         activeChapter = chapters[chapterIndex];
         activeChapter.SetActive(true);
-        Debug.Log($"[ChangeChapter] 새로운 챕터 활성화: {activeChapter.name}");
 
-        // PlayableDirector가 있는지 확인 후 실행
         PlayableDirector newDirector = activeChapter.GetComponent<PlayableDirector>();
         if (newDirector != null)
         {
-            newDirector.playOnAwake = false; // 자동 실행 방지
+            newDirector.playOnAwake = false;
             newDirector.Play();
-            Debug.Log($"[ChangeChapter] PlayableDirector 실행: {newDirector.name}");
-
-            // 모든 챕터에서 타임라인 끝나면 비활성화
             StartCoroutine(DisableChapterAfterTimeline(newDirector, activeChapter));
         }
     }
