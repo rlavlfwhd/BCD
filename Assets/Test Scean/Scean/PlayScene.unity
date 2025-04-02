@@ -2293,6 +2293,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 589f0ec30f34e5148aa58f818d27337d, type: 2}
   - {fileID: 11400000, guid: 92d7ba8269c86d747ba82fa4ac301c1e, type: 2}
   currentStoryIndex: 1
+  activeChapter: {fileID: 0}
   choice1Count: 0
   choice2Count: 0
   choice3Count: 0

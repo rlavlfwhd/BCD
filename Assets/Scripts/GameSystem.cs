@@ -37,7 +37,7 @@ public class GameSystem : MonoBehaviour
     public GameObject[] chapters;
     public StoryModel[] storyModels;
     public int currentStoryIndex = 1;
-    private GameObject activeChapter;
+    public GameObject activeChapter;
 
     public int choice1Count = 0;
     public int choice2Count = 0;
@@ -147,14 +147,21 @@ public class GameSystem : MonoBehaviour
 
             int chapterIndex = GetChapterIndex(number);
             ChangeChapter(chapterIndex);
+
+            if (chapterIndex == -1 || chapters[chapterIndex].GetComponent<PlayableDirector>() == null)
+            {
+                StartCoroutine(StorySystem.Instance.ShowText());
+            }
         }
+
+
         else
         {
             Debug.LogError($"스토리 모델을 찾을 수 없음: {number}");
         }
     }
 
-    private int GetChapterIndex(int storyNumber)
+    public int GetChapterIndex(int storyNumber)
     {
         if (storyNumber == 1) return 0;
         if (storyNumber >= 8 && storyNumber < 9) return 1;
@@ -170,7 +177,7 @@ public class GameSystem : MonoBehaviour
         return -1;
     }
 
-    private void ChangeChapter(int chapterIndex)
+    public void ChangeChapter(int chapterIndex)
     {
         if (chapterIndex == -1)
         {
@@ -209,7 +216,13 @@ public class GameSystem : MonoBehaviour
             cameraParallax.enabled = false;
             StartCoroutine(DisableChapterAfterTimeline(newDirector, activeChapter));            
         }
+        else
+        {
+            // 타임라인이 없으면 일정 시간 후 비활성화 + 스토리 텍스트 출력
+            StartCoroutine(DisableChapterAfterSeconds(activeChapter, 2.0f)); // 2초 후 실행
+        }
     }
+
 
 
 
@@ -221,6 +234,11 @@ public class GameSystem : MonoBehaviour
         cameraParallax.enabled = true;
 
         Debug.Log($"[DisableChapterAfterTimeline] 챕터 비활성화됨: {chapter.name}");
+
+        if (StorySystem.Instance.currentStoryModel != null)
+        {
+            StartCoroutine(StorySystem.Instance.ShowText());
+        }
     }
 
     // 일정 시간 후 챕터 비활성화 (PlayableDirector가 없는 경우)
@@ -229,6 +247,11 @@ public class GameSystem : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         chapter.SetActive(false);
         Debug.Log($"[DisableChapterAfterSeconds] 챕터 비활성화됨: {chapter.name}");
+
+        if (StorySystem.Instance.currentStoryModel != null)
+        {
+            StartCoroutine(StorySystem.Instance.ShowText());
+        }
     }
 
 

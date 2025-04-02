@@ -13,6 +13,9 @@ public class StorySystem : MonoBehaviour
     public StoryModel currentStoryModel;
 
 
+    
+
+
     public float delay = 0.1f;                  // 각 글자가 나타나는 데 걸리는 시간
     public string fullText;                     // 전체 표시할 텍스트
     private string currentText = "";            // 현재까지 표시된 텍스트
@@ -57,7 +60,7 @@ public class StorySystem : MonoBehaviour
     {
         StoryModelInit();
         ResetShow();
-        StartCoroutine(ShowText());
+        StartCoroutine(ShowImage());        
     }
 
     public void ResetShow()
@@ -70,7 +73,30 @@ public class StorySystem : MonoBehaviour
         }
     }
 
-    IEnumerator ShowText()
+    public IEnumerator ShowText()
+    {
+
+        if (string.IsNullOrEmpty(fullText))
+        {
+            Debug.LogError("[ShowText] fullText가 비어있음.");
+            yield break; // 실행 중단
+        }
+
+        for (int i = 0; i <= fullText.Length; i++)
+        {
+            currentText = fullText.Substring(0, i);
+            textComponent.text = currentText;
+            yield return new WaitForSeconds(delay);
+        }
+
+        for (int i = 0; i < currentStoryModel.options.Length; i++)
+        {
+            buttonWay[i].gameObject.SetActive(true);
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
+    IEnumerator ShowImage()
     {
         if (currentStoryModel.MainImage != null)
         {
@@ -105,19 +131,6 @@ public class StorySystem : MonoBehaviour
         else
         {
             Debug.LogError($"Unable to load texture: {currentStoryModel.MainImage.name}");
-        }
-
-        for (int i = 0; i <= fullText.Length; i++)
-        {
-            currentText = fullText.Substring(0, i);
-            textComponent.text = currentText;
-            yield return new WaitForSeconds(delay);
-        }
-
-        for (int i = 0; i < currentStoryModel.options.Length; i++)
-        {
-            buttonWay[i].gameObject.SetActive(true);
-            yield return new WaitForSeconds(delay);
         }
 
         yield return new WaitForSeconds(delay);
