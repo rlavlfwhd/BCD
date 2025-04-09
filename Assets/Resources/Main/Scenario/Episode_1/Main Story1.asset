@@ -13,26 +13,29 @@ MonoBehaviour:
   m_Name: Main Story1
   m_EditorClassIdentifier: 
   storyNumber: 1
-  MainImage: {fileID: 2800000, guid: e0c08efccc72b0947a2976d61ee5adf6, type: 3}
-  MainImage2: {fileID: 2800000, guid: 5faa97c6422a344488f7036cd7314900, type: 3}
-  MainImage3: {fileID: 0}
+  MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
+  MainImage2: {fileID: 2800000, guid: 5ea5432d0a3fe664fb130babfa1e5ac9, type: 3}
+  MainImage3: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
   storyType: 0
-  storyText: "\n-1\uC77C\uCC28-\n\n\uBC14\uB78C\uC774 \uC194\uC194 \uBD88\uACE0 \uD587\uBE5B\uC774
-    \uB530\uB4EF\uD55C \uC624\uD6C4, \uCD9C\uCD9C\uD55C \uACF5\uC8FC\uB294 \uC790\uC2E0\uC774
-    \uC88B\uC544\uD558\uB294 \uCFE0\uD0A4\uB97C \uBA39\uACE0\uC2F6\uC5B4\uD569\uB2C8\uB2E4.\n\n\"\uD638\uC704\uAE30\uC0AC,
-    \uB098 \uCD9C\uCD9C\uD574\uC11C \uCFE0\uD0A4\uB97C \uBA39\uACE0 \uC2F6\uC740\uB370
-    \uAC00\uC838\uB2E4 \uC904 \uC218 \uC788\uC5B4?\" \n\n"
+  storyText: "\n\uACF5\uC8FC :  \uD558...3\uB144\uC774\uB098 \uBC29 \uC548\uC5D0\uB9CC
+    \uAC07\uD600\uC788\uB2E4\uB294\uAC74 \uB108\uBB34 \uD798\uB4E0 \uC77C\uC774\uAD6C\uB098...
+    \uC774\uC820 \uBB50 \uB54C\uBB38\uC5D0 \uBC29\uC5D0\uB9CC \uC788\uC5B4\uC57C
+    \n           \n            \uB418\uB294\uC9C0\uB3C4 \uBAA8\uB974\uACE0, \uC6D0\uD558\uB294\uAC74
+    \uCDA9\uC871\uC2DC\uCF1C\uC8FC\uC9C0\uB9CC \uC790\uC720\uB9CC\uD07C\uC740 \uC5C6\uC796\uC544...
+    \uC5B4\uB5A1\uD558\uC9C0, \uC655\uAD6D \uBC16\uC73C\uB85C \n            \n           
+    \uB098\uAC00\uACE0 \uC2F6\uC740\uB370.\n\n"
   options:
-  - buttonText: "A) \"\uCFE0\uD0A4\uB294 \uBAB8\uC5D0 \uC548 \uC88B\uC73C\uB2C8 \uC548\uB429\uB2C8\uB2E4,
-      \uACF5\uC8FC\uB2D8.\""
+  - buttonText: "A. \uC655\uAD6D \uBC16\uC73C\uB85C \uD0C8\uCD9C\uD558\uAE30\uB85C
+      \uACB0\uC2EC\uD55C\uB2E4."
+    eventCheck:
+      sucessResult:
+      - resultType: 2
+        value: 0
+        changeSceneName: TestScene
+  - buttonText: "B. \uD0C8\uCD9C \uC0DD\uAC01\uC744 \uC811\uACE0 \uBC29\uC5D0 \uAC00\uB9CC\uD788
+      \uC788\uB294\uB2E4."
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 2
-        changeSceneName: 
-  - buttonText: "B) \"\uC54C\uACA0\uC2B5\uB2C8\uB2E4, \uBE68\uB9AC \uAC00\uC838\uC624\uACA0\uC2B5\uB2C8\uB2E4.\""
-    eventCheck:
-      sucessResult:
-      - resultType: 0
-        value: 3
+        value: 600
         changeSceneName: 

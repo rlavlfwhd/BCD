@@ -15,6 +15,7 @@ MonoBehaviour:
   storyNumber: 2
   MainImage: {fileID: 2800000, guid: c8149402375669b4c8bcb7a3a2c59f5e, type: 3}
   MainImage2: {fileID: 2800000, guid: 5ea5432d0a3fe664fb130babfa1e5ac9, type: 3}
+  MainImage3: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
   storyType: 1
   storyText: "\n-1\uC77C\uCC28-\n\n\uACF5\uC8FC\uB294 \uAE30\uC0AC\uC758 \uAC70\uC808\uC5D0
     \uC870\uAE08 \uC0C1\uCC98\uB97C \uBC1B\uC740 \uB4EF \uC544\uC26C\uC6CC\uD558\uB294

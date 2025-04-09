@@ -920,10 +920,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBAA8\uD5D8\uAC00 \uC774\uC57C\uAE30 \uD14C\uC2A4\uD2B8 "
+  m_text: "\n\uBAA8\uD5D8\uAC00 \uC774\uC57C\uAE30 \uD14C\uC2A4\uD2B8 "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e5522dfc3108c084ba880a4998503b1b, type: 2}
-  m_sharedMaterial: {fileID: -96947614681666045, guid: e5522dfc3108c084ba880a4998503b1b,
+  m_fontAsset: {fileID: 11400000, guid: bccd6e2c22f4cc24da95b38d918ab08e, type: 2}
+  m_sharedMaterial: {fileID: 6469127269403314455, guid: bccd6e2c22f4cc24da95b38d918ab08e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -948,19 +948,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: -40
+  m_lineSpacing: -50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -2292,6 +2292,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfd75793c710f6246a18be56608e18b7, type: 2}
   - {fileID: 11400000, guid: 589f0ec30f34e5148aa58f818d27337d, type: 2}
   - {fileID: 11400000, guid: 92d7ba8269c86d747ba82fa4ac301c1e, type: 2}
+  - {fileID: 11400000, guid: e7b608376e41a0d459b5f430507d7164, type: 2}
+  - {fileID: 11400000, guid: c5b482d4e5a57b54a9bdaaddc7daa120, type: 2}
   currentStoryIndex: 1
   activeChapter: {fileID: 0}
   choice1Count: 0
@@ -2723,8 +2725,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17
-  m_fontSizeBase: 17
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3580,8 +3582,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17
-  m_fontSizeBase: 17
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5546,7 +5548,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Chapter .1\n\uCFE0\uD0A4"
+  m_text: "Chapter .1\n\uACF5\uC8FC\uC758 \uBC29"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd50b256db576a442a49b5a136b5de22, type: 2}
   m_sharedMaterial: {fileID: -5114077578346804859, guid: bd50b256db576a442a49b5a136b5de22,
@@ -7389,8 +7391,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17
-  m_fontSizeBase: 17
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
