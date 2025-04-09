@@ -5,25 +5,6 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.Playables;  // PlayableDirector 사용을 위한 네임스페이스 추가
 
-#if UNITY_EDITOR
-[CustomEditor(typeof(GameSystem))]
-public class GameSystemEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-
-        GameSystem gameSystem = (GameSystem)target;
-
-        // Reset Story Models 버튼 생성
-        if (GUILayout.Button("Reset Story Models"))
-        {
-            gameSystem.ResetStoryModels();
-        }
-    }
-}
-#endif
-
 public class GameSystem : MonoBehaviour
 {
     public static GameSystem Instance;
@@ -43,13 +24,6 @@ public class GameSystem : MonoBehaviour
     public int choice2Count = 0;
     public int choice3Count = 0;
 
-#if UNITY_EDITOR
-    [ContextMenu("Reset Story Models")]
-    public void ResetStoryModels()
-    {
-        storyModels = Resources.LoadAll<StoryModel>(""); // Resources 폴더 아래 모든 StoryModel 불러오기
-    }
-#endif
 
     public void Start()
     {
@@ -68,7 +42,7 @@ public class GameSystem : MonoBehaviour
 
         if ((currentStory != null && currentStory.MainImage != null))
         {
-            imagePath = AssetDatabase.GetAssetPath(currentStory.MainImage);
+           // imagePath = AssetDatabase.GetAssetPath(currentStory.MainImage);
         }
 
         SaveSystem.SaveGame(slot, currentStoryIndex, choice1Count, choice2Count, choice3Count, imagePath);
