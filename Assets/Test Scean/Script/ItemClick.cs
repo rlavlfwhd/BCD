@@ -12,16 +12,21 @@ public class ItemClick : MonoBehaviour
     private void OnMouseDown()
     {
         StartCoroutine(ShowItemText());
-        Destroy(gameObject); // 클릭된 아이템 오브젝트 제거
     }
 
     IEnumerator ShowItemText()
     {
-        if (textPanel != null) textPanel.SetActive(true);
-        if (itemText != null) itemText.text = $"{itemName} 획득!";
+        if (textPanel != null)
+            textPanel.SetActive(true); // 텍스트 패널 켜기
 
-        yield return new WaitForSeconds(displayTime);
+        if (itemText != null)
+            itemText.text = $"{itemName} 획득!";
 
-        if (textPanel != null) textPanel.SetActive(false);
+        yield return new WaitForSeconds(displayTime); // 2초 대기
+
+        if (textPanel != null)
+            textPanel.SetActive(false); // 텍스트 패널 끄기
+
+        gameObject.SetActive(false); // 마지막에 자기 자신 비활성화
     }
 }
