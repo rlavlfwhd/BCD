@@ -9,21 +9,20 @@ public class SaveSystem
     public class SaveData
     {
         public int currentStoryIndex;
-        public int choice1Count;
-        public int choice2Count;
-        public int choice3Count;
         public string mainImagePath;
+        public string mainImagePath2;
+
+        public List<string> inventoryItemNames;
     }
 
-    public static void SaveGame(int slot, int stroyIndex, int choice1, int choice2, int choice3, string imagePath)
+    public static void SaveGame(int slot, int storyIndex, string imagePath, string imagePath2, List<string> inventoryItems)
     {
         SaveData saveData = new SaveData
         {
-            currentStoryIndex = stroyIndex,
-            choice1Count = choice1,
-            choice2Count = choice2,
-            choice3Count = choice3,
-            mainImagePath = imagePath
+            currentStoryIndex = storyIndex,
+            mainImagePath = imagePath,
+            mainImagePath2 = imagePath2,
+            inventoryItemNames = inventoryItems
         };
 
         string json = JsonUtility.ToJson(saveData, true);

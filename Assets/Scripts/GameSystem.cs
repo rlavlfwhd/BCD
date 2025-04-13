@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEditor;
+using System.IO;
 using UnityEngine.Playables;  // PlayableDirector 사용을 위한 네임스페이스 추가
 
 public class GameSystem : MonoBehaviour
@@ -20,10 +20,6 @@ public class GameSystem : MonoBehaviour
     public int currentStoryIndex = 1;
     public GameObject activeChapter;
 
-    public int choice1Count = 0;
-    public int choice2Count = 0;
-    public int choice3Count = 0;
-
 
     public void Start()
     {
@@ -39,13 +35,31 @@ public class GameSystem : MonoBehaviour
 
         StoryModel currentStory = FindStoryModel(currentStoryIndex);
         string imagePath = "";
+        string imagePath2 = "";
 
-        if ((currentStory != null && currentStory.MainImage != null))
+
+        if (currentStory != null)
         {
-           // imagePath = AssetDatabase.GetAssetPath(currentStory.MainImage);
+            if (currentStory.MainImage != null)
+            {
+                imagePath = Application.persistentDataPath + $"/slot{slot}_image1.png";
+                File.WriteAllBytes(imagePath, currentStory.MainImage.EncodeToPNG());
+            }
+
+            if (currentStory.MainImage2 != null)
+            {
+                imagePath2 = Application.persistentDataPath + $"/slot{slot}_image2.png";
+                File.WriteAllBytes(imagePath2, currentStory.MainImage2.EncodeToPNG());
+            }
         }
 
-        SaveSystem.SaveGame(slot, currentStoryIndex, choice1Count, choice2Count, choice3Count, imagePath);
+        List<string> itemNames = new List<string>();
+        foreach (var item in Inventory.Instance.items)
+        {
+            itemNames.Add(item.itemName);
+        }
+
+        SaveSystem.SaveGame(slot, currentStory.storyNumber, imagePath, imagePath2, itemNames);
     }
 
     public void LoadGame(int slot)
@@ -58,11 +72,26 @@ public class GameSystem : MonoBehaviour
         SaveSystem.SaveData saveData = SaveSystem.LoadGame(slot);
         if (saveData != null)
         {
-            currentStoryIndex = saveData.currentStoryIndex;
-            choice1Count = saveData.choice1Count;
-            choice2Count = saveData.choice2Count;
-            choice3Count = saveData.choice3Count;
+            currentStoryIndex = saveData.currentStoryIndex;           
             StoryShow(currentStoryIndex);
+        }
+
+        if (saveData.inventoryItemNames != null)
+        {
+            Inventory.Instance.items.Clear();
+            foreach (string itemName in saveData.inventoryItemNames)
+            {
+                Item loadedItem = Resources.Load<Item>("Items/" + itemName); // 경로 주의
+                if (loadedItem != null)
+                {
+                    Inventory.Instance.items.Add(loadedItem);
+                }
+                else
+                {
+                    Debug.LogWarning("해당 아이템 로드 실패: " + itemName);
+                }
+            }
+            Inventory.Instance.FreshSlot(); // 슬롯 UI 갱신
         }
     }
 
@@ -79,33 +108,9 @@ public class GameSystem : MonoBehaviour
                 SceneManager.LoadScene(result.changeSceneName);
                 break;
 
-            case StoryModel.Result.ResultType.GoToEnding:
-                DetermineEnding();
-                break;
-
             default:
                 Debug.LogError("Unknown effect type");
                 break;
-        }
-    }
-
-    public void DetermineEnding()
-    {
-        int endingStoryIndex = -1;
-
-        if (choice1Count > choice2Count)
-        {
-            endingStoryIndex = 500;
-        }
-        else if (choice1Count < choice2Count)
-        {
-            endingStoryIndex = 600;
-        }
-
-        if (endingStoryIndex != -1)
-        {
-            currentStoryIndex = endingStoryIndex;
-            StoryShow(currentStoryIndex);
         }
     }
 
@@ -127,11 +132,16 @@ public class GameSystem : MonoBehaviour
                 StartCoroutine(StorySystem.Instance.ShowText());
             }
         }
-
-
         else
         {
             Debug.LogError($"스토리 모델을 찾을 수 없음: {number}");
+        }
+
+        if (number >= 30) // 챕터 2 시작이면
+        {
+            Inventory.Instance.items.Clear();
+            Inventory.Instance.FreshSlot();
+            Debug.Log("챕터 2 시작 - 인벤토리 초기화");
         }
     }
 

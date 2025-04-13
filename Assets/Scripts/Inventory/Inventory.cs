@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
-{    
+{
+    public static Inventory Instance;
+
     public List<Item> items;
 
     [SerializeField]
@@ -20,6 +22,7 @@ public class Inventory : MonoBehaviour
 
     void Awake()
     {
+        Instance = this;
         FreshSlot();
     }
         
