@@ -8,16 +8,29 @@ public class UIItemClickHandler : MonoBehaviour
     public Inventory inventory;
     public GameObject invent;
 
+    void Start()
+    {
+        Inventory.Instance.RefreshSlotReference();
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            invent.SetActive(!invent.activeSelf);
-        }
-
-
         if (Input.GetMouseButtonDown(0))
         {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                IObjectItem objectItem = hit.collider.GetComponent<IObjectItem>();
+                if (objectItem != null)
+                {
+                    Item item = objectItem.ClickItem();
+                    print($"{item.itemName}");
+                    inventory.AddItem(item);
+
+                    Destroy(hit.collider.gameObject); // æ∆¿Ã≈€ »πµÊ »ƒ ¡¶∞≈
+                    return;
+                }
+            }
             PointerEventData pointerData = new PointerEventData(EventSystem.current);
             pointerData.position = Input.mousePosition;
 
@@ -33,6 +46,8 @@ public class UIItemClickHandler : MonoBehaviour
                     Item item = clickInterface.ClickItem();
                     print($"{item.itemName}");
                     inventory.AddItem(item);
+
+                    Destroy(result.gameObject);
                 }
             }
         }

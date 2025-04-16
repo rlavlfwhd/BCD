@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PuzzleObject : MonoBehaviour, IDropTarget
 {
+    public string puzzleID = "rope_puzzle";
     public Item neededItem;
+    public Sprite newSprite;
+    public Image targetImage;
+    public int nextStoryIndex;
+
+    public string puzzleFlagName = "rope_puzzle";
 
     public void OnItemDropped(Item item)
     {
-        if (item == neededItem)
+        if (item == neededItem && !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
-            Debug.Log("올바른 아이템 사용!");
-            // 예: 문이 열린다, 상호작용 일어남
+            PuzzleManager.Instance.HandlePuzzleSuccess(targetImage, newSprite, nextStoryIndex, puzzleID);
         }
         else
         {
-            Debug.Log("이건 안 맞는 아이템이야");
+            Debug.Log("퍼즐 실패 혹은 이미 완료됨");
         }
     }
 }

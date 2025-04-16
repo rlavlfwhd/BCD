@@ -70,6 +70,27 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         }
 
         Debug.Log(" UI 기반 Ray로도 DropTarget 못 찾음");
+
+        foreach (RaycastResult result in results)
+        {
+            // 퍼즐 처리
+            var dropTarget = result.gameObject.GetComponent<IDropTarget>();
+            if (dropTarget != null)
+            {
+                Debug.Log("퍼즐 오브젝트에 드랍");
+                dropTarget.OnItemDropped(item);
+                return;
+            }
+
+            // 슬롯 위에 드랍되었는지 확인
+            var otherSlot = result.gameObject.GetComponent<Slot>();
+            if (otherSlot != null && otherSlot != this && otherSlot.item != null)
+            {
+                Debug.Log($"인벤토리 슬롯 간 드랍 감지: {item.itemName} + {otherSlot.item.itemName}");
+                Inventory.Instance.CombineItems(item, otherSlot.item);
+                return;
+            }
+        }
     }
 
 

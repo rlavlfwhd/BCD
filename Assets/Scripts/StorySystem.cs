@@ -31,16 +31,23 @@ public class StorySystem : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        Instance = this;        
     }
 
     private void Start()
     {
+        Instance = this;
+
         for (int i = 0; i < buttonWay.Length; i++)
         {
-            int wayIndex = i; //클로저(closure) 문제를 해결
-            // 클로저 문제란 람다식 또는 익명 함수가 외부 변수를 캡처할 때 발생하는 문제
+            int wayIndex = i;
             buttonWay[i].onClick.AddListener(() => OnWayClick(wayIndex));
+        }
+
+        // 여기에 GameSystem이 준비됐는지 체크하고 바로 보여주기
+        if (GameSystem.Instance != null)
+        {
+            GameSystem.Instance.StoryShow(GameSystem.Instance.currentStoryIndex);
         }
     }
 

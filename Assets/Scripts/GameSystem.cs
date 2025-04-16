@@ -9,20 +9,34 @@ public class GameSystem : MonoBehaviour
 {
     public static GameSystem Instance;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
-
     public CameraParallax cameraParallax;
     public GameObject[] chapters;
     public StoryModel[] storyModels;
     public int currentStoryIndex = 1;
     public GameObject activeChapter;
+    private HashSet<string> completedPuzzleFlags = new HashSet<string>();
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void Start()
     {
+        if (chapters == null || chapters.Length == 0)
+        {
+            chapters = GameObject.FindGameObjectsWithTag("Chapter");
+            Debug.Log(" chapters ¿Á«“¥Áµ : " + chapters.Length);
+        }
+
         StoryShow(currentStoryIndex);
     }
 
@@ -59,7 +73,7 @@ public class GameSystem : MonoBehaviour
             itemNames.Add(item.itemName);
         }
 
-        SaveSystem.SaveGame(slot, currentStory.storyNumber, imagePath, imagePath2, itemNames);
+        SaveSystem.SaveGame(slot, currentStory.storyNumber, imagePath, imagePath2, itemNames, PuzzleManager.Instance.GetCompletedPuzzleList());
     }
 
     public void LoadGame(int slot)
@@ -92,7 +106,26 @@ public class GameSystem : MonoBehaviour
                 }
             }
             Inventory.Instance.FreshSlot(); // ΩΩ∑‘ UI ∞ªΩ≈
+
+            if (saveData.completedPuzzles != null)
+            {
+                PuzzleManager.Instance.SetCompletedPuzzleList(saveData.completedPuzzles);
+            }
         }
+
+        PuzzleManager.Instance.SetCompletedPuzzleList(saveData.completedPuzzles);
+    }
+    public void MarkPuzzleComplete(string puzzleName)
+    {
+        completedPuzzleFlags.Add(puzzleName);
+    }
+    public bool IsPuzzleCompleted(string puzzleName)
+    {
+        return completedPuzzleFlags.Contains(puzzleName);
+    }
+    public List<string> GetCompletedPuzzleList()
+    {
+        return new List<string>(completedPuzzleFlags);
     }
 
     public void ApplyChoice(StoryModel.Result result)

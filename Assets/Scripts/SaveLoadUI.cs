@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class SaveLoadUI : MonoBehaviour
 {
+    public static SaveLoadUI Instance;
+
     public Button[] saveButtons;
     public Button[] loadButtons;
     public Image[] saveSlotImages1;
@@ -14,6 +16,21 @@ public class SaveLoadUI : MonoBehaviour
     public Image[] loadSlotImages2;
     public GameObject OptionPanel;
     public CameraParallax cameraParallax;
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // ÇÊ¿ä ½Ã
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     void Start()
     {

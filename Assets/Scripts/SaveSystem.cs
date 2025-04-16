@@ -13,17 +13,20 @@ public class SaveSystem
         public string mainImagePath2;
 
         public List<string> inventoryItemNames;
+        public List<string> completedPuzzles;
     }
 
-    public static void SaveGame(int slot, int storyIndex, string imagePath, string imagePath2, List<string> inventoryItems)
+    public static void SaveGame(int slot, int storyIndex, string imagePath, string imagePath2, List<string> inventoryItems, List<string> completedPuzzles)
     {
         SaveData saveData = new SaveData
         {
             currentStoryIndex = storyIndex,
             mainImagePath = imagePath,
             mainImagePath2 = imagePath2,
-            inventoryItemNames = inventoryItems
+            inventoryItemNames = inventoryItems,
+            completedPuzzles = completedPuzzles // Ãß°¡
         };
+
 
         string json = JsonUtility.ToJson(saveData, true);
         string path = Application.persistentDataPath + "/saveSlot" + slot + ".json";

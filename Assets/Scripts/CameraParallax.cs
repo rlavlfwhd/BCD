@@ -8,7 +8,7 @@ public class CameraParallax : MonoBehaviour
     public float smoothSpeed = 5f; // 부드러운 전환 속도
 
 
-    private Vector3 initialPosition;
+    private Vector3 initialPosition;    
 
     void Start()
     {
