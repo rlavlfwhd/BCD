@@ -1889,7 +1889,7 @@ GameObject:
   - component: {fileID: 426814014}
   - component: {fileID: 426814013}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3901,7 +3901,7 @@ GameObject:
   - component: {fileID: 962549175}
   - component: {fileID: 962549174}
   m_Layer: 0
-  m_Name: SLUI
+  m_Name: SaveLoadUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4266,7 +4266,7 @@ GameObject:
   - component: {fileID: 1054955287}
   - component: {fileID: 1054955286}
   m_Layer: 5
-  m_Name: Canvas2
+  m_Name: UICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4792,7 +4792,7 @@ GameObject:
   - component: {fileID: 1292497046}
   - component: {fileID: 1292497047}
   m_Layer: 0
-  m_Name: TimelineObject
+  m_Name: ChapterTimeline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4922,7 +4922,7 @@ GameObject:
   - component: {fileID: 1386248754}
   - component: {fileID: 1386248755}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: ClickManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5535,7 +5535,7 @@ GameObject:
   - component: {fileID: 1574076125}
   - component: {fileID: 1574076124}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: StoryModelImageCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7031,7 +7031,7 @@ PrefabInstance:
     - target: {fileID: 353158077234402635, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
         type: 3}
       propertyPath: m_Name
-      value: Canvas3
+      value: DontdestroyCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 2099230660307109139, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
         type: 3}
@@ -7063,11 +7063,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3039433620273199914, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 311420229}
     - target: {fileID: 3053409427134577326, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
         type: 3}
       propertyPath: m_AnchorMax.y
