@@ -2,5 +2,6 @@ using UnityEngine;
 
 public class BookSlot : MonoBehaviour
 {
-    public bool isOccupied = false;  // 현재 슬롯이 사용 중인지 확인
+    // 이 슬롯에 책이 이미 있는지 여부
+    public bool isOccupied = false;
 }
