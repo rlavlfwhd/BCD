@@ -1,37 +1,33 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;               //UI¸¦ ÄÁÆ®·Ñ ÇÒ °ÍÀÌ¶ó¼­ Ãß°¡
-using TMPro;                        // TextMeshPro¸¦ »ç¿ëÇÏ±â À§ÇØ ÇÊ¿ä
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 using System;
 
-
 public class StorySystem : MonoBehaviour
 {
-    public static StorySystem Instance;                 //°£´ÜÇÑ ½Ì±ÛÅæ È­
+    public static StorySystem Instance;
 
     public StoryModel currentStoryModel;
 
+    public float delay = 0.1f;
+    public string fullText;
+    public string narrationFullText;  // âœ… ë‚˜ë ˆì´ì…˜ í…ìŠ¤íŠ¸
+    private string currentText = "";
 
-    
+    public TMP_Text textComponent;              // ìºë¦­í„° ëŒ€ì‚¬ í…ìŠ¤íŠ¸
+    public TMP_Text narrationTextComponent;     // ë‚˜ë ˆì´ì…˜ í…ìŠ¤íŠ¸
 
-
-    public float delay = 0.1f;                  // °¢ ±ÛÀÚ°¡ ³ªÅ¸³ª´Â µ¥ °É¸®´Â ½Ã°£
-    public string fullText;                     // ÀüÃ¼ Ç¥½ÃÇÒ ÅØ½ºÆ®
-    private string currentText = "";            // ÇöÀç±îÁö Ç¥½ÃµÈ ÅØ½ºÆ®
-    public TMP_Text textComponent;              // TextMeshPro ÄÄÆ÷³ÍÆ®    
     public Image imageComponent;
-    public Image imageComponent2;    
-
+    public Image imageComponent2;
 
     public Button[] buttonWay = new Button[3];
     public TMP_Text[] buttonWayText = new TMP_Text[3];
 
-
-
     private void Awake()
     {
-        Instance = this;        
+        Instance = this;
     }
 
     private void Start()
@@ -44,17 +40,16 @@ public class StorySystem : MonoBehaviour
             buttonWay[i].onClick.AddListener(() => OnWayClick(wayIndex));
         }
 
-        // ¿©±â¿¡ GameSystemÀÌ ÁØºñµÆ´ÂÁö Ã¼Å©ÇÏ°í ¹Ù·Î º¸¿©ÁÖ±â
         if (GameSystem.Instance != null)
         {
             GameSystem.Instance.StoryShow(GameSystem.Instance.currentStoryIndex);
         }
     }
 
-
     public void StoryModelInit()
     {
-        fullText = currentStoryModel.storyText;        
+        fullText = currentStoryModel.storyText;
+        narrationFullText = currentStoryModel.narrationText;  // âœ… ë‚˜ë ˆì´ì…˜ í…ìŠ¤íŠ¸ë„ ì´ˆê¸°í™”
 
         for (int i = 0; i < currentStoryModel.options.Length; i++)
         {
@@ -66,12 +61,21 @@ public class StorySystem : MonoBehaviour
     {
         StoryModelInit();
         ResetShow();
-        StartCoroutine(ShowImage());        
+        StartCoroutine(ShowImage());
+    }
+
+    public IEnumerator CoShowNarrationText()
+    {
+        StoryModelInit();
+        ResetShow();
+        yield return StartCoroutine(ShowText());
     }
 
     public void ResetShow()
     {
         textComponent.text = "";
+        if (narrationTextComponent != null)
+            narrationTextComponent.text = "";  // âœ… ë‚˜ë ˆì´ì…˜ í…ìŠ¤íŠ¸ë„ ì´ˆê¸°í™”
 
         for (int i = 0; i < buttonWay.Length; i++)
         {
@@ -81,20 +85,28 @@ public class StorySystem : MonoBehaviour
 
     public IEnumerator ShowText()
     {
-
-        if (string.IsNullOrEmpty(fullText))
+        // ìºë¦­í„° ëŒ€ì‚¬ ì¶œë ¥
+        if (!string.IsNullOrEmpty(fullText))
         {
-            Debug.LogError("[ShowText] fullText°¡ ºñ¾îÀÖÀ½.");
-            yield break; // ½ÇÇà Áß´Ü
+            for (int i = 0; i <= fullText.Length; i++)
+            {
+                currentText = fullText.Substring(0, i);
+                textComponent.text = currentText;
+                yield return new WaitForSeconds(delay);
+            }
         }
 
-        for (int i = 0; i <= fullText.Length; i++)
+        // ë‚˜ë ˆì´ì…˜ í…ìŠ¤íŠ¸ ì¶œë ¥
+        if (!string.IsNullOrEmpty(narrationFullText) && narrationTextComponent != null)
         {
-            currentText = fullText.Substring(0, i);
-            textComponent.text = currentText;
-            yield return new WaitForSeconds(delay);
+            for (int i = 0; i <= narrationFullText.Length; i++)
+            {
+                narrationTextComponent.text = narrationFullText.Substring(0, i);
+                yield return new WaitForSeconds(delay);
+            }
         }
 
+        // ì„ íƒì§€ ì¶œë ¥
         for (int i = 0; i < currentStoryModel.options.Length; i++)
         {
             buttonWay[i].gameObject.SetActive(true);
@@ -106,57 +118,48 @@ public class StorySystem : MonoBehaviour
     {
         if (currentStoryModel.MainImage != null)
         {
-            // Texture2D¸¦ Sprite·Î º¯È¯
             Rect rect = new Rect(0, 0, currentStoryModel.MainImage.width, currentStoryModel.MainImage.height);
-            Vector2 pivot = new Vector2(0.5f, 0.5f); // ½ºÇÁ¶óÀÌÆ®ÀÇ Ãà(Áß½É) ÁöÁ¤
+            Vector2 pivot = new Vector2(0.5f, 0.5f);
             Sprite sprite = Sprite.Create(currentStoryModel.MainImage, rect, pivot);
-
-            // Image ÄÄÆ÷³ÍÆ®¿¡ ½ºÇÁ¶óÀÌÆ® ¼³Á¤
             imageComponent.sprite = sprite;
         }
+
         if (currentStoryModel.MainImage2 != null)
         {
-            // Texture2D¸¦ Sprite·Î º¯È¯
             Rect rect = new Rect(0, 0, currentStoryModel.MainImage2.width, currentStoryModel.MainImage2.height);
-            Vector2 pivot = new Vector2(0.5f, 0.5f); // ½ºÇÁ¶óÀÌÆ®ÀÇ Ãà(Áß½É) ÁöÁ¤
+            Vector2 pivot = new Vector2(0.5f, 0.5f);
             Sprite sprite = Sprite.Create(currentStoryModel.MainImage2, rect, pivot);
-
-            // Image ÄÄÆ÷³ÍÆ®¿¡ ½ºÇÁ¶óÀÌÆ® ¼³Á¤
             imageComponent2.sprite = sprite;
-        }        
+        }
         else
         {
             Debug.LogError($"Unable to load texture: {currentStoryModel.MainImage.name}");
         }
 
         yield return new WaitForSeconds(delay);
+
+        StartCoroutine(ShowText());
     }
 
     public void OnWayClick(int index)
     {
         StoryModel playStoryModel = currentStoryModel;
-        Debug.Log($"[OnWayClick] ¼±ÅÃÇÑ ¿É¼Ç ÀÎµ¦½º: {index}");
+        Debug.Log($"[OnWayClick] ì„ íƒí•œ ì˜µì…˜ ì¸ë±ìŠ¤: {index}");
 
-        // ¼±ÅÃµÈ ¿É¼Ç °¡Á®¿À±â
         StoryModel.Option selectedOption = playStoryModel.options[index];
 
-        // ¼º°ø °á°ú°¡ ÀÖ´Â °æ¿ì ½ÇÇà
         if (selectedOption.eventCheck.sucessResult.Length > 0)
         {
-            string buttonText = selectedOption.buttonText.Trim();
-
             ProcessResult(selectedOption.eventCheck.sucessResult);
         }
     }
 
-    // °á°ú¸¦ Ã³¸®ÇÏ´Â ÇÔ¼ö
     private void ProcessResult(StoryModel.Result[] results)
     {
         if (results.Length > 0)
         {
-            Debug.Log($"[ProcessResult] Àû¿ëÇÒ °á°ú: {results[0].resultType}, ÀÌµ¿ÇÒ ½ºÅä¸® ¹øÈ£: {results[0].value}");
-            GameSystem.Instance.ApplyChoice(results[0]); // Ã¹ ¹øÂ° °á°ú¸¸ ½ÇÇà
+            Debug.Log($"[ProcessResult] ì ìš©í•  ê²°ê³¼: {results[0].resultType}, ì´ë™í•  ìŠ¤í† ë¦¬ ë²ˆí˜¸: {results[0].value}");
+            GameSystem.Instance.ApplyChoice(results[0]);
         }
     }
-
 }

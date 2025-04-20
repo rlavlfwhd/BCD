@@ -2,10 +2,15 @@
 
 public class DraggableObject3D : MonoBehaviour
 {
-    private Vector3 offset;              // 마우스와 오브젝트 사이의 거리
-    private float zCoord;               // z축 깊이 (마우스 → 월드 변환 시 필요)
-    private Vector3 originalPosition;   // 실패 시 돌아갈 원래 위치
-    private bool isLocked = false;      // 드랍 고정 여부
+    private Vector3 offset;
+    private float zCoord;
+    private Vector3 originalPosition;
+    private bool isLocked = false;
+
+    [Header("Mirror 연출용")]
+    public GameObject mirrorOriginal;     // 원래 거울
+    public GameObject mirrorAlternate;    // 바뀐 거울
+    public GameObject pendantObject;      // 펜던트 오브젝트 (Mirror2가 나타날 때 활성화)
 
     void OnMouseDown()
     {
@@ -47,6 +52,7 @@ public class DraggableObject3D : MonoBehaviour
         {
             Debug.Log($"➡️ 감지된 오브젝트 이름: {hit.name}");
 
+            // 🎯 BookSlot 처리
             if (hit.CompareTag("DropSlot"))
             {
                 Debug.Log("✅ 태그 일치: DropSlot");
@@ -58,21 +64,17 @@ public class DraggableObject3D : MonoBehaviour
                     {
                         Debug.Log("📚 BookSlot 있음 & 비어 있음 → 드랍 성공");
 
-                        // 슬롯 위치 기준으로 살짝 앞으로 이동 (덮힘 방지)
                         Vector3 slotPosition = hit.transform.position;
-                        slotPosition.z -= 0.1f; // 슬롯보다 앞쪽으로
+                        slotPosition.z -= 0.1f;
 
                         StartCoroutine(SmoothMove(transform.position, slotPosition, 0.2f));
 
                         slot.isOccupied = true;
                         isLocked = true;
 
-                        // ✅ 렌더 순서 조정 (책이 슬롯보다 앞에 보이도록)
                         Renderer r = GetComponent<Renderer>();
-                        r.sortingLayerName = "Default"; // 필요 시 커스텀 이름 사용
-                        r.sortingOrder = 10;            // 숫자 높을수록 위에 렌더링
-
-                        // 🔧 머티리얼 큐도 조정 (Shader가 투명한 경우 보장용)
+                        r.sortingLayerName = "Default";
+                        r.sortingOrder = 10;
                         r.material.renderQueue = 2501;
 
                         return;
@@ -84,12 +86,50 @@ public class DraggableObject3D : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("🚫 BookSlot 컴포넌트 없음 (스크립트 누락)");
+                    Debug.Log("🚫 BookSlot 컴포넌트 없음");
                 }
             }
+
+            // 🪞 Mirror 처리
+            else if (hit.CompareTag("Mirror"))
+            {
+                Debug.Log("🪞 거울 감지됨 → 연출 시작");
+
+                if (mirrorOriginal != null) mirrorOriginal.SetActive(false);
+                if (mirrorAlternate != null) mirrorAlternate.SetActive(true);
+                if (pendantObject != null) pendantObject.SetActive(true); // ✅ 펜던트도 활성화
+
+                isLocked = true;
+
+                gameObject.SetActive(false); // 🎯 이 오브젝트를 비활성화
+
+                Debug.Log("✅ 거울 교체 + 펜던트 활성화 + 오브젝트 비활성화 완료");
+                return;
+            }
+
+            // 🚪 Door 처리 (펜던트를 드랍하면 문과 펜던트 모두 사라짐)
+            else if (hit.CompareTag("Door"))
+            {
+                Debug.Log("🚪 Door 감지됨 → 문과 펜던트 비활성화 시도");
+
+                if (hit.gameObject != null)
+                {
+                    hit.gameObject.SetActive(false);   // 문 비활성화
+                    gameObject.SetActive(false);       // 펜던트 자신 비활성화
+                    isLocked = true;
+
+                    Debug.Log("✅ 문과 펜던트 비활성화 완료");
+                    return;
+                }
+                else
+                {
+                    Debug.LogWarning("❌ 감지된 Door 오브젝트가 null임!");
+                }
+            }
+
             else
             {
-                Debug.Log("⛔ 태그 불일치: DropSlot 아님");
+                Debug.Log("⛔ 태그 불일치: DropSlot/Mirror/Door 아님");
             }
         }
 
@@ -97,7 +137,6 @@ public class DraggableObject3D : MonoBehaviour
         StartCoroutine(SmoothMove(transform.position, originalPosition, 0.2f));
     }
 
-    // 부드럽게 이동하는 코루틴
     System.Collections.IEnumerator SmoothMove(Vector3 fromPos, Vector3 toPos, float duration)
     {
         float elapsed = 0f;

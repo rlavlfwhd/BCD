@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -23,7 +23,7 @@ public class SaveLoadUI : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // ÇÊ¿ä ½Ã
+            DontDestroyOnLoad(gameObject); // í•„ìš” ì‹œ
         }
         else
         {
@@ -72,7 +72,7 @@ public class SaveLoadUI : MonoBehaviour
             int slot = i + 1;
             SaveSystem.SaveData saveData = SaveSystem.LoadGame(slot);
 
-            // ÀúÀå¿ë Ã¹ ¹øÂ° ÀÌ¹ÌÁö
+            // ì €ì¥ìš© ì²« ë²ˆì§¸ ì´ë¯¸ì§€
             if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath))
             {
                 Sprite loadedSprite = LoadSpriteFromPath(saveData.mainImagePath);
@@ -82,7 +82,7 @@ public class SaveLoadUI : MonoBehaviour
                 }
             }
 
-            // ÀúÀå¿ë µÎ ¹øÂ° ÀÌ¹ÌÁö
+            // ì €ì¥ìš© ë‘ ë²ˆì§¸ ì´ë¯¸ì§€
             if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath2))
             {
                 Sprite loadedSprite2 = LoadSpriteFromPath(saveData.mainImagePath2);
@@ -92,7 +92,7 @@ public class SaveLoadUI : MonoBehaviour
                 }
             }
 
-            // ºÒ·¯¿À±â¿ë Ã¹ ¹øÂ° ÀÌ¹ÌÁö
+            // ë¶ˆëŸ¬ì˜¤ê¸°ìš© ì²« ë²ˆì§¸ ì´ë¯¸ì§€
             if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath))
             {
                 Sprite loadedSprite = LoadSpriteFromPath(saveData.mainImagePath);
@@ -102,7 +102,7 @@ public class SaveLoadUI : MonoBehaviour
                 }
             }
 
-            // ºÒ·¯¿À±â¿ë µÎ ¹øÂ° ÀÌ¹ÌÁö
+            // ë¶ˆëŸ¬ì˜¤ê¸°ìš© ë‘ ë²ˆì§¸ ì´ë¯¸ì§€
             if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath2))
             {
                 Sprite loadedSprite2 = LoadSpriteFromPath(saveData.mainImagePath2);
@@ -112,7 +112,7 @@ public class SaveLoadUI : MonoBehaviour
                 }
             }
 
-            // load ¹öÆ° ÀÚÃ¼ ÀÌ¹ÌÁöµµ Ã¹ ¹øÂ° ÀÌ¹ÌÁö·Î ¾÷µ¥ÀÌÆ®
+            // load ë²„íŠ¼ ìì²´ ì´ë¯¸ì§€ë„ ì²« ë²ˆì§¸ ì´ë¯¸ì§€ë¡œ ì—…ë°ì´íŠ¸
             if (loadButtons[i].GetComponent<Image>() != null && loadSlotImages1.Length > i)
             {
                 loadButtons[i].GetComponent<Image>().sprite = loadSlotImages1[i].sprite;

@@ -1,9 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using System.IO;
-using UnityEngine.Playables;  // PlayableDirector »ç¿ëÀ» À§ÇÑ ³×ÀÓ½ºÆäÀÌ½º Ãß°¡
+using UnityEngine.Playables;  // PlayableDirector ì‚¬ìš©ì„ ìœ„í•œ ë„¤ì„ìŠ¤í˜ì´ìŠ¤ ì¶”ê°€
 
 public class GameSystem : MonoBehaviour
 {
@@ -34,7 +34,7 @@ public class GameSystem : MonoBehaviour
         if (chapters == null || chapters.Length == 0)
         {
             chapters = GameObject.FindGameObjectsWithTag("Chapter");
-            Debug.Log(" chapters ÀçÇÒ´çµÊ: " + chapters.Length);
+            Debug.Log(" chapters ì¬í• ë‹¹ë¨: " + chapters.Length);
         }
 
         StoryShow(currentStoryIndex);
@@ -50,7 +50,6 @@ public class GameSystem : MonoBehaviour
         StoryModel currentStory = FindStoryModel(currentStoryIndex);
         string imagePath = "";
         string imagePath2 = "";
-
 
         if (currentStory != null)
         {
@@ -86,7 +85,7 @@ public class GameSystem : MonoBehaviour
         SaveSystem.SaveData saveData = SaveSystem.LoadGame(slot);
         if (saveData != null)
         {
-            currentStoryIndex = saveData.currentStoryIndex;           
+            currentStoryIndex = saveData.currentStoryIndex;
             StoryShow(currentStoryIndex);
         }
 
@@ -95,17 +94,17 @@ public class GameSystem : MonoBehaviour
             Inventory.Instance.items.Clear();
             foreach (string itemName in saveData.inventoryItemNames)
             {
-                Item loadedItem = Resources.Load<Item>("Items/" + itemName); // °æ·Î ÁÖÀÇ
+                Item loadedItem = Resources.Load<Item>("Items/" + itemName); // ê²½ë¡œ ì£¼ì˜
                 if (loadedItem != null)
                 {
                     Inventory.Instance.items.Add(loadedItem);
                 }
                 else
                 {
-                    Debug.LogWarning("ÇØ´ç ¾ÆÀÌÅÛ ·Îµå ½ÇÆĞ: " + itemName);
+                    Debug.LogWarning("í•´ë‹¹ ì•„ì´í…œ ë¡œë“œ ì‹¤íŒ¨: " + itemName);
                 }
             }
-            Inventory.Instance.FreshSlot(); // ½½·Ô UI °»½Å
+            Inventory.Instance.FreshSlot(); // ìŠ¬ë¡¯ UI ê°±ì‹ 
 
             if (saveData.completedPuzzles != null)
             {
@@ -115,14 +114,17 @@ public class GameSystem : MonoBehaviour
 
         PuzzleManager.Instance.SetCompletedPuzzleList(saveData.completedPuzzles);
     }
+
     public void MarkPuzzleComplete(string puzzleName)
     {
         completedPuzzleFlags.Add(puzzleName);
     }
+
     public bool IsPuzzleCompleted(string puzzleName)
     {
         return completedPuzzleFlags.Contains(puzzleName);
     }
+
     public List<string> GetCompletedPuzzleList()
     {
         return new List<string>(completedPuzzleFlags);
@@ -147,7 +149,6 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-
     public void StoryShow(int number)
     {
         StoryModel tempStoryModels = FindStoryModel(number);
@@ -155,10 +156,18 @@ public class GameSystem : MonoBehaviour
         if (tempStoryModels != null)
         {
             StorySystem.Instance.currentStoryModel = tempStoryModels;
-            StorySystem.Instance.CoShowText();
 
             int chapterIndex = GetChapterIndex(number);
             ChangeChapter(chapterIndex);
+
+            if (tempStoryModels.isNarration)
+            {
+                StartCoroutine(StorySystem.Instance.CoShowNarrationText());
+            }
+            else
+            {
+                StorySystem.Instance.CoShowText();
+            }
 
             if (chapterIndex == -1 || chapters[chapterIndex].GetComponent<PlayableDirector>() == null)
             {
@@ -167,14 +176,14 @@ public class GameSystem : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"½ºÅä¸® ¸ğµ¨À» Ã£À» ¼ö ¾øÀ½: {number}");
+            Debug.LogError($"ìŠ¤í† ë¦¬ ëª¨ë¸ì„ ì°¾ì„ ìˆ˜ ì—†ìŒ: {number}");
         }
 
-        if (number >= 30) // Ã©ÅÍ 2 ½ÃÀÛÀÌ¸é
+        if (number >= 30) // ì±•í„° 2 ì‹œì‘ì´ë©´
         {
             Inventory.Instance.items.Clear();
             Inventory.Instance.FreshSlot();
-            Debug.Log("Ã©ÅÍ 2 ½ÃÀÛ - ÀÎº¥Åä¸® ÃÊ±âÈ­");
+            Debug.Log("ì±•í„° 2 ì‹œì‘ - ì¸ë²¤í† ë¦¬ ì´ˆê¸°í™”");
         }
     }
 
@@ -213,10 +222,10 @@ public class GameSystem : MonoBehaviour
 
         if (activeChapter != null)
         {
-            PlayableDirector prevDirector = activeChapter.GetComponent<PlayableDirector>();                        
+            PlayableDirector prevDirector = activeChapter.GetComponent<PlayableDirector>();
             if (prevDirector != null)
             {
-                prevDirector.Stop();                
+                prevDirector.Stop();
             }
             activeChapter.SetActive(false);
         }
@@ -231,26 +240,23 @@ public class GameSystem : MonoBehaviour
             newDirector.Play();
             cameraParallax.ResetToInitialPosition();
             cameraParallax.enabled = false;
-            StartCoroutine(DisableChapterAfterTimeline(newDirector, activeChapter));            
+            StartCoroutine(DisableChapterAfterTimeline(newDirector, activeChapter));
         }
         else
         {
-            // Å¸ÀÓ¶óÀÎÀÌ ¾øÀ¸¸é ÀÏÁ¤ ½Ã°£ ÈÄ ºñÈ°¼ºÈ­ + ½ºÅä¸® ÅØ½ºÆ® Ãâ·Â
-            StartCoroutine(DisableChapterAfterSeconds(activeChapter, 2.0f)); // 2ÃÊ ÈÄ ½ÇÇà
+            // íƒ€ì„ë¼ì¸ì´ ì—†ìœ¼ë©´ ì¼ì • ì‹œê°„ í›„ ë¹„í™œì„±í™” + ìŠ¤í† ë¦¬ í…ìŠ¤íŠ¸ ì¶œë ¥
+            StartCoroutine(DisableChapterAfterSeconds(activeChapter, 2.0f)); // 2ì´ˆ í›„ ì‹¤í–‰
         }
     }
 
-
-
-
-    // PlayableDirector ½ÇÇà ¿Ï·á ÈÄ ¿ÀºêÁ§Æ® ºñÈ°¼ºÈ­
+    // PlayableDirector ì‹¤í–‰ ì™„ë£Œ í›„ ì˜¤ë¸Œì íŠ¸ ë¹„í™œì„±í™”
     private IEnumerator DisableChapterAfterTimeline(PlayableDirector director, GameObject chapter)
     {
-        yield return new WaitForSeconds((float)director.duration); // Å¸ÀÓ¶óÀÎ ±æÀÌ¸¸Å­ ´ë±â
+        yield return new WaitForSeconds((float)director.duration); // íƒ€ì„ë¼ì¸ ê¸¸ì´ë§Œí¼ ëŒ€ê¸°
         chapter.SetActive(false);
         cameraParallax.enabled = true;
 
-        Debug.Log($"[DisableChapterAfterTimeline] Ã©ÅÍ ºñÈ°¼ºÈ­µÊ: {chapter.name}");
+        Debug.Log($"[DisableChapterAfterTimeline] ì±•í„° ë¹„í™œì„±í™”ë¨: {chapter.name}");
 
         if (StorySystem.Instance.currentStoryModel != null)
         {
@@ -258,20 +264,18 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-    // ÀÏÁ¤ ½Ã°£ ÈÄ Ã©ÅÍ ºñÈ°¼ºÈ­ (PlayableDirector°¡ ¾ø´Â °æ¿ì)
+    // ì¼ì • ì‹œê°„ í›„ ì±•í„° ë¹„í™œì„±í™” (PlayableDirectorê°€ ì—†ëŠ” ê²½ìš°)
     private IEnumerator DisableChapterAfterSeconds(GameObject chapter, float seconds)
     {
         yield return new WaitForSeconds(seconds);
         chapter.SetActive(false);
-        Debug.Log($"[DisableChapterAfterSeconds] Ã©ÅÍ ºñÈ°¼ºÈ­µÊ: {chapter.name}");
+        Debug.Log($"[DisableChapterAfterSeconds] ì±•í„° ë¹„í™œì„±í™”ë¨: {chapter.name}");
 
         if (StorySystem.Instance.currentStoryModel != null)
         {
             StartCoroutine(StorySystem.Instance.ShowText());
         }
     }
-
-
 
     StoryModel FindStoryModel(int number)
     {

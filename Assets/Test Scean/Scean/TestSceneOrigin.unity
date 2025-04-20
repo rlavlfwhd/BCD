@@ -687,7 +687,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.74, y: 4.99}
+    oldSize: {x: 2.7, y: 5.13}
     newSize: {x: 4.59, y: 8.53}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -842,7 +842,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.25, y: 3.95}
+    oldSize: {x: 1.84, y: 3.33}
     newSize: {x: 4.59, y: 8.53}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1772,7 +1772,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.04, y: 3.39}
+    oldSize: {x: 2.22, y: 3.65}
     newSize: {x: 4.59, y: 8.53}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2623,7 +2623,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.85, y: 2.83}
+    oldSize: {x: 7.09, y: 3.06}
     newSize: {x: 4.59, y: 8.53}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
