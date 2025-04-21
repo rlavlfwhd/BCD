@@ -11,7 +11,12 @@ public class StoryModel : ScriptableObject
 
 
     [TextArea(10, 10)]
-    public string storyText;
+    public string storyText; // ✅ 캐릭터 대사 텍스트
+
+    [TextArea(10, 10)]
+    public string narrationText; // ✅ 나레이션 텍스트 (새로 추가된 필드)
+
+    public bool isNarration; // ✅ 나레이션 여부 (기존대로 유지)
 
     public Option[] options;
 

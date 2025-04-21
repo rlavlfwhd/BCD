@@ -1,62 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class WindowPuzzle : MonoBehaviour
+public class WindowPuzzle : MonoBehaviour, IDropTarget
 {
-    public Item neededItem; // Rope4
-    public MeshRenderer windowRenderer;
-    public Material openedWindowMaterial;
-    public GameObject clickableWindowObject;
-    public GameObject overlayImage; // 
+    public Item neededItem; // 밧줄
+    public Sprite openedWindowSprite;
+    public Image windowImage; // 창문 이미지 변경 대상
+    public GameObject clickableWindowObject; // 클릭 가능한 창문 오브젝트 (초기에 비활성화)
+
     public string puzzleID = "window_rope";
-    public int nextStoryIndex = 11;
-    public CameraParallax cameraParallax;
 
-    void OnMouseDown()
+    public void OnItemDropped(Item item)
     {
-        Item selected = Inventory.Instance.firstSelectedItem;
-
-        if (selected != null &&
-            selected == neededItem &&
-            !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
+        if (item == neededItem && !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
+            if (!SceneDataManager.Instance.Data.isRopeUsed)
+            {
+                Inventory.Instance.RemoveItemByName("Rope4");
+                SceneDataManager.Instance.Data.isRopeUsed = true;
+                Debug.Log("Rope4 사용 완료!");
+            }
+
             PuzzleManager.Instance.CompletePuzzle(puzzleID);
-
-            if (windowRenderer != null && openedWindowMaterial != null)
-            {
-                windowRenderer.material = openedWindowMaterial;
-            }
-
-            if (clickableWindowObject != null)
-            {
-                clickableWindowObject.SetActive(true);
-            }
-
-            Inventory.Instance.RemoveItemByName(selected.itemName);
-            Inventory.Instance.ClearSelection();
-
-            Debug.Log("3D 창문 열림! Rope4 사용 완료");
-
-            StartCoroutine(GoToStoryAfterDelay(2f));
+            windowImage.sprite = openedWindowSprite;
+            clickableWindowObject.SetActive(true); // 클릭 가능한 열린 창문 등장
+            Debug.Log("창문 열림!");
         }
-    }
-
-    private IEnumerator GoToStoryAfterDelay(float delay)
-    {
-        if (overlayImage != null)
-        {
-            overlayImage.SetActive(true); // 오버레이 표시
-            cameraParallax.ResetToInitialPosition();
-            cameraParallax.enabled = false;
-        }
-
-        yield return new WaitForSeconds(delay);
-        cameraParallax.enabled = true;
-        SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
-        SceneManager.LoadScene("PlayScene");
     }
 }
-
