@@ -22,20 +22,10 @@ MonoBehaviour:
     \uCDA9\uC871\uC2DC\uCF1C\uC8FC\uC9C0\uB9CC \uC790\uC720\uB9CC\uD07C\uC740 \uC5C6\uC796\uC544...
     \uC5B4\uB5A1\uD558\uC9C0, \uC655\uAD6D \uBC16\uC73C\uB85C \uB098\uAC00\uACE0
     \uC2F6\uC740\uB370.\n\n"
-  narrationText: "\u3147\u3141\u3134\u3147\u3141\u3134\u3147\u3134\u3141\u3147\u3141\u3134\u3147\u3141\u3134\u3147\u3141\u3134\u3147"
-  isNarration: 0
   options:
-  - buttonText: "A. \uC655\uAD6D \uBC16\uC73C\uB85C \uD0C8\uCD9C\uD558\uAE30\uB85C
-      \uACB0\uC2EC\uD55C\uB2E4."
+  - buttonText: "\uD14C\uC2A4\uD2B8\uC52C"
     eventCheck:
       sucessResult:
-      - resultType: 0
-        value: 2
-        changeSceneName: 
-  - buttonText: "B. \uD0C8\uCD9C \uC0DD\uAC01\uC744 \uC811\uACE0 \uBC29\uC5D0 \uAC00\uB9CC\uD788
-      \uC788\uB294\uB2E4."
-    eventCheck:
-      sucessResult:
-      - resultType: 0
-        value: 300
-        changeSceneName: 
+      - resultType: 2
+        value: 0
+        changeSceneName: TestScene
