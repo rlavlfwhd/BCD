@@ -1,5 +1,6 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewStory", menuName = "ScriptableObjects/StoryModel")]
@@ -7,7 +8,9 @@ public class StoryModel : ScriptableObject
 {
     public int storyNumber;
     public Texture2D MainImage;
-    public Texture2D MainImage2;
+    public Texture2D MainImage2;        
+
+
 
     public enum StoryType
     {
@@ -20,26 +23,24 @@ public class StoryModel : ScriptableObject
     public StoryType storyType;
 
     [TextArea(10, 10)]
-    public string storyText; // âœ… ìºë¦­í„° ëŒ€ì‚¬ í…ìŠ¤íŠ¸
+    public string storyText;
 
-    [TextArea(10, 10)]
-    public string narrationText; // âœ… ë‚˜ë ˆì´ì…˜ í…ìŠ¤íŠ¸ (ìƒˆë¡œ ì¶”ê°€ëœ í•„ë“œ)
+    public Option[] options; // ¼±ÅÃÁö ¹è¿­
 
-    public bool isNarration; // âœ… ë‚˜ë ˆì´ì…˜ ì—¬ë¶€ (ê¸°ì¡´ëŒ€ë¡œ ìœ ì§€)
 
-    public Option[] options;
 
     [System.Serializable]
     public class Option
     {
-        public string buttonText;
+        public string buttonText; // ¼±ÅÃÁö ¹öÆ°ÀÇ ÀÌ¸§
+
         public EventCheck eventCheck;
     }
 
     [System.Serializable]
     public class EventCheck
     {
-        public Result[] sucessResult;
+        public Result[] sucessResult; // ¼±ÅÃÁö¿¡ ´ëÇÑ È¿°ú ¹è¿­        
     }
 
     [System.Serializable]

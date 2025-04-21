@@ -1,4 +1,4 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -23,7 +23,7 @@ public class SaveLoadUI : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // í•„ìš” ì‹œ
+            DontDestroyOnLoad(gameObject); // ÇÊ¿ä ½Ã
         }
         else
         {
@@ -49,7 +49,10 @@ public class SaveLoadUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             OptionPanel.SetActive(!OptionPanel.activeSelf);
-            cameraParallax.enabled = !OptionPanel.activeSelf;
+            if (cameraParallax != null)
+            {
+                cameraParallax.enabled = !OptionPanel.activeSelf;
+            }
         }
     }
 
@@ -72,7 +75,7 @@ public class SaveLoadUI : MonoBehaviour
             int slot = i + 1;
             SaveSystem.SaveData saveData = SaveSystem.LoadGame(slot);
 
-            // ì €ì¥ìš© ì²« ë²ˆì§¸ ì´ë¯¸ì§€
+            // ÀúÀå¿ë Ã¹ ¹øÂ° ÀÌ¹ÌÁö
             if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath))
             {
                 Sprite loadedSprite = LoadSpriteFromPath(saveData.mainImagePath);
@@ -82,7 +85,7 @@ public class SaveLoadUI : MonoBehaviour
                 }
             }
 
-            // ì €ì¥ìš© ë‘ ë²ˆì§¸ ì´ë¯¸ì§€
+            // ÀúÀå¿ë µÎ ¹øÂ° ÀÌ¹ÌÁö
             if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath2))
             {
                 Sprite loadedSprite2 = LoadSpriteFromPath(saveData.mainImagePath2);
@@ -92,7 +95,7 @@ public class SaveLoadUI : MonoBehaviour
                 }
             }
 
-            // ë¶ˆëŸ¬ì˜¤ê¸°ìš© ì²« ë²ˆì§¸ ì´ë¯¸ì§€
+            // ºÒ·¯¿À±â¿ë Ã¹ ¹øÂ° ÀÌ¹ÌÁö
             if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath))
             {
                 Sprite loadedSprite = LoadSpriteFromPath(saveData.mainImagePath);
@@ -102,7 +105,7 @@ public class SaveLoadUI : MonoBehaviour
                 }
             }
 
-            // ë¶ˆëŸ¬ì˜¤ê¸°ìš© ë‘ ë²ˆì§¸ ì´ë¯¸ì§€
+            // ºÒ·¯¿À±â¿ë µÎ ¹øÂ° ÀÌ¹ÌÁö
             if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath2))
             {
                 Sprite loadedSprite2 = LoadSpriteFromPath(saveData.mainImagePath2);
@@ -112,7 +115,7 @@ public class SaveLoadUI : MonoBehaviour
                 }
             }
 
-            // load ë²„íŠ¼ ìì²´ ì´ë¯¸ì§€ë„ ì²« ë²ˆì§¸ ì´ë¯¸ì§€ë¡œ ì—…ë°ì´íŠ¸
+            // load ¹öÆ° ÀÚÃ¼ ÀÌ¹ÌÁöµµ Ã¹ ¹øÂ° ÀÌ¹ÌÁö·Î ¾÷µ¥ÀÌÆ®
             if (loadButtons[i].GetComponent<Image>() != null && loadSlotImages1.Length > i)
             {
                 loadButtons[i].GetComponent<Image>().sprite = loadSlotImages1[i].sprite;

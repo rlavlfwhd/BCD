@@ -4,94 +4,78 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Slot : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] Image image;
-    private Item _item;
-    private GameObject dragIcon;
+    public Item item;
+    [SerializeField] private Image icon;
+    [SerializeField] private Image background;
 
-    public Item item 
-    { 
-        get { return _item; }
-        set {
-            _item = value;
-            if(_item != null)
+    private static Color normalColor = Color.white;
+    private static Color selectedColor = new Color(1f, 1f, 1f, 0.5f);
+
+    public void SetItem(Item newItem)
+    {
+        item = newItem;
+        icon.sprite = item.itemImage;
+        icon.enabled = true;
+        ResetHighlight();
+    }
+
+    public void ClearSlot()
+    {
+        item = null;
+        icon.sprite = null;
+        icon.enabled = false;
+        ResetHighlight();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (item != null)
+        {
+            bool isAlreadySelected = (Inventory.Instance.firstSelectedItem == item || Inventory.Instance.secondSelectedItem == item);
+
+            Inventory.Instance.SelectItem(item);
+
+            if (isAlreadySelected)
             {
-                image.sprite = item.itemImage;
-                image.color = new Color(1, 1, 1, 1);
+                ClearAllHighlights();
             }
             else
             {
-                image.color = new Color(1, 1, 1, 0);
-            }
-            }
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        if (item == null) return;
-
-        dragIcon = new GameObject("DragIcon");
-        dragIcon.transform.SetParent(transform.root, false);
-        var img = dragIcon.AddComponent<Image>();
-        img.sprite = item.itemImage;
-        img.raycastTarget = false;
-        img.SetNativeSize();
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        if(dragIcon != null)
-        {
-            dragIcon.transform.position = Input.mousePosition;
-        }
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if (dragIcon != null)
-            Destroy(dragIcon);
-
-        PointerEventData pointerData = new PointerEventData(EventSystem.current);
-        pointerData.position = Input.mousePosition;
-
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerData, results);
-
-        foreach (RaycastResult result in results)
-        {
-            var dropTarget = result.gameObject.GetComponent<IDropTarget>();
-            if (dropTarget != null)
-            {
-                Debug.Log(" UI 기반으로 IDropTarget 찾음 → " + result.gameObject.name);
-                dropTarget.OnItemDropped(item);
-                return;
-            }
-        }
-
-        Debug.Log(" UI 기반 Ray로도 DropTarget 못 찾음");
-
-        foreach (RaycastResult result in results)
-        {
-            // 퍼즐 처리
-            var dropTarget = result.gameObject.GetComponent<IDropTarget>();
-            if (dropTarget != null)
-            {
-                Debug.Log("퍼즐 오브젝트에 드랍");
-                dropTarget.OnItemDropped(item);
-                return;
-            }
-
-            // 슬롯 위에 드랍되었는지 확인
-            var otherSlot = result.gameObject.GetComponent<Slot>();
-            if (otherSlot != null && otherSlot != this && otherSlot.item != null)
-            {
-                Debug.Log($"인벤토리 슬롯 간 드랍 감지: {item.itemName} + {otherSlot.item.itemName}");
-                Inventory.Instance.CombineItems(item, otherSlot.item);
-                return;
+                HighlightSelectedSlot();
             }
         }
     }
 
+    public void HighlightSelectedSlot()
+    {
+        Slot[] allSlots = FindObjectsOfType<Slot>();
+        foreach (Slot slot in allSlots)
+        {
+            if (slot.item == null)
+            {
+                slot.background.color = normalColor;
+                continue;
+            }
 
+            bool isSelected = slot.item == Inventory.Instance.firstSelectedItem || slot.item == Inventory.Instance.secondSelectedItem;
+            slot.background.color = isSelected ? selectedColor : normalColor;
+        }
+    }
+
+    public void ClearAllHighlights()
+    {
+        Slot[] allSlots = FindObjectsOfType<Slot>();
+        foreach (Slot slot in allSlots)
+        {
+            slot.background.color = normalColor;
+        }
+    }
+
+    private void ResetHighlight()
+    {
+        if (background != null)
+            background.color = normalColor;
+    }
 }

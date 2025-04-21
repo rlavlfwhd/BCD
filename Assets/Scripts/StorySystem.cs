@@ -1,24 +1,28 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine;
-using System;
 
 public class StorySystem : MonoBehaviour
 {
     public static StorySystem Instance;
 
+    public CameraParallax cameraParallax;
+    public GameObject[] chapters;
+    public GameObject activeChapter;
+
+    public StoryModel[] storyModels;
+    public int currentStoryIndex = 1;
     public StoryModel currentStoryModel;
 
     public float delay = 0.1f;
     public string fullText;
-    public string narrationFullText;  // ✅ 나레이션 텍스트
     private string currentText = "";
 
-    public TMP_Text textComponent;              // 캐릭터 대사 텍스트
-    public TMP_Text narrationTextComponent;     // 나레이션 텍스트
-
+    public TMP_Text textComponent;
     public Image imageComponent;
     public Image imageComponent2;
 
@@ -40,16 +44,25 @@ public class StorySystem : MonoBehaviour
             buttonWay[i].onClick.AddListener(() => OnWayClick(wayIndex));
         }
 
-        if (GameSystem.Instance != null)
+        if (chapters == null || chapters.Length == 0)
         {
-            GameSystem.Instance.StoryShow(GameSystem.Instance.currentStoryIndex);
+            chapters = GameObject.FindGameObjectsWithTag("Chapter");
         }
+
+        // ���� �߰��� �κ� 
+        int overrideStoryIndex = SceneDataManager.Instance.Data.nextStoryIndex;
+        if (overrideStoryIndex > 0)
+        {
+            currentStoryIndex = overrideStoryIndex;
+            SceneDataManager.Instance.Data.nextStoryIndex = 0; // �ʱ�ȭ
+        }
+
+        StoryShow(currentStoryIndex);
     }
 
     public void StoryModelInit()
     {
         fullText = currentStoryModel.storyText;
-        narrationFullText = currentStoryModel.narrationText;  // ✅ 나레이션 텍스트도 초기화
 
         for (int i = 0; i < currentStoryModel.options.Length; i++)
         {
@@ -64,19 +77,9 @@ public class StorySystem : MonoBehaviour
         StartCoroutine(ShowImage());
     }
 
-    public IEnumerator CoShowNarrationText()
-    {
-        StoryModelInit();
-        ResetShow();
-        yield return StartCoroutine(ShowText());
-    }
-
     public void ResetShow()
     {
         textComponent.text = "";
-        if (narrationTextComponent != null)
-            narrationTextComponent.text = "";  // ✅ 나레이션 텍스트도 초기화
-
         for (int i = 0; i < buttonWay.Length; i++)
         {
             buttonWay[i].gameObject.SetActive(false);
@@ -85,28 +88,19 @@ public class StorySystem : MonoBehaviour
 
     public IEnumerator ShowText()
     {
-        // 캐릭터 대사 출력
-        if (!string.IsNullOrEmpty(fullText))
+        if (string.IsNullOrEmpty(fullText))
         {
-            for (int i = 0; i <= fullText.Length; i++)
-            {
-                currentText = fullText.Substring(0, i);
-                textComponent.text = currentText;
-                yield return new WaitForSeconds(delay);
-            }
+            Debug.LogError("[ShowText] fullText�� �������.");
+            yield break;
         }
 
-        // 나레이션 텍스트 출력
-        if (!string.IsNullOrEmpty(narrationFullText) && narrationTextComponent != null)
+        for (int i = 0; i <= fullText.Length; i++)
         {
-            for (int i = 0; i <= narrationFullText.Length; i++)
-            {
-                narrationTextComponent.text = narrationFullText.Substring(0, i);
-                yield return new WaitForSeconds(delay);
-            }
+            currentText = fullText.Substring(0, i);
+            textComponent.text = currentText;
+            yield return new WaitForSeconds(delay);
         }
 
-        // 선택지 출력
         for (int i = 0; i < currentStoryModel.options.Length; i++)
         {
             buttonWay[i].gameObject.SetActive(true);
@@ -119,33 +113,23 @@ public class StorySystem : MonoBehaviour
         if (currentStoryModel.MainImage != null)
         {
             Rect rect = new Rect(0, 0, currentStoryModel.MainImage.width, currentStoryModel.MainImage.height);
-            Vector2 pivot = new Vector2(0.5f, 0.5f);
-            Sprite sprite = Sprite.Create(currentStoryModel.MainImage, rect, pivot);
+            Sprite sprite = Sprite.Create(currentStoryModel.MainImage, rect, new Vector2(0.5f, 0.5f));
             imageComponent.sprite = sprite;
         }
 
         if (currentStoryModel.MainImage2 != null)
         {
             Rect rect = new Rect(0, 0, currentStoryModel.MainImage2.width, currentStoryModel.MainImage2.height);
-            Vector2 pivot = new Vector2(0.5f, 0.5f);
-            Sprite sprite = Sprite.Create(currentStoryModel.MainImage2, rect, pivot);
+            Sprite sprite = Sprite.Create(currentStoryModel.MainImage2, rect, new Vector2(0.5f, 0.5f));
             imageComponent2.sprite = sprite;
-        }
-        else
-        {
-            Debug.LogError($"Unable to load texture: {currentStoryModel.MainImage.name}");
         }
 
         yield return new WaitForSeconds(delay);
-
-        StartCoroutine(ShowText());
     }
 
     public void OnWayClick(int index)
     {
         StoryModel playStoryModel = currentStoryModel;
-        Debug.Log($"[OnWayClick] 선택한 옵션 인덱스: {index}");
-
         StoryModel.Option selectedOption = playStoryModel.options[index];
 
         if (selectedOption.eventCheck.sucessResult.Length > 0)
@@ -158,8 +142,133 @@ public class StorySystem : MonoBehaviour
     {
         if (results.Length > 0)
         {
-            Debug.Log($"[ProcessResult] 적용할 결과: {results[0].resultType}, 이동할 스토리 번호: {results[0].value}");
-            GameSystem.Instance.ApplyChoice(results[0]);
+            ApplyChoice(results[0]);
         }
+    }
+
+    public void ApplyChoice(StoryModel.Result result)
+    {
+        switch (result.resultType)
+        {
+            case StoryModel.Result.ResultType.GoToNextStory:
+                currentStoryIndex = result.value;
+                StoryShow(currentStoryIndex);
+                break;
+
+            case StoryModel.Result.ResultType.GoToChoiceScene:
+                SceneManager.LoadScene(result.changeSceneName);
+                break;
+
+            default:
+                Debug.LogError("Unknown effect type");
+                break;
+        }
+    }
+
+    public void StoryShow(int number)
+    {
+        currentStoryModel = FindStoryModel(number);
+
+        if (currentStoryModel != null)
+        {
+            CoShowText();
+            int chapterIndex = GetChapterIndex(number);
+            ChangeChapter(chapterIndex);
+
+            if (chapterIndex == -1 || chapters[chapterIndex].GetComponent<PlayableDirector>() == null)
+            {
+                StartCoroutine(ShowText());
+            }
+        }
+        else
+        {
+            Debug.LogError($"���丮 ���� ã�� �� ����: {number}");
+        }
+    }
+
+    int GetChapterIndex(int storyNumber)
+    {
+        if (storyNumber == 1) return 0;
+        if (storyNumber >= 8 && storyNumber < 9) return 1;
+        if (storyNumber >= 13 && storyNumber < 14) return 2;
+        if (storyNumber >= 18 && storyNumber < 19) return 3;
+        if (storyNumber >= 23 && storyNumber < 24) return 4;
+        if (storyNumber >= 26 && storyNumber < 27) return 5;
+        if (storyNumber >= 33 && storyNumber < 34) return 6;
+        if (storyNumber >= 38 && storyNumber < 39) return 7;
+        if (storyNumber >= 45 && storyNumber < 46) return 8;
+        if (storyNumber >= 50 && storyNumber < 51) return 9;
+        if (storyNumber >= 61 && storyNumber < 62) return 10;
+        return -1;
+    }
+
+    void ChangeChapter(int chapterIndex)
+    {
+        if (chapterIndex == -1 || chapters == null || chapters.Length == 0 || chapterIndex >= chapters.Length)
+        {
+            return;
+        }
+
+        if (activeChapter != null)
+        {
+            PlayableDirector prevDirector = activeChapter.GetComponent<PlayableDirector>();
+            if (prevDirector != null)
+            {
+                prevDirector.Stop();
+            }
+            activeChapter.SetActive(false);
+        }
+
+        activeChapter = chapters[chapterIndex];
+        activeChapter.SetActive(true);
+
+        PlayableDirector newDirector = activeChapter.GetComponent<PlayableDirector>();
+        if (newDirector != null)
+        {
+            newDirector.playOnAwake = false;
+            newDirector.Play();
+            cameraParallax.ResetToInitialPosition();
+            cameraParallax.enabled = false;
+            StartCoroutine(DisableChapterAfterTimeline(newDirector, activeChapter));
+        }
+        else
+        {
+            StartCoroutine(DisableChapterAfterSeconds(activeChapter, 2.0f));
+        }
+    }
+
+    private IEnumerator DisableChapterAfterTimeline(PlayableDirector director, GameObject chapter)
+    {
+        yield return new WaitForSeconds((float)director.duration);
+        chapter.SetActive(false);
+        cameraParallax.enabled = true;
+
+        if (currentStoryModel != null)
+        {
+            StartCoroutine(ShowText());
+        }
+    }
+
+    private IEnumerator DisableChapterAfterSeconds(GameObject chapter, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        chapter.SetActive(false);
+
+        if (currentStoryModel != null)
+        {
+            StartCoroutine(ShowText());
+        }
+    }
+
+    StoryModel FindStoryModel(int number)
+    {
+        foreach (var model in storyModels)
+        {
+            if (model.storyNumber == number)
+            {
+                return model;
+            }
+        }
+        return null;
     }
 }

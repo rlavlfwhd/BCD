@@ -22,6 +22,11 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        RestoreItemState();
+    }
+
     // 퍼즐 완료 등록
     public void CompletePuzzle(string puzzleID)
     {
@@ -66,6 +71,33 @@ public class PuzzleManager : MonoBehaviour
     private IEnumerator GoToNextStory(int storyIndex)
     {
         yield return new WaitForSeconds(2f);
-        GameSystem.Instance.StoryShow(storyIndex);
+        StorySystem.Instance.StoryShow(storyIndex);
     }
+
+    private void RestoreItemState()
+{
+    var acquiredIDs = SceneDataManager.Instance.Data.acquiredItemIDs;
+    GameObject[] all = GameObject.FindObjectsOfType<GameObject>(true);
+
+    foreach (GameObject go in all)
+    {
+        if (!IsPuzzleItem(go)) continue;
+
+        string name = go.name.Replace("(Clone)", "").Trim();
+
+        if (acquiredIDs.Contains(name))
+        {
+            go.SetActive(false); // 이미 얻은 아이템이면 끄고
+        }
+        else
+        {
+            go.SetActive(true);  // 아직 안 얻은 아이템이면 보이게
+        }
+    }
+}
+
+private bool IsPuzzleItem(GameObject go)
+{
+    return go.GetComponent<IObjectItem>() != null;
+}
 }

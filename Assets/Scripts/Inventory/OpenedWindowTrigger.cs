@@ -25,10 +25,8 @@ public class OpenedWindowTriggerUI : MonoBehaviour, IPointerClickHandler
     private IEnumerator WaitAndGoToStory()
     {
         yield return new WaitForSeconds(waitSeconds);
+
+        SceneDataManager.Instance.Data.nextStoryIndex = startStoryNumber;
         SceneManager.LoadScene(storySceneName);
-        yield return null;
-        GameSystem.Instance.currentStoryIndex = startStoryNumber;
-        GameSystem.Instance.StoryShow(startStoryNumber);
-        Debug.Log("씬 전환 전 설정된 스토리 인덱스: " + GameSystem.Instance.currentStoryIndex);
     }
 }

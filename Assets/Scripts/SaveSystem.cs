@@ -11,9 +11,11 @@ public class SaveSystem
         public int currentStoryIndex;
         public string mainImagePath;
         public string mainImagePath2;
+        public string sceneName;
 
         public List<string> inventoryItemNames;
         public List<string> completedPuzzles;
+        public SceneData sceneState;
     }
 
     public static void SaveGame(int slot, int storyIndex, string imagePath, string imagePath2, List<string> inventoryItems, List<string> completedPuzzles)
@@ -24,7 +26,9 @@ public class SaveSystem
             mainImagePath = imagePath,
             mainImagePath2 = imagePath2,
             inventoryItemNames = inventoryItems,
-            completedPuzzles = completedPuzzles // 추가
+            completedPuzzles = completedPuzzles,
+            sceneState = SceneDataManager.Instance.Data, // 상태 저장
+            sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
         };
 
 
@@ -37,10 +41,17 @@ public class SaveSystem
     {
         string path = Application.persistentDataPath + "/saveSlot" + slot + ".json";
 
-        if(File.Exists(path))
+        if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
             SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+
+            // 씬 상태 복원
+            if (saveData.sceneState != null)
+            {
+                SceneDataManager.Instance.Data = saveData.sceneState;
+            }
+
             return saveData;
         }
         else

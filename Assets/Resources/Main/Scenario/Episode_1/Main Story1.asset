@@ -13,30 +13,27 @@ MonoBehaviour:
   m_Name: Main Story1
   m_EditorClassIdentifier: 
   storyNumber: 1
-  MainImage: {fileID: 2800000, guid: 515d68bccbcc1944397930af91b45803, type: 3}
+  MainImage: {fileID: 2800000, guid: e88255b20580d8042909c6e216571ae8, type: 3}
   MainImage2: {fileID: 2800000, guid: 65d06be291a875e44a5ac4d8156cb254, type: 3}
   storyType: 0
-  storyText: "     \uACF5\uC8FC : \uD558...3\uB144\uC774\uB098 \uBC29 \uC548\uC5D0\uB9CC
+  storyText: "      \uACF5\uC8FC : \uD558...3\uB144\uC774\uB098 \uBC29 \uC548\uC5D0\uB9CC
     \uAC07\uD600\uC788\uB2E4\uB294\uAC74 \uB108\uBB34 \uD798\uB4E0 \uC77C\uC774\uAD6C\uB098...
-    \uC774\uC820 \uBB50 \uB54C\uBB38\uC5D0 \uBC29\uC5D0\uB9CC \uC788\uC5B4\uC57C 
-    \uB418\uB294\uC9C0\uB3C4 \uBAA8\uB974\uACE0, \n\n              \uC6D0\uD558\uB294\uAC74
-    \uCDA9\uC871\uC2DC\uCF1C\uC8FC\uC9C0\uB9CC \uC790\uC720\uB9CC\uD07C\uC740 \uC5C6\uC796\uC544...
-    \uC5B4\uB5A1\uD558\uC9C0, \uC655\uAD6D \uBC16\uC73C\uB85C \uB098\uAC00\uACE0
-    \uC2F6\uC740\uB370.\n\n"
-  narrationText: 
-  isNarration: 0
+    \uC774\uC820 \uBB50 \uB54C\uBB38\uC5D0 \uBC29\uC5D0\uB9CC \n\n              \uC788\uC5B4\uC57C 
+    \uB418\uB294\uC9C0\uB3C4 \uBAA8\uB974\uACE0, \uC6D0\uD558\uB294\uAC74 \uCDA9\uC871\uC2DC\uCF1C\uC8FC\uC9C0\uB9CC
+    \uC790\uC720\uB9CC\uD07C\uC740 \uC5C6\uC796\uC544... \uC5B4\uB5A1\uD558\uC9C0,\n     
+    \n              \uC655\uAD6D \uBC16\uC73C\uB85C \uB098\uAC00\uACE0 \uC2F6\uC740\uB370.\n\n"
   options:
   - buttonText: "A. \uC655\uAD6D \uBC16\uC73C\uB85C \uD0C8\uCD9C\uD558\uAE30\uB85C
       \uACB0\uC2EC\uD55C\uB2E4."
     eventCheck:
       sucessResult:
-      - resultType: 0
-        value: 2
-        changeSceneName: 
+      - resultType: 2
+        value: 0
+        changeSceneName: TestScene
   - buttonText: "B. \uD0C8\uCD9C \uC0DD\uAC01\uC744 \uC811\uACE0 \uBC29\uC5D0 \uAC00\uB9CC\uD788
       \uC788\uB294\uB2E4."
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 300
+        value: 600
         changeSceneName: 

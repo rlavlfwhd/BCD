@@ -1,17 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
-using static UnityEngine.Rendering.VolumeComponent;
 
 public class UIItemClickHandler : MonoBehaviour
 {
     public Inventory inventory;
     public GameObject invent;
-
-    void Start()
-    {
-        Inventory.Instance.RefreshSlotReference();
-    }
 
     void Update()
     {
@@ -21,33 +15,33 @@ public class UIItemClickHandler : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 IObjectItem objectItem = hit.collider.GetComponent<IObjectItem>();
+
                 if (objectItem != null)
                 {
+                    //  아이템 획득 처리
                     Item item = objectItem.ClickItem();
-                    print($"{item.itemName}");
-                    inventory.AddItem(item);
+                    if (item != null)
+                    {
+                        Inventory.Instance.AddItem(item);
+                        Debug.Log($"아이템 획득: {item.itemName}");
 
-                    Destroy(hit.collider.gameObject); // 아이템 획득 후 제거
-                    return;
+                        SceneDataManager.Instance.Data.acquiredItemIDs.Add(hit.collider.gameObject.name);
+                        hit.collider.gameObject.SetActive(false); // 획득 후 비활성화
+                        return;
+                    }
                 }
-            }
-            PointerEventData pointerData = new PointerEventData(EventSystem.current);
-            pointerData.position = Input.mousePosition;
 
-            List<RaycastResult> results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointerData, results);
-
-            foreach (RaycastResult result in results)
-            {
-                IObjectItem clickInterface = result.gameObject.GetComponent<IObjectItem>();
-
-                if (clickInterface != null)
+                //  선택된 아이템을 오브젝트에 사용하는 처리
+                if (Inventory.Instance.selectedItem != null)
                 {
-                    Item item = clickInterface.ClickItem();
-                    print($"{item.itemName}");
-                    inventory.AddItem(item);
+                    Item selected = Inventory.Instance.selectedItem;
 
-                    Destroy(result.gameObject);
+                    if (hit.collider.name == "사용할 오브젝트 이름")
+                    {
+                        Inventory.Instance.RemoveItemByName(selected.itemName);
+                        Inventory.Instance.ClearSelection();
+                        Debug.Log($"오브젝트에 {selected.itemName} 사용됨");
+                    }
                 }
             }
         }

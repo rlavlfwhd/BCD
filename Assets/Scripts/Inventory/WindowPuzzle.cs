@@ -16,6 +16,13 @@ public class WindowPuzzle : MonoBehaviour, IDropTarget
     {
         if (item == neededItem && !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
+            if (!SceneDataManager.Instance.Data.isRopeUsed)
+            {
+                Inventory.Instance.RemoveItemByName("Rope4");
+                SceneDataManager.Instance.Data.isRopeUsed = true;
+                Debug.Log("Rope4 사용 완료!");
+            }
+
             PuzzleManager.Instance.CompletePuzzle(puzzleID);
             windowImage.sprite = openedWindowSprite;
             clickableWindowObject.SetActive(true); // 클릭 가능한 열린 창문 등장
