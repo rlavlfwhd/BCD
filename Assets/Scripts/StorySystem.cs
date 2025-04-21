@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -49,12 +49,12 @@ public class StorySystem : MonoBehaviour
             chapters = GameObject.FindGameObjectsWithTag("Chapter");
         }
 
-        // »õ·Î Ãß°¡µÈ ºÎºÐ 
+        // ìƒˆë¡œ ì¶”ê°€ëœ ë¶€ë¶„ 
         int overrideStoryIndex = SceneDataManager.Instance.Data.nextStoryIndex;
         if (overrideStoryIndex > 0)
         {
             currentStoryIndex = overrideStoryIndex;
-            SceneDataManager.Instance.Data.nextStoryIndex = 0; // ÃÊ±âÈ­
+            SceneDataManager.Instance.Data.nextStoryIndex = 0; // ì´ˆê¸°í™”
         }
 
         StoryShow(currentStoryIndex);
@@ -80,6 +80,7 @@ public class StorySystem : MonoBehaviour
     public void ResetShow()
     {
         textComponent.text = "";
+
         for (int i = 0; i < buttonWay.Length; i++)
         {
             buttonWay[i].gameObject.SetActive(false);
@@ -90,7 +91,7 @@ public class StorySystem : MonoBehaviour
     {
         if (string.IsNullOrEmpty(fullText))
         {
-            Debug.LogError("[ShowText] fullText°¡ ºñ¾îÀÖÀ½.");
+            Debug.LogError("[ShowText] fullTextê°€ ë¹„ì–´ìžˆìŒ.");
             yield break;
         }
 
@@ -182,7 +183,7 @@ public class StorySystem : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"½ºÅä¸® ¸ðµ¨À» Ã£À» ¼ö ¾øÀ½: {number}");
+            Debug.LogError($"ìŠ¤í† ë¦¬ ëª¨ë¸ì„ ì°¾ì„ ìˆ˜ ì—†ìŒ: {number}");
         }
     }
 

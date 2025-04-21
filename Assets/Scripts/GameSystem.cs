@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -79,7 +79,7 @@ public class GameSystem : MonoBehaviour
         SceneDataManager.Instance.Data = new SceneData();
         SceneDataManager.Instance.Data = saveData.sceneState;
 
-        if (saveData.sceneName.Contains("Puzzle") || saveData.sceneName == "TestScene") // ÆÛÁñ¾À ÀÌ¸§ ±âÁØ
+        if (saveData.sceneName.Contains("Puzzle") || saveData.sceneName == "TestScene") // í¼ì¦ì”¬ ì´ë¦„ ê¸°ì¤€
         {
             foreach (string id in SceneDataManager.Instance.Data.acquiredItemIDs)
             {
@@ -96,7 +96,7 @@ public class GameSystem : MonoBehaviour
             }
         }
 
-        // ¾ÆÀÌÅÛ/ÆÛÁñ º¹¿ø
+        // ì•„ì´í…œ/í¼ì¦ ë³µì›
         Inventory.Instance.items.Clear();
         foreach (var itemName in saveData.inventoryItemNames)
         {
@@ -108,7 +108,7 @@ public class GameSystem : MonoBehaviour
 
         PuzzleManager.Instance.SetCompletedPuzzleList(saveData.completedPuzzles);
 
-        // PlaySceneÀÎ °æ¿ì¿¡¸¸ StorySystem »ç¿ë
+        // PlaySceneì¸ ê²½ìš°ì—ë§Œ StorySystem ì‚¬ìš©
         if (saveData.sceneName == "PlayScene")
         {
             while (StorySystem.Instance == null || StorySystem.Instance.textComponent == null)
@@ -137,4 +137,6 @@ public class GameSystem : MonoBehaviour
 
         PuzzleManager.Instance.SetCompletedPuzzleList(saveData.completedPuzzles);
     }
+   
 }
+

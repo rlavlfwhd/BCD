@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: Story_A4
+  m_EditorClassIdentifier: 
+  storyNumber: 5
+  MainImage: {fileID: 2800000, guid: d0e194079a9662e4bb2ab52e3f0c451f, type: 3}
+  MainImage2: {fileID: 2800000, guid: cadfa4b701521ef45b31518974fbfc1b, type: 3}
+  storyType: 1
+  storyText: "     \n     \uACF5\uC8FC :  \uC544\uB0D0, \uD568\uBD80\uB85C \uB098\uC654\uB2E4\uAC00
+    \uB4E4\uD0AC \uC218\uB3C4 \uC788\uC5B4. \uADF8\uB798\uB3C4 \uC9C0\uAE08\uC740
+    \uC0AC\uB78C\uC774 \uC548\uC9C0\uB098\uB2E4\uB2C8\uB2C8\uAE4C \uC55E\uC5D0 \uC788\uB294
+    \uAC11\uC637 \uC548\uC5D0 \uC5B4\uB5BB\uAC8C\uB4E0 \n              \n              
+    \uB4E4\uC5B4\uAC00\uC11C \uBC24\uAE4C\uC9C0 \uC228\uC5B4\uC788\uC5B4\uC57C\uACA0\uC5B4.
+    \n"
+  narrationText: "(\uB098\uB808\uC774\uC158) \r\n\r\n\uACF5\uC8FC\uB294 \uC0AC\uB78C\uC774
+    \uBC29 \uC55E\uC744 \uC9C0\uB098\uB2E4\uB2C8\uC9C0\r\n\r\n\uC54A\uC740 \uD2C8\uC744
+    \uD0C0 \uBCF5\uB3C4\uC5D0 \uC804\uC2DC \uB41C  \r\n\r\n\uAC11\uC637 \uC548\uC5D0
+    \uB4E4\uC5B4\uAC00 \uD574\uAC00 \uC9C0\uACE0,\r\n\r\n\uC0AC\uB78C\uB4E4\uC774
+    \uC798\uB54C\uAE4C\uC9C0 \uC228\uC5C8\uB2E4.\n\n[\uC2DC\uAC04\uC774 \uB9CE\uC774
+    \uD750\uB974\uACE0]"
+  isNarration: 0
+  options:
+  - buttonText: "A. \uBCF5\uB3C4\uC758 \uD070 \uCC3D\uC744 \uC628\uBAB8\uC73C\uB85C
+      \uAE68\uACE0 \uB098\uC628\uB2E4."
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 6
+        changeSceneName: 

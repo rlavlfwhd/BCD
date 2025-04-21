@@ -12,35 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: Story_AB
   m_EditorClassIdentifier: 
-  storyNumber: 5
-  MainImage: {fileID: 2800000, guid: f68b4497821fdbe4bbf4245600359c90, type: 3}
-  MainImage2: {fileID: 2800000, guid: e0c08efccc72b0947a2976d61ee5adf6, type: 3}
-  MainImage3: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
+  storyNumber: 26
+  MainImage: {fileID: 2800000, guid: 8df3ed7736650ac4dae5969fcf4becf1, type: 3}
+  MainImage2: {fileID: 2800000, guid: 92e5f6811ac3dca42a0474fe08fd562b, type: 3}
   storyType: 2
-  storyText: "\n-1\uC77C\uCC28-\n\n\"\uACE0\uB9C8\uC6CC, \uD638\uC704\uAE30\uC0AC!
-    \uC694\uB9AC\uC0AC\uC758 \uB9DB\uC788\uB294 \uCFE0\uD0A4\uB97C \uAC00\uC838\uB2E4
-    \uC918.\"\n\n\uAE30\uC0AC\uB294 \uACE0\uAC1C\uB97C \uB044\uB355\uC774\uACE0 \uACF5\uC8FC\uC758
-    \uBC29\uC744 \uB098\uC654\uC2B5\uB2C8\uB2E4. \uC694\uB9AC\uC0AC\uC5D0\uAC8C \uACF5\uC8FC\uB97C
-    \uC704\uD55C \uCFE0\uD0A4\uB97C \uAD6C\uC6CC\uB2EC\uB77C\uACE0 \uAC00\uB824\uB358
-    \uCC30\uB098\uC5D0 \uAC11\uC790\uAE30 \uC0DD\uAC01\uC774 \uB4E4\uC5C8\uC2B5\uB2C8\uB2E4.
-    \uC694\uB9AC\uC0AC\uC5D0\uAC8C \uBD80\uD0C1\uD558\uBA74 \uC694\uB9AC\uC0AC\uB098
-    \uB610\uB294 \uB204\uAD70\uAC00\uAC00 \uAD6C\uC6CC\uC9C4 \uCFE0\uD0A4\uC5D0 \uB3C5\uC744
-    \uD0C8 \uAC83 \uAC19\uC740 \uAC00\uB2A5\uC131\uC5D0 \uACE0\uBBFC\uC744 \uD569\uB2C8\uB2E4.
-    \uC694\uB9AC\uB97C \uBABB\uD558\uB294 \uC790\uC2E0\uC774 \uC548\uC804\uD558\uAC8C
-    \uAD6C\uC6B8\uC9C0. \uC704\uD5D8\uD560 \uC9C0\uB3C4 \uBAA8\uB974\uC9C0\uB9CC
-    \uB9DB\uC788\uB294 \uC694\uB9AC\uC0AC\uC758 \uCFE0\uD0A4\uB97C \uAC00\uC838\uC62C\uC9C0.\n"
+  storyText: "     \uACF5\uC8FC : \uB0AE\uC740 \uC0AC\uB78C\uB4E4\uC774 \uB9CE\uC774
+    \uC9C0\uB098\uAC00\uB2C8\uAE4C \uC778\uAE30\uCC99\uC774 \uC5C6\uB2E4\uACE0 \uB098\uC654\uB2E4\uAC00
+    \uB4E4\uD0AC \uC218\uB3C4 \uC788\uC5B4. \n             \n              \uADF8\uB7EC\uB2C8
+    \uADF8\uB098\uB9C8 \uC548\uC804\uD558\uAC8C \uBC24\uC5D0 \uB098\uAC00\uB294\uAC8C
+    \uC88B\uACA0\uC5B4.    \n\n"
+  narrationText: "(\uB098\uB808\uC774\uC158)\r\n\r\n\uACF5\uC8FC\uB294 \uBC24\uAE4C\uC9C0
+    \uBC29\uC5D0\uC11C \uAC00\uB9CC\uD788 \uC788\uB294 \r\n\r\n\uCC99 \uD574\uAC00
+    \uC9C8\uB54C \uAE4C\uC9C0 \uAE30\uB2E4\uB838\uB2E4. \r\n\r\n\r\uADF8\uB9AC\uACE0
+    \uD574\uAC00 \uC644\uC804\uD788 \uC9C0\uACE0 \uBC24\uC774 \uC654\uC744\r\n\r\n\uB54C,
+    \uACF5\uC8FC\uB294 \uC549\uC544\uC788\uB358 \uCE68\uB300\uC5D0\uC11C \r\n\r\n\uC77C\uC5B4\uB098
+    \uBB38 \uC55E\uC5D0 \uC130\uB2E4."
+  isNarration: 0
   options:
-  - buttonText: "A) (\uAE30\uC0AC\uAC00 \uC9C1\uC811 \uCFE0\uD0A4\uB97C \uAD6C\uC6CC\uB2E4
-      \uC900\uB2E4.)"
+  - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
-      - resultType: 0
-        value: 8
-        changeSceneName: 
-  - buttonText: "B) (\uC694\uB9AC\uC0AC\uC758 \uCFE0\uD0A4\uB97C \uAC00\uC838\uB2E4
-      \uC900\uB2E4.) "
-    eventCheck:
-      sucessResult:
-      - resultType: 0
-        value: 8
-        changeSceneName: 
+      - resultType: 2
+        value: 0
+        changeSceneName: TestScene
