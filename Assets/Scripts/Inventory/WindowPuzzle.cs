@@ -13,7 +13,6 @@ public class WindowPuzzle : MonoBehaviour
     public GameObject overlayImage; // 
     public string puzzleID = "window_rope";
     public int nextStoryIndex = 11;
-    public CameraParallax cameraParallax;
 
     void OnMouseDown()
     {
@@ -48,13 +47,10 @@ public class WindowPuzzle : MonoBehaviour
     {
         if (overlayImage != null)
         {
-            overlayImage.SetActive(true); // 오버레이 표시
-            cameraParallax.ResetToInitialPosition();
-            cameraParallax.enabled = false;
+            overlayImage.SetActive(true); // 오버레이 표시            
         }
 
         yield return new WaitForSeconds(delay);
-        cameraParallax.enabled = true;
         SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
         SceneManager.LoadScene("PlayScene");
     }

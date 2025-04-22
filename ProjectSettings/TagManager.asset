@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Collectible
   - DropSlot
+  - Chapter
+  - Mirror
+  - Door
   layers:
   - Default
   - TransparentFX

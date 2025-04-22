@@ -28,4 +28,4 @@ MonoBehaviour:
       sucessResult:
       - resultType: 2
         value: 0
-        changeSceneName: TestScene
+        changeSceneName: PBookshelfScene
