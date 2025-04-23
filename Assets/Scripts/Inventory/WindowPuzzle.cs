@@ -14,7 +14,21 @@ public class WindowPuzzle : MonoBehaviour
     public string puzzleID = "window_rope";
     public int nextStoryIndex = 11;
 
-    void OnMouseDown()
+    private bool isWindowOpened = false;
+
+    private void OnMouseDown()
+    {
+        if(!isWindowOpened)
+        {
+            TryUseRope();
+        }
+        else
+        {
+            StartCoroutine(GoToStoryAfterDelay(2f));
+        }
+    }
+
+    void TryUseRope()
     {
         Item selected = Inventory.Instance.firstSelectedItem;
 
@@ -37,9 +51,9 @@ public class WindowPuzzle : MonoBehaviour
             Inventory.Instance.RemoveItemByName(selected.itemName);
             Inventory.Instance.ClearSelection();
 
-            Debug.Log("3D 창문 열림! Rope4 사용 완료");
+            isWindowOpened = true;
 
-            StartCoroutine(GoToStoryAfterDelay(2f));
+            Debug.Log("3D 창문 열림! Rope4 사용 완료");
         }
     }
 
@@ -52,7 +66,7 @@ public class WindowPuzzle : MonoBehaviour
 
         yield return new WaitForSeconds(delay);
         SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
-        SceneManager.LoadScene("PlayScene");
+        SceneManager.LoadScene("StoryScene");
     }
 }
 

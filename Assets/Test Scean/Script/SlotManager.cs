@@ -5,6 +5,7 @@ public class SlotManager : MonoBehaviour
     public BookSlot[] slots;                 // 슬롯 배열
     public GameObject backgroundObject;      // 배경 오브젝트 (책장 오브젝트)
     public GameObject Door;
+    public Item chickenStatueItem;
 
     private bool allSlotsFilled = false;
 
@@ -14,6 +15,8 @@ public class SlotManager : MonoBehaviour
         {
             allSlotsFilled = true;
             Debug.Log("🎉 모든 슬롯이 채워졌습니다!");
+
+            Inventory.Instance.AddItem(chickenStatueItem);
             Door.SetActive(true);
             StartCoroutine(SlideOutBookshelf()); // 여기서 슬라이드 효과 호출
         }

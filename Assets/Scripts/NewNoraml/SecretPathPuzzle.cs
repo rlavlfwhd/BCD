@@ -11,9 +11,24 @@ public class SecretPath : MonoBehaviour
     public Material openedDoorMaterial;
     public GameObject clickableWindowObject;    
     public string puzzleID = "Pendant";
-    public int nextStoryIndex = 3;
+    public int nextStoryIndex = 301;
 
-    void OnMouseDown()
+    private bool isDoorOpened = false;
+
+    private void OnMouseDown()
+    {
+        if (!isDoorOpened)
+        {
+            TryClick();
+        }
+        else
+        {
+            StartCoroutine(GoToStoryAfterDelay(2f));
+        }
+    }
+
+
+    void TryClick()
     {
         Item selected = Inventory.Instance.firstSelectedItem;
 
@@ -36,16 +51,16 @@ public class SecretPath : MonoBehaviour
             Inventory.Instance.RemoveItemByName(selected.itemName);
             Inventory.Instance.ClearSelection();
 
-            Debug.Log("3D 창문 열림! Rope4 사용 완료");
+            isDoorOpened = true;
 
-            //StartCoroutine(GoToStoryAfterDelay(2f));
+            Debug.Log("철문열림! 펜던트 사용 완료");            
         }
     }
 
-    /*private IEnumerator GoToStoryAfterDelay(float delay)
+    private IEnumerator GoToStoryAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
-        SceneManager.LoadScene("PlayScene");
-    }*/
+        SceneManager.LoadScene("StoryScene");
+    }
 }

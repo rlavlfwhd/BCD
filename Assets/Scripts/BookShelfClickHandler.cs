@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MirrorClick : MonoBehaviour
+public class BookShelfClickHandler : MonoBehaviour
 {
     public GameObject backButton;
 
