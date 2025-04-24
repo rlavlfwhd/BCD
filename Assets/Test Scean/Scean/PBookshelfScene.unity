@@ -204,11 +204,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "    \uACF5\uC8FC : \uC74C... \uC774\uC81C \uC544\uBB34\uB3C4 \uBC29\uC744
-    \uC9C0\uB098\uAC00\uC9C0 \uC54A\uC744 \uAC83 \uAC19\uC740\uB370 \uC870\uC6A9\uD788
-    \uB098\uC62C\uAE4C, \uC544\uB2C8\uBA74 \uC61B\uBD80\uD130 \uC655\uC871\uB4E4\uC758                                          
-    \n\n            \uBC29\uC5D0\uB294 \uB300\uD53C\uC6A9 \uBE44\uBC00\uD1B5\uB85C\uAC00
-    \uC788\uB2E4\uACE0 \uD588\uB294\uB370 \uADF8\uAC78 \uCC3E\uC544\uBCFC\uAE4C? "
+  m_text: "    \uACF5\uC8FC : (\uCE68\uCC29\uD55C \uD45C\uC815) \uBCF5\uB3C4\uB85C
+    \uBAB0\uB798 \uB098\uAC00\uB824\uB2E4\uAC00 \uC6B4\uC774 \uC548 \uC88B\uC544\uC11C
+    \uB4E4\uD0AC \uC218\uB3C4 \uC788\uC744\uAC70\uC57C. \n                \n            
+    \uBE44\uBC00\uD1B5\uB85C\uB97C \uCC3E\uC544\uC11C \uC548\uC804\uD558\uAC8C \uAC00\uBCF4\uC790."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f022945ce3fd3af48bf5456a9cf2730f, type: 2}
   m_sharedMaterial: {fileID: -8592929152113110068, guid: f022945ce3fd3af48bf5456a9cf2730f,

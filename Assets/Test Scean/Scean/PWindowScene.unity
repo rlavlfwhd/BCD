@@ -769,11 +769,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "    \uACF5\uC8FC : \uC74C... \uC774\uC81C \uC544\uBB34\uB3C4 \uBC29\uC744
-    \uC9C0\uB098\uAC00\uC9C0 \uC54A\uC744 \uAC83 \uAC19\uC740\uB370 \uC870\uC6A9\uD788
-    \uB098\uC62C\uAE4C, \uC544\uB2C8\uBA74 \uC61B\uBD80\uD130 \uC655\uC871\uB4E4\uC758                                          
-    \n\n            \uBC29\uC5D0\uB294 \uB300\uD53C\uC6A9 \uBE44\uBC00\uD1B5\uB85C\uAC00
-    \uC788\uB2E4\uACE0 \uD588\uB294\uB370 \uADF8\uAC78 \uCC3E\uC544\uBCFC\uAE4C? "
+  m_text: "    \uACF5\uC8FC : (\uCE68\uCC29\uD55C \uD45C\uC815) \uAE09\uD558\uAC8C
+    \uB098\uAC00\uB824\uB2E4\uAC00 \uC624\uD788\uB824 \uB4E4\uD0AC \uC218\uB3C4 \uC788\uC744
+    \uAC83 \uAC19\uC740 \uB290\uB08C\uC774\uB4E4\uC5B4. \n              \uCE68\uCC29\uD558\uAC8C
+    \uBC29 \uC548\uC5D0\uC11C \uD0C8\uCD9C\uC5D0 \uC4F8\uB9CC\uD55C \uBB3C\uAC74\uC744
+    \uCC3E\uC544\uC57C\uACA0\uC5B4.\n              \uADF8\uB7FC \uC4F8\uB9CC\uD55C
+    \uBB3C\uAC74\uC744 \uCC3E\uC544\uBCFC\uAE4C?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f022945ce3fd3af48bf5456a9cf2730f, type: 2}
   m_sharedMaterial: {fileID: -8592929152113110068, guid: f022945ce3fd3af48bf5456a9cf2730f,
@@ -813,7 +814,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: -40
+  m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
