@@ -9,6 +9,8 @@ TagManager:
   - Chapter
   - Mirror
   - Door
+  - PlaceSlot
+  - Crop
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Crop
+  - Tile
   - 
   - 
   - 
