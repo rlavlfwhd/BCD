@@ -6,12 +6,7 @@ public class DraggableObject3D : MonoBehaviour
     private float zCoord;
     private Vector3 originalPosition;
     private bool isLocked = false;
-
-    [Header("Mirror 연출용")]
-    public GameObject mirrorOriginal;     // 원래 거울
-    public GameObject mirrorAlternate;    // 바뀐 거울
-    public GameObject pendantObject;      // 펜던트 오브젝트 (Mirror2가 나타날 때 활성화)
-
+  
     void OnMouseDown()
     {
         if (isLocked) return;
@@ -55,7 +50,7 @@ public class DraggableObject3D : MonoBehaviour
             // 🎯 BookSlot 처리
             if (hit.CompareTag("DropSlot"))
             {
-                Debug.Log("✅ 태그 일치: DropSlot");
+                Debug.Log("태그 일치: DropSlot");
 
                 BookSlot slot = hit.GetComponent<BookSlot>();
                 if (slot != null)
@@ -89,51 +84,7 @@ public class DraggableObject3D : MonoBehaviour
                     Debug.Log("🚫 BookSlot 컴포넌트 없음");
                 }
             }
-
-            // 🪞 Mirror 처리
-            else if (hit.CompareTag("Mirror"))
-            {
-                Debug.Log("🪞 거울 감지됨 → 연출 시작");
-
-                if (mirrorOriginal != null) mirrorOriginal.SetActive(false);
-                if (mirrorAlternate != null) mirrorAlternate.SetActive(true);
-                if (pendantObject != null) pendantObject.SetActive(true); // ✅ 펜던트도 활성화
-
-                isLocked = true;
-
-                gameObject.SetActive(false); // 🎯 이 오브젝트를 비활성화
-
-                Debug.Log("✅ 거울 교체 + 펜던트 활성화 + 오브젝트 비활성화 완료");
-                return;
-            }
-
-            // 🚪 Door 처리 (펜던트를 드랍하면 문과 펜던트 모두 사라짐)
-            else if (hit.CompareTag("Door"))
-            {
-                Debug.Log("🚪 Door 감지됨 → 문과 펜던트 비활성화 시도");
-
-                if (hit.gameObject != null)
-                {
-                    hit.gameObject.SetActive(false);   // 문 비활성화
-                    gameObject.SetActive(false);       // 펜던트 자신 비활성화
-                    isLocked = true;
-
-                    Debug.Log("✅ 문과 펜던트 비활성화 완료");
-                    return;
-                }
-                else
-                {
-                    Debug.LogWarning("❌ 감지된 Door 오브젝트가 null임!");
-                }
-            }
-
-            else
-            {
-                Debug.Log("⛔ 태그 불일치: DropSlot/Mirror/Door 아님");
-            }
-        }
-
-        Debug.Log("❌ 슬롯 없음 또는 실패 → 원위치로 복귀");
+        }        
         StartCoroutine(SmoothMove(transform.position, originalPosition, 0.2f));
     }
 

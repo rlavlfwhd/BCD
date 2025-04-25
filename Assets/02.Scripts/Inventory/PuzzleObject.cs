@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PuzzleObject : MonoBehaviour, IDropTarget
+public class PuzzleObject : MonoBehaviour
 {
     public string puzzleID = "rope_puzzle";
     public Item neededItem;

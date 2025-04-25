@@ -4,7 +4,7 @@ public class BookShelfClickHandler : MonoBehaviour
 {
     public GameObject backButton;
 
-    public GameObject[] objects;
+    public GameObject BookShelfChild;
 
     private void Start()
     {
@@ -15,15 +15,11 @@ public class BookShelfClickHandler : MonoBehaviour
     {
         bool anyObjectActive = false;
 
-        foreach (GameObject obj in objects)
-        {
-            if (obj.activeSelf)
+            if (BookShelfChild.activeSelf)
             {
                 anyObjectActive = true;
-                break;
             }
-        }
-
+       
         if (anyObjectActive)
         {
             if (!SceneDataManager.Instance.Data.isMirrorFlipped)
@@ -43,21 +39,13 @@ public class BookShelfClickHandler : MonoBehaviour
 
     public void BackBtn()
     {
-        foreach (GameObject obj in objects)
-        {
-            obj.SetActive(false);
-        }
-
+        BookShelfChild.SetActive(false);
         CheckBackButton();
     }
 
     void OnMouseDown()
     {
-        foreach (GameObject obj in objects)
-        {
-            obj.SetActive(true);
-        }
-
+        BookShelfChild.SetActive(true);        
         CheckBackButton();
     }
 }
