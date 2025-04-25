@@ -317,9 +317,9 @@ GameObject:
   - component: {fileID: 157714721}
   - component: {fileID: 157714720}
   - component: {fileID: 157714719}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Yellow2
-  m_TagString: DropSlot
+  m_TagString: PlaceSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -771,9 +771,9 @@ GameObject:
   - component: {fileID: 475789620}
   - component: {fileID: 475789619}
   - component: {fileID: 475789618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Yellow3
-  m_TagString: DropSlot
+  m_TagString: PlaceSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -997,6 +997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockOnDrop: 0
 --- !u!65 &476873351
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1508,7 +1509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &548673580
 Transform:
   m_ObjectHideFlags: 0
@@ -1540,9 +1541,10 @@ GameObject:
   - component: {fileID: 568756684}
   - component: {fileID: 568756683}
   - component: {fileID: 568756682}
-  m_Layer: 0
+  - component: {fileID: 568756686}
+  m_Layer: 7
   m_Name: Red Slot1
-  m_TagString: DropSlot
+  m_TagString: PlaceSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1646,6 +1648,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568756680}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &568756686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568756680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0791773e45dd14ab50d588d06b041f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOn: 0
+  onColor: {r: 0, g: 1, b: 0, a: 1}
+  offColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &659972202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,12 +1674,13 @@ GameObject:
   - component: {fileID: 659972206}
   - component: {fileID: 659972205}
   - component: {fileID: 659972204}
-  - component: {fileID: 659972208}
   - component: {fileID: 659972209}
   - component: {fileID: 659972207}
-  m_Layer: 0
+  - component: {fileID: 659972210}
+  - component: {fileID: 659972208}
+  m_Layer: 6
   m_Name: BlueBook1
-  m_TagString: Untagged
+  m_TagString: Crop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1747,7 +1765,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1765,6 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockOnDrop: 1
 --- !u!64 &659972209
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1782,11 +1801,23 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &659972210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659972202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7cc4ad01b6b9e4da617ad5673fd18a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &690194367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,9 +2115,9 @@ GameObject:
   - component: {fileID: 842200403}
   - component: {fileID: 842200402}
   - component: {fileID: 842200401}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blue1
-  m_TagString: DropSlot
+  m_TagString: PlaceSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2483,9 +2514,10 @@ GameObject:
   - component: {fileID: 990030016}
   - component: {fileID: 990030015}
   - component: {fileID: 990030014}
-  m_Layer: 0
+  - component: {fileID: 990030018}
+  m_Layer: 7
   m_Name: Red Slot2
-  m_TagString: DropSlot
+  m_TagString: PlaceSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2533,7 +2565,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2589,6 +2621,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990030012}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &990030018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990030012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0791773e45dd14ab50d588d06b041f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOn: 0
+  onColor: {r: 0, g: 1, b: 0, a: 1}
+  offColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &1068179893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,6 +2756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockOnDrop: 0
 --- !u!65 &1068179899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2980,9 +3028,9 @@ GameObject:
   - component: {fileID: 1244574853}
   - component: {fileID: 1244574852}
   - component: {fileID: 1244574851}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blue2
-  m_TagString: DropSlot
+  m_TagString: PlaceSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3135,9 +3183,9 @@ GameObject:
   - component: {fileID: 1276398132}
   - component: {fileID: 1276398137}
   - component: {fileID: 1276398136}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RedBook1
-  m_TagString: Untagged
+  m_TagString: Crop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3223,7 +3271,7 @@ Transform:
   m_GameObject: {fileID: 1276398131}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 68.58181, y: -83, z: -11}
+  m_LocalPosition: {x: 48, y: -44, z: -11}
   m_LocalScale: {x: 107.26366, y: 290.07623, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3241,6 +3289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockOnDrop: 0
 --- !u!65 &1276398137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3393,9 +3442,10 @@ GameObject:
   - component: {fileID: 1473760571}
   - component: {fileID: 1473760570}
   - component: {fileID: 1473760569}
-  m_Layer: 0
+  - component: {fileID: 1473760573}
+  m_Layer: 7
   m_Name: Yellow1
-  m_TagString: DropSlot
+  m_TagString: PlaceSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3499,6 +3549,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473760567}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1473760573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473760567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0791773e45dd14ab50d588d06b041f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOn: 0
+  onColor: {r: 0, g: 1, b: 0, a: 1}
+  offColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
 --- !u!1 &1479715344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,6 +3684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockOnDrop: 0
 --- !u!65 &1479715350
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3777,7 +3843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1574076123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4570,6 +4636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockOnDrop: 0
 --- !u!65 &1876190333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4711,6 +4778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockOnDrop: 0
 --- !u!65 &1921279973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4866,9 +4934,9 @@ GameObject:
   - component: {fileID: 2039560015}
   - component: {fileID: 2039560020}
   - component: {fileID: 2039560019}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlueBook2
-  m_TagString: Untagged
+  m_TagString: Crop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4972,6 +5040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockOnDrop: 1
 --- !u!65 &2039560020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4987,7 +5056,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5113,6 +5182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockOnDrop: 0
 --- !u!65 &2109570516
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5254,6 +5324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockOnDrop: 0
 --- !u!65 &2110111072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5395,6 +5466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockOnDrop: 0
 --- !u!65 &2137922331
 BoxCollider:
   m_ObjectHideFlags: 0
