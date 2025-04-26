@@ -24,7 +24,7 @@ public class PuzzleManager : MonoBehaviour
 
     private void Start()
     {
-        RestoreItemState();
+        //RestoreItemState();
     }
 
     // 퍼즐 완료 등록
