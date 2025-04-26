@@ -12,21 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: Story_AA
   m_EditorClassIdentifier: 
-  storyNumber: 4
+  storyNumber: 5
   MainImage: {fileID: 2800000, guid: d0e194079a9662e4bb2ab52e3f0c451f, type: 3}
-  MainImage2: {fileID: 2800000, guid: e88255b20580d8042909c6e216571ae8, type: 3}
-  MainImage3: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
-  storyType: 1
-  storyText: "\n-1\uC77C\uCC28-\n\n\"\uC65C \uC548\uB418\uB294\uAC70\uC57C? \uC870\uAE08\uB9CC...
-    \uC544\uB2C8, \uD558\uB098\uB9CC \uBA39\uC744\uAC8C. \uB531 \uD558\uB098\uB9CC,
-    \uC751\"\n\n\"\uC548\uB429\uB2C8\uB2E4. \uC808.\uB300 \uC548\uB429\uB2C8\uB2E4.\"\n\n\uAE30\uC0AC\uC758
-    \uB2E8\uD638\uD55C \uAC70\uC808\uC5D0 \uACF5\uC8FC\uB294 \uCFE0\uD0A4\uB97C \uBABB
-    \uBA39\uC5B4 \uC544\uC26C\uC6B4 \uB4EF\uC774 \uC2AC\uD508 \uD45C\uC815\uACFC
-    \uBAB8\uC744 \uC870\uAE08 \uC6C0\uCE20\uB838\uC2B5\uB2C8\uB2E4."
+  MainImage2: {fileID: 2800000, guid: cadfa4b701521ef45b31518974fbfc1b, type: 3}
+  storyText: "    \uACF5\uC8FC : (\uACB0\uC2EC\uD558\uB4EF\uC774 \uBD88\uB048 \uC8FC\uBA39\uC9C0\uB294
+    \uC790\uC138\uC640 \uD45C\uC815) \uBC29\uBD80\uD130 \uBE68\uB9AC \uB098\uAC00\uB824\uBA74
+    \uBC24\uAE4C\uC9C0 \uAE30\uB2E4\uB9B4 \uC774\uC720\uAC00 \uC5C6\uC5B4. \n           
+    \n              \uB0AE\uC774\uB77C \uBD88\uC548\uD558\uC9C0\uB9CC \uC9C0\uAE08
+    \uB098\uAC00\uB294 \uC218\uBC16\uC5D0 \uC5C6\uC5B4."
   options:
-  - buttonText: "\uB118\uC5B4\uAC00\uAE30"
+  - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 8
+        value: 6
         changeSceneName: 

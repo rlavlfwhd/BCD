@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: 11111
+  m_EditorClassIdentifier: 
+  storyNumber: 1
+  MainImage: {fileID: 0}
+  MainImage2: {fileID: 0}
+  storyText: "1 \uCC3D\uBB38\n2 \uCC45\uC7A5"
+  options:
+  - buttonText: "\uCC3D\uBB38"
+    eventCheck:
+      sucessResult:
+      - resultType: 2
+        value: 0
+        changeSceneName: PWindowScene
+  - buttonText: "\uCC45\uC7A5"
+    eventCheck:
+      sucessResult:
+      - resultType: 2
+        value: 0
+        changeSceneName: PBookShelfScene

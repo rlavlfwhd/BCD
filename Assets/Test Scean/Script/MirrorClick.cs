@@ -2,30 +2,62 @@ using UnityEngine;
 
 public class MirrorClick : MonoBehaviour
 {
-    public GameObject layer2;
-    public GameObject layer0;
+    public GameObject backButton;
 
-    private bool isLayer2Active = false;
+    public GameObject[] objects;
 
-    void OnMouseDown()
+    private void Start()
     {
-        if (!isLayer2Active)
+        CheckBackButton();
+    }
+
+    public void CheckBackButton()
+    {
+        bool anyObjectActive = false;
+
+        foreach (GameObject obj in objects)
         {
-            // 0Layer → 2Layer 전환
-            if (layer2 != null)
-                layer2.SetActive(true);
-            if (layer0 != null)
-                layer0.SetActive(false);
+            if (obj.activeSelf)
+            {
+                anyObjectActive = true;
+                break;
+            }
+        }
+
+        if (anyObjectActive)
+        {
+            if (!SceneDataManager.Instance.Data.isMirrorFlipped)
+            {
+                backButton.SetActive(true); // 오브젝트가 켜져 있고, 거울 안 깼을 때만 보임
+            }
+            else
+            {
+                backButton.SetActive(false); // 오브젝트가 켜져 있어도 거울 깼으면 안 보임
+            }
         }
         else
         {
-            // 2Layer → 0Layer 복귀
-            if (layer2 != null)
-                layer2.SetActive(false);
-            if (layer0 != null)
-                layer0.SetActive(true);
+            backButton.SetActive(false); // 오브젝트 꺼져 있으면 무조건 안 보임
+        }
+    }
+
+    public void BackBtn()
+    {
+        foreach (GameObject obj in objects)
+        {
+            obj.SetActive(false);
         }
 
-        isLayer2Active = !isLayer2Active;
+        CheckBackButton();
+    }
+
+    void OnMouseDown()
+    {
+        foreach (GameObject obj in objects)
+        {
+            obj.SetActive(true);
+        }
+
+        CheckBackButton();
     }
 }

@@ -12,27 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: Story_ABA
   m_EditorClassIdentifier: 
-  storyNumber: 5
-  MainImage: {fileID: 2800000, guid: f68b4497821fdbe4bbf4245600359c90, type: 3}
-  MainImage2: {fileID: 2800000, guid: e88255b20580d8042909c6e216571ae8, type: 3}
-  MainImage3: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
-  storyType: 2
-  storyText: "\n-1\uC77C\uCC28-\n\n\uB9DB\uBCF4\uB2E4\uB294 \uC548\uC815\uC131\uC774
-    \uB354 \uB098\uC744 \uAC83 \uAC19\uB2E4\uB294 \uC0DD\uAC01\uC5D0 \uAE30\uC0AC\uB294
-    \uC694\uB9AC\uC0AC\uC5D0\uAC8C \uBD80\uC5CC\uC744 \uBE4C\uB824 \uC9C1\uC811 \uCFE0\uD0A4\uB97C
-    \uAD6C\uC6CC\uAC14\uC2B5\uB2C8\uB2E4.\n\n\"\uACF5\uC8FC\uB2D8, \uC694\uB9AC\uC0AC\uB294
-    \uCFE0\uD0A4\uB294 \uB204\uAD70\uAC00 \uB3C5\uC744 \uD0C8 \uAC00\uB2A5\uC131\uC774
-    \uC788\uC5B4 \uC704\uD5D8\uD560 \uC218\uB3C4 \uC788\uAE30\uC5D0 \uC81C\uAC00
-    \uBD80\uC5CC\uC744 \uBE4C\uB824 \uC9C1\uC811 \uCFE0\uD0A4\uB97C \uAD6C\uC6CC\uC84C\uC2B5\uB2C8\uB2E4.\"\n\n\"\uB09C
-    \uC694\uB9AC\uC0AC\uC758 \uCFE0\uD0A4\uB97C \uBA39\uACE0 \uC2F6\uC740\uAC70\uC600\uB294\uB370...
-    \uC544\uB2C8\uC57C, \uAE30\uC0AC\uC758 \uCFE0\uD0A4\uB3C4 \uB9DB\uC788\uC744
-    \uAC83 \uAC19\uC544! \uC798\uBA39\uC744\uAC8C.\"\n\n\uACF5\uC8FC\uB294 \uB2F9\uD669\uD558\uB294
-    \uAC83 \uAC19\uB354\uB2C8 \uC548 \uC88B\uC740 \uC0DD\uAC01\uC744 \uB5A8\uCE58\uB824\uB294
-    \uB4EF \uACE0\uAC1C\uB97C \uC774\uB9AC\uC800\uB9AC  "
+  storyNumber: 122
+  MainImage: {fileID: 2800000, guid: d0e194079a9662e4bb2ab52e3f0c451f, type: 3}
+  MainImage2: {fileID: 2800000, guid: cadfa4b701521ef45b31518974fbfc1b, type: 3}
+  storyText: "\uACF5\uC8FC : (\uACB0\uC2EC\uD558\uB4EF\uC774 \uC8FC\uBA39\uC744 \uBD88\uB048
+    \uC950\uB294 \uD45C\uC815\uACFC \uC790\uC138) \uBE68\uB9AC \uB098\uAC00\uB824\uBA74
+    \uBE44\uBC00\uD1B5\uB85C\uB97C \uCC3E\uC744 \uC2DC\uAC04\uC774 \uC5C6\uC5B4.
+    \uC544\uBB34\uB3C4 \uBC29 \uC55E\uC744 \uC9C0\uB098\uAC00\uC9C0 \uC54A\uB294
+    \uC9C0\uAE08 \uBAB0\uB798, \uC098\uB9AC \uB098\uAC00\uC57C\uB3FC.\n"
   options:
-  - buttonText: "\uB118\uC5B4\uAC00\uAE30"
+  - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 8
+        value: 4
         changeSceneName: 
