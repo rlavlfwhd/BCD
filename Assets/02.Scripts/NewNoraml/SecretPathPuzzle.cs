@@ -10,7 +10,7 @@ public class SecretPath : MonoBehaviour
     public MeshRenderer DoorRenderer;
     public Material openedDoorMaterial;
     public GameObject clickableWindowObject;    
-    public string puzzleID = "Pendant";
+    public string puzzleID = "SecretPath";
     public int nextStoryIndex = 301;
 
     private bool isDoorOpened = false;
@@ -32,11 +32,9 @@ public class SecretPath : MonoBehaviour
     {
         Item selected = Inventory.Instance.firstSelectedItem;
 
-        if (selected != null &&
-            selected == neededItem &&
-            !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
+        if (selected != null && selected == neededItem && !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
-            PuzzleManager.Instance.CompletePuzzle(puzzleID);
+            PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, selected);
 
             if (DoorRenderer != null && openedDoorMaterial != null)
             {
@@ -48,11 +46,7 @@ public class SecretPath : MonoBehaviour
                 clickableWindowObject.SetActive(true);
             }
 
-            Inventory.Instance.RemoveItemByName(selected.itemName);
-            Inventory.Instance.ClearSelection();
-
             isDoorOpened = true;
-
             Debug.Log("철문열림! 펜던트 사용 완료");            
         }
     }

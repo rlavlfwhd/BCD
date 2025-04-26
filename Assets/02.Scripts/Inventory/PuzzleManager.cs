@@ -54,8 +54,6 @@ public class PuzzleManager : MonoBehaviour
     {
         completedPuzzles = new HashSet<string>(list);
     }
-
-    // 퍼즐 클리어 시 후속 행동까지 처리 (이미지 변경 + 다음 스토리로 이동)
     public void HandlePuzzleSuccess(Image targetImage, Sprite newSprite, int nextStoryIndex, string puzzleID)
     {
         if (IsPuzzleCompleted(puzzleID)) return;
@@ -74,30 +72,36 @@ public class PuzzleManager : MonoBehaviour
         StorySystem.Instance.StoryShow(storyIndex);
     }
 
-    private void RestoreItemState()
-{
-    var acquiredIDs = SceneDataManager.Instance.Data.acquiredItemIDs;
-    GameObject[] all = GameObject.FindObjectsOfType<GameObject>(true);
-
-    foreach (GameObject go in all)
+    public void RestoreItemState()
     {
-        if (!IsPuzzleItem(go)) continue;
+        var acquiredIDs = SceneDataManager.Instance.Data.acquiredItemIDs;
+        GameObject[] all = GameObject.FindObjectsOfType<GameObject>(true);
 
-        string name = go.name.Replace("(Clone)", "").Trim();
+        foreach (GameObject go in all)
+        {
+            if (!IsPuzzleItem(go)) continue;
 
-        if (acquiredIDs.Contains(name))
-        {
-            go.SetActive(false); // 이미 얻은 아이템이면 끄고
-        }
-        else
-        {
-            go.SetActive(true);  // 아직 안 얻은 아이템이면 보이게
+            string name = go.name.Replace("(Clone)", "").Trim();
+
+            if (acquiredIDs.Contains(name))
+            {
+                go.SetActive(false); // 이미 얻은 아이템 → 비활성화
+            }
+            else
+            {
+                go.SetActive(true);  // 미획득 아이템 → 활성화
+            }
         }
     }
-}
+    private bool IsPuzzleItem(GameObject go)
+    {
+        return go.GetComponent<IObjectItem>() != null;
+    }
 
-private bool IsPuzzleItem(GameObject go)
-{
-    return go.GetComponent<IObjectItem>() != null;
-}
+    public void CompletePuzzleAndConsumeItem(string puzzleID, Item usedItem)
+    {
+        CompletePuzzle(puzzleID);
+        Inventory.Instance.RemoveItemByName(usedItem.itemName);
+        Inventory.Instance.ClearSelection();
+    }
 }

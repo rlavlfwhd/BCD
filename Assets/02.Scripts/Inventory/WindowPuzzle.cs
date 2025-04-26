@@ -32,11 +32,9 @@ public class WindowPuzzle : MonoBehaviour
     {
         Item selected = Inventory.Instance.firstSelectedItem;
 
-        if (selected != null &&
-            selected == neededItem &&
-            !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
+        if (selected != null && selected == neededItem && !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
-            PuzzleManager.Instance.CompletePuzzle(puzzleID);
+            PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, selected);
 
             if (windowRenderer != null && openedWindowMaterial != null)
             {
@@ -48,11 +46,7 @@ public class WindowPuzzle : MonoBehaviour
                 clickableWindowObject.SetActive(true);
             }
 
-            Inventory.Instance.RemoveItemByName(selected.itemName);
-            Inventory.Instance.ClearSelection();
-
             isWindowOpened = true;
-
             Debug.Log("3D 창문 열림! Rope4 사용 완료");
         }
     }

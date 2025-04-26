@@ -7,10 +7,11 @@ using UnityEngine.UI;
 
 public class MirrorPuzzle : MonoBehaviour
 {
+    public string puzzleID = "MirrorPuzzle";
     public Item neededItem;          // 사용할 아이템 (ChickenStatue)
     public MeshRenderer mirrorRenderer;
     public Material brokenMirrorMaterial;
-    public string puzzleID = "mirror_chickenstatue";
+    
 
     public Item pendantItem;         // 지급할 아이템 (Pendant)
     public GameObject mirrorPanel;   // Pendant 지급 시 표시할 패널
@@ -34,20 +35,15 @@ public class MirrorPuzzle : MonoBehaviour
     {
         Item selected = Inventory.Instance.firstSelectedItem;
 
-        if (selected != null &&
-            selected == neededItem &&
-            !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
+        if (selected != null && selected == neededItem && !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
-            PuzzleManager.Instance.CompletePuzzle(puzzleID);
+            PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, selected);
 
             if (mirrorRenderer != null && brokenMirrorMaterial != null)
             {
                 mirrorRenderer.material = brokenMirrorMaterial;
                 Debug.Log("거울 머테리얼 변경 완료!");
             }
-
-            Inventory.Instance.RemoveItemByName(selected.itemName);
-            Inventory.Instance.ClearSelection();
 
             isPuzzleCompleted = true;
             Debug.Log("거울 퍼즐 완료! 닭동상 사용됨");

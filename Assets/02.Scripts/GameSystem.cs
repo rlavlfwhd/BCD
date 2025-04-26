@@ -21,6 +21,13 @@ public class GameSystem : MonoBehaviour
         }
     }
 
+    public void NewGame()
+    {
+        SceneDataManager.Instance.Data = new SceneData();
+        SceneManager.LoadScene("StoryScene");
+    }
+
+
     public void SaveGame(int slot)
     {
         if (slot < 1 || slot > 6) return;
@@ -75,28 +82,15 @@ public class GameSystem : MonoBehaviour
     private IEnumerator DeferredLoadAfterScene(SaveSystem.SaveData saveData)
     {
         yield return null;
+        RestoreGameState(saveData);
+    }
 
-        SceneDataManager.Instance.Data = new SceneData();
+    public void RestoreGameState(SaveSystem.SaveData saveData)
+    {
         SceneDataManager.Instance.Data = saveData.sceneState;
 
-        if (saveData.sceneName.Contains("Puzzle") || saveData.sceneName == "TestScene") // 퍼즐씬 이름 기준
-        {
-            foreach (string id in SceneDataManager.Instance.Data.acquiredItemIDs)
-            {
-                GameObject[] all = GameObject.FindObjectsOfType<GameObject>(true);
-                foreach (GameObject go in all)
-                {
-                    string clean = go.name.Replace("(Clone)", "").Trim();
-                    if (clean == id.Trim())
-                    {
-                        go.SetActive(false);
-                        break;
-                    }
-                }
-            }
-        }
+        PuzzleManager.Instance.SetCompletedPuzzleList(saveData.completedPuzzles);
 
-        // 아이템/퍼즐 복원
         Inventory.Instance.items.Clear();
         foreach (var itemName in saveData.inventoryItemNames)
         {
@@ -106,37 +100,20 @@ public class GameSystem : MonoBehaviour
         }
         Inventory.Instance.FreshSlot();
 
-        PuzzleManager.Instance.SetCompletedPuzzleList(saveData.completedPuzzles);
+        PuzzleManager.Instance.RestoreItemState();
 
-        // PlayScene인 경우에만 StorySystem 사용
-        if (saveData.sceneName == "PlayScene")
+        if (saveData.sceneName == "StoryScene")
         {
-            while (StorySystem.Instance == null || StorySystem.Instance.textComponent == null)
-                yield return null;
-
-            StorySystem.Instance.currentStoryIndex = saveData.currentStoryIndex;
-            StorySystem.Instance.StoryShow(saveData.currentStoryIndex);
+            
         }
     }
 
-    private void RestoreFromSaveData(SaveSystem.SaveData saveData)
+    IEnumerator WaitForStorySystemAndShowStory(int storyIndex)
     {
-        StorySystem.Instance.currentStoryIndex = saveData.currentStoryIndex;
-        StorySystem.Instance.StoryShow(saveData.currentStoryIndex);
-
-        Inventory.Instance.items.Clear();
-        foreach (string itemName in saveData.inventoryItemNames)
+        while(StorySystem.Instance == null || StorySystem.Instance.textComponent == null)
         {
-            Item loadedItem = Resources.Load<Item>("Items/" + itemName);
-            if (loadedItem != null)
-            {
-                Inventory.Instance.items.Add(loadedItem);
-            }
+            Debug.Log("스토리 시스템 준비중 :)");
+            yield return null;
         }
-        Inventory.Instance.FreshSlot();
-
-        PuzzleManager.Instance.SetCompletedPuzzleList(saveData.completedPuzzles);
     }
-   
 }
-

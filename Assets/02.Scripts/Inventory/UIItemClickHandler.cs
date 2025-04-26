@@ -32,9 +32,9 @@ public class UIItemClickHandler : MonoBehaviour
                 }
 
                 //  선택된 아이템을 오브젝트에 사용하는 처리
-                if (Inventory.Instance.selectedItem != null)
+                if (Inventory.Instance.firstSelectedItem != null)
                 {
-                    Item selected = Inventory.Instance.selectedItem;
+                    Item selected = Inventory.Instance.firstSelectedItem;
 
                     if (hit.collider.name == "사용할 오브젝트 이름")
                     {

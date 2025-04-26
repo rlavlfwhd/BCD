@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class SaveSystem
 {
@@ -11,6 +12,7 @@ public class SaveSystem
         public int currentStoryIndex;
         public string mainImagePath;
         public string mainImagePath2;
+        public string puzzleImagePath;
         public string sceneName;
 
         public List<string> inventoryItemNames;
@@ -24,17 +26,42 @@ public class SaveSystem
         {
             currentStoryIndex = storyIndex,
             mainImagePath = imagePath,
-            mainImagePath2 = imagePath2,
+            mainImagePath2 = imagePath2,            
             inventoryItemNames = inventoryItems,
             completedPuzzles = completedPuzzles,
-            sceneState = SceneDataManager.Instance.Data, // 상태 저장
-            sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+            sceneState = SceneDataManager.Instance.Data,
+            sceneName = SceneManager.GetActiveScene().name
         };
 
+        if (saveData.sceneName.Contains("PWindowScene") || saveData.sceneName.Contains("PBookShelfScene"))
+        {
+            PuzzleSceneBackground bg = GameObject.FindObjectOfType<PuzzleSceneBackground>();
+            if (bg != null && bg.backgroundSprite != null)
+            {
+                Texture2D texture = bg.backgroundSprite.texture;
+                byte[] pngData = texture.EncodeToPNG();
+                string puzzleImagePath = Application.persistentDataPath + $"/puzzleSlot{slot}_image.png"; // ← 여기 이름 바꿈!
+                File.WriteAllBytes(puzzleImagePath, pngData);
+                saveData.puzzleImagePath = puzzleImagePath;
+
+                Debug.Log($"퍼즐씬 배경 이미지 저장 완료: {puzzleImagePath}");
+            }
+            else
+            {
+                Debug.LogWarning("퍼즐씬 배경 이미지가 설정되지 않았습니다!");
+            }
+        }
 
         string json = JsonUtility.ToJson(saveData, true);
         string path = Application.persistentDataPath + "/saveSlot" + slot + ".json";
         File.WriteAllText(path, json);
+    }
+    public static string CapturePuzzleSceneScreenshot(int slot)
+    {
+        string path = Application.persistentDataPath + $"/puzzleSlot{slot}_image.png";
+        ScreenCapture.CaptureScreenshot(path);
+        Debug.Log($"퍼즐씬 캡처 저장 완료: {path}");
+        return path;
     }
 
     public static SaveData LoadGame(int slot)

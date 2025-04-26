@@ -122,50 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &25082990
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 25082992}
-  - component: {fileID: 25082991}
-  m_Layer: 0
-  m_Name: ItemDisabler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &25082991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25082990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23a15c08aa943249bf37af8a10b2570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &25082992
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25082990}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &131622093
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,11 +707,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704d65d48040e6b4cb8f87530d8d50e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleID: mirror_chickenstatue
   neededItem: {fileID: 11400000, guid: 1621c1d7dd07bd04aa235c9b02972e13, type: 2}
   mirrorRenderer: {fileID: 417464028}
   brokenMirrorMaterial: {fileID: 2100000, guid: 4a52670cd60f3cf4798c1ffdf7970d29,
     type: 2}
-  puzzleID: mirror_chickenstatue
   pendantItem: {fileID: 11400000, guid: f9284bf4cac7fff4f86f7e741ab89768, type: 2}
   mirrorPanel: {fileID: 1766703112}
 --- !u!1 &475789616
@@ -1509,7 +1465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &548673580
 Transform:
   m_ObjectHideFlags: 0
@@ -3843,7 +3799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1574076123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3938,8 +3894,8 @@ GameObject:
   - component: {fileID: 1669098742}
   - component: {fileID: 1669098746}
   - component: {fileID: 1669098745}
-  - component: {fileID: 1669098747}
   - component: {fileID: 1669098748}
+  - component: {fileID: 1669098749}
   m_Layer: 0
   m_Name: Bookshelf
   m_TagString: Untagged
@@ -4022,7 +3978,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669098741}
   m_CullTransparentMesh: 1
---- !u!61 &1669098747
+--- !u!114 &1669098748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669098741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76573b53d4ad5f44ca63bee9c44284f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backButton: {fileID: 963014303}
+  BookShelfChild: {fileID: 548673579}
+--- !u!61 &1669098749
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4054,7 +4024,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.2109833, y: -18.524323}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4065,22 +4035,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 462.57803, y: 698.95135}
+  m_Size: {x: 4.71, y: 7.36}
   m_EdgeRadius: 0
---- !u!114 &1669098748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669098741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76573b53d4ad5f44ca63bee9c44284f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backButton: {fileID: 963014303}
-  BookShelfChild: {fileID: 548673579}
 --- !u!1 &1766703112
 GameObject:
   m_ObjectHideFlags: 0
@@ -4292,8 +4248,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 0.99999994, z: 6.123233e-17}
-  m_Center: {x: 0, y: 0, z: 0.0000009536743}
+  m_Size: {x: 1.0000001, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1778581816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4810,6 +4766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1953886851}
   - component: {fileID: 1953886850}
+  - component: {fileID: 1953886852}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -4884,6 +4841,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2024784851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1953886852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953886849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e944c9f75b7884cb38c6a27546c3e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundSprite: {fileID: 21300000, guid: b967c3e30461b5440bb94634eaf8cf37, type: 3}
 --- !u!1 &2024784850
 GameObject:
   m_ObjectHideFlags: 0
@@ -5498,4 +5468,3 @@ SceneRoots:
   - {fileID: 2024784851}
   - {fileID: 245227637}
   - {fileID: 694941349}
-  - {fileID: 25082992}

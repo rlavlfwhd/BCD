@@ -9,8 +9,7 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance;
 
     public List<Item> items = new List<Item>();
-
-    public Item selectedItem;
+    
     public Item firstSelectedItem;
     public Item secondSelectedItem;
 
@@ -102,12 +101,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void RefreshSlotReference()
-    {
-        slots = slotParent.GetComponentsInChildren<Slot>();
-        FreshSlot();
-    }
-
     public bool HasCreatedRope(string ropeID)
     {
         return SceneDataManager.Instance.Data.createdRopes.Contains(ropeID);
@@ -177,7 +170,9 @@ public class Inventory : MonoBehaviour
 
     private void TryCreateCombinedItem(string[] ingredients, string resultItemPath)
     {
-        foreach (string name in ingredients)
+        HashSet<string> uniqueIngredients = new HashSet<string>(ingredients);
+
+        foreach (string name in uniqueIngredients)
         {
             var found = items.Find(i => i.itemName == name);
             if (found != null)
