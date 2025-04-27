@@ -20129,7 +20129,7 @@ MonoBehaviour:
   - {fileID: 27255021}
   - {fileID: 1447360988}
   clearImageCanvas: {fileID: 808194865}
-  showDuration: 0.5
+  showDuration: 2
   nextSceneName: StoryScene
 --- !u!4 &2143649866
 Transform:
