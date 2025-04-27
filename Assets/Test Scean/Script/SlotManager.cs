@@ -2,42 +2,46 @@
 
 public class SlotManager : MonoBehaviour
 {
-    public BookSlot[] slots;                 // 슬롯 배열
-    public GameObject backgroundObject;      // 배경 오브젝트 (책장 오브젝트)
+    public BookSlot[] slots;
+    public GameObject backgroundObject;
     public GameObject Door;
     public Item chickenStatueItem;
 
-    private bool allSlotsFilled = false;
+    private bool allSlotsCorrect = false;
 
-    void Update()
+    public void CheckSlotsNow()
     {
-        if (!allSlotsFilled && AreAllSlotsFilled())
+        if (!allSlotsCorrect && AreAllSlotsCorrect())
         {
-            allSlotsFilled = true;
-            Debug.Log("🎉 모든 슬롯이 채워졌습니다!");
+            allSlotsCorrect = true;
+            Debug.Log("🎉 모든 슬롯이 정답 책으로 채워졌습니다!");
 
             Inventory.Instance.AddItem(chickenStatueItem);
             Door.SetActive(true);
-            StartCoroutine(SlideOutBookshelf()); // 여기서 슬라이드 효과 호출
+            StartCoroutine(SlideOutBookshelf());
         }
     }
 
-    bool AreAllSlotsFilled()
+    bool AreAllSlotsCorrect()
     {
         foreach (BookSlot slot in slots)
         {
-            if (!slot.isOccupied) return false;
+            if (!slot.isOccupied || !slot.isCorrect)
+                return false;
         }
         return true;
     }
 
     System.Collections.IEnumerator SlideOutBookshelf()
     {
-        float duration = 12f;
+        float distance = 1200f;
+        float speed = 160f; // 초당 이동 속도
+        float duration = distance / speed;
+
         float elapsed = 0f;
 
         Vector3 startPos = backgroundObject.transform.position;
-        Vector3 endPos = startPos + new Vector3(1500f, 0, 0); // 오른쪽으로 5 유닛 이동
+        Vector3 endPos = startPos + new Vector3(distance, 0, 0);
 
         while (elapsed < duration)
         {
@@ -47,6 +51,6 @@ public class SlotManager : MonoBehaviour
         }
 
         backgroundObject.transform.position = endPos;
-        backgroundObject.SetActive(false); // 다 이동하면 비활성화        
+        backgroundObject.SetActive(false);
     }
 }

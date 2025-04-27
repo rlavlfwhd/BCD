@@ -273,9 +273,9 @@ GameObject:
   - component: {fileID: 157714721}
   - component: {fileID: 157714720}
   - component: {fileID: 157714719}
-  m_Layer: 7
-  m_Name: Yellow2
-  m_TagString: PlaceSlot
+  m_Layer: 0
+  m_Name: RedBookSlot2
+  m_TagString: DropSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -289,7 +289,7 @@ Transform:
   m_GameObject: {fileID: 157714717}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 85.5, y: 222, z: 4.1954265}
+  m_LocalPosition: {x: 85.5, y: 222, z: 4}
   m_LocalScale: {x: 88.11264, y: 224.73059, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -307,7 +307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctBookName: RedBook2
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &157714720
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -349,7 +351,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c749f18907c5fa4294095d6c0ca2eef, type: 2}
+  - {fileID: 2100000, guid: 76610dc643b17884f9d21086d1463fef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -461,7 +463,7 @@ GameObject:
   - component: {fileID: 335003738}
   - component: {fileID: 335003737}
   m_Layer: 0
-  m_Name: MidSlot
+  m_Name: SmallChickenSlot
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,7 +496,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctBookName: SmallChicken
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &335003738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -727,9 +731,9 @@ GameObject:
   - component: {fileID: 475789620}
   - component: {fileID: 475789619}
   - component: {fileID: 475789618}
-  m_Layer: 7
-  m_Name: Yellow3
-  m_TagString: PlaceSlot
+  m_Layer: 0
+  m_Name: YellowBooKSlot2
+  m_TagString: DropSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -743,7 +747,7 @@ Transform:
   m_GameObject: {fileID: 475789616}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 317.71475, y: 250, z: 4.1954265}
+  m_LocalPosition: {x: 317.71475, y: 250, z: 4}
   m_LocalScale: {x: 88.11264, y: 287.48, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -761,7 +765,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctBookName: YellowBook2
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &475789619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -803,7 +809,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c749f18907c5fa4294095d6c0ca2eef, type: 2}
+  - {fileID: 2100000, guid: 76610dc643b17884f9d21086d1463fef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -846,7 +852,7 @@ GameObject:
   - component: {fileID: 476873347}
   - component: {fileID: 476873346}
   - component: {fileID: 476873351}
-  - component: {fileID: 476873350}
+  - component: {fileID: 476873352}
   m_Layer: 0
   m_Name: RedBook2
   m_TagString: Untagged
@@ -935,25 +941,12 @@ Transform:
   m_GameObject: {fileID: 476873345}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 140.58801, y: 30.425615, z: -11}
+  m_LocalPosition: {x: 140.58801, y: 30.425615, z: -11.5}
   m_LocalScale: {x: 107.26366, y: 252.9085, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 811768618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &476873350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476873345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnDrop: 0
 --- !u!65 &476873351
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -975,6 +968,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &476873352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476873345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadb670e7ddc6fc4596530fa3d058194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: RedBook2
 --- !u!1 &513365831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1028,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctBookName: Chick
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &513365834
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1465,7 +1473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &548673580
 Transform:
   m_ObjectHideFlags: 0
@@ -1497,10 +1505,9 @@ GameObject:
   - component: {fileID: 568756684}
   - component: {fileID: 568756683}
   - component: {fileID: 568756682}
-  - component: {fileID: 568756686}
-  m_Layer: 7
-  m_Name: Red Slot1
-  m_TagString: PlaceSlot
+  m_Layer: 0
+  m_Name: BlueBookSlot1
+  m_TagString: DropSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1514,7 +1521,7 @@ Transform:
   m_GameObject: {fileID: 568756680}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -231.76967, y: 235, z: 4.1954265}
+  m_LocalPosition: {x: -231.76967, y: 235, z: 4}
   m_LocalScale: {x: 88.11264, y: 252.4605, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1532,7 +1539,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctBookName: BlueBook1
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &568756683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1574,7 +1583,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c749f18907c5fa4294095d6c0ca2eef, type: 2}
+  - {fileID: 2100000, guid: 76610dc643b17884f9d21086d1463fef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1604,21 +1613,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568756680}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &568756686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568756680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0791773e45dd14ab50d588d06b041f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOn: 0
-  onColor: {r: 0, g: 1, b: 0, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &659972202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,10 +1627,10 @@ GameObject:
   - component: {fileID: 659972209}
   - component: {fileID: 659972207}
   - component: {fileID: 659972210}
-  - component: {fileID: 659972208}
-  m_Layer: 6
+  - component: {fileID: 659972211}
+  m_Layer: 0
   m_Name: BlueBook1
-  m_TagString: Crop
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1700,7 +1694,7 @@ Transform:
   m_GameObject: {fileID: 659972202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -197.00002, y: 30.000013, z: -11.499996}
+  m_LocalPosition: {x: -197.00002, y: 30.000013, z: -11.5}
   m_LocalScale: {x: 107, y: 252, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1727,19 +1721,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.95069057, y: 0.93572026, z: 1}
   m_Center: {x: 0.02465476, y: -0.005356653, z: 0}
---- !u!114 &659972208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659972202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnDrop: 1
 --- !u!64 &659972209
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1771,9 +1752,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 659972202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d7cc4ad01b6b9e4da617ad5673fd18a, type: 3}
+  m_Script: {fileID: 11500000, guid: eadb670e7ddc6fc4596530fa3d058194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bookName: BlueBook1
+--- !u!114 &659972211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659972202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fa37f109af0fa44a7e35aa174ed2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: 
+  isPlacedInSlot: 0
 --- !u!1 &690194367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,10 +1926,10 @@ Transform:
   m_LocalScale: {x: 0.00086743804, y: 0.00091993774, z: 0.00086743815}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1276398135}
-  - {fileID: 476873349}
   - {fileID: 659972206}
   - {fileID: 2039560018}
+  - {fileID: 1276398135}
+  - {fileID: 476873349}
   - {fileID: 1876190331}
   - {fileID: 1068179897}
   - {fileID: 1921279971}
@@ -1986,7 +1982,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctBookName: Egg
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &819830566
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2071,9 +2069,9 @@ GameObject:
   - component: {fileID: 842200403}
   - component: {fileID: 842200402}
   - component: {fileID: 842200401}
-  m_Layer: 7
-  m_Name: Blue1
-  m_TagString: PlaceSlot
+  m_Layer: 0
+  m_Name: YellowBooKSlot1
+  m_TagString: DropSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2087,7 +2085,7 @@ Transform:
   m_GameObject: {fileID: 842200399}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 222.4, y: 214, z: 4.1954265}
+  m_LocalPosition: {x: 222.4, y: 214, z: 4}
   m_LocalScale: {x: 88.11264, y: 216.41423, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2105,7 +2103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctBookName: YellowBook1
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &842200402
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2147,7 +2147,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c749f18907c5fa4294095d6c0ca2eef, type: 2}
+  - {fileID: 2100000, guid: 76610dc643b17884f9d21086d1463fef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2206,12 +2206,12 @@ Transform:
   m_LocalScale: {x: 0.00086743804, y: 0.00091993774, z: 0.00086743815}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 568756681}
+  - {fileID: 990030013}
+  - {fileID: 1473760568}
+  - {fileID: 157714718}
   - {fileID: 842200400}
   - {fileID: 475789617}
-  - {fileID: 157714718}
-  - {fileID: 1473760568}
-  - {fileID: 990030013}
-  - {fileID: 568756681}
   - {fileID: 1244574850}
   m_Father: {fileID: 971070280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2470,10 +2470,9 @@ GameObject:
   - component: {fileID: 990030016}
   - component: {fileID: 990030015}
   - component: {fileID: 990030014}
-  - component: {fileID: 990030018}
-  m_Layer: 7
-  m_Name: Red Slot2
-  m_TagString: PlaceSlot
+  m_Layer: 0
+  m_Name: BlueBookSlot2
+  m_TagString: DropSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2487,7 +2486,7 @@ Transform:
   m_GameObject: {fileID: 990030012}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -127, y: 253, z: 4.1954265}
+  m_LocalPosition: {x: -127, y: 253, z: 4}
   m_LocalScale: {x: 88.11264, y: 287.48, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2505,7 +2504,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctBookName: BlueBook2
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &990030015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2547,7 +2548,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c749f18907c5fa4294095d6c0ca2eef, type: 2}
+  - {fileID: 2100000, guid: 76610dc643b17884f9d21086d1463fef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2577,21 +2578,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990030012}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &990030018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990030012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0791773e45dd14ab50d588d06b041f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOn: 0
-  onColor: {r: 0, g: 1, b: 0, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &1068179893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2605,7 +2591,7 @@ GameObject:
   - component: {fileID: 1068179895}
   - component: {fileID: 1068179894}
   - component: {fileID: 1068179899}
-  - component: {fileID: 1068179898}
+  - component: {fileID: 1068179900}
   m_Layer: 0
   m_Name: YellowBook2
   m_TagString: Untagged
@@ -2694,25 +2680,12 @@ Transform:
   m_GameObject: {fileID: 1068179893}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 471.58798, y: 45.6349, z: -11}
+  m_LocalPosition: {x: 471.58798, y: 45.6349, z: -11.5}
   m_LocalScale: {x: 133.16148, y: 297.19403, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 811768618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1068179898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068179893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnDrop: 0
 --- !u!65 &1068179899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2734,6 +2707,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9689461, y: 0.9620277, z: 1}
   m_Center: {x: -0.015526913, y: 0.014239505, z: 0}
+--- !u!114 &1068179900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068179893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadb670e7ddc6fc4596530fa3d058194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: YellowBook3
 --- !u!1 &1130406030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2984,9 +2970,9 @@ GameObject:
   - component: {fileID: 1244574853}
   - component: {fileID: 1244574852}
   - component: {fileID: 1244574851}
-  m_Layer: 7
-  m_Name: Blue2
-  m_TagString: PlaceSlot
+  m_Layer: 0
+  m_Name: YellowBooKSlot3
+  m_TagString: DropSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3000,7 +2986,7 @@ Transform:
   m_GameObject: {fileID: 1244574849}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 416.6215, y: 228, z: 4.1954265}
+  m_LocalPosition: {x: 416.6215, y: 228, z: 4}
   m_LocalScale: {x: 88.11264, y: 237.41096, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3018,7 +3004,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctBookName: YellowBook3
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &1244574852
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3060,7 +3048,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c749f18907c5fa4294095d6c0ca2eef, type: 2}
+  - {fileID: 2100000, guid: 76610dc643b17884f9d21086d1463fef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3138,10 +3126,10 @@ GameObject:
   - component: {fileID: 1276398133}
   - component: {fileID: 1276398132}
   - component: {fileID: 1276398137}
-  - component: {fileID: 1276398136}
-  m_Layer: 6
+  - component: {fileID: 1276398138}
+  m_Layer: 0
   m_Name: RedBook1
-  m_TagString: Crop
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3227,25 +3215,12 @@ Transform:
   m_GameObject: {fileID: 1276398131}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48, y: -44, z: -11}
-  m_LocalScale: {x: 107.26366, y: 290.07623, z: 2}
+  m_LocalPosition: {x: 47.99998, y: -43.99997, z: -11.5}
+  m_LocalScale: {x: 107.26366, y: 290.0763, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 811768618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1276398136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276398131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnDrop: 0
 --- !u!65 &1276398137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3267,6 +3242,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.0000001, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1276398138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276398131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadb670e7ddc6fc4596530fa3d058194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: RedBook1
 --- !u!1 &1359372999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3398,10 +3386,9 @@ GameObject:
   - component: {fileID: 1473760571}
   - component: {fileID: 1473760570}
   - component: {fileID: 1473760569}
-  - component: {fileID: 1473760573}
-  m_Layer: 7
-  m_Name: Yellow1
-  m_TagString: PlaceSlot
+  m_Layer: 0
+  m_Name: RedBookSlot1
+  m_TagString: DropSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3415,7 +3402,7 @@ Transform:
   m_GameObject: {fileID: 1473760567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.946498, y: 252.58344, z: 4.1954265}
+  m_LocalPosition: {x: -15.946498, y: 252.58344, z: 4}
   m_LocalScale: {x: 88.11264, y: 287.48, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3433,7 +3420,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctBookName: RedBook1
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &1473760570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3475,7 +3464,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c749f18907c5fa4294095d6c0ca2eef, type: 2}
+  - {fileID: 2100000, guid: 76610dc643b17884f9d21086d1463fef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3505,21 +3494,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473760567}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1473760573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473760567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0791773e45dd14ab50d588d06b041f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOn: 0
-  onColor: {r: 0, g: 1, b: 0, a: 1}
-  offColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
 --- !u!1 &1479715344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3533,7 +3507,7 @@ GameObject:
   - component: {fileID: 1479715346}
   - component: {fileID: 1479715345}
   - component: {fileID: 1479715350}
-  - component: {fileID: 1479715349}
+  - component: {fileID: 1479715351}
   m_Layer: 0
   m_Name: SmallChicken
   m_TagString: Untagged
@@ -3628,19 +3602,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1275292160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1479715349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1479715344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnDrop: 0
 --- !u!65 &1479715350
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3662,6 +3623,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9055409, y: 0.9825386, z: 1}
   m_Center: {x: -0.047229357, y: -0.008730685, z: 0}
+--- !u!114 &1479715351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479715344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadb670e7ddc6fc4596530fa3d058194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: SmallChicken
 --- !u!1 &1514882701
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,7 +3650,7 @@ GameObject:
   - component: {fileID: 1514882704}
   - component: {fileID: 1514882703}
   m_Layer: 0
-  m_Name: ChickenSlot
+  m_Name: BigChickenSlot
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3709,7 +3683,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctBookName: BigChicken
   isOccupied: 0
+  isCorrect: 0
 --- !u!65 &1514882704
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3799,7 +3775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1574076123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4485,7 +4461,7 @@ GameObject:
   - component: {fileID: 1876190329}
   - component: {fileID: 1876190328}
   - component: {fileID: 1876190333}
-  - component: {fileID: 1876190332}
+  - component: {fileID: 1876190334}
   m_Layer: 0
   m_Name: YellowBook1
   m_TagString: Untagged
@@ -4574,25 +4550,12 @@ Transform:
   m_GameObject: {fileID: 1876190327}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 287.588, y: 28.017393, z: -11}
+  m_LocalPosition: {x: 287.588, y: 28.017393, z: -11.5}
   m_LocalScale: {x: 133.16148, y: 261.96036, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 811768618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1876190332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876190327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnDrop: 0
 --- !u!65 &1876190333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4614,6 +4577,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.841512, y: 0.95877594, z: 1}
   m_Center: {x: -0.019811088, y: 0.030918173, z: 0}
+--- !u!114 &1876190334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876190327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadb670e7ddc6fc4596530fa3d058194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: YellowBook1
 --- !u!1 &1921279967
 GameObject:
   m_ObjectHideFlags: 0
@@ -4627,7 +4603,7 @@ GameObject:
   - component: {fileID: 1921279969}
   - component: {fileID: 1921279968}
   - component: {fileID: 1921279973}
-  - component: {fileID: 1921279972}
+  - component: {fileID: 1921279974}
   m_Layer: 0
   m_Name: YellowBook3
   m_TagString: Untagged
@@ -4716,25 +4692,12 @@ Transform:
   m_GameObject: {fileID: 1921279967}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 379.588, y: 75.53761, z: -11}
+  m_LocalPosition: {x: 379.588, y: 75.53761, z: -11.5}
   m_LocalScale: {x: 96.52876, y: 332.37637, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 811768618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1921279972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1921279967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnDrop: 0
 --- !u!65 &1921279973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4756,6 +4719,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000002, y: 0.991512, z: 1}
   m_Center: {x: -0.014279693, y: -0.008488237, z: 0}
+--- !u!114 &1921279974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921279967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadb670e7ddc6fc4596530fa3d058194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: YellowBook2
 --- !u!1 &1953886849
 GameObject:
   m_ObjectHideFlags: 0
@@ -4903,10 +4879,10 @@ GameObject:
   - component: {fileID: 2039560016}
   - component: {fileID: 2039560015}
   - component: {fileID: 2039560020}
-  - component: {fileID: 2039560019}
-  m_Layer: 6
+  - component: {fileID: 2039560021}
+  m_Layer: 0
   m_Name: BlueBook2
-  m_TagString: Crop
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4992,25 +4968,12 @@ Transform:
   m_GameObject: {fileID: 2039560014}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.41199, y: 47.334427, z: -11}
+  m_LocalPosition: {x: -51.41199, y: 47.334427, z: -11.5}
   m_LocalScale: {x: 133.16148, y: 300.5856, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 811768618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2039560019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039560014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnDrop: 1
 --- !u!65 &2039560020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5032,6 +4995,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7424571, y: 0.95509154, z: 1}
   m_Center: {x: -0.12877174, y: -0.02245429, z: 0}
+--- !u!114 &2039560021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039560014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadb670e7ddc6fc4596530fa3d058194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: BlueBook2
 --- !u!1 &2109570510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5045,7 +5021,7 @@ GameObject:
   - component: {fileID: 2109570512}
   - component: {fileID: 2109570511}
   - component: {fileID: 2109570516}
-  - component: {fileID: 2109570515}
+  - component: {fileID: 2109570517}
   m_Layer: 0
   m_Name: Egg
   m_TagString: Untagged
@@ -5140,19 +5116,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1275292160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2109570515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109570510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnDrop: 0
 --- !u!65 &2109570516
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5174,6 +5137,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8464666, y: 0.9574274, z: 1}
   m_Center: {x: 0.1046825, y: -0.03547689, z: 0}
+--- !u!114 &2109570517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109570510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadb670e7ddc6fc4596530fa3d058194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: Egg
 --- !u!1 &2110111066
 GameObject:
   m_ObjectHideFlags: 0
@@ -5187,7 +5163,7 @@ GameObject:
   - component: {fileID: 2110111068}
   - component: {fileID: 2110111067}
   - component: {fileID: 2110111072}
-  - component: {fileID: 2110111071}
+  - component: {fileID: 2110111073}
   m_Layer: 0
   m_Name: Chick
   m_TagString: Untagged
@@ -5282,19 +5258,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1275292160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2110111071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110111066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnDrop: 0
 --- !u!65 &2110111072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5316,6 +5279,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.76196355, y: 0.7310958, z: 1}
   m_Center: {x: -0.0044080643, y: -0.152379, z: 0}
+--- !u!114 &2110111073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110111066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadb670e7ddc6fc4596530fa3d058194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: Chick
 --- !u!1 &2137922325
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,7 +5305,7 @@ GameObject:
   - component: {fileID: 2137922327}
   - component: {fileID: 2137922326}
   - component: {fileID: 2137922331}
-  - component: {fileID: 2137922330}
+  - component: {fileID: 2137922332}
   m_Layer: 0
   m_Name: BigChicken
   m_TagString: Untagged
@@ -5424,19 +5400,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1275292160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2137922330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137922325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c3b7526f1f4245b43689a12d0edd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnDrop: 0
 --- !u!65 &2137922331
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5458,6 +5421,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9188173, y: 0.7737999, z: 1}
   m_Center: {x: 0.03059143, y: -0.11310009, z: 0}
+--- !u!114 &2137922332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137922325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadb670e7ddc6fc4596530fa3d058194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookName: BigChicken
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
