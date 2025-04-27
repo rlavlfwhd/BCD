@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5158118523516151586}
   - component: {fileID: 8280821804348923560}
   - component: {fileID: 6734358253822439517}
-  - component: {fileID: 8939801846162484445}
   - component: {fileID: 1053262495054538174}
   m_Layer: 6
   m_Name: Tomato1x1
@@ -114,27 +113,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8939801846162484445
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4539440192193022366}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.91459274, y: 0.87728494, z: 6.1232336e-17}
-  m_Center: {x: 0.017081462, y: 0.028633568, z: 0}
 --- !u!114 &1053262495054538174
 MonoBehaviour:
   m_ObjectHideFlags: 0

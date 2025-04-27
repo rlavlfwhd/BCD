@@ -52,7 +52,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5045257, y: 0.8796242, z: 1}
+  m_Size: {x: 0.5, y: 0.9, z: 1}
   m_Center: {x: 0.049547672, y: -0.03270548, z: 0}
 --- !u!114 &853546748222109053
 MonoBehaviour:
@@ -118,7 +118,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5458149, y: 0.90900916, z: 1}
+  m_Size: {x: 0.5, y: 0.9, z: 1}
   m_Center: {x: 0.037160672, y: -0.03733229, z: 0}
 --- !u!114 &4655172501762151369
 MonoBehaviour:
@@ -184,7 +184,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.47975114, y: 0.9170542, z: 1}
+  m_Size: {x: 0.5, y: 0.9, z: 1}
   m_Center: {x: 0.053676695, y: -0.04424223, z: 0}
 --- !u!114 &4646911292903203620
 MonoBehaviour:
@@ -210,7 +210,6 @@ GameObject:
   - component: {fileID: 2980249439361191351}
   - component: {fileID: 2890303079182198942}
   - component: {fileID: 3547308285939688050}
-  - component: {fileID: 4589644624281642376}
   - component: {fileID: 7410996200379491548}
   m_Layer: 6
   m_Name: Radish_3x1
@@ -314,27 +313,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &4589644624281642376
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7758029472040575685}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.6396096, y: 0.93536454, z: 6.1232336e-17}
-  m_Center: {x: 0.057134885, y: -0.039121654, z: 0}
 --- !u!114 &7410996200379491548
 MonoBehaviour:
   m_ObjectHideFlags: 0
