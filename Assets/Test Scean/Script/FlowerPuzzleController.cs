@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 🌸 꽃 퍼즐 전용 매니저
@@ -19,19 +20,33 @@ public class FlowerPuzzleController : MonoBehaviour
     public FlowerController flower4;
 
     [Header("🦋 나비 이동 설정")]
-    public ButterflyController butterfly;  // 나비 컨트롤러 연결
-    public int moveLimit = 5;              // 이동 가능 횟수 제한
+    public ButterflyController butterfly;   // 나비 컨트롤러 연결
+    public int moveLimit = 5;                // 최대 이동 가능 횟수
 
-    private int currentMoveCount = 0;       // 현재 이동한 횟수
+    private int currentMoveCount = 0;         // 현재 이동한 횟수
 
     [Header("🎯 퍼즐 클리어 ID")]
     public string puzzleID = "FlowerPuzzle1";
+
+    [Header("🎉 퍼즐 성공 시 보여줄 클리어 이미지")]
+    public GameObject clearImage;             // 퍼즐 성공 시 보여줄 이미지 연결
+
+    private bool isPuzzleCleared = false;      // 퍼즐이 클리어됐는지 여부
 
     /// <summary>
     /// 꽃 클릭 시 호출: 이동 가능 횟수 체크 후 나비 이동
     /// </summary>
     public void OnFlowerClicked(FlowerController clickedFlower)
     {
+        if (isPuzzleCleared) return; // 퍼즐 이미 클리어됐으면 무시
+
+        // 🔥 추가: 나비가 이동 중이면 클릭 무시
+        if (butterfly.IsMoving())
+        {
+            Debug.Log("🦋 나비가 이동 중이라 클릭 무시");
+            return;
+        }
+
         if (currentMoveCount >= moveLimit)
         {
             Debug.Log("❌ 이동 횟수 초과! 퍼즐 실패");
@@ -40,7 +55,7 @@ public class FlowerPuzzleController : MonoBehaviour
         }
 
         currentMoveCount++;
-        Debug.Log($"🦋 나비 이동 {currentMoveCount}/{moveLimit}");
+        Debug.Log($"🦋 나비 이동 시작! 현재 이동 횟수: {currentMoveCount}/{moveLimit}");
         butterfly.MoveToFlower(clickedFlower);
     }
 
@@ -50,6 +65,8 @@ public class FlowerPuzzleController : MonoBehaviour
     /// </summary>
     public void CheckPuzzleStatus()
     {
+        if (isPuzzleCleared) return; // 이미 클리어됐으면 무시
+
         if (flower1.currentPetalCount == targetPetalCount_Flower1 &&
             flower2.currentPetalCount == targetPetalCount_Flower2 &&
             flower3.currentPetalCount == targetPetalCount_Flower3 &&
@@ -57,21 +74,22 @@ public class FlowerPuzzleController : MonoBehaviour
         {
             Debug.Log("🎉 퍼즐 성공! 마법의 꿀 획득");
 
-            // PuzzleManager에 퍼즐 성공 처리 넘기기
-            PuzzleManager.Instance.HandlePuzzleSuccess(
-                null, null, 0, puzzleID // 필요한 경우에 맞게 Story 연결
-            );
+            isPuzzleCleared = true; // 퍼즐 클리어 체크
+
+            // 클리어 이미지 활성화
+            if (clearImage != null)
+            {
+                clearImage.SetActive(true);
+            }
         }
     }
 
     /// <summary>
-    /// 퍼즐 실패 처리 (이동 횟수 초과)
+    /// 퍼즐 실패 시 호출
     /// </summary>
     public void FailPuzzle()
     {
-        Debug.Log("❌ 퍼즐 실패! 리셋합니다.");
-
-        // 퍼즐 리셋 처리 (씬 리로드)
+        Debug.Log("❌ 퍼즐 실패! 다시 시작합니다.");
         ResetPuzzle();
     }
 
@@ -80,6 +98,6 @@ public class FlowerPuzzleController : MonoBehaviour
     /// </summary>
     public void ResetPuzzle()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
