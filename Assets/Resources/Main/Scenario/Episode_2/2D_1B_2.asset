@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: 2D_1B_2
+  m_EditorClassIdentifier: 
+  storyNumber: 8
+  MainImage: {fileID: 0}
+  MainImage2: {fileID: 2800000, guid: cadfa4b701521ef45b31518974fbfc1b, type: 3}
+  storyText: "\uB098\uB808\uC774\uC158 : \uACF5\uC8FC\uC758 \uBC14\uB78C\uB300\uB85C
+    \uC904\uC774 \uC810\uC810 \uC904\uC5B4\uB4E4\uC5C8\uACE0, \uACF5\uC8FC\uAC00
+    \uD1B5\uD589\uD5C8\uAC00\uB97C \uBC1B\uC744 \uCC28\uB840\uAC00 \uC654\uB2E4.\n\uACBD\uBE44\uBCD1\uC774
+    \uBA54\uC774\uB4DC\uB85C \uBCC0\uC7A5\uD55C \uACF5\uC8FC\uB97C \uBCF4\uC790,
+    \uBA54\uC774\uB4DC\uAC00 \uB85C\uBE0C\uB97C \uB4A4\uC9D1\uC5B4\uC4F4\uAC8C \uC218\uC0C1\uD574\uBCF4\uC600\uB294\uC9C0
+    \uB85C\uBE0C\uB97C \uBC97\uC73C\uB77C\uACE0 \uD558\uC600\uACE0, \uBA54\uC774\uB4DC\uB85C
+    \uBCF4\uC774\uB294 \uACF5\uC8FC\uAC00 \uB2F9\uD669\uD558\uBA70 \uAC00\uB9CC\uD788
+    \uC788\uC5C8\uB2E4.\n\uC774\uB97C \uC758\uC2EC\uD55C \uACBD\uBE44\uBCD1\uC740
+    \uB85C\uBE0C\uB97C \uC5B5\uC9C0\uB85C \uBC97\uACBC\uACE0, \uACF5\uC8FC\uC758
+    \uC5BC\uAD74\uC744 \uBCF8 \uACBD\uBE44\uBCD1\uB4E4\uC740 \uACF5\uC8FC\uB97C \uC7A1\uACE0
+    \uC2E0\uACE0\uB97C \uBC1B\uACE0 \uB2EC\uB824\uC628 \uAE30\uC0AC\uB4E4\uC5D0\uAC8C
+    \uB118\uACA8 \uACF5\uC8FC\uB294 \uBC29\uC5D0 \uB2E4\uC2DC \uAC07\uD788\uACE0
+    \uB9D0\uC558\uB2E4.\r\n"
+  options:
+  - buttonText: "A) \uC774\uC5B4\uC11C"
+    eventCheck:
+      sucessResult: []

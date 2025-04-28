@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: 2B_OnePuzzle_3
+  m_EditorClassIdentifier: 
+  storyNumber: 8
+  MainImage: {fileID: 2800000, guid: 4b430a21987d2264d986320a0e30f739, type: 3}
+  MainImage2: {fileID: 2800000, guid: cb9524506bec2194d9aadc0d933eb09a, type: 3}
+  storyText: "\uACF5\uC8FC : \uADF8\uB798 \uACE0\uB9C8\uC6CC, \uD1A0\uB07C\uC57C!
+    \uC774 \uC740\uD61C \uC78A\uC9C0 \uC54A\uC744\uAED8."
+  options:
+  - buttonText: "A) \uC774\uC5B4\uC11C"
+    eventCheck:
+      sucessResult: []
