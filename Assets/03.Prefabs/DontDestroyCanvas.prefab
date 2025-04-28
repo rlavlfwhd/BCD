@@ -531,6 +531,7 @@ RectTransform:
   m_Children:
   - {fileID: 8037745239085627787}
   - {fileID: 67998024284401136}
+  - {fileID: 7926075923482134633}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1070,6 +1071,7 @@ MonoBehaviour:
   item: {fileID: 0}
   icon: {fileID: 5832941683356947436}
   background: {fileID: 1417968875812935077}
+  clickSoundName: SlotClick
 --- !u!1 &1095724888439607466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,13 +3065,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3272623309242427249}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4164931970241876187}
-  m_Father: {fileID: 67998024284401136}
+  m_Father: {fileID: 4246312240042098229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3151,7 +3153,6 @@ RectTransform:
   - {fileID: 6140670766414579510}
   - {fileID: 4537202102730081615}
   - {fileID: 1436993271948594517}
-  - {fileID: 7926075923482134633}
   m_Father: {fileID: 4246312240042098229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3346,6 +3347,7 @@ MonoBehaviour:
   item: {fileID: 0}
   icon: {fileID: 7556741053484856087}
   background: {fileID: 5415698310476555148}
+  clickSoundName: SlotClick
 --- !u!1 &3737152134880499573
 GameObject:
   m_ObjectHideFlags: 0
@@ -3948,6 +3950,7 @@ MonoBehaviour:
   item: {fileID: 0}
   icon: {fileID: 6243223445547746310}
   background: {fileID: 8756361390080255047}
+  clickSoundName: SlotClick
 --- !u!1 &4783795879422961919
 GameObject:
   m_ObjectHideFlags: 0
@@ -5655,6 +5658,7 @@ MonoBehaviour:
   item: {fileID: 0}
   icon: {fileID: 501679629615795101}
   background: {fileID: 6286194688250847124}
+  clickSoundName: SlotClick
 --- !u!1 &7293773959443364518
 GameObject:
   m_ObjectHideFlags: 0
@@ -5792,6 +5796,7 @@ MonoBehaviour:
   item: {fileID: 0}
   icon: {fileID: 5544485576870142713}
   background: {fileID: 8019127365258221140}
+  clickSoundName: SlotClick
 --- !u!1 &7555315414522122981
 GameObject:
   m_ObjectHideFlags: 0
@@ -6362,6 +6367,7 @@ MonoBehaviour:
   item: {fileID: 0}
   icon: {fileID: 252617912355133540}
   background: {fileID: 63651247054969395}
+  clickSoundName: SlotClick
 --- !u!1 &8113476749656676859
 GameObject:
   m_ObjectHideFlags: 0

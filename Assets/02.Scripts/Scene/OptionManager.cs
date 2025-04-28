@@ -9,6 +9,21 @@ using DG.Tweening;
 
 public class OptionManager : MonoBehaviour
 {
+    public static OptionManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public TMP_Text currentOptionText;
     public GameObject optionPanel;
     public GameObject savePanel;
@@ -30,6 +45,10 @@ public class OptionManager : MonoBehaviour
     public void SavePanelBtnClick()
     {
         DisableAllPanels();
+        if (!optionPanel.activeSelf)
+        {
+            optionPanel.SetActive(true);
+        }
         savePanel.SetActive(true);
         currentOptionText.text = "저장";
     }
@@ -37,6 +56,10 @@ public class OptionManager : MonoBehaviour
     public void LoadPanelBtnClick()
     {
         DisableAllPanels();
+        if (!optionPanel.activeSelf)
+        {
+            optionPanel.SetActive(true);
+        }
         loadPanel.SetActive(true);
         currentOptionText.text = "불러오기";
     }
@@ -44,6 +67,10 @@ public class OptionManager : MonoBehaviour
     public void SoundSettingPanelBtnClick()
     {
         DisableAllPanels();
+        if(!optionPanel.activeSelf)
+        {
+            optionPanel.SetActive(true);
+        }
         soundSettingPanel.SetActive(true);
         currentOptionText.text = "소리 설정";
     }
@@ -63,7 +90,7 @@ public class OptionManager : MonoBehaviour
         optionPanel.SetActive(false);
     }
 
-    private void ShowConfirmPopup(string message, System.Action yesAction)
+    public void ShowConfirmPopup(string message, System.Action yesAction)
     {
         confirmText.text = message;
         confirmYesAction = yesAction;
@@ -112,8 +139,7 @@ public class OptionManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "MainScene")
-        {
-            GameObject optionPanel = GameObject.Find("OptionPanel");  // MainScene에 있는 오브젝트 찾아서
+        {            
             if (optionPanel != null)
             {
                 optionPanel.SetActive(false);
@@ -125,7 +151,7 @@ public class OptionManager : MonoBehaviour
     }
 
     // 팝업 예 → 게임 종료
-    private void QuitGameAction()
+    public void QuitGameAction()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
