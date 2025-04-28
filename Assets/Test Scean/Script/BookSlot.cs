@@ -6,6 +6,9 @@ public class BookSlot : MonoBehaviour
     public bool isOccupied = false;
     public bool isCorrect = false;
 
+    [Header("사운드 매니저에 등록된 이름")]
+    public string dropSoundName; // ✅ 슬롯에 오브젝트가 들어왔을 때 재생할 사운드 이름
+
     private GameObject currentBook;
 
     public bool TryInsertBook(GameObject book)
@@ -34,6 +37,12 @@ public class BookSlot : MonoBehaviour
         isCorrect = (newBookComponent.bookName == correctBookName);
 
         Debug.Log(isCorrect ? "정답 책 들어감!" : "틀린 책 들어감!");
+
+        // ✅ 슬롯에 드랍 성공했을 때 사운드 재생
+        if (!string.IsNullOrEmpty(dropSoundName))
+        {
+            SoundManager.instance.PlaySound(dropSoundName);
+        }
 
         SlotManager manager = FindObjectOfType<SlotManager>();
         if (manager != null)

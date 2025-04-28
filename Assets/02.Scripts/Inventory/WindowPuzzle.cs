@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +13,10 @@ public class WindowPuzzle : MonoBehaviour
     public GameObject overlayImage;
     public string puzzleID = "window_rope";
     public int nextStoryIndex = 11;
+
+    [Header("ì‚¬ìš´ë“œ ë§¤ë‹ˆì €ì— ë“±ë¡ëœ ì´ë¦„")]
+    public string ropeUseSound; // ğŸ§µ Ropeë¥¼ ì‚¬ìš©í•  ë•Œ ì‚¬ìš´ë“œ
+    public string fadeInSound;  // ğŸŒ«ï¸ í˜ì´ë“œ ì¸í•  ë•Œ ì‚¬ìš´ë“œ
 
     private bool isWindowOpened = false;
 
@@ -53,7 +57,13 @@ public class WindowPuzzle : MonoBehaviour
 
             isWindowOpened = true;
 
-            Debug.Log("3D Ã¢¹® ¿­¸²! Rope4 »ç¿ë ¿Ï·á");
+            Debug.Log("3D ì°½ë¬¸ ì—´ë¦¼! Rope4 ì‚¬ìš© ì™„ë£Œ");
+
+            // âœ… ì°½ë¬¸ ì„±ê³µì ìœ¼ë¡œ ë“œëí–ˆì„ ë•Œ ì‚¬ìš´ë“œ ì¬ìƒ
+            if (!string.IsNullOrEmpty(ropeUseSound))
+            {
+                SoundManager.instance.PlaySound(ropeUseSound);
+            }
         }
     }
 
@@ -67,16 +77,20 @@ public class WindowPuzzle : MonoBehaviour
             if (renderer == null)
                 renderer = overlayImage.GetComponentInChildren<Renderer>();
 
-            Material mat = renderer.material; // material ÀÎ½ºÅÏ½º
+            Material mat = renderer.material;
             Color color = mat.color;
 
-            // ÃÊ±â Åõ¸íµµ ¼³Á¤ (¿ÏÀü Åõ¸í)
             color.a = 0f;
             mat.color = color;
 
-            // ÆäÀÌµå ÀÎ (Åõ¸í ¡æ ºÒÅõ¸í)
             float timer = 0f;
-            float fadeDuration = 1; // ³ªÅ¸³ª´Â µ¥ °É¸®´Â ½Ã°£
+            float fadeDuration = 1f;
+
+            // âœ… í˜ì´ë“œ ì¸ ì‹œì‘í•  ë•Œ ì‚¬ìš´ë“œ ì¬ìƒ
+            if (!string.IsNullOrEmpty(fadeInSound))
+            {
+                SoundManager.instance.PlaySound(fadeInSound);
+            }
 
             while (timer < fadeDuration)
             {
@@ -89,10 +103,8 @@ public class WindowPuzzle : MonoBehaviour
             mat.color = color;
         }
 
-        // ±â´Ù¸®´Â ½Ã°£ (¿¹: 2ÃÊ)
         yield return new WaitForSeconds(delay);
 
-        // ½ºÅä¸®¾ÀÀ¸·Î ÀüÈ¯
         SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
         SceneManager.LoadScene("StoryScene");
     }

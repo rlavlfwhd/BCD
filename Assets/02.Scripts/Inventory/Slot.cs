@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,6 +9,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public Item item;
     [SerializeField] private Image icon;
     [SerializeField] private Image background;
+
+    [Header("사운드 매니저에 등록된 슬롯 클릭 사운드 이름")]
+    public string clickSoundName = "SlotClick"; // 🎯 추가한 슬롯 클릭 사운드 이름
 
     private static Color normalColor = Color.white;
     private static Color selectedColor = new Color(1f, 1f, 1f, 0.5f);
@@ -44,6 +47,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             else
             {
                 HighlightSelectedSlot();
+            }
+
+            // ✅ 슬롯 클릭 사운드 재생
+            if (!string.IsNullOrEmpty(clickSoundName))
+            {
+                SoundManager.instance.PlaySound(clickSoundName);
             }
         }
     }

@@ -190,87 +190,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &26428876
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 26428878}
-  - component: {fileID: 26428877}
-  m_Layer: 0
-  m_Name: SoundManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &26428877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 26428876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0afbec59d84177647b1ce8ce1775b184, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  audioMixer: {fileID: 24100000, guid: 2cefa1679c70d4241909df818cf2adbb, type: 2}
---- !u!4 &26428878
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 26428876}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &150074331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 48cb90300b080494e98bad1050693a9c, type: 2}
+  soundName: ItemClick
 --- !u!64 &639683728
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1257,6 +1177,8 @@ MonoBehaviour:
   overlayImage: {fileID: 1101422439}
   puzzleID: window_rope
   nextStoryIndex: 1
+  ropeUseSound: OpenWindow
+  fadeInSound: Happy
 --- !u!1 &740584084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,6 +1352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 3016928786ec62941b10b6a2c8f3a6d8, type: 2}
+  soundName: ItemClick
 --- !u!64 &950093828
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1704,6 +1627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 7de9890ed0d78e3419029a6a4ae06163, type: 2}
+  soundName: ItemClick
 --- !u!64 &1454567744
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1824,6 +1748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 323a822c94bee9046a021da9e7de6dfb, type: 2}
+  soundName: ItemClick
 --- !u!64 &1574228284
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1944,6 +1869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: fb2a81f44a1586a4dabf19f1a0df893d, type: 2}
+  soundName: ItemClick
 --- !u!64 &1577844331
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2236,7 +2162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1955911534
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2247,15 +2173,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1ec533edfa901e945b591bbbcd6f69a1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5b73025d72cd3544ebe24c398d30db03, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.15
-  m_Pitch: 0.85
+  m_Volume: 1
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -2660,6 +2586,5 @@ SceneRoots:
   - {fileID: 321502020}
   - {fileID: 1199915934}
   - {fileID: 957444}
-  - {fileID: 26428878}
   - {fileID: 150074333}
   - {fileID: 1955911535}

@@ -6,6 +6,9 @@ public class DraggableBook3D : MonoBehaviour
     [Header("이 책의 고유 이름 (예: BlueBook, RedBook 등)")]
     public string bookName;
 
+    [Header("사운드 매니저에 등록된 이름")]
+    public string clickSoundName; // ✅ 사운드 매니저에서 찾아서 재생할 이름
+
     private Vector3 offset;
     private float zCoord;
     private Vector3 originalPosition;
@@ -21,6 +24,12 @@ public class DraggableBook3D : MonoBehaviour
     void OnMouseDown()
     {
         if (isLocked) return;
+
+        // ✅ 클릭할 때 SoundManager로 소리 재생
+        if (!string.IsNullOrEmpty(clickSoundName))
+        {
+            SoundManager.instance.PlaySound(clickSoundName);
+        }
 
         zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
         Vector3 mousePoint = Input.mousePosition;
@@ -90,8 +99,7 @@ public class DraggableBook3D : MonoBehaviour
                 }
             }
         }
-
-        // ✅ 슬롯을 찾지 못해도 이제는 제자리 복귀 안 함! (여기 아무 것도 안 함)
+        // 슬롯 못 찾았을 때 아무 것도 안 함
     }
 
     public void ReturnToOriginalPosition()

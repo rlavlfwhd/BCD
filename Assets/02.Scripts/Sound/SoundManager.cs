@@ -1,17 +1,16 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Audio; // Audio °ü·Ã ±â´ÉÀ» »ç¿ëÇÏ±â À§ÇØ Ãß°¡
+using UnityEngine.Audio; // Audio ê´€ë ¨ ê¸°ëŠ¥
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance; // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º
+    public static SoundManager instance;
 
-    public List<Sound> sounds = new List<Sound>(); // »ç¿îµå ¸®½ºÆ®
-    public AudioMixer audioMixer; // ¿Àµğ¿À ¹Í¼­ ÂüÁ¶
+    public List<Sound> sounds = new List<Sound>(); // ì‚¬ìš´ë“œ ë¦¬ìŠ¤íŠ¸
+    public AudioMixer audioMixer; // ì˜¤ë””ì˜¤ ë¯¹ì„œ ì°¸ì¡°
 
     void Awake()
     {
-        // ½Ì±ÛÅæ ÆĞÅÏ Àû¿ë
         if (instance == null)
         {
             instance = this;
@@ -22,7 +21,7 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // »ç¿îµå¸¦ ÃÊ±âÈ­ÇÕ´Ï´Ù.
+        // ì‚¬ìš´ë“œ ì´ˆê¸°í™”
         foreach (Sound sound in sounds)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
@@ -30,21 +29,24 @@ public class SoundManager : MonoBehaviour
             sound.source.volume = sound.volume;
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
-            sound.source.outputAudioMixerGroup = sound.mixerGroup; // ¿Àµğ¿À ¹Í¼­ ±×·ì ¼³Á¤
+            sound.source.outputAudioMixerGroup = sound.mixerGroup;
         }
     }
 
-    // »ç¿îµå¸¦ Àç»ıÇÏ´Â ¸Ş¼­µå
     public void PlaySound(string name)
     {
         Sound soundToPlay = sounds.Find(sound => sound.name == name);
         if (soundToPlay != null)
         {
+            // âœ… ìˆ˜ì •ëœ ë¶€ë¶„: Play ì „ì— ìµœì‹  Volume/Pitch ì ìš©
+            soundToPlay.source.volume = soundToPlay.volume;
+            soundToPlay.source.pitch = soundToPlay.pitch;
+
             soundToPlay.source.Play();
         }
         else
         {
-            Debug.LogWarning("»ç¿îµå '" + name + "'¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+            Debug.LogWarning($"â— ì‚¬ìš´ë“œ '{name}'ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         }
     }
 }
@@ -52,15 +54,18 @@ public class SoundManager : MonoBehaviour
 [System.Serializable]
 public class Sound
 {
-    public string name; // »ç¿îµåÀÇ ÀÌ¸§
-    public AudioClip clip; // »ç¿îµå Å¬¸³
+    [Header("ì‚¬ìš´ë“œ ID (ì •ë ¬ìš© ë²ˆí˜¸)")]
+    public int id; // âœ… ì¶”ê°€: ì‚¬ìš´ë“œë¥¼ ì •ë ¬/êµ¬ë¶„í•˜ê¸° ìœ„í•œ ìˆ«ì ID
+
+    public string name; // ì‚¬ìš´ë“œ ì´ë¦„
+    public AudioClip clip; // ì˜¤ë””ì˜¤ í´ë¦½
     [Range(0f, 1f)]
-    public float volume = 1f; // »ç¿îµå º¼·ı
+    public float volume = 1f; // ë³¼ë¥¨
     [Range(0.1f, 3f)]
-    public float pitch = 1f; // »ç¿îµå ÇÇÄ¡
-    public bool loop; // ¹İº¹ Àç»ı ¿©ºÎ
-    public AudioMixerGroup mixerGroup; // ¿Àµğ¿À ¹Í¼­ ±×·ì
+    public float pitch = 1f; // í”¼ì¹˜
+    public bool loop; // ë£¨í”„ ì—¬ë¶€
+    public AudioMixerGroup mixerGroup; // ë¯¹ì„œ ê·¸ë£¹
 
     [HideInInspector]
-    public AudioSource source; // ¿Àµğ¿À ¼Ò½º
+    public AudioSource source; // ëŸ°íƒ€ì„ìš© AudioSource
 }

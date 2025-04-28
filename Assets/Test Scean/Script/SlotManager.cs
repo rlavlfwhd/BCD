@@ -7,6 +7,9 @@ public class SlotManager : MonoBehaviour
     public GameObject Door;
     public Item chickenStatueItem;
 
+    [Header("사운드 매니저에 등록된 이름")]
+    public string bookshelfMoveSoundName; // ✅ 책장이 이동할 때 재생할 사운드 이름
+
     private bool allSlotsCorrect = false;
 
     public void CheckSlotsNow()
@@ -34,14 +37,20 @@ public class SlotManager : MonoBehaviour
 
     System.Collections.IEnumerator SlideOutBookshelf()
     {
-        float distance = 1200f;
-        float speed = 160f; // 초당 이동 속도
+        float distance = 1100f;
+        float speed = 165f; // 초당 이동 속도
         float duration = distance / speed;
 
         float elapsed = 0f;
 
         Vector3 startPos = backgroundObject.transform.position;
         Vector3 endPos = startPos + new Vector3(distance, 0, 0);
+
+        // ✅ 책장 이동 시작할 때 사운드 재생
+        if (!string.IsNullOrEmpty(bookshelfMoveSoundName))
+        {
+            SoundManager.instance.PlaySound(bookshelfMoveSoundName);
+        }
 
         while (elapsed < duration)
         {

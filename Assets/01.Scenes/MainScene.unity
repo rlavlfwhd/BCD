@@ -152,38 +152,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - id: 0
+    name: ItemClick
+    clip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - id: 1
+    name: SlotClick
+    clip: {fileID: 8300000, guid: 98c3afb3194ad4e4caab950e45c3925c, type: 3}
+    volume: 1
+    pitch: 2
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: 
+  - id: 2
+    name: 
     clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - id: 3
+    name: OpenWindow
+    clip: {fileID: 8300000, guid: d90db5e832fb9dc40854b8439d7f0abc, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - id: 4
+    name: slidingdoor
+    clip: {fileID: 8300000, guid: bf433583f03e24647b5d59c7fd67bfad, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - id: 5
+    name: Happy
+    clip: {fileID: 8300000, guid: 98cc87dac6f45a44c84c5c8eb3e1fc2f, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
@@ -1029,15 +1042,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1ec533edfa901e945b591bbbcd6f69a1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5b73025d72cd3544ebe24c398d30db03, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
-  m_Pitch: 0.45
+  m_Volume: 1
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
