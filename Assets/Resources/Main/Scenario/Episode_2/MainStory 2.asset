@@ -13,29 +13,24 @@ MonoBehaviour:
   m_Name: MainStory 2
   m_EditorClassIdentifier: 
   storyNumber: 8
-  MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
-  MainImage2: {fileID: 2800000, guid: 5ea5432d0a3fe664fb130babfa1e5ac9, type: 3}
-  storyType: 0
-  storyText: "\n-2\uC77C\uCC28-                                      \n\n\uC7A5\uBBF8\uB4E4\uC774
-    \uC544\uB984\uB2F5\uAC8C \uD53C\uC5B4\uC788\uB294 \uB0A0, \uACF5\uC8FC\uB294
-    \uAD81 \uC548\uC758 \uC7A5\uBBF8\uC815\uC6D0\uC5D0\uAC00\uC11C \uC7A5\uBBF8\uD5A5\uC744
-    \uB9E1\uC73C\uBA70 \uC0B0\uCC45\uC744\uD558\uACE0 \uC2F6\uC5B4\uD569\uB2C8\uB2E4.\n\n\"\uC800\uAE30,
-    \uD638\uC704\uAE30\uC0AC. \uB098 \uC7A5\uBBF8\uC815\uC6D0\uC5D0 \uAC00\uC11C
-    \uAF43\uD5A5\uC744 \uB9E1\uC73C\uBA70 \uC0B0\uCC45\uD558\uACE0 \uC2F6\uC5B4.\""
+  MainImage: {fileID: 2800000, guid: b390126b860cf4a4ea83dbd77adc613f, type: 3}
+  MainImage2: {fileID: 2800000, guid: 78a14bbc5f9188d4f8f81cb4a23b70bc, type: 3}
+  storyText: "\uACF5\uC8FC : (\uCE68\uCC29\uD55C \uD45C\uC815) \uD734, \uB4E4\uD0A4\uC9C0
+    \uC54A\uACE0 \uC798 \uB0B4\uB824\uC654\uB124. \uBC14\uB85C \uC55E\uC5D0 \uC7A5\uBBF8\uC815\uC6D0\uC774
+    \uC788\uC73C\uB2C8 \uC5EC\uAE38 \uAC70\uCCD0\uC57C \uD560\uD150\uB370..\n\n\uC0AC\uB78C\uB4E4\uC744
+    \uD53C\uD574\uC11C \uC0B0\uCC45\uB85C\uB85C \uAC08\uAE4C, \uC544\uB2C8\uBA74
+    \uC628\uC2E4 \uBA3C\uC800 \uAC00\uC11C \uD544\uC694\uD560 \uB9CC\uD55C \uBB3C\uAC74\uC744
+    \uCC3E\uC744\uAE4C."
   options:
-  - buttonText: "A) \"\uC548\uB429\uB2C8\uB2E4 \uACF5\uC8FC\uB2D8. \uC815\uC6D0\uC740
-      \uBC8C\uB808\uAC00 \uB9CE\uC544 \uC704\uD5D8\uD558\uB2C8 \uC81C\uAC00 \uC9C1\uC811
-      \uC7A5\uBBF8\uAF43\uC744 \uAC00\uC838\uB2E4 \uB4DC\uB9AC\uACA0\uC2B5\uB2C8\uB2E4.\""
+  - buttonText: "A) \uAE4A\uC740 \uC0B0\uCC45\uB85C\uB85C \uC774\uB3D9\uD55C\uB2E4"
     eventCheck:
       sucessResult:
       - resultType: 0
         value: 9
         changeSceneName: 
-  - buttonText: "B) \"(\uC7A0\uAE50 \uB738\uB4E4\uC774\uBA70)... \uB124, \uC7A5\uBBF8\uB294
-      \uC9C1\uC811 \uBD10\uC57C \uC88B\uC73C\uB2C8 \uC815\uC6D0\uC73C\uB85C \uAC00\uB418
-      \uC81C\uAC8C\uC11C \uB5A8\uC5B4\uC9C0\uC9C0 \uB9C8\uC2ED\uC2DC\uC624.\""
+  - buttonText: "B) \uC628\uC2E4\uB85C \uC774\uB3D9\uD55C\uB2E4"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 10
+        value: 9
         changeSceneName: 

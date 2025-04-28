@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: 2AAA
+  m_EditorClassIdentifier: 
+  storyNumber: 8
+  MainImage: {fileID: 2800000, guid: 1e4edbab527e3a94f9f9376c9c268779, type: 3}
+  MainImage2: {fileID: 2800000, guid: f00e5eabff04179448ae444039352f1d, type: 3}
+  storyText: "\uACF5\uC8FC : (\uB2F9\uD669\uD55C \uD45C\uC815)\uC73C\uC73D\u2026
+    \uC800 \uC0B4\uAE30\uC5D0 \uB300\uD56D\uD560 \uB9CC\uD55C\uAC8C \uB098\uBB47\uAC00\uC9C0\uBC16\uC5D0
+    \uC5C6\uB294\uB370 \uAD1C\uCC2E\uACA0\uC9C0?"
+  options:
+  - buttonText: "A) \uC774\uC5B4\uC11C"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 9
+        changeSceneName: 

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: 2AAA_1
+  m_EditorClassIdentifier: 
+  storyNumber: 8
+  MainImage: {fileID: 2800000, guid: b390126b860cf4a4ea83dbd77adc613f, type: 3}
+  MainImage2: {fileID: 2800000, guid: f00e5eabff04179448ae444039352f1d, type: 3}
+  storyText: "\uB098\uB808\uC774\uC158 : \uACF5\uC8FC\uB294 \uC587\uB514\uC587\uC740
+    \uB098\uBB47\uAC00\uC9C0\uB97C \uC0AC\uC6A9\uD574\uC11C\uB77C\uB3C4 \uC0B4\uC544\uB0A8\uC544\uC57C\uACA0\uB2E4\uACE0
+    \uC0DD\uAC01\uD558\uBA70 \uB208\uC744 \uAFB9 \uAC10\uACE0 \uB4A4\uB97C \uD5A5\uD574
+    \uD718\uB458\uB800\uB2E4.\n\uADF8\uB7EC\uC790 \uC5B4\uB290 \uC21C\uAC04 \uB098\uD0C0\uB09C
+    \uC554\uC0B4\uC790\uC758 \uB208\uC774 \uBCA0\uC5B4\uC84C\uACE0, \uADF8\uB294
+    \uAD34\uB85C\uC6CC\uD588\uB2E4. \uADF8 \uC7A5\uBA74\uC744 \uBCF8 \uACF5\uC8FC\uB294
+    \uADF8 \uD2C8\uC744 \uD0C0 \uC628\uC2E4 \uBC29\uD5A5\uC73C\uB85C \uBE68\uB9AC
+    \uBC97\uC5B4\uB0AC\uB2E4.\r\n"
+  options:
+  - buttonText: "A) \uC774\uC5B4\uC11C"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 9
+        changeSceneName: 
