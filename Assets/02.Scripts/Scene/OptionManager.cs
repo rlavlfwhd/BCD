@@ -11,6 +11,20 @@ public class OptionManager : MonoBehaviour
 {
     public static OptionManager Instance;
 
+    public TMP_Text currentOptionText;
+    public GameObject optionPanel;
+    public GameObject savePanel;
+    public GameObject loadPanel;
+    public GameObject soundSettingPanel;
+    public GameObject saveTextBtn;
+    public GameObject mainSceneTextBtn;
+    public GameObject[] inGameBtns;
+
+    public GameObject confirmPopup;
+    public TMP_Text confirmText;
+    public CanvasGroup confirmPopupCanvasGroup;
+    private System.Action confirmYesAction;
+
     private void Awake()
     {
         if (Instance == null)
@@ -24,16 +38,46 @@ public class OptionManager : MonoBehaviour
         }
     }
 
-    public TMP_Text currentOptionText;
-    public GameObject optionPanel;
-    public GameObject savePanel;
-    public GameObject loadPanel;
-    public GameObject soundSettingPanel;
+    private void Start()
+    {
+        // 씬 로드될 때마다 이벤트 연결
+        SceneManager.sceneLoaded += OnSceneChanged;
 
-    public GameObject confirmPopup;
-    public TMP_Text confirmText;
-    public CanvasGroup confirmPopupCanvasGroup;
-    private System.Action confirmYesAction;
+        // 현재 씬에서도 바로 체크
+        CheckSceneButtons(SceneManager.GetActiveScene().name);
+    }
+
+    private void OnDestroy()
+    {
+        // 이벤트 중복 방지
+        SceneManager.sceneLoaded -= OnSceneChanged;
+    }
+
+    private void OnSceneChanged(Scene scene, LoadSceneMode mode)
+    {
+        CheckSceneButtons(scene.name);
+    }
+
+    private void CheckSceneButtons(string sceneName)
+    {
+        foreach(var btns in inGameBtns)
+        {
+            if (sceneName == "MainScene")
+            {
+                saveTextBtn.SetActive(false);
+                mainSceneTextBtn.SetActive(false);
+                btns.gameObject.SetActive(false);
+
+            }
+            else
+            {
+                saveTextBtn.SetActive(true);
+                mainSceneTextBtn.SetActive(true);
+                btns.gameObject.SetActive(true);
+            }
+        }
+    }
+
 
     private void DisableAllPanels()
     {

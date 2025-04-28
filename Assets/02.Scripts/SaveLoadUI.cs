@@ -13,9 +13,7 @@ public class SaveLoadUI : MonoBehaviour
     public Image[] saveSlotImages1;
     public Image[] saveSlotImages2;
     public Image[] loadSlotImages1;
-    public Image[] loadSlotImages2;
-    public GameObject OptionPanel;
-    public CameraParallax cameraParallax;
+    public Image[] loadSlotImages2;    
 
 
     private void Awake()
@@ -42,18 +40,6 @@ public class SaveLoadUI : MonoBehaviour
         }
 
         UpdateSlotImages();
-    }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            OptionPanel.SetActive(!OptionPanel.activeSelf);
-            if (cameraParallax != null)
-            {
-                cameraParallax.enabled = !OptionPanel.activeSelf;
-            }
-        }
     }
 
     public void SaveGame(int slot)
@@ -132,10 +118,5 @@ public class SaveLoadUI : MonoBehaviour
         Texture2D texture = new Texture2D(2, 2);
         texture.LoadImage(imageBytes);
         return Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-    }
-
-    public void OptionBtnClick()
-    {
-        OptionPanel.SetActive(true);
     }
 }
