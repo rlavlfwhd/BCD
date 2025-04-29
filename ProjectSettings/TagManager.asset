@@ -57,3 +57,6 @@ TagManager:
   - name: Flower
     uniqueID: 1951615245
     locked: 0
+  - name: Honey
+    uniqueID: 1897026631
+    locked: 0
