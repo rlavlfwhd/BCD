@@ -98,8 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fe994b710b3b04eb8699b672ce63cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swayAmount: 100
-  swaySpeed: 70
+  fallSpeed: 100
+  horizontalAmplitude: 80
+  horizontalFrequency: 5
+  lifeTime: 3
+  fadeDuration: 1
 --- !u!50 &-3068057253488936907
 Rigidbody2D:
   serializedVersion: 4
