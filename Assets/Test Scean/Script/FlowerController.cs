@@ -1,74 +1,80 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// 🌸 FlowerController
-/// 나비가 도착하면 꽃잎을 자연스럽게 떨어뜨리는 기능을 담당
-/// </summary>
 public class FlowerController : MonoBehaviour
 {
-    [Header("🌸 꽃 설정")]
-    [Tooltip("현재 남아 있는 꽃잎 수입니다.")]
-    public int currentPetalCount = 5;
+    [Header("🌸 꽃잎 수 설정")]
+    public int currentPetalCount = 4;
+    public int minPetalCount = 0;
 
-    [Tooltip("최소로 남겨야 하는 꽃잎 수입니다.")]
-    public int minPetalCount = 1;
+    [Header("🌸 꽃 스프라이트 리스트")]
+    public Sprite[] flowerSprites;
+    private SpriteRenderer spriteRenderer;
 
-    [Header("🌼 떨어지는 꽃잎 프리팹 설정")]
-    [Tooltip("떨어질 때 생성할 꽃잎 프리팹입니다.")]
-    public GameObject petalPrefab;
+    [Header("🍃 떨어지는 꽃잎 프리팹 설정")]
+    public GameObject petalPrefab; // 떨어지는 꽃잎 프리팹
+    public Vector3 petalSpawnOffset = new Vector3(0, 0.5f, 0); // 꽃 위쪽 위치에서 생성
 
-    [Tooltip("꽃잎이 생성될 위치 오프셋입니다.")]
-    public Vector3 spawnOffset = new Vector3(0, 0.5f, 0);
-
-    [Header("⚡ 꽃잎 낙하 속도 설정")]
-    [Tooltip("꽃잎이 떨어질 때 적용할 중력 세기입니다.")]
-    public float fallSpeed = 5.0f; // Inspector에서 조정하는 낙하 속도
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        UpdateFlowerSprite();
+    }
 
     /// <summary>
-    /// 꽃잎 하나를 떨어뜨린다 (나비가 도착하면 호출)
+    /// 꽃잎 하나 떨어뜨리기
     /// </summary>
     public void DropPetal()
     {
-        Debug.Log("🌸 DropPetal() 호출됨!");
-
         if (currentPetalCount > minPetalCount)
         {
             currentPetalCount--;
-            Debug.Log($"🌸 {gameObject.name} 꽃잎 하나 떨어짐! 남은 꽃잎 수: {currentPetalCount}");
+            Debug.Log($"🌸 꽃잎 하나 떨어짐! 남은 꽃잎 수: {currentPetalCount}");
 
-            if (petalPrefab != null)
-            {
-                GameObject petal = Instantiate(petalPrefab, transform.position + spawnOffset, Quaternion.identity);
-                Debug.Log("🌸 꽃잎 프리팹 생성 완료!");
-
-                Rigidbody2D rb = petal.GetComponent<Rigidbody2D>();
-                if (rb != null)
-                {
-                    // Rigidbody2D 세팅
-                    rb.simulated = true;
-                    rb.bodyType = RigidbodyType2D.Dynamic;
-                    rb.gravityScale = fallSpeed;    // Inspector 설정 낙하 속도 적용
-                    rb.drag = 0.3f;                 // ✨ Linear Drag 설정 (공기 저항 부드럽게)
-                    rb.angularDrag = 10.0f;          // ✨ Angular Drag 설정 (회전 거의 못 하게)
-                    rb.constraints = RigidbodyConstraints2D.None;
-
-                    // 🌟 좌우로 살짝 흔들리는 힘 추가
-                    Vector2 randomForce = new Vector2(Random.Range(-0.5f, 0.5f), 0);
-                    rb.AddForce(randomForce, ForceMode2D.Impulse);
-                }
-                else
-                {
-                    Debug.LogWarning("⚠️ 생성된 꽃잎에 Rigidbody2D가 없습니다!");
-                }
-            }
-            else
-            {
-                Debug.LogWarning("⚠️ petalPrefab이 비어있습니다. 연결을 확인하세요!");
-            }
+            UpdateFlowerSprite();
+            SpawnFallingPetal(); // 🌟 꽃잎 프리팹 생성
         }
         else
         {
-            Debug.LogWarning("⚠️ 꽃잎이 최소 갯수라 더 이상 떨어뜨릴 수 없습니다.");
+            Debug.Log("🌸 꽃잎이 더 이상 떨어질 수 없습니다.");
+        }
+    }
+
+    /// <summary>
+    /// 꽃 상태에 따라 스프라이트 변경
+    /// </summary>
+    private void UpdateFlowerSprite()
+    {
+        if (flowerSprites != null && currentPetalCount >= 0 && currentPetalCount < flowerSprites.Length)
+        {
+            spriteRenderer.sprite = flowerSprites[currentPetalCount];
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ 꽃 스프라이트 변경 실패: 배열 범위를 벗어났습니다.");
+        }
+    }
+
+    /// <summary>
+    /// 떨어지는 꽃잎 프리팹 생성
+    /// </summary>
+    private void SpawnFallingPetal()
+    {
+        if (petalPrefab != null)
+        {
+            Vector3 spawnPos = transform.position + petalSpawnOffset;
+            GameObject petal = Instantiate(petalPrefab, spawnPos, Quaternion.identity);
+
+            // Rigidbody2D가 있다면 아래 방향 힘 적용
+            Rigidbody2D rb = petal.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.gravityScale = 0.7f;  // 낙하 속도
+                rb.velocity = new Vector2(Random.Range(-0.3f, 0.3f), Random.Range(-1.5f, -2.5f));
+                rb.angularVelocity = Random.Range(-60f, 60f); // 살짝 회전
+            }
+
+            // 자동 제거
+            Destroy(petal, 3f); // 3초 뒤 제거
         }
     }
 }
