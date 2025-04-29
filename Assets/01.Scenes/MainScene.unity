@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - id: 0
+  - description: "0. \uC544\uC774\uD15C \uD68D\uB4DD \uC0AC\uC6B4\uB4DC"
     name: ItemClick
     clip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
     volume: 1
@@ -160,7 +160,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - id: 1
+  - description: "1.\uC778\uBCA4\uD1A0\uB9AC, \uC2AC\uB86F \uC0AC\uC6B4\uB4DC"
     name: SlotClick
     clip: {fileID: 8300000, guid: 98c3afb3194ad4e4caab950e45c3925c, type: 3}
     volume: 1
@@ -168,15 +168,15 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - id: 2
-    name: 
-    clip: {fileID: 0}
+  - description: "2. \uAE68\uC9C4 \uAC70\uC6B8 \uC0AC\uC6B4\uB4DC"
+    name: BroKenMirror
+    clip: {fileID: 8300000, guid: 232bd86b1dde8684ea25403349902dae, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - id: 3
+  - description: "3. \uCC3D\uBB38 \uC0AC\uC6B4\uB4DC"
     name: OpenWindow
     clip: {fileID: 8300000, guid: d90db5e832fb9dc40854b8439d7f0abc, type: 3}
     volume: 1
@@ -184,7 +184,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - id: 4
+  - description: "4. \uC2AC\uB77C\uC774\uB529 \uCC45\uC7A5  \uC0AC\uC6B4\uB4DC"
     name: slidingdoor
     clip: {fileID: 8300000, guid: bf433583f03e24647b5d59c7fd67bfad, type: 3}
     volume: 1
@@ -192,9 +192,25 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - id: 5
+  - description: "5. \uACF5\uC8FC (\uC6C3\uC74C) \uC0AC\uC6B4\uB4DC"
     name: Happy
     clip: {fileID: 8300000, guid: 98cc87dac6f45a44c84c5c8eb3e1fc2f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - description: "6. \uC120\uD0DD\uC9C0 \uD074\uB9AD \uC0AC\uC6B4\uB4DC"
+    name: ChoiceButton
+    clip: {fileID: 8300000, guid: 05974bc189b4e70448ecd2febb705fbb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - description: "7. \uBB38 \uC624\uD508 \uC0AC\uC6B4\uB4DC"
+    name: OpenDoor
+    clip: {fileID: 8300000, guid: 17bfea8956416f2418a2c8e5050f4067, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -1043,6 +1059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 455023810}
   - component: {fileID: 455023809}
+  - component: {fileID: 455023811}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -1161,6 +1178,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &455023811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455023808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43d6ccc5b0468446b5a3ace2a0f989d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &506150819
 GameObject:
   m_ObjectHideFlags: 0
@@ -3126,6 +3155,16 @@ PrefabInstance:
     - target: {fileID: 4246312240042098229, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532526485364274934, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532526485364274934, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6722580288892628163, guid: 5112da2effb49f74b87ee3b3fd6f26f0,

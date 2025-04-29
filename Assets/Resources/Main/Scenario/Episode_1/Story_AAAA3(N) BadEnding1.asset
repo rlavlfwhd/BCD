@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: Story_AAAA3(N) BadEnding1
   m_EditorClassIdentifier: 
-  storyNumber: 122
-  MainImage: {fileID: 2800000, guid: d0e194079a9662e4bb2ab52e3f0c451f, type: 3}
-  MainImage2: {fileID: 2800000, guid: cadfa4b701521ef45b31518974fbfc1b, type: 3}
-  storyText: "\uB098\uB808\uC774\uC158 : \uAC11\uC637\uC744 \uC785\uC744 \uCC44\uB85C
+  storyNumber: 16
+  MainImage: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
+  MainImage2: {fileID: 2800000, guid: 140856a0243ec68409b67d8275bd456d, type: 3}
+  storyText: "    \uB098\uB808\uC774\uC158 : \uAC11\uC637\uC744 \uC785\uC744 \uCC44\uB85C
     \uB118\uC5B4\uC838\uBC84\uB9B0 \uACF5\uC8FC\uB97C \uBCF8 \uD558\uC778\uC740 \uAE09\uD788
     \uAE30\uC0AC\uB4E4\uC744 \uBD88\uB800\uACE0, \uB2EC\uB824\uC628 \uAE30\uC0AC\uB4E4\uC5D0\uAC8C
-    \uBD99\uC7A1\uD78C \uACF5\uC8FC\uB294 \uBC29\uC5D0 \uB2E4\uC2DC \uAC07\uD788\uACE0
-    \uB9D0\uC558\uB2E4.\n\n(Bad  Ending1)"
+    \n\n                    \uBD99\uC7A1\uD78C \uACF5\uC8FC\uB294 \uBC29\uC5D0 \uB2E4\uC2DC
+    \uAC07\uD788\uACE0 \uB9D0\uC558\uB2E4.\n\n                                                                                                                   
+    (Bad  Ending1)"
   options:
   - buttonText: "\uB418\uB3CC\uC544\uAC00\uAE30"
     eventCheck:

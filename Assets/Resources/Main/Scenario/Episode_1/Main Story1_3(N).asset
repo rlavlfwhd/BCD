@@ -30,6 +30,6 @@ MonoBehaviour:
       \uBB3C\uAC74\uC744 \uCC3E\uB294\uB2E4."
     eventCheck:
       sucessResult:
-      - resultType: 0
+      - resultType: 2
         value: 0
         changeSceneName: PWindowScene
