@@ -489,8 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979bd9e320c8a6a418ea53cbf8bbcaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPetalCount: 5
-  minPetalCount: 0
+  flowerSprite: {fileID: 149482204}
   flowerSprites:
   - {fileID: 21300000, guid: f7bbeca28fa1b0d4bb899c81ca3c604f, type: 3}
   - {fileID: 21300000, guid: 21938eb175f5e7c4a92d818f03c00760, type: 3}
@@ -498,9 +497,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 37a38b2eddb291241a66cdf9769cfb93, type: 3}
   - {fileID: 21300000, guid: dd086cbf2eace394fbc3fc76c648c1ca, type: 3}
   - {fileID: 21300000, guid: 05aa982054dbe4a42a4eee827a188458, type: 3}
+  currentPetalCount: 5
+  arrivalPoint: {fileID: 171676430}
+  fadeDuration: 0.2
   petalPrefab: {fileID: 8658733812619138295, guid: 779150729db09da42ac7ce053c1d01b0,
     type: 3}
-  petalSpawnOffset: {x: 0, y: 0.5, z: 0}
+  petalSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &149482207
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -561,6 +563,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &171676429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171676430}
+  m_Layer: 0
+  m_Name: GreenArrive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &171676430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171676429}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 142, y: -43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -958,7 +991,6 @@ GameObject:
   - component: {fileID: 339373587}
   - component: {fileID: 339373586}
   - component: {fileID: 339373585}
-  - component: {fileID: 339373584}
   m_Layer: 0
   m_Name: Rose
   m_TagString: Untagged
@@ -966,27 +998,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &339373584
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339373583}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.98716, y: 5.401898, z: 0.112141125}
-  m_Center: {x: -0.05898529, y: 0.018023986, z: 0}
 --- !u!114 &339373585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,12 +1022,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979bd9e320c8a6a418ea53cbf8bbcaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPetalCount: 6
-  minPetalCount: 1
-  flowerSprites:
-  - {fileID: 21300000, guid: 4cee6f6f78ce05f4f9640522731dd000, type: 3}
+  flowerSprite: {fileID: 339373587}
+  flowerSprites: []
+  currentPetalCount: 0
+  arrivalPoint: {fileID: 464859895}
+  fadeDuration: 0.2
   petalPrefab: {fileID: 0}
-  petalSpawnOffset: {x: 0, y: 0.5, z: 0}
+  petalSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!212 &339373587
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1223,6 +1235,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385759413}
   m_CullTransparentMesh: 1
+--- !u!1 &390556867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390556868}
+  m_Layer: 0
+  m_Name: YellowArrive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &390556868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390556867}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 853, y: 110, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,6 +1384,130 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &425047466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 425047467}
+  m_Layer: 0
+  m_Name: Honey
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &425047467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425047466}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -537, y: 144, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &464859894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 464859895}
+  m_Layer: 0
+  m_Name: RoseArrive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &464859895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464859894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -488, y: 87, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &626277284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 626277285}
+  m_Layer: 0
+  m_Name: BlueArrive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &626277285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626277284}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -168, y: 282, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &652247839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652247840}
+  m_Layer: 0
+  m_Name: PurpleArrive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &652247840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652247839}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 541, y: 327, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740584084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,17 +1949,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979bd9e320c8a6a418ea53cbf8bbcaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPetalCount: 4
-  minPetalCount: 0
+  flowerSprite: {fileID: 1292142832}
   flowerSprites:
   - {fileID: 21300000, guid: 86e60cd5624c94845b8fed57218eb97b, type: 3}
   - {fileID: 21300000, guid: 2c5a0c8980a7b3849bb5cc8e4ebe06f1, type: 3}
   - {fileID: 21300000, guid: 9d0e738acabebbd4290e8bd737c27563, type: 3}
   - {fileID: 21300000, guid: 7b6096ba157f7a94d88075dcb43dc73c, type: 3}
   - {fileID: 21300000, guid: ef2a8513ab5f4ae4f8b0b0ec03e7a577, type: 3}
+  currentPetalCount: 4
+  arrivalPoint: {fileID: 626277285}
+  fadeDuration: 0.2
   petalPrefab: {fileID: 6444813866746356073, guid: f1f04f951c7a3544883938a1ae5a54c9,
     type: 3}
-  petalSpawnOffset: {x: 0, y: 0.5, z: 0}
+  petalSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &1292142835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2000,16 +2169,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979bd9e320c8a6a418ea53cbf8bbcaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPetalCount: 3
-  minPetalCount: 0
+  flowerSprite: {fileID: 1566891412}
   flowerSprites:
   - {fileID: 21300000, guid: 0ec32798ca9cc894bbf2eb8f417a72bb, type: 3}
   - {fileID: 21300000, guid: 54016344e0b18494fbfc62e2646d7ffe, type: 3}
   - {fileID: 21300000, guid: 40f37e88cd2a9f6499d4a5d4995cff96, type: 3}
   - {fileID: 21300000, guid: b987c76f98120114c9ed9006a1811433, type: 3}
+  currentPetalCount: 3
+  arrivalPoint: {fileID: 652247840}
+  fadeDuration: 0.2
   petalPrefab: {fileID: 6514079820119502473, guid: 0a5bbf010060c1d4bae5f2f0d54ac24d,
     type: 3}
-  petalSpawnOffset: {x: 0, y: 0.5, z: 0}
+  petalSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &1566891415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2043,7 +2214,7 @@ GameObject:
   - component: {fileID: 1580301587}
   - component: {fileID: 1580301588}
   m_Layer: 0
-  m_Name: TestButterfly
+  m_Name: Fairy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2105,12 +2276,12 @@ SpriteRenderer:
   m_SortingLayerID: -1317786943
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bba29854549fb2547b2c08a6685903ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 86cf4a7dfad2f584e8b868d954e48a04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 2.97, y: 3.51}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2128,11 +2299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebe7a8bc723b80499c73f80b0f1e80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 400
-  moveLimit: 8
-  waveAmplitude: 7.5
-  noiseSpeed: 100
-  useYAxisWave: 1
+  moveSpeed: 350
+  arcHeight: 20
+  verticalWaveAmplitude: 20
+  verticalWaveFrequency: 6
 --- !u!1 &1699741802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,8 +2647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979bd9e320c8a6a418ea53cbf8bbcaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPetalCount: 6
-  minPetalCount: 0
+  flowerSprite: {fileID: 2057119915}
   flowerSprites:
   - {fileID: 21300000, guid: 07e1ce3aeeb80134a80c80570fe5b9ef, type: 3}
   - {fileID: 21300000, guid: 9fc9d7065523342468a51b019e6032d8, type: 3}
@@ -2487,9 +2656,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 39b992561deb7f444ba2caa45d7b37f0, type: 3}
   - {fileID: 21300000, guid: a02a2accf7f4e4840a9769d1a124a3be, type: 3}
   - {fileID: 21300000, guid: c70baa879bef5104881db567066340c9, type: 3}
+  currentPetalCount: 6
+  arrivalPoint: {fileID: 390556868}
+  fadeDuration: 0.2
   petalPrefab: {fileID: 7778719605556822427, guid: 38a131b433070184f969d7795d0a14a1,
     type: 3}
-  petalSpawnOffset: {x: 0, y: 0.5, z: 0}
+  petalSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &2057119918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2540,21 +2712,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188143349ffbf994e937a955a2155254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPetalCount_Flower1: 2
-  targetPetalCount_Flower2: 5
-  targetPetalCount_Flower3: 1
-  targetPetalCount_Flower4: 2
   flower1: {fileID: 1292142834}
   flower2: {fileID: 149482206}
   flower3: {fileID: 1566891414}
   flower4: {fileID: 2057119917}
-  butterfly: {fileID: 1580301588}
+  targetPetalCount1: 2
+  targetPetalCount2: 5
+  targetPetalCount3: 1
+  targetPetalCount4: 2
+  fairy: {fileID: 1580301588}
   moveLimit: 8
   clearImage: {fileID: 0}
-  honeyFlower: {fileID: 339373583}
   honeyPrefab: {fileID: 8789634466768351228, guid: a33b433298331bd448448127baafcf50,
     type: 3}
-  honeySpawnOffset: {x: -5.95, y: 1.95, z: 0}
+  honeyFlower: {fileID: 339373588}
+  honeyArrivalPoint: {fileID: 464859895}
+  honeySpawnPoint: {fileID: 425047467}
 --- !u!4 &2061411689
 Transform:
   m_ObjectHideFlags: 0
@@ -2564,7 +2737,7 @@ Transform:
   m_GameObject: {fileID: 2061411687}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.3285923, y: -1.7112727, z: 121.72335}
+  m_LocalPosition: {x: -560, y: 183, z: 121.72335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2785,3 +2958,9 @@ SceneRoots:
   - {fileID: 808194869}
   - {fileID: 2061411689}
   - {fileID: 72907033}
+  - {fileID: 626277285}
+  - {fileID: 652247840}
+  - {fileID: 390556868}
+  - {fileID: 171676430}
+  - {fileID: 464859895}
+  - {fileID: 425047467}
