@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - id: 0
+  - description: 
     name: 
     clip: {fileID: 0}
     volume: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - id: 0
+  - description: 
     name: 
     clip: {fileID: 0}
     volume: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - id: 0
+  - description: 
     name: 
     clip: {fileID: 0}
     volume: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - id: 0
+  - description: 
     name: 
     clip: {fileID: 0}
     volume: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - id: 0
+  - description: 
     name: 
     clip: {fileID: 0}
     volume: 0
@@ -2113,7 +2113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebe7a8bc723b80499c73f80b0f1e80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 300
+  moveSpeed: 400
   moveLimit: 8
   waveAmplitude: 7.5
   noiseSpeed: 100
