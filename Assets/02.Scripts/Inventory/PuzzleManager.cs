@@ -42,6 +42,12 @@ public class PuzzleManager : MonoBehaviour
     {
         return completedPuzzles.Contains(puzzleID);
     }
+    public void CompletePuzzleAndConsumeItem(string puzzleID, Item usedItem)
+    {
+        CompletePuzzle(puzzleID);
+        Inventory.Instance.RemoveItemByName(usedItem.itemName);
+        Inventory.Instance.ClearSelection();
+    }
 
     // GameSystem에서 저장 시 호출
     public List<string> GetCompletedPuzzleList()
@@ -96,12 +102,5 @@ public class PuzzleManager : MonoBehaviour
     private bool IsPuzzleItem(GameObject go)
     {
         return go.GetComponent<IObjectItem>() != null;
-    }
-
-    public void CompletePuzzleAndConsumeItem(string puzzleID, Item usedItem)
-    {
-        CompletePuzzle(puzzleID);
-        Inventory.Instance.RemoveItemByName(usedItem.itemName);
-        Inventory.Instance.ClearSelection();
     }
 }

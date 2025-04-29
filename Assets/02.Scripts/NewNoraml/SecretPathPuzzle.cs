@@ -1,23 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SecretPath : MonoBehaviour
 {
+    public AudioClip openDoorClip;
+    public AudioMixerGroup sfxMixerGroup;
+
     public Item neededItem; // Pendant
-    public MeshRenderer DoorRenderer;
+    public MeshRenderer doorRenderer;
     public Material openedDoorMaterial;
-    public GameObject clickableWindowObject;
+    public GameObject clickableDoorObject;
     public string puzzleID = "SecretPath";
     public int nextStoryIndex = 301;
 
-    [Header("사운드 매니저에 등록된 이름")] // ✅ 추가
-    public string doorOpenSoundName; // ✅ 문 열 때 재생할 사운드 이름
-
     private bool isDoorOpened = false;
 
+    void Start()
+    {
+        if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
+        {
+            // 문 열린 상태로 복원
+            if (doorRenderer != null && openedDoorMaterial != null)
+            {
+                doorRenderer.material = openedDoorMaterial;
+            }
+
+            if (clickableDoorObject != null)
+            {
+                clickableDoorObject.SetActive(true);
+            }
+
+            isDoorOpened = true;
+        }
+    }
     private void OnMouseDown()
     {
         if (!isDoorOpened)
@@ -38,24 +57,20 @@ public class SecretPath : MonoBehaviour
         {
             PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, selected);
 
-            if (DoorRenderer != null && openedDoorMaterial != null)
+            if (doorRenderer != null && openedDoorMaterial != null)
             {
-                DoorRenderer.material = openedDoorMaterial;
+                doorRenderer.material = openedDoorMaterial;
+
+                SoundManager.PlayOneShot(gameObject, openDoorClip, sfxMixerGroup);
             }
 
-            if (clickableWindowObject != null)
+            if (clickableDoorObject != null)
             {
-                clickableWindowObject.SetActive(true);
+                clickableDoorObject.SetActive(true);
             }
 
             isDoorOpened = true;
             Debug.Log("철문열림! 펜던트 사용 완료");
-
-            // ✅ 문 열릴 때 사운드 재생
-            if (!string.IsNullOrEmpty(doorOpenSoundName))
-            {
-                SoundManager.instance.PlaySound(doorOpenSoundName);
-            }
         }
     }
 

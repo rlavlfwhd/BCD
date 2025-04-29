@@ -310,7 +310,6 @@ MonoBehaviour:
   correctBookName: RedBook2
   isOccupied: 0
   isCorrect: 0
-  dropSoundName: SlotClick
 --- !u!65 &157714720
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -500,7 +499,6 @@ MonoBehaviour:
   correctBookName: SmallChicken
   isOccupied: 0
   isCorrect: 0
-  dropSoundName: SlotClick
 --- !u!65 &335003738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -713,14 +711,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704d65d48040e6b4cb8f87530d8d50e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mirrorBreakClip: {fileID: 8300000, guid: 232bd86b1dde8684ea25403349902dae, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
   puzzleID: mirror_chickenstatue
   neededItem: {fileID: 11400000, guid: 1621c1d7dd07bd04aa235c9b02972e13, type: 2}
   mirrorRenderer: {fileID: 417464028}
   brokenMirrorMaterial: {fileID: 2100000, guid: 4a52670cd60f3cf4798c1ffdf7970d29,
     type: 2}
   pendantItem: {fileID: 11400000, guid: f9284bf4cac7fff4f86f7e741ab89768, type: 2}
-  mirrorPanel: {fileID: 1766703112}
-  mirrorBreakSoundName: BroKenMirror
+  mirrorPanel: {fileID: 690194367}
 --- !u!1 &475789616
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +771,6 @@ MonoBehaviour:
   correctBookName: YellowBook2
   isOccupied: 0
   isCorrect: 0
-  dropSoundName: SlotClick
 --- !u!65 &475789619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -985,7 +984,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: RedBook2
-  clickSoundName: ItemClick
+--- !u!1 &507878812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 507878814}
+  - component: {fileID: 507878813}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &507878813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507878812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70af83a90f4006d4f9da90a2f2a779cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storySceneBGM: {fileID: 0}
+  pWindowSceneBGM: {fileID: 0}
+  pBookshelfSceneBGM: {fileID: 0}
+  mainSceneBGM: {fileID: 0}
+  defaultBGM: {fileID: 0}
+--- !u!4 &507878814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507878812}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &513365831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,7 +1083,6 @@ MonoBehaviour:
   correctBookName: Chick
   isOccupied: 0
   isCorrect: 0
-  dropSoundName: SlotClick
 --- !u!65 &513365834
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1479,7 +1525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &548673580
 Transform:
   m_ObjectHideFlags: 0
@@ -1494,7 +1540,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 971070280}
-  - {fileID: 1503091447}
   - {fileID: 1130406031}
   - {fileID: 1778581813}
   m_Father: {fileID: 2024784851}
@@ -1549,7 +1594,6 @@ MonoBehaviour:
   correctBookName: BlueBook1
   isOccupied: 0
   isCorrect: 0
-  dropSoundName: SlotClick
 --- !u!65 &568756683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1635,7 +1679,6 @@ GameObject:
   - component: {fileID: 659972209}
   - component: {fileID: 659972207}
   - component: {fileID: 659972210}
-  - component: {fileID: 659972211}
   m_Layer: 0
   m_Name: BlueBook1
   m_TagString: Untagged
@@ -1764,19 +1807,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: BlueBook1
-  clickSoundName: ItemClick
---- !u!114 &659972211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659972202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64fa37f109af0fa44a7e35aa174ed2c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &690194367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,7 +1884,9 @@ MonoBehaviour:
   backgroundObject: {fileID: 971070276}
   Door: {fileID: 1778581809}
   chickenStatueItem: {fileID: 11400000, guid: 1621c1d7dd07bd04aa235c9b02972e13, type: 2}
-  bookshelfMoveSoundName: slidingdoor
+  bookshelfSlideClip: {fileID: 8300000, guid: bf433583f03e24647b5d59c7fd67bfad, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!4 &694941349
 Transform:
   m_ObjectHideFlags: 0
@@ -1993,7 +2025,6 @@ MonoBehaviour:
   correctBookName: Egg
   isOccupied: 0
   isCorrect: 0
-  dropSoundName: SlotClick
 --- !u!65 &819830566
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2115,7 +2146,6 @@ MonoBehaviour:
   correctBookName: YellowBook1
   isOccupied: 0
   isCorrect: 0
-  dropSoundName: SlotClick
 --- !u!65 &842200402
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2517,7 +2547,6 @@ MonoBehaviour:
   correctBookName: BlueBook2
   isOccupied: 0
   isCorrect: 0
-  dropSoundName: SlotClick
 --- !u!65 &990030015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2731,7 +2760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: YellowBook3
-  clickSoundName: ItemClick
 --- !u!1 &1130406030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2966,9 +2994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7ad1e340fda7f4bbda1b13e7cdddbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backButton: {fileID: 963014303}
-  objects:
-  - {fileID: 1766703112}
+  mirrorObj: {fileID: 690194367}
 --- !u!1 &1244574849
 GameObject:
   m_ObjectHideFlags: 0
@@ -3019,7 +3045,6 @@ MonoBehaviour:
   correctBookName: YellowBook3
   isOccupied: 0
   isCorrect: 0
-  dropSoundName: SlotClick
 --- !u!65 &1244574852
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3268,7 +3293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: RedBook1
-  clickSoundName: ItemClick
 --- !u!1 &1359372999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,7 +3461,6 @@ MonoBehaviour:
   correctBookName: RedBook1
   isOccupied: 0
   isCorrect: 0
-  dropSoundName: SlotClick
 --- !u!65 &1473760570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3651,113 +3674,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: SmallChicken
-  clickSoundName: ItemClick
---- !u!1 &1503091446
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1503091447}
-  - component: {fileID: 1503091450}
-  - component: {fileID: 1503091449}
-  - component: {fileID: 1503091448}
-  m_Layer: 0
-  m_Name: Quad
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1503091447
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503091446}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -69, z: -2}
-  m_LocalScale: {x: 742.4, y: 924.73, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 548673580}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1503091448
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503091446}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1503091449
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503091446}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 1fbda8635cf57eb4e96d1c4abaab9b6a, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1503091450
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503091446}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1514882701
 GameObject:
   m_ObjectHideFlags: 0
@@ -3808,7 +3724,6 @@ MonoBehaviour:
   correctBookName: BigChicken
   isOccupied: 0
   isCorrect: 0
-  dropSoundName: SlotClick
 --- !u!65 &1514882704
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4361,13 +4276,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d460d60106ba445ac03cca5b37730c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openDoorClip: {fileID: 0}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
   neededItem: {fileID: 11400000, guid: f9284bf4cac7fff4f86f7e741ab89768, type: 2}
-  DoorRenderer: {fileID: 1778581811}
-  openedDoorMaterial: {fileID: 2100000, guid: 1c749f18907c5fa4294095d6c0ca2eef, type: 2}
-  clickableWindowObject: {fileID: 1778581809}
+  doorRenderer: {fileID: 1778581811}
+  openedDoorMaterial: {fileID: 2100000, guid: 1fbda8635cf57eb4e96d1c4abaab9b6a, type: 2}
+  clickableDoorObject: {fileID: 1778581809}
   puzzleID: Pendant
   nextStoryIndex: 1
-  doorOpenSoundName: OpenDoor
 --- !u!1 &1817283313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4714,7 +4631,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: YellowBook1
-  clickSoundName: ItemClick
 --- !u!1 &1921279967
 GameObject:
   m_ObjectHideFlags: 0
@@ -4857,7 +4773,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: YellowBook2
-  clickSoundName: ItemClick
 --- !u!1 &1953886849
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,7 +5049,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: BlueBook2
-  clickSoundName: ItemClick
 --- !u!1 &2109570510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5277,7 +5191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: Egg
-  clickSoundName: ItemClick
 --- !u!1 &2110111066
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,7 +5333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: Chick
-  clickSoundName: ItemClick
 --- !u!1 &2137922325
 GameObject:
   m_ObjectHideFlags: 0
@@ -5563,7 +5475,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: BigChicken
-  clickSoundName: ItemClick
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5574,3 +5485,4 @@ SceneRoots:
   - {fileID: 2024784851}
   - {fileID: 245227637}
   - {fileID: 694941349}
+  - {fileID: 507878814}

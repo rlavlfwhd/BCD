@@ -190,50 +190,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &150074331
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 150074333}
-  - component: {fileID: 150074332}
-  m_Layer: 0
-  m_Name: SceneLoader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &150074332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150074331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70af83a90f4006d4f9da90a2f2a779cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &150074333
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150074331}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &321502016
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +918,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 48cb90300b080494e98bad1050693a9c, type: 2}
-  soundName: ItemClick
+  itemClickClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!64 &639683728
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1049,6 +1007,55 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1362072661}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &677285419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 677285421}
+  - component: {fileID: 677285420}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &677285420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677285419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70af83a90f4006d4f9da90a2f2a779cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storySceneBGM: {fileID: 0}
+  pWindowSceneBGM: {fileID: 0}
+  pBookshelfSceneBGM: {fileID: 0}
+  mainSceneBGM: {fileID: 0}
+  defaultBGM: {fileID: 0}
+--- !u!4 &677285421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677285419}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &708127201
 GameObject:
@@ -1169,6 +1176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7a857a64048f04f82d843ae2b2b98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OpenWindowClip: {fileID: 8300000, guid: d90db5e832fb9dc40854b8439d7f0abc, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
   neededItem: {fileID: 11400000, guid: 6d87c82a5cffb8241b6e380d9262366f, type: 2}
   windowRenderer: {fileID: 708127203}
   openedWindowMaterial: {fileID: 2100000, guid: 18d3476e5a8fbd145b1562baef056945,
@@ -1177,8 +1187,6 @@ MonoBehaviour:
   overlayImage: {fileID: 1101422439}
   puzzleID: window_rope
   nextStoryIndex: 1
-  ropeUseSound: OpenWindow
-  fadeInSound: Happy
 --- !u!1 &740584084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,10 +1321,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2104830523}
-  - {fileID: 1101422440}
   - {fileID: 433902972}
   - {fileID: 2104797478}
   - {fileID: 1699776050}
+  - {fileID: 1101422440}
   m_Father: {fileID: 1199915934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &950093826
@@ -1352,7 +1360,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 3016928786ec62941b10b6a2c8f3a6d8, type: 2}
-  soundName: ItemClick
+  itemClickClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!64 &950093828
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1627,7 +1637,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 7de9890ed0d78e3419029a6a4ae06163, type: 2}
-  soundName: ItemClick
+  itemClickClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!64 &1454567744
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1748,7 +1760,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 323a822c94bee9046a021da9e7de6dfb, type: 2}
-  soundName: ItemClick
+  itemClickClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!64 &1574228284
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1869,7 +1883,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: fb2a81f44a1586a4dabf19f1a0df893d, type: 2}
-  soundName: ItemClick
+  itemClickClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!64 &1577844331
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2458,4 +2474,4 @@ SceneRoots:
   - {fileID: 321502020}
   - {fileID: 1199915934}
   - {fileID: 957444}
-  - {fileID: 150074333}
+  - {fileID: 677285421}

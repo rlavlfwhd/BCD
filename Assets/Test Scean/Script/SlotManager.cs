@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class SlotManager : MonoBehaviour
 {
@@ -6,11 +7,29 @@ public class SlotManager : MonoBehaviour
     public GameObject backgroundObject;
     public GameObject Door;
     public Item chickenStatueItem;
-
-    [Header("사운드 매니저에 등록된 이름")]
-    public string bookshelfMoveSoundName; // ✅ 책장이 이동할 때 재생할 사운드 이름
+    public AudioClip bookshelfSlideClip;
+    public AudioMixerGroup sfxMixerGroup;
 
     private bool allSlotsCorrect = false;
+
+    void Start()
+    {
+        if (PuzzleManager.Instance.IsPuzzleCompleted("BookShelfPuzzle")) // 퍼즐 ID 설정 필요!
+        {
+            if (backgroundObject != null)
+            {
+                backgroundObject.transform.position += new Vector3(1100f, 0, 0);
+                backgroundObject.SetActive(false);
+            }
+
+            if (Door != null)
+            {
+                Door.SetActive(true);
+            }
+
+            allSlotsCorrect = true;
+        }
+    }
 
     public void CheckSlotsNow()
     {
@@ -46,11 +65,14 @@ public class SlotManager : MonoBehaviour
         Vector3 startPos = backgroundObject.transform.position;
         Vector3 endPos = startPos + new Vector3(distance, 0, 0);
 
-        // ✅ 책장 이동 시작할 때 사운드 재생
-        if (!string.IsNullOrEmpty(bookshelfMoveSoundName))
+        AudioSource sfx = backgroundObject.AddComponent<AudioSource>();
+        sfx.clip = bookshelfSlideClip; // Inspector에서 연결
+        if (sfxMixerGroup != null)
         {
-            SoundManager.instance.PlaySound(bookshelfMoveSoundName);
+            sfx.outputAudioMixerGroup = sfxMixerGroup;
         }
+        sfx.Play();
+        Destroy(sfx, bookshelfSlideClip.length); // 끝나면 제거
 
         while (elapsed < duration)
         {

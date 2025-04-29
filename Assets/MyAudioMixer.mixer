@@ -9,8 +9,7 @@ AudioMixerGroupController:
   m_Name: BGM
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: cf8b472e69d31854a97795d6c64d2707
-  m_Children:
-  - {fileID: 9105634205897684641}
+  m_Children: []
   m_Volume: 1d4601d50b32d214ebbb6392a6eefe69
   m_Pitch: 180fbf7799f1be54985c2baadbbcc28d
   m_Send: 00000000000000000000000000000000
@@ -51,9 +50,11 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: 1d4601d50b32d214ebbb6392a6eefe69
-    name: MyExposedParam
+    name: BGM
   - guid: 75c22764d9ef6bd49974835d7c37e69a
-    name: MyExposedParam 1
+    name: SFX
+  - guid: 8129637787abacd4da4916a64a25ce1b
+    name: Master
   m_AudioMixerGroupViews:
   - guids:
     - d4d11c72a3189394f8e2b8175b27d9e5
@@ -73,6 +74,7 @@ AudioMixerGroupController:
   m_GroupID: d4d11c72a3189394f8e2b8175b27d9e5
   m_Children:
   - {fileID: -7364563316568733595}
+  - {fileID: 9105634205897684641}
   m_Volume: 8129637787abacd4da4916a64a25ce1b
   m_Pitch: 2b26db1c06aeb27498f5d028fbe6c38a
   m_Send: 00000000000000000000000000000000
@@ -127,7 +129,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FX
+  m_Name: SFX
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 072df152055013c40b7a3272d2a3468d
   m_Children: []

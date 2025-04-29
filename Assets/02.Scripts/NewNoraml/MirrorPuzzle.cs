@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MirrorPuzzle : MonoBehaviour
 {
+    public AudioClip mirrorBreakClip;
+    public AudioMixerGroup sfxMixerGroup;
+
     public string puzzleID = "MirrorPuzzle";
     public Item neededItem;          // 사용할 아이템 (ChickenStatue)
     public MeshRenderer mirrorRenderer;
@@ -15,11 +18,23 @@ public class MirrorPuzzle : MonoBehaviour
     public Item pendantItem;         // 지급할 아이템 (Pendant)
     public GameObject mirrorPanel;   // Pendant 지급 시 표시할 패널
 
-    [Header("사운드 매니저에 등록된 이름")]
-    public string mirrorBreakSoundName; // ✅ 거울이 깨질 때 재생할 사운드 이름
-
     private bool isPuzzleCompleted = false;
     private bool isItemGiven = false;
+
+    private void Start()
+    {
+        if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
+        {
+            // 거울이 깨진 상태로 복구
+            if (mirrorRenderer != null && brokenMirrorMaterial != null)
+            {
+                mirrorRenderer.material = brokenMirrorMaterial;
+            }
+
+            isPuzzleCompleted = true;
+            isItemGiven = true;
+        }
+    }
 
     void OnMouseDown()
     {
@@ -46,11 +61,7 @@ public class MirrorPuzzle : MonoBehaviour
                 mirrorRenderer.material = brokenMirrorMaterial;
                 Debug.Log("거울 머테리얼 변경 완료!");
 
-                // ✅ 거울 변경할 때 사운드 재생
-                if (!string.IsNullOrEmpty(mirrorBreakSoundName))
-                {
-                    SoundManager.instance.PlaySound(mirrorBreakSoundName);
-                }
+                SoundManager.PlayOneShot(gameObject, mirrorBreakClip, sfxMixerGroup);
             }
 
             isPuzzleCompleted = true;

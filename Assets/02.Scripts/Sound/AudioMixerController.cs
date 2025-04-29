@@ -6,32 +6,64 @@ using UnityEngine.Audio;
 
 public class AudioMixerController : MonoBehaviour
 {
-    [SerializeField] private AudioMixer m_AudioMixer;
-    [SerializeField] private Slider m_MusicMasterSlider;
-    [SerializeField] private Slider m_MusicBGMSlider;
-    [SerializeField] private Slider m_MusicSFXSlider;
+    [SerializeField] private AudioMixer audioMixer;    
+    [SerializeField] private Slider bgmSlider;
+    [SerializeField] private Slider sfxSlider;
 
     //슬라이더 MinValue을 0.001
 
     private void Awake()
     {
-        m_MusicMasterSlider.onValueChanged.AddListener(SetMasterVolume);
-        m_MusicBGMSlider.onValueChanged.AddListener(SetMusicVolume);
-        m_MusicSFXSlider.onValueChanged.AddListener(SetSFXVolume);
+        if (bgmSlider != null)
+        {
+            bgmSlider.onValueChanged.AddListener(SetBGMVolume);
+        }
+
+        if (sfxSlider != null)
+        {
+            sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        }
     }
 
-    public void SetMasterVolume(float volume)
+    private void Start()
     {
-        m_AudioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
+        InitSlider(bgmSlider, "BGM");
+        InitSlider(sfxSlider, "SFX");
     }
 
-    public void SetMusicVolume(float volume)
+    private void InitSlider(Slider slider, string parameterName)
     {
-        m_AudioMixer.SetFloat("BGM", Mathf.Log10(volume) * 20);
+        if (slider == null)
+            return;
+
+        float currentVolume;
+        if (audioMixer.GetFloat(parameterName, out currentVolume))
+        {
+            slider.value = Mathf.Pow(10f, currentVolume / 20f);
+        }
     }
 
-    public void SetSFXVolume(float volume)
+    public void SetBGMVolume(float value)
     {
-        m_AudioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
+        SetVolume("BGM", value);
+    }
+
+    public void SetSFXVolume(float value)
+    {
+        SetVolume("SFX", value);
+    }
+
+    private void SetVolume(string parameterName, float value)
+    {
+        if (value <= 0.0001f)
+        {
+            // 슬라이더가 0에 가까우면 강제로 음소거(-80dB)
+            audioMixer.SetFloat(parameterName, -80f);
+        }
+        else
+        {
+            // 정상적으로 Log10 변환
+            audioMixer.SetFloat(parameterName, Mathf.Log10(value) * 20f);
+        }
     }
 }

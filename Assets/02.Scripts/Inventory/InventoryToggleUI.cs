@@ -49,10 +49,7 @@ public class InventoryToggleUI : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            ToggleInventory();
-        }
+        
     }
 
     public void ToggleInventory()

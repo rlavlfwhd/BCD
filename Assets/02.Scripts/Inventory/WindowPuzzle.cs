@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WindowPuzzle : MonoBehaviour
 {
+    public AudioClip openWindowClip;
+    public AudioMixerGroup sfxMixerGroup;
+
     public Item neededItem; // Rope4
     public MeshRenderer windowRenderer;
     public Material openedWindowMaterial;
@@ -14,11 +18,32 @@ public class WindowPuzzle : MonoBehaviour
     public string puzzleID = "window_rope";
     public int nextStoryIndex = 200;
 
-    [Header("사운드 매니저에 등록된 이름")]
-    public string ropeUseSound; // 🧵 Rope를 사용할 때 사운드
-    public string fadeInSound;  // 🌫️ 페이드 인할 때 사운드
-
     private bool isWindowOpened = false;
+
+    void Start()
+    {
+        if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
+        {
+            if (windowRenderer != null && openedWindowMaterial != null)
+            {
+                windowRenderer.material = openedWindowMaterial;
+            }
+
+            if (clickableWindowObject != null)
+            {
+                clickableWindowObject.SetActive(true);
+            }
+
+            isWindowOpened = true;
+
+            var myObjectItem = GetComponent<IObjectItem>();
+            if (myObjectItem != null)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
 
     private void OnMouseDown()
     {
@@ -36,15 +61,15 @@ public class WindowPuzzle : MonoBehaviour
     {
         Item selected = Inventory.Instance.firstSelectedItem;
 
-        if (selected != null &&
-            selected == neededItem &&
-            !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
+        if (selected != null && selected == neededItem && !PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
-            PuzzleManager.Instance.CompletePuzzle(puzzleID);
+            PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, selected);
 
             if (windowRenderer != null && openedWindowMaterial != null)
             {
                 windowRenderer.material = openedWindowMaterial;
+
+                SoundManager.PlayOneShot(gameObject, openWindowClip, sfxMixerGroup);
             }
 
             if (clickableWindowObject != null)
@@ -52,18 +77,9 @@ public class WindowPuzzle : MonoBehaviour
                 clickableWindowObject.SetActive(true);
             }
 
-            Inventory.Instance.RemoveItemByName(selected.itemName);
-            Inventory.Instance.ClearSelection();
-
             isWindowOpened = true;
 
             Debug.Log("3D 창문 열림! Rope4 사용 완료");
-
-            // ✅ 창문 성공적으로 드랍했을 때 사운드 재생
-            if (!string.IsNullOrEmpty(ropeUseSound))
-            {
-                SoundManager.instance.PlaySound(ropeUseSound);
-            }
         }
     }
 
@@ -85,12 +101,6 @@ public class WindowPuzzle : MonoBehaviour
 
             float timer = 0f;
             float fadeDuration = 1f;
-
-            // ✅ 페이드 인 시작할 때 사운드 재생
-            if (!string.IsNullOrEmpty(fadeInSound))
-            {
-                SoundManager.instance.PlaySound(fadeInSound);
-            }
 
             while (timer < fadeDuration)
             {
