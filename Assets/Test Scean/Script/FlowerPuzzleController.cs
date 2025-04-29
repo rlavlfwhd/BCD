@@ -2,8 +2,8 @@
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// 🌸 꽃 퍼즐 전용 매니저
-/// 꽃잎 개수, 이동횟수, 퍼즐 성공/실패를 관리한다
+/// 🌸 FlowerPuzzleController
+/// 꽃잎 낙하 퍼즐을 관리하고 퍼즐 성공 시 꿀을 생성하는 역할
 /// </summary>
 public class FlowerPuzzleController : MonoBehaviour
 {
@@ -20,32 +20,29 @@ public class FlowerPuzzleController : MonoBehaviour
     public FlowerController flower4;
 
     [Header("🦋 나비 이동 설정")]
-    public ButterflyController butterfly;   // 나비 컨트롤러 연결
-    public int moveLimit = 5;                // 최대 이동 가능 횟수
+    public ButterflyController butterfly;
+    public int moveLimit = 5;
+    private int currentMoveCount = 0;
 
-    private int currentMoveCount = 0;         // 현재 이동한 횟수
+    [Header("🎯 퍼즐 클리어 설정")]
+    public GameObject clearImage;
+    private bool isPuzzleCleared = false;
 
-    [Header("🎯 퍼즐 클리어 ID")]
-    public string puzzleID = "FlowerPuzzle1";
-
-    [Header("🎉 퍼즐 성공 시 보여줄 클리어 이미지")]
-    public GameObject clearImage;             // 퍼즐 성공 시 보여줄 이미지 연결
-
-    private bool isPuzzleCleared = false;      // 퍼즐이 클리어됐는지 여부
+    [Header("🍯 퍼즐 성공 시 꿀 생성 설정")]
+    [Tooltip("퍼즐 성공 시 꿀이 나올 특별한 꽃 오브젝트입니다.")]
+    public GameObject honeyFlower; // 제일 왼쪽에 있는 꿀 꽃
+    [Tooltip("생성할 꿀 이펙트 프리팹입니다.")]
+    public GameObject honeyPrefab; // 꿀 이펙트 프리팹
+    [Tooltip("꿀 생성 위치 오프셋입니다.")]
+    public Vector3 honeySpawnOffset = new Vector3(0, 0.5f, 0);
 
     /// <summary>
-    /// 꽃 클릭 시 호출: 이동 가능 횟수 체크 후 나비 이동
+    /// 꽃 클릭 시 호출: 나비 이동
     /// </summary>
     public void OnFlowerClicked(FlowerController clickedFlower)
     {
-        if (isPuzzleCleared) return; // 퍼즐 이미 클리어됐으면 무시
-
-        // 🔥 추가: 나비가 이동 중이면 클릭 무시
-        if (butterfly.IsMoving())
-        {
-            Debug.Log("🦋 나비가 이동 중이라 클릭 무시");
-            return;
-        }
+        if (isPuzzleCleared) return;
+        if (butterfly.IsMoving()) return;
 
         if (currentMoveCount >= moveLimit)
         {
@@ -55,17 +52,15 @@ public class FlowerPuzzleController : MonoBehaviour
         }
 
         currentMoveCount++;
-        Debug.Log($"🦋 나비 이동 시작! 현재 이동 횟수: {currentMoveCount}/{moveLimit}");
         butterfly.MoveToFlower(clickedFlower);
     }
 
     /// <summary>
-    /// 퍼즐 현재 상태를 검사
-    /// (꽃잎 목표 개수 맞으면 퍼즐 성공)
+    /// 퍼즐 성공 체크
     /// </summary>
     public void CheckPuzzleStatus()
     {
-        if (isPuzzleCleared) return; // 이미 클리어됐으면 무시
+        if (isPuzzleCleared) return;
 
         if (flower1.currentPetalCount == targetPetalCount_Flower1 &&
             flower2.currentPetalCount == targetPetalCount_Flower2 &&
@@ -74,13 +69,15 @@ public class FlowerPuzzleController : MonoBehaviour
         {
             Debug.Log("🎉 퍼즐 성공! 마법의 꿀 획득");
 
-            isPuzzleCleared = true; // 퍼즐 클리어 체크
+            isPuzzleCleared = true;
 
-            // 클리어 이미지 활성화
             if (clearImage != null)
             {
                 clearImage.SetActive(true);
             }
+
+            // 🌟 퍼즐 성공 시 꿀 생성
+            SpawnHoney();
         }
     }
 
@@ -90,14 +87,23 @@ public class FlowerPuzzleController : MonoBehaviour
     public void FailPuzzle()
     {
         Debug.Log("❌ 퍼즐 실패! 다시 시작합니다.");
-        ResetPuzzle();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     /// <summary>
-    /// 퍼즐을 리셋 (초기 상태로 복구)
+    /// 꿀 생성 함수 (퍼즐 성공 시 호출)
     /// </summary>
-    public void ResetPuzzle()
+    private void SpawnHoney()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (honeyFlower != null && honeyPrefab != null)
+        {
+            Vector3 spawnPos = honeyFlower.transform.position + honeySpawnOffset;
+            Instantiate(honeyPrefab, spawnPos, Quaternion.identity);
+            Debug.Log("🍯 꿀 생성 완료!");
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ 꿀 꽃이나 꿀 프리팹이 연결되어 있지 않습니다!");
+        }
     }
 }
