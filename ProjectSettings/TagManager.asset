@@ -60,3 +60,6 @@ TagManager:
   - name: Honey
     uniqueID: 1897026631
     locked: 0
+  - name: Mole
+    uniqueID: 482700323
+    locked: 0
