@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 149482205}
   - component: {fileID: 149482207}
   m_Layer: 0
-  m_Name: Green
+  m_Name: Green2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1013,7 +1013,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPetalCount: 6
   minPetalCount: 1
-  flowerSprites: []
+  flowerSprites:
+  - {fileID: 21300000, guid: 4cee6f6f78ce05f4f9640522731dd000, type: 3}
   petalPrefab: {fileID: 0}
   petalSpawnOffset: {x: 0, y: 0.5, z: 0}
 --- !u!212 &339373587
@@ -1684,7 +1685,7 @@ GameObject:
   - component: {fileID: 1292142833}
   - component: {fileID: 1292142835}
   m_Layer: 0
-  m_Name: Blue
+  m_Name: Blue1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1902,7 +1903,7 @@ GameObject:
   - component: {fileID: 1566891413}
   - component: {fileID: 1566891415}
   m_Layer: 0
-  m_Name: Purple
+  m_Name: Purple3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2379,7 +2380,7 @@ GameObject:
   - component: {fileID: 2057119916}
   - component: {fileID: 2057119918}
   m_Layer: 0
-  m_Name: Yellow
+  m_Name: Yellow4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2553,7 +2554,7 @@ MonoBehaviour:
   honeyFlower: {fileID: 339373583}
   honeyPrefab: {fileID: 8789634466768351228, guid: a33b433298331bd448448127baafcf50,
     type: 3}
-  honeySpawnOffset: {x: 120, y: 40, z: 0}
+  honeySpawnOffset: {x: -5.95, y: 1.95, z: 0}
 --- !u!4 &2061411689
 Transform:
   m_ObjectHideFlags: 0
