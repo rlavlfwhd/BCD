@@ -163,7 +163,7 @@ MonoBehaviour:
   - description: "1.\uC778\uBCA4\uD1A0\uB9AC, \uC2AC\uB86F \uC0AC\uC6B4\uB4DC"
     name: SlotClick
     clip: {fileID: 8300000, guid: 98c3afb3194ad4e4caab950e45c3925c, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 2
     loop: 0
     mixerGroup: {fileID: 0}

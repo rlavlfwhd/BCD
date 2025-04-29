@@ -12,7 +12,7 @@ public class WindowPuzzle : MonoBehaviour
     public GameObject clickableWindowObject;
     public GameObject overlayImage;
     public string puzzleID = "window_rope";
-    public int nextStoryIndex = 11;
+    public int nextStoryIndex = 200;
 
     [Header("사운드 매니저에 등록된 이름")]
     public string ropeUseSound; // 🧵 Rope를 사용할 때 사운드

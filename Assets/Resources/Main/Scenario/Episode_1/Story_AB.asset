@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: Story_AB
   m_EditorClassIdentifier: 
-  storyNumber: 122
+  storyNumber: 18
   MainImage: {fileID: 2800000, guid: d0e194079a9662e4bb2ab52e3f0c451f, type: 3}
   MainImage2: {fileID: 2800000, guid: cadfa4b701521ef45b31518974fbfc1b, type: 3}
   storyText: "\uACF5\uC8FC : (\uACE0\uBBFC\uD558\uB294\uB4EF\uD55C \uD45C\uC815\uACFC
@@ -34,6 +34,6 @@ MonoBehaviour:
   - buttonText: "B. \uBC29 \uC548\uC758 \uB300\uD53C\uC6A9 \uD1B5\uB85C\uB97C \uCC3E\uB294\uB2E4."
     eventCheck:
       sucessResult:
-      - resultType: 0
-        value: 4
-        changeSceneName: 
+      - resultType: 2
+        value: 0
+        changeSceneName: PBookshelfScene
