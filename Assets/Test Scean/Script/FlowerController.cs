@@ -2,84 +2,87 @@
 
 public class FlowerController : MonoBehaviour
 {
-    [Header("🌸 꽃잎 수 설정")]
-    public int currentPetalCount = 4;
-    public int minPetalCount = 0;
+    [Header("🌸 꽃 스프라이트 설정")]
+    public SpriteRenderer flowerSprite;          // 꽃 이미지를 표시하는 SpriteRenderer
+    public Sprite[] flowerSprites;                // 꽃잎이 줄어들 때마다 교체할 스프라이트 배열
 
-    [Header("🌸 꽃 스프라이트 리스트")]
-    public Sprite[] flowerSprites;
-    private SpriteRenderer spriteRenderer;
+    [Header("🌿 꽃잎 수")]
+    public int currentPetalCount = 4;              // 현재 남아 있는 꽃잎 수 (게임 시작 시 기본값)
 
-    [Header("🍃 떨어지는 꽃잎 프리팹 설정")]
-    public GameObject petalPrefab; // 떨어지는 꽃잎 프리팹
-    public Vector3 petalSpawnOffset = new Vector3(0, 0.5f, 0); // 꽃 위쪽 위치에서 생성
+    [Header("🧚 도착 지점")]
+    public Transform arrivalPoint;                // 페어리가 이동할 때 도착할 정확한 위치
 
-    private void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        UpdateFlowerSprite();
-    }
+    [Header("🌸 스프라이트 페이드 옵션")]
+    public float fadeDuration = 0.2f;              // 스프라이트가 부드럽게 전환될 때 걸리는 시간 (초)
+
+    [Header("🍃 떨어지는 꽃잎 프리팹")]
+    public GameObject petalPrefab;                 // 떨어질 꽃잎(떨어지는 이펙트용 프리팹)
+    public Vector3 petalSpawnOffset = Vector3.zero; // 꽃잎 생성 시 꽃 위치에서 얼마나 Offset을 줄지 설정 (보통 약간 위로)
+
+    private Coroutine fadeCoroutine;               // 현재 실행 중인 페이드 코루틴 (중복 방지용)
 
     /// <summary>
-    /// 꽃잎 하나 떨어뜨리기
+    /// 꽃잎을 하나 떨어뜨리는 함수 (페이드 전환 + 꽃잎 이펙트 생성)
     /// </summary>
     public void DropPetal()
     {
-        if (currentPetalCount > minPetalCount)
+        if (currentPetalCount > 0) // 아직 꽃잎이 남아 있다면
         {
-            currentPetalCount--;
-            Debug.Log($"🌸 꽃잎 하나 떨어짐! 남은 꽃잎 수: {currentPetalCount}");
+            currentPetalCount--; // 꽃잎 수 하나 감소
+            Debug.Log($"{gameObject.name} 꽃잎 하나 떨어짐! 남은 꽃잎 수: {currentPetalCount}");
 
-            UpdateFlowerSprite();
-            SpawnFallingPetal(); // 🌟 꽃잎 프리팹 생성
-        }
-        else
-        {
-            Debug.Log("🌸 꽃잎이 더 이상 떨어질 수 없습니다.");
-        }
-    }
+            // 스프라이트 변경
+            int spriteIndex = Mathf.Clamp(currentPetalCount, 0, flowerSprites.Length - 1); // 배열 범위 초과 방지
+            Sprite newSprite = flowerSprites[spriteIndex];
 
-    /// <summary>
-    /// 꽃 상태에 따라 스프라이트 변경
-    /// </summary>
-    private void UpdateFlowerSprite()
-    {
-        if (flowerSprites != null && currentPetalCount >= 0 && currentPetalCount < flowerSprites.Length)
-        {
-            spriteRenderer.sprite = flowerSprites[currentPetalCount];
-        }
-        else
-        {
-            Debug.LogWarning("⚠️ 꽃 스프라이트 변경 실패: 배열 범위를 벗어났습니다.");
-        }
-    }
+            StartFadeToNewSprite(newSprite); // 부드럽게 새 스프라이트로 전환 시작
 
-    /// <summary>
-    /// 떨어지는 꽃잎 프리팹 생성
-    /// </summary>
-    private void SpawnFallingPetal()
-    {
-        if (petalPrefab != null)
-        {
-            Vector3 spawnPos = transform.position + petalSpawnOffset;
-            GameObject petal = Instantiate(petalPrefab, spawnPos, Quaternion.identity);
-
-            // Rigidbody2D가 있다면 아래 방향 힘 적용
-            Rigidbody2D rb = petal.GetComponent<Rigidbody2D>();
-            if (rb != null)
+            // 떨어지는 꽃잎 프리팹 생성
+            if (petalPrefab != null)
             {
-                rb.gravityScale = 0.7f;  // 낙하 속도
-                rb.velocity = new Vector2(Random.Range(-0.3f, 0.3f), Random.Range(-1.5f, -2.5f));
-                rb.angularVelocity = Random.Range(-60f, 60f); // 살짝 회전
+                Vector3 spawnPos = transform.position + petalSpawnOffset; // Offset을 적용한 위치
+                Instantiate(petalPrefab, spawnPos, Quaternion.identity); // 꽃잎 프리팹 생성
             }
-
-            // 자동 제거
-            Destroy(petal, 3f); // 3초 뒤 제거
         }
+    }
+
+    /// <summary>
+    /// 새 스프라이트로 부드럽게 교체하는 코루틴 시작
+    /// </summary>
+    private void StartFadeToNewSprite(Sprite newSprite)
+    {
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine); // 기존 코루틴 중복 방지
+        fadeCoroutine = StartCoroutine(FadeToNewSprite(newSprite)); // 새 코루틴 실행
+    }
+
+    /// <summary>
+    /// 스프라이트를 자연스럽게 사라졌다가 다시 나타나는 방식으로 교체하는 코루틴
+    /// </summary>
+    private System.Collections.IEnumerator FadeToNewSprite(Sprite newSprite)
+    {
+        // 1단계: 현재 스프라이트를 점점 투명하게 만들기
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            float a = 1f - (t / fadeDuration); // 1 → 0 으로 감소
+            flowerSprite.color = new Color(1f, 1f, 1f, a); // 알파(투명도) 조절
+            yield return null; // 한 프레임 대기
+        }
+
+        // 스프라이트 교체
+        flowerSprite.sprite = newSprite;
+
+        // 2단계: 새 스프라이트를 점점 불투명하게 만들기
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            float a = t / fadeDuration; // 0 → 1 로 증가
+            flowerSprite.color = new Color(1f, 1f, 1f, a); // 알파(투명도) 조절
+            yield return null; // 한 프레임 대기
+        }
+
+        // 마지막에는 완전히 불투명하게 고정
+        flowerSprite.color = Color.white;
     }
 }
-
-
 
 
 
