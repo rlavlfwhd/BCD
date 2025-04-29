@@ -27,10 +27,10 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 4
+        value: 8
         changeSceneName: 
-  - buttonText: "B. \uBCF5\uB3C4\uC758 \uD070 \uCC3D\uC744 \uC628\uBAB8\uC73C\uB85C
-      \uAE68\uACE0 \uB098\uC628\uB2E4."
+  - buttonText: "B. \uBCF5\uB3C4\uC758 \uD070 \uCC3D\uB974 \uC628\uBAB8\uC73C\uB85C
+      \uAEA0\uACE0 \uB098\uC628\uB2E4."
     eventCheck:
       sucessResult:
       - resultType: 0

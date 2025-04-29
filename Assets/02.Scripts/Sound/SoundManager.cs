@@ -38,7 +38,7 @@ public class SoundManager : MonoBehaviour
         Sound soundToPlay = sounds.Find(sound => sound.name == name);
         if (soundToPlay != null)
         {
-            // ✅ 수정된 부분: Play 전에 최신 Volume/Pitch 적용
+            // ✅ Play 전에 최신 Volume/Pitch 적용
             soundToPlay.source.volume = soundToPlay.volume;
             soundToPlay.source.pitch = soundToPlay.pitch;
 
@@ -54,8 +54,8 @@ public class SoundManager : MonoBehaviour
 [System.Serializable]
 public class Sound
 {
-    [Header("사운드 ID (정렬용 번호)")]
-    public int id; // ✅ 추가: 사운드를 정렬/구분하기 위한 숫자 ID
+    [Header("사운드 설명 (메모용)")]
+    public string description; // ✅ 추가: 사운드 구별용 텍스트 설명
 
     public string name; // 사운드 이름
     public AudioClip clip; // 오디오 클립

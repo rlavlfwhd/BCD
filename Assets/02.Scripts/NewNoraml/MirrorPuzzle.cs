@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,16 +8,18 @@ using UnityEngine.UI;
 public class MirrorPuzzle : MonoBehaviour
 {
     public string puzzleID = "MirrorPuzzle";
-    public Item neededItem;          // »ç¿ëÇÒ ¾ÆÀÌÅÛ (ChickenStatue)
+    public Item neededItem;          // ì‚¬ìš©í•  ì•„ì´í…œ (ChickenStatue)
     public MeshRenderer mirrorRenderer;
     public Material brokenMirrorMaterial;
-    
 
-    public Item pendantItem;         // Áö±ŞÇÒ ¾ÆÀÌÅÛ (Pendant)
-    public GameObject mirrorPanel;   // Pendant Áö±Ş ½Ã Ç¥½ÃÇÒ ÆĞ³Î
+    public Item pendantItem;         // ì§€ê¸‰í•  ì•„ì´í…œ (Pendant)
+    public GameObject mirrorPanel;   // Pendant ì§€ê¸‰ ì‹œ í‘œì‹œí•  íŒ¨ë„
 
-    private bool isPuzzleCompleted = false; // ÆÛÁñ ¿Ï·á ¿©ºÎ
-    private bool isItemGiven = false;       // Pendant Áö±Ş ¿©ºÎ
+    [Header("ì‚¬ìš´ë“œ ë§¤ë‹ˆì €ì— ë“±ë¡ëœ ì´ë¦„")]
+    public string mirrorBreakSoundName; // âœ… ê±°ìš¸ì´ ê¹¨ì§ˆ ë•Œ ì¬ìƒí•  ì‚¬ìš´ë“œ ì´ë¦„
+
+    private bool isPuzzleCompleted = false;
+    private bool isItemGiven = false;
 
     void OnMouseDown()
     {
@@ -42,11 +44,17 @@ public class MirrorPuzzle : MonoBehaviour
             if (mirrorRenderer != null && brokenMirrorMaterial != null)
             {
                 mirrorRenderer.material = brokenMirrorMaterial;
-                Debug.Log("°Å¿ï ¸ÓÅ×¸®¾ó º¯°æ ¿Ï·á!");
+                Debug.Log("ê±°ìš¸ ë¨¸í…Œë¦¬ì–¼ ë³€ê²½ ì™„ë£Œ!");
+
+                // âœ… ê±°ìš¸ ë³€ê²½í•  ë•Œ ì‚¬ìš´ë“œ ì¬ìƒ
+                if (!string.IsNullOrEmpty(mirrorBreakSoundName))
+                {
+                    SoundManager.instance.PlaySound(mirrorBreakSoundName);
+                }
             }
 
             isPuzzleCompleted = true;
-            Debug.Log("°Å¿ï ÆÛÁñ ¿Ï·á! ´ßµ¿»ó »ç¿ëµÊ");
+            Debug.Log("ê±°ìš¸ í¼ì¦ ì™„ë£Œ! ë‹­ë™ìƒ ì‚¬ìš©ë¨");
         }
     }
 
@@ -56,20 +64,20 @@ public class MirrorPuzzle : MonoBehaviour
         {
             Inventory.Instance.AddItem(pendantItem);
             isItemGiven = true;
-            Debug.Log("Pendant ¾ÆÀÌÅÛ È¹µæ!");
+            Debug.Log("Pendant ì•„ì´í…œ íšë“!");
 
             if (mirrorPanel != null)
             {
-                mirrorPanel.SetActive(true); // Pendant ¾òÀ¸¸é ÆĞ³Î ¿­±â
+                mirrorPanel.SetActive(true);
             }
         }
         else
         {
             if (mirrorPanel != null)
             {
-                mirrorPanel.SetActive(false); // ÀÌ¹Ì ¾ò¾úÀ¸¸é ÆĞ³Î ´İ±â
+                mirrorPanel.SetActive(false);
             }
-            Debug.Log("ÀÌ¹Ì Pendant¸¦ È¹µæÇß½À´Ï´Ù!");
+            Debug.Log("ì´ë¯¸ Pendantë¥¼ íšë“í–ˆìŠµë‹ˆë‹¤!");
         }
     }
 }

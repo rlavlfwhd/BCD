@@ -29,6 +29,9 @@ public class StorySystem : MonoBehaviour
     public Button[] buttonWay = new Button[3];
     public TMP_Text[] buttonWayText = new TMP_Text[3];
 
+    [Header("버튼 클릭 시 재생할 사운드 이름")] // ✅ 추가
+    public string buttonClickSoundName; // ✅ 추가
+
     private void Awake()
     {
         Instance = this;
@@ -49,12 +52,11 @@ public class StorySystem : MonoBehaviour
             chapters = GameObject.FindGameObjectsWithTag("Chapter");
         }
 
-        // 새로 추가된 부분 
         int overrideStoryIndex = SceneDataManager.Instance.Data.nextStoryIndex;
         if (overrideStoryIndex > 0)
         {
             currentStoryIndex = overrideStoryIndex;
-            SceneDataManager.Instance.Data.nextStoryIndex = 0; // 초기화
+            SceneDataManager.Instance.Data.nextStoryIndex = 0;
         }
 
         StoryShow(currentStoryIndex);
@@ -130,6 +132,12 @@ public class StorySystem : MonoBehaviour
 
     public void OnWayClick(int index)
     {
+        // ✅ 버튼 클릭 사운드 추가
+        if (!string.IsNullOrEmpty(buttonClickSoundName))
+        {
+            SoundManager.instance.PlaySound(buttonClickSoundName);
+        }
+
         StoryModel playStoryModel = currentStoryModel;
         StoryModel.Option selectedOption = playStoryModel.options[index];
 

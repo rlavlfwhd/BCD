@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
-  m_Name: Main Story1_1(N)
+  m_Name: Main Story1(N)
   m_EditorClassIdentifier: 
   storyNumber: 1
   MainImage: {fileID: 2800000, guid: 515d68bccbcc1944397930af91b45803, type: 3}

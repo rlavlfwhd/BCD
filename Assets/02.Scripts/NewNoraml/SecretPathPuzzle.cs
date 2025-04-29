@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,9 +9,12 @@ public class SecretPath : MonoBehaviour
     public Item neededItem; // Pendant
     public MeshRenderer DoorRenderer;
     public Material openedDoorMaterial;
-    public GameObject clickableWindowObject;    
+    public GameObject clickableWindowObject;
     public string puzzleID = "SecretPath";
     public int nextStoryIndex = 301;
+
+    [Header("사운드 매니저에 등록된 이름")] // ✅ 추가
+    public string doorOpenSoundName; // ✅ 문 열 때 재생할 사운드 이름
 
     private bool isDoorOpened = false;
 
@@ -26,7 +29,6 @@ public class SecretPath : MonoBehaviour
             StartCoroutine(GoToStoryAfterDelay(2f));
         }
     }
-
 
     void TryClick()
     {
@@ -47,7 +49,13 @@ public class SecretPath : MonoBehaviour
             }
 
             isDoorOpened = true;
-            Debug.Log("ö������! ���Ʈ ��� �Ϸ�");            
+            Debug.Log("철문열림! 펜던트 사용 완료");
+
+            // ✅ 문 열릴 때 사운드 재생
+            if (!string.IsNullOrEmpty(doorOpenSoundName))
+            {
+                SoundManager.instance.PlaySound(doorOpenSoundName);
+            }
         }
     }
 
