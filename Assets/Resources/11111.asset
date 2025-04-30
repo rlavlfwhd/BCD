@@ -12,20 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: 11111
   m_EditorClassIdentifier: 
-  storyNumber: 1
+  storyNumber: 1345
   MainImage: {fileID: 0}
   MainImage2: {fileID: 0}
-  storyText: "1 \uCC3D\uBB38\n2 \uCC45\uC7A5"
+  storyText: "1 \uAF43\uC78E\n2\uD143\uBC2D\n3 \uB450\uB354\uC9C0"
   options:
-  - buttonText: "\uCC3D\uBB38"
+  - buttonText: "\uAF43\uC78E"
     eventCheck:
       sucessResult:
       - resultType: 2
         value: 0
-        changeSceneName: PWindowScene
-  - buttonText: "\uCC45\uC7A5"
+        changeSceneName: FlowerScene
+  - buttonText: "\uD143\uBC2D"
     eventCheck:
       sucessResult:
       - resultType: 2
         value: 0
-        changeSceneName: PBookShelfScene
+        changeSceneName: GardenScene
+  - buttonText: "\uB450\uB354\uC9C0"
+    eventCheck:
+      sucessResult:
+      - resultType: 2
+        value: 0
+        changeSceneName: MoleeScene
