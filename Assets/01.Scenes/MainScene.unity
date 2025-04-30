@@ -2528,6 +2528,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1957750502}
   invent: {fileID: 580354446}
+  blockerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  clickable2DMask:
+    serializedVersion: 2
+    m_Bits: 512
+  clickable3DMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &1386248754
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 639683729}
   - component: {fileID: 639683728}
   - component: {fileID: 639683727}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BedCurtainL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1070,7 +1070,7 @@ GameObject:
   - component: {fileID: 708127203}
   - component: {fileID: 708127206}
   - component: {fileID: 708127202}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1176,7 +1176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7a857a64048f04f82d843ae2b2b98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenWindowClip: {fileID: 8300000, guid: d90db5e832fb9dc40854b8439d7f0abc, type: 3}
+  openWindowClip: {fileID: 0}
   sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
     type: 2}
   neededItem: {fileID: 11400000, guid: 6d87c82a5cffb8241b6e380d9262366f, type: 2}
@@ -1340,7 +1340,7 @@ GameObject:
   - component: {fileID: 950093829}
   - component: {fileID: 950093828}
   - component: {fileID: 950093827}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CurtainR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1617,7 @@ GameObject:
   - component: {fileID: 1454567745}
   - component: {fileID: 1454567744}
   - component: {fileID: 1454567743}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CurtainL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1740,7 +1740,7 @@ GameObject:
   - component: {fileID: 1574228285}
   - component: {fileID: 1574228284}
   - component: {fileID: 1574228283}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Blanket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1863,7 +1863,7 @@ GameObject:
   - component: {fileID: 1577844332}
   - component: {fileID: 1577844331}
   - component: {fileID: 1577844330}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BedCurtainR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 157714721}
   - component: {fileID: 157714720}
   - component: {fileID: 157714719}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RedBookSlot2
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 335003739}
   - component: {fileID: 335003738}
   - component: {fileID: 335003737}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SmallChickenSlot
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 417464027}
   - component: {fileID: 417464030}
   - component: {fileID: 417464031}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mirror
   m_TagString: Mirror
   m_Icon: {fileID: 0}
@@ -734,7 +734,7 @@ GameObject:
   - component: {fileID: 475789620}
   - component: {fileID: 475789619}
   - component: {fileID: 475789618}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: YellowBooKSlot2
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 476873346}
   - component: {fileID: 476873351}
   - component: {fileID: 476873352}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RedBook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 513365835}
   - component: {fileID: 513365834}
   - component: {fileID: 513365833}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ChickSlot
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -1557,7 +1557,7 @@ GameObject:
   - component: {fileID: 568756684}
   - component: {fileID: 568756683}
   - component: {fileID: 568756682}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BlueBookSlot1
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -1679,7 +1679,7 @@ GameObject:
   - component: {fileID: 659972209}
   - component: {fileID: 659972207}
   - component: {fileID: 659972210}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BlueBook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1911,7 +1911,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 731199126}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ChickSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1946,7 +1946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 811768618}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BookShelfObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1988,7 +1988,7 @@ GameObject:
   - component: {fileID: 819830567}
   - component: {fileID: 819830566}
   - component: {fileID: 819830565}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EggSlot
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -2109,7 +2109,7 @@ GameObject:
   - component: {fileID: 842200403}
   - component: {fileID: 842200402}
   - component: {fileID: 842200401}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: YellowBooKSlot1
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -2226,7 +2226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 937567832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BookSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2290,7 +2290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -736, y: 404}
+  m_AnchoredPosition: {x: -736, y: -418}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &963014305
@@ -2336,19 +2336,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 963014306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1669098748}
-        m_TargetAssemblyTypeName: BookShelfClickHandler, Assembly-CSharp
-        m_MethodName: BackBtn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &963014306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2369,8 +2357,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 6a69e233202fc09418b38dd95d6830a7, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2399,7 +2387,7 @@ GameObject:
   - component: {fileID: 971070279}
   - component: {fileID: 971070278}
   - component: {fileID: 971070277}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InsideBookshelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2510,7 +2498,7 @@ GameObject:
   - component: {fileID: 990030016}
   - component: {fileID: 990030015}
   - component: {fileID: 990030014}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BlueBookSlot2
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -2632,7 +2620,7 @@ GameObject:
   - component: {fileID: 1068179894}
   - component: {fileID: 1068179899}
   - component: {fileID: 1068179900}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: YellowBook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2773,7 +2761,7 @@ GameObject:
   - component: {fileID: 1130406036}
   - component: {fileID: 1130406035}
   - component: {fileID: 1130406034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SecretPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2888,7 +2876,7 @@ GameObject:
   - component: {fileID: 1142258512}
   - component: {fileID: 1142258511}
   - component: {fileID: 1142258514}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Vanuty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3008,7 +2996,7 @@ GameObject:
   - component: {fileID: 1244574853}
   - component: {fileID: 1244574852}
   - component: {fileID: 1244574851}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: YellowBooKSlot3
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -3125,7 +3113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1275292160}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StatueObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3165,7 +3153,7 @@ GameObject:
   - component: {fileID: 1276398132}
   - component: {fileID: 1276398137}
   - component: {fileID: 1276398138}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RedBook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3293,6 +3281,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: RedBook1
+--- !u!1 &1318726432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1318726434}
+  - component: {fileID: 1318726433}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1318726433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318726432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38344bdf245b0e443aee04286d1780e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonObject: {fileID: 963014303}
+  toggleButton: {fileID: 963014305}
+  targets:
+  - {fileID: 690194367}
+  - {fileID: 548673579}
+--- !u!4 &1318726434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318726432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -240.37453, y: -29.726177, z: -4.1736546}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1359372999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,7 +3461,7 @@ GameObject:
   - component: {fileID: 1473760571}
   - component: {fileID: 1473760570}
   - component: {fileID: 1473760569}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RedBookSlot1
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -3546,7 +3583,7 @@ GameObject:
   - component: {fileID: 1479715345}
   - component: {fileID: 1479715350}
   - component: {fileID: 1479715351}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SmallChicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3687,7 +3724,7 @@ GameObject:
   - component: {fileID: 1514882705}
   - component: {fileID: 1514882704}
   - component: {fileID: 1514882703}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BigChickenSlot
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -3910,7 +3947,7 @@ GameObject:
   - component: {fileID: 1669098745}
   - component: {fileID: 1669098748}
   - component: {fileID: 1669098749}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bookshelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4004,7 +4041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76573b53d4ad5f44ca63bee9c44284f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backButton: {fileID: 963014303}
   BookShelfChild: {fileID: 548673579}
 --- !u!61 &1669098749
 BoxCollider2D:
@@ -4061,7 +4097,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1766703114}
   - component: {fileID: 1766703113}
-  m_Layer: 0
+  - component: {fileID: 1766703115}
+  m_Layer: 8
   m_Name: MirrorPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4135,6 +4172,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 690194368}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1766703115
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766703112}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.2, y: 10.8}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.2, y: 10.8}
+  m_EdgeRadius: 0
 --- !u!1 &1778581809
 GameObject:
   m_ObjectHideFlags: 0
@@ -4149,7 +4231,7 @@ GameObject:
   - component: {fileID: 1778581816}
   - component: {fileID: 1778581810}
   - component: {fileID: 1778581815}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -4503,7 +4585,7 @@ GameObject:
   - component: {fileID: 1876190328}
   - component: {fileID: 1876190333}
   - component: {fileID: 1876190334}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: YellowBook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4645,7 +4727,7 @@ GameObject:
   - component: {fileID: 1921279968}
   - component: {fileID: 1921279973}
   - component: {fileID: 1921279974}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: YellowBook3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4921,7 +5003,7 @@ GameObject:
   - component: {fileID: 2039560015}
   - component: {fileID: 2039560020}
   - component: {fileID: 2039560021}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BlueBook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5063,7 +5145,7 @@ GameObject:
   - component: {fileID: 2109570511}
   - component: {fileID: 2109570516}
   - component: {fileID: 2109570517}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Egg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5205,7 +5287,7 @@ GameObject:
   - component: {fileID: 2110111067}
   - component: {fileID: 2110111072}
   - component: {fileID: 2110111073}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Chick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5347,7 +5429,7 @@ GameObject:
   - component: {fileID: 2137922326}
   - component: {fileID: 2137922331}
   - component: {fileID: 2137922332}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BigChicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5486,3 +5568,4 @@ SceneRoots:
   - {fileID: 245227637}
   - {fileID: 694941349}
   - {fileID: 507878814}
+  - {fileID: 1318726434}
