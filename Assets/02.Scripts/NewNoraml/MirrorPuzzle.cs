@@ -82,13 +82,5 @@ public class MirrorPuzzle : MonoBehaviour
                 mirrorPanel.SetActive(true);
             }
         }
-        else
-        {
-            if (mirrorPanel != null)
-            {
-                mirrorPanel.SetActive(false);
-            }
-            Debug.Log("이미 Pendant를 획득했습니다!");
-        }
     }
 }

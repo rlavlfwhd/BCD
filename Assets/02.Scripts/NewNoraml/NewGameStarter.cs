@@ -7,10 +7,7 @@ public class NewGameStarter : MonoBehaviour
 {
     public void StartNewGame()
     {
-        SceneDataManager.Instance.Data = new SceneData();
-        Debug.Log("New Game 시작 (독립 스크립트에서)");
-
-        // PlayScene으로 전환
-        SceneManager.LoadScene("StoryScene");
+        GameSystem.Instance.NewGame();
+        Debug.Log("뉴게임");
     }
 }

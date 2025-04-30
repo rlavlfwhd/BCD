@@ -101,11 +101,6 @@ public class GameSystem : MonoBehaviour
         Inventory.Instance.FreshSlot();
 
         PuzzleManager.Instance.RestoreItemState();
-
-        if (saveData.sceneName == "StoryScene")
-        {
-            
-        }
     }
 
     IEnumerator WaitForStorySystemAndShowStory(int storyIndex)

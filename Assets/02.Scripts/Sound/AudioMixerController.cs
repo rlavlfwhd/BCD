@@ -10,6 +10,9 @@ public class AudioMixerController : MonoBehaviour
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
 
+    private const string BGM_KEY = "BGMVolume";
+    private const string SFX_KEY = "SFXVolume";
+
     //슬라이더 MinValue을 0.001
 
     private void Awake()
@@ -27,30 +30,26 @@ public class AudioMixerController : MonoBehaviour
 
     private void Start()
     {
-        InitSlider(bgmSlider, "BGM");
-        InitSlider(sfxSlider, "SFX");
-    }
+        float savedBGM = PlayerPrefs.GetFloat(BGM_KEY, 1f); // 기본값: 최대 볼륨
+        float savedSFX = PlayerPrefs.GetFloat(SFX_KEY, 1f);
 
-    private void InitSlider(Slider slider, string parameterName)
-    {
-        if (slider == null)
-            return;
+        SetBGMVolume(savedBGM);
+        SetSFXVolume(savedSFX);
 
-        float currentVolume;
-        if (audioMixer.GetFloat(parameterName, out currentVolume))
-        {
-            slider.value = Mathf.Pow(10f, currentVolume / 20f);
-        }
+        if (bgmSlider != null) bgmSlider.value = savedBGM;
+        if (sfxSlider != null) sfxSlider.value = savedSFX;
     }
 
     public void SetBGMVolume(float value)
     {
         SetVolume("BGM", value);
+        PlayerPrefs.SetFloat(BGM_KEY, value);
     }
 
     public void SetSFXVolume(float value)
     {
         SetVolume("SFX", value);
+        PlayerPrefs.SetFloat(SFX_KEY, value);
     }
 
     private void SetVolume(string parameterName, float value)

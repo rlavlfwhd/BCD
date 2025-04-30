@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PuzzleManager : MonoBehaviour
 {
@@ -20,13 +21,20 @@ public class PuzzleManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Start()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //RestoreItemState();
+        PuzzleUtils.DisableAcquiredItemObjects(); // 씬 로드 후 아이템 비활성화
     }
 
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded; // 씬 로드 이벤트 해제
+    }
+        
     // 퍼즐 완료 등록
     public void CompletePuzzle(string puzzleID)
     {
@@ -99,6 +107,7 @@ public class PuzzleManager : MonoBehaviour
             }
         }
     }
+
     private bool IsPuzzleItem(GameObject go)
     {
         return go.GetComponent<IObjectItem>() != null;

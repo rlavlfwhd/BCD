@@ -65,11 +65,18 @@ public class WindowPuzzle : MonoBehaviour
         {
             PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, selected);
 
+            // 퍼즐 완료 후 아이템을 획득 리스트에 추가
+            string itemName = "WindowPuzzleItem"; // 기본 아이템 이름을 수동으로 지정
+            if (GetComponent<IObjectItem>() != null)
+            {
+                itemName = GetComponent<IObjectItem>().ClickItem().itemName; // null 체크 후 아이템 이름 동적으로 가져오기
+            }
+
+            SceneDataManager.Instance.Data.acquiredItemIDs.Add(itemName);  // 동적으로 아이템 이름 추가
+
             if (windowRenderer != null && openedWindowMaterial != null)
             {
                 windowRenderer.material = openedWindowMaterial;
-
-                SoundManager.PlayOneShot(gameObject, openWindowClip, sfxMixerGroup);
             }
 
             if (clickableWindowObject != null)
@@ -79,8 +86,16 @@ public class WindowPuzzle : MonoBehaviour
 
             isWindowOpened = true;
 
-            Debug.Log("3D 창문 열림! Rope4 사용 완료");
+            // 일정 지연 후 아이템 비활성화
+            StartCoroutine(DisableItemAfterDelay());
         }
+    }
+
+
+    private IEnumerator DisableItemAfterDelay()
+    {
+        yield return new WaitForSeconds(0.5f); // 약간의 지연 후 비활성화
+        PuzzleUtils.DisableAcquiredItemObjects();
     }
 
     private IEnumerator GoToStoryAfterDelay(float delay)
