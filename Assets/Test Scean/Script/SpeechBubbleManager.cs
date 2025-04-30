@@ -24,71 +24,93 @@ public class SpeechBubbleManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("⚠️ 중복된 SpeechBubbleManager 인스턴스 발견. 기존 인스턴스 유지됨");
             Destroy(gameObject);
         }
     }
 
-    public void ShowBubble(Transform target, string message, Vector3 offset)
+    /// <summary>
+    /// 말풍선을 지정된 위치(anchor)에 생성하고 메시지를 출력
+    /// </summary>
+    public void ShowBubble(MoleController caller, Transform anchor, string message)
     {
-        Debug.Log($"🧪 [ShowBubble 호출됨] 대상: {target.name}, 대사: {message}");
+        Debug.Log($"🧪 ShowBubble 호출됨 by {caller.name}, 메시지: {message}");
 
         if (speechBubblePrefab == null)
         {
-            Debug.LogError("❌ ShowBubble 실패: speechBubblePrefab이 설정되지 않았습니다!");
+            Debug.LogError("❌ 말풍선 프리팹이 연결되지 않았습니다.");
+            return;
+        }
+
+        if (anchor == null)
+        {
+            Debug.LogError($"❌ {caller.name}의 말풍선 위치 anchor(Transform)가 지정되지 않았습니다.");
             return;
         }
 
         if (currentBubble != null)
         {
-            Debug.Log("🔁 기존 말풍선 제거");
             Destroy(currentBubble);
         }
 
-        Vector3 spawnPos = target.position + offset;
+        // 말풍선 생성
+        Vector3 spawnPos = anchor.position;
         currentBubble = Instantiate(speechBubblePrefab, spawnPos, Quaternion.identity);
-        currentBubble.transform.SetParent(target, worldPositionStays: true);
 
-        // 수평으로만 카메라 바라보게 설정
-        Transform cam = Camera.main.transform;
-        Vector3 lookPos = cam.position - currentBubble.transform.position;
-        lookPos.y = 0f;
-        if (lookPos.sqrMagnitude > 0.01f)
+        // ✅ 먼저 부모 연결
+        currentBubble.transform.SetParent(anchor, worldPositionStays: true);
+        currentBubble.transform.localScale = Vector3.one;
+
+        // ✅ 회전은 반드시 SetParent 이후에 실행 (기울어짐 방지)
+        Transform cam = Camera.main?.transform;
+        if (cam != null)
         {
-            currentBubble.transform.rotation = Quaternion.LookRotation(lookPos);
-            currentBubble.transform.Rotate(0f, 180f, 0f);
+            Vector3 direction = currentBubble.transform.position - cam.position;
+            direction.y = 0f;
+
+            if (direction.sqrMagnitude > 0.01f)
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+                currentBubble.transform.rotation = lookRotation;
+
+                // 필요 시 정면 보정 (뒷면을 보는 경우)
+                // currentBubble.transform.rotation *= Quaternion.Euler(0f, 180f, 0f);
+            }
         }
 
+        // Canvas 카메라 연결
         Canvas canvas = currentBubble.GetComponentInChildren<Canvas>();
         if (canvas != null && canvas.renderMode == RenderMode.WorldSpace && canvas.worldCamera == null)
         {
             canvas.worldCamera = Camera.main;
-            Debug.Log("📷 Canvas에 메인 카메라 자동 연결 완료");
         }
 
+        // 텍스트 타이핑 출력
         TextMeshProUGUI text = currentBubble.GetComponentInChildren<TextMeshProUGUI>();
         if (text != null)
         {
-            // 코루틴으로 타이핑 효과 시작
             if (typingRoutine != null)
                 StopCoroutine(typingRoutine);
 
-            typingRoutine = StartCoroutine(TypeText(text, message));
+            typingRoutine = StartCoroutine(TypeText(caller, text, message));
         }
         else
         {
-            Debug.LogWarning("⚠️ 말풍선 프리팹에 TextMeshProUGUI 컴포넌트가 없습니다.");
+            Debug.LogWarning("⚠️ 말풍선 안에 TextMeshProUGUI 컴포넌트가 없습니다.");
         }
     }
 
-    // 🧵 타이핑 효과 코루틴
-    private IEnumerator TypeText(TextMeshProUGUI text, string message)
+    private IEnumerator TypeText(MoleController caller, TextMeshProUGUI text, string message)
     {
-        text.text = ""; // 초기화
+        text.text = "";
         foreach (char c in message)
         {
             text.text += c;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        caller.OnDialogueComplete();
     }
 }
+
+
+
