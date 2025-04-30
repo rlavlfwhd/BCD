@@ -23,6 +23,9 @@ public class MoleController : MonoBehaviour
     [Header("🎬 정답 시 이동할 씬 이름")]
     public string nextSceneName;
 
+    [Header("❌ 실패 처리 매니저")]
+    public MolePuzzleFailManager puzzleManager;
+
     private int currentDialogueIndex = 0;
     private bool isDialogueFinished = false;
     private Vector3 originalScale;
@@ -35,24 +38,18 @@ public class MoleController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // ✅ 안정적 정답 판정: 정답인 경우, 선택 가능 상태면 즉시 처리
-        if (!isGuide && isAnswer && MolePuzzleManager.Instance.canChooseAnswer)
-        {
-            CheckIfCorrect(); // 대사 출력 없이 즉시 정답 처리
-            return;
-        }
+        // ✅ 가이드 또는 일반 두더지 클릭 → 대사 출력
+        MolePuzzleManager.Instance.SelectMole(this); // 크기 조절
 
-        if (!isDialogueFinished)
-        {
-            MolePuzzleManager.Instance.SelectMole(this);
-            ShowDialogue();
-        }
-        else
-        {
-            ShowDialogue(); // 대사 계속 순환
+        ShowDialogue(); // 대사 출력
 
-            if (!isGuide)
-                CheckIfCorrect(); // 일반 두더지 정답 판정
+        // ✅ 가이드는 클릭 시 항상 대사만 출력 (정답 체크 안 함)
+        if (isGuide) return;
+
+        // ✅ 일반 두더지일 경우, 정답 선택 가능 상태일 때 바로 정답/오답 판정
+        if (MolePuzzleManager.Instance.canChooseAnswer)
+        {
+            CheckIfCorrect();
         }
     }
 
@@ -64,7 +61,7 @@ public class MoleController : MonoBehaviour
         SpeechBubbleManager.Instance.ShowBubble(this, speechBubbleAnchor, message);
 
         // ✅ 가이드의 3번째 대사 출력 시 정답 선택 가능 상태로 전환
-        if (isGuide && currentDialogueIndex == 2)
+        if (isGuide && currentDialogueIndex == 4)
         {
             MolePuzzleManager.Instance.AllowAnswerSelection();
         }
@@ -75,7 +72,7 @@ public class MoleController : MonoBehaviour
 
     public void OnDialogueComplete()
     {
-        isDialogueFinished = false; // 대사 끝나면 다시 클릭 가능
+        isDialogueFinished = false;
     }
 
     private void CheckIfCorrect()
@@ -103,8 +100,17 @@ public class MoleController : MonoBehaviour
         }
         else
         {
-            Debug.Log("❌ 오답입니다. 다시 선택해주세요.");
+            Debug.Log("❌ 오답입니다. 퍼즐 실패 처리!");
             isDialogueFinished = false;
+
+            if (puzzleManager != null)
+            {
+                puzzleManager.HandleFail(); // 페이드 아웃 → 재시작
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ puzzleManager가 연결되지 않았습니다!");
+            }
         }
     }
 
@@ -132,4 +138,5 @@ public class MoleController : MonoBehaviour
         transform.localScale = targetScale;
     }
 }
+
 
