@@ -35,6 +35,13 @@ public class MoleController : MonoBehaviour
 
     private void OnMouseDown()
     {
+        // ✅ 안정적 정답 판정: 정답인 경우, 선택 가능 상태면 즉시 처리
+        if (!isGuide && isAnswer && MolePuzzleManager.Instance.canChooseAnswer)
+        {
+            CheckIfCorrect(); // 대사 출력 없이 즉시 정답 처리
+            return;
+        }
+
         if (!isDialogueFinished)
         {
             MolePuzzleManager.Instance.SelectMole(this);
@@ -42,11 +49,10 @@ public class MoleController : MonoBehaviour
         }
         else
         {
-            ShowDialogue();
+            ShowDialogue(); // 대사 계속 순환
 
-            if (isGuide) return;
-
-            CheckIfCorrect();
+            if (!isGuide)
+                CheckIfCorrect(); // 일반 두더지 정답 판정
         }
     }
 
@@ -57,6 +63,7 @@ public class MoleController : MonoBehaviour
         string message = dialogueLines[currentDialogueIndex];
         SpeechBubbleManager.Instance.ShowBubble(this, speechBubbleAnchor, message);
 
+        // ✅ 가이드의 3번째 대사 출력 시 정답 선택 가능 상태로 전환
         if (isGuide && currentDialogueIndex == 2)
         {
             MolePuzzleManager.Instance.AllowAnswerSelection();
@@ -68,7 +75,7 @@ public class MoleController : MonoBehaviour
 
     public void OnDialogueComplete()
     {
-        isDialogueFinished = false;
+        isDialogueFinished = false; // 대사 끝나면 다시 클릭 가능
     }
 
     private void CheckIfCorrect()
@@ -81,16 +88,17 @@ public class MoleController : MonoBehaviour
 
         if (isAnswer)
         {
-            Debug.Log("정답!"); // ✅ 추가된 메시지
+            Debug.Log("정답!");
             Debug.Log("🎯 정답입니다! 씬 전환합니다!");
 
             if (!string.IsNullOrEmpty(nextSceneName))
             {
+                Debug.Log($"▶ 씬 전환 시도: {nextSceneName}");
                 SceneManager.LoadScene(nextSceneName);
             }
             else
             {
-                Debug.LogWarning("⚠️ nextSceneName이 비어 있어서 씬 전환이 되지 않습니다.");
+                Debug.LogWarning("⚠️ nextSceneName이 비어 있어서 씬 전환 실패");
             }
         }
         else
@@ -124,3 +132,4 @@ public class MoleController : MonoBehaviour
         transform.localScale = targetScale;
     }
 }
+
