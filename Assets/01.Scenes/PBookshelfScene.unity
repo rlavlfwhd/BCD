@@ -4366,7 +4366,7 @@ MonoBehaviour:
   openedDoorMaterial: {fileID: 2100000, guid: 1fbda8635cf57eb4e96d1c4abaab9b6a, type: 2}
   clickableDoorObject: {fileID: 1778581809}
   puzzleID: Pendant
-  nextStoryIndex: 1
+  nextStoryIndex: 1345
 --- !u!1 &1817283313
 GameObject:
   m_ObjectHideFlags: 0
