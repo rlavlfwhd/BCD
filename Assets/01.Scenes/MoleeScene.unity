@@ -520,7 +520,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -961}
+  m_LocalPosition: {x: 0, y: 0, z: -489}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -923,6 +923,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &644075879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644075880}
+  m_Layer: 0
+  m_Name: MoleBigSpeech
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &644075880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644075879}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -477, y: -96, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &657964109
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,8 +982,8 @@ Transform:
   m_GameObject: {fileID: 657964109}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.04, y: -1.82, z: 0}
-  m_LocalScale: {x: 0.8645, y: 0.8645, z: 0.8645}
+  m_LocalPosition: {x: -2.39, y: -1.6, z: 0}
+  m_LocalScale: {x: 0.8645, y: 0.8645, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104830523}
@@ -1066,13 +1097,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6539a3722460b2c48925954114aa3436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleType: 1
   dialogueLines:
   - "\uD64D\uD64D\uD64D, \uC655\uC740 \uBC31\uC131\uC744 \uAC00\uC7A5 \uBA3C\uC800
     \uC0DD\uAC01\uD558\uB294 \uC790\uC600\uC74C\uB2E4."
   - "\uD64D\uD64D..\uD64D, \uC655\uBE44\uB294 \uBCD1\uC73C\uB85C \uC790\uC5F0\uC2A4\uB7FD\uAC8C
     \uC8FD\uC5C8\uC74C\uB2E4"
-  bubbleOffset: {x: -850, y: 20, z: 0}
+  speechBubbleAnchor: {fileID: 644075880}
+  selectedScale: 1.1
+  scaleSpeed: 3
+  isAnswer: 0
+  isGuide: 0
+  nextSceneName: 
 --- !u!1 &740584084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1261,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1036847996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1036847997}
+  m_Layer: 0
+  m_Name: CaptainSpeech
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1036847997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036847996}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 326, y: -26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1255725657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,7 +1321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0486fb13ffc7e7469937964e1b3eadf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMoleIndex: 2
+  canChooseAnswer: 0
 --- !u!4 &1255725659
 Transform:
   m_ObjectHideFlags: 0
@@ -1265,7 +1331,7 @@ Transform:
   m_GameObject: {fileID: 1255725657}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -289.59, y: 58.5385, z: 10523.92}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1299,8 +1365,8 @@ Transform:
   m_GameObject: {fileID: 1261099505}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.12, y: -3.35, z: 0}
-  m_LocalScale: {x: 0.8645, y: 0.8645, z: 0.8645}
+  m_LocalPosition: {x: 2.76, y: -3.35, z: 0}
+  m_LocalScale: {x: 0.8645, y: 0.8645, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104830523}
@@ -1414,13 +1480,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6539a3722460b2c48925954114aa3436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleType: 0
   dialogueLines:
   - "\uD64D\uD64D! \uC655\uC740 \uACF5\uC8FC\uB97C \uB9E4\uC6B0 \uC544\uB07C\uB290\uB77C
     \uBC31\uC131\uB4E4\uC744 \uD798\uB4E4\uAC8C \uD588\uB2E4!"
   - "\uC655\uBE44\uB294 \uCC28\uC5D0 \uB3C5\uC744 \uD0C4 \uC2DC\uB140\uB4E4\uC5D0
     \uC758\uD574 \uC8FD\uC74C\uC744 \uB9DE\uC558\uC9C0, \uD64D\uD64D!"
-  bubbleOffset: {x: -1000, y: 20, z: 0}
+  speechBubbleAnchor: {fileID: 1788303932}
+  selectedScale: 1.1
+  scaleSpeed: 3
+  isAnswer: 0
+  isGuide: 0
+  nextSceneName: 
 --- !u!1 &1427797766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1532,7 @@ Transform:
   m_GameObject: {fileID: 1427797766}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -371, y: 47.911667, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1496,8 +1566,8 @@ Transform:
   m_GameObject: {fileID: 1500703848}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.15, y: -1.02, z: 0}
-  m_LocalScale: {x: 0.87038, y: 0.87038, z: 0.87038}
+  m_LocalPosition: {x: 6.53, y: -1.42, z: 0}
+  m_LocalScale: {x: 0.87038, y: 0.87038, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104830523}
@@ -1611,12 +1681,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6539a3722460b2c48925954114aa3436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleType: 3
   dialogueLines:
-  - "\uD64D! \uAC70\uC9D3\uB9D0\uC7C1\uC774\uB97C \uCC3E\uC558\uB098?"
   - "\uD64D! \uBA87 \uBC88\uC9F8 \uB450\uB354\uC9C0\uAC00 \uAC70\uC9D3\uB9D0\uC7C1\uC774\uB77C\uACE0
     \uC0DD\uAC01\uD558\uB098 \uD64D!"
-  bubbleOffset: {x: -1100, y: 20, z: 0}
+  - "\uD64D! \uAC70\uC9D3\uB9D0\uC7C1\uC774\uB97C \uCC3E\uC558\uB2E4\uBA74 \uB098\uB97C
+    \uB20C\uB7EC\uB77C \uD64D!"
+  - "\uD64D\uD64D\uD64D..\uC774\uC911\uC5D0 \uAC70\uC9D3\uB9D0\uC7C1\uC774\uB294
+    \uB204\uAD6C\uC9C0?\uD64D \uC120\uD0DD\uD560 \uCC28\uB840\uB2E4 \uD64D!"
+  speechBubbleAnchor: {fileID: 1036847997}
+  selectedScale: 1.1
+  scaleSpeed: 3
+  isAnswer: 0
+  isGuide: 1
+  nextSceneName: 
 --- !u!1 &1699741802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,6 +1799,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699741802}
   m_CullTransparentMesh: 1
+--- !u!1 &1788303931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1788303932}
+  m_Layer: 0
+  m_Name: MoleGlassesSpeech
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1788303932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788303931}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19, y: -239, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1915254264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,13 +1857,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915254264}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: -0.08, z: 0}
-  m_LocalScale: {x: 0.8645, y: 0.8645, z: 0.8645}
+  m_LocalRotation: {x: 0.0005497763, y: 0.00035774778, z: -0.00000019668127, w: 0.9999998}
+  m_LocalPosition: {x: 1.38, y: -0.08, z: -0}
+  m_LocalScale: {x: 0.8645, y: 0.8645, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104830523}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.063, y: 0.041, z: 0}
 --- !u!212 &1915254266
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1865,13 +1973,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6539a3722460b2c48925954114aa3436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleType: 2
   dialogueLines:
   - "\uD64D\uD64D\uD64D\uD64D\u2026 \uACF5\uC8FC\uB294 \uC2A4\uC2A4\uB85C \uBC29\uC5D0
     \uAC07\uD788\uAE30\uB97C \uC6D0\uD588\uC5C8\uC5B4\uC694\uC624.."
   - "\uD64D\uD64D..\uD64D\uD64D, \uC655\uBE44\uC758 \uC8FD\uC74C\uC740 \uC655\uAD6D
     \uB0B4\uBD80\uC758 \uC74C\uBAA8 \uB54C\uBB38\uC774\uC5C8\uC5B4\uC694\uC624"
-  bubbleOffset: {x: -950, y: 20, z: 0}
+  speechBubbleAnchor: {fileID: 2012758987}
+  selectedScale: 1.1
+  scaleSpeed: 3
+  isAnswer: 1
+  isGuide: 0
+  nextSceneName: StoryScene
 --- !u!1 &1955911533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,6 +2107,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2012758986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012758987}
+  m_Layer: 0
+  m_Name: MoleSmallSpeech
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2012758987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012758986}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -172, y: 121, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2212,3 +2355,7 @@ SceneRoots:
   - {fileID: 1955911535}
   - {fileID: 1255725659}
   - {fileID: 1427797768}
+  - {fileID: 1036847997}
+  - {fileID: 1788303932}
+  - {fileID: 2012758987}
+  - {fileID: 644075880}
