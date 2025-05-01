@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: 1ABAC_2(Bad)
+  m_EditorClassIdentifier: 
+  storyNumber: 32
+  MainImage: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
+  MainImage2: {fileID: 2800000, guid: 2f59312105a6615498b36e94f9d051c6, type: 3}
+  storyText: "    \uB098\uB808\uC774\uC158 : \uACF5\uC8FC\uAC00 \uBF40\uC090 \uC55E\uC5D0
+    \uAC00\uB9CC\uD788 \uC11C\uC11C \uBA38\uBB47\uAC70\uB9AC\uC790, \uBF40\uC090\uB294
+    \uB354 \uACA9\uB82C\uD558\uAC8C \uC9D6\uAE30 \uC2DC\uC791\uD588\uACE0, \uADF8
+    \uC18C\uB9AC\uB97C \uB4E3\uACE0 \uB2EC\uB824\uC628 \n\n                    \uD558\uC778\uC5D0\uAC8C
+    \uC790\uC2E0\uC758 \uBC29\uC744 \uB098\uAC00\uB824\uB294 \uBAA8\uC2B5\uC744 \uB4E4\uCF1C,
+    \uADF8\uB300\uB85C \uC790\uC2E0\uC758 \uBC29\uC5D0 \uAC07\uD788\uAC8C \uB418\uC5C8\uB2E4.\n\n                                                                                                                                  
+    (Bad Ending)"
+  options:
+  - buttonText: "\uC774\uC5B4\uC11C"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 1
+        changeSceneName: 
