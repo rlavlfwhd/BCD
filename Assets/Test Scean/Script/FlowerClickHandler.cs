@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// 꽃 오브젝트에 붙여서 클릭을 감지하는 스크립트
+/// 각 꽃에 붙는 클릭 감지 스크립트
 /// </summary>
 public class FlowerClickHandler : MonoBehaviour
 {
-    private FlowerController flowerController; // 자기 자신의 꽃 컨트롤러
-    private FlowerPuzzleController flowerPuzzleController; // 퍼즐 매니저
+    private FlowerController flowerController;
+    private FlowerPuzzleController flowerPuzzleController;
 
     private void Start()
     {
@@ -23,3 +23,4 @@ public class FlowerClickHandler : MonoBehaviour
         }
     }
 }
+
