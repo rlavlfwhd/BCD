@@ -20,12 +20,6 @@ public class MoleController : MonoBehaviour
     [Header("👓 가이드인지 여부")]
     public bool isGuide = false;
 
-    [Header("🎬 정답 시 이동할 씬 이름")]
-    public string nextSceneName;
-
-    [Header("❌ 실패 처리 매니저")]
-    public MolePuzzleFailManager puzzleManager;
-
     private int currentDialogueIndex = 0;
     private bool isDialogueFinished = false;
     private Vector3 originalScale;
@@ -38,15 +32,11 @@ public class MoleController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // ✅ 가이드 또는 일반 두더지 클릭 → 대사 출력
-        MolePuzzleManager.Instance.SelectMole(this); // 크기 조절
+        MolePuzzleManager.Instance.SelectMole(this); // 크기 선택
+        ShowDialogue();
 
-        ShowDialogue(); // 대사 출력
-
-        // ✅ 가이드는 클릭 시 항상 대사만 출력 (정답 체크 안 함)
         if (isGuide) return;
 
-        // ✅ 일반 두더지일 경우, 정답 선택 가능 상태일 때 바로 정답/오답 판정
         if (MolePuzzleManager.Instance.canChooseAnswer)
         {
             CheckIfCorrect();
@@ -60,7 +50,6 @@ public class MoleController : MonoBehaviour
         string message = dialogueLines[currentDialogueIndex];
         SpeechBubbleManager.Instance.ShowBubble(this, speechBubbleAnchor, message);
 
-        // ✅ 가이드의 3번째 대사 출력 시 정답 선택 가능 상태로 전환
         if (isGuide && currentDialogueIndex == 4)
         {
             MolePuzzleManager.Instance.AllowAnswerSelection();
@@ -79,37 +68,34 @@ public class MoleController : MonoBehaviour
     {
         if (!MolePuzzleManager.Instance.canChooseAnswer)
         {
-            Debug.Log("⚠️ 아직 정답을 선택할 수 없습니다. 가이드의 세 번째 대사를 먼저 들어야 합니다.");
+            Debug.Log("⚠️ 아직 정답 선택 불가 (가이드의 대사 필요)");
             return;
         }
 
         if (isAnswer)
         {
-            Debug.Log("정답!");
-            Debug.Log("🎯 정답입니다! 씬 전환합니다!");
+            Debug.Log("정답! 🎯");
 
-            if (!string.IsNullOrEmpty(nextSceneName))
+            if (MolePuzzleFailManager.Instance != null)
             {
-                Debug.Log($"▶ 씬 전환 시도: {nextSceneName}");
-                SceneManager.LoadScene(nextSceneName);
+                MolePuzzleFailManager.Instance.HandleSuccess(); // ✅ 성공 → 여기로 위임
             }
             else
             {
-                Debug.LogWarning("⚠️ nextSceneName이 비어 있어서 씬 전환 실패");
+                Debug.LogWarning("⚠️ MolePuzzleFailManager.Instance 없음!");
             }
         }
         else
         {
-            Debug.Log("❌ 오답입니다. 퍼즐 실패 처리!");
-            isDialogueFinished = false;
+            Debug.Log("❌ 오답! 실패 처리 실행");
 
-            if (puzzleManager != null)
+            if (MolePuzzleFailManager.Instance != null)
             {
-                puzzleManager.HandleFail(); // 페이드 아웃 → 재시작
+                MolePuzzleFailManager.Instance.HandleFail(); // ✅ 실패 → 여기로 위임
             }
             else
             {
-                Debug.LogWarning("⚠️ puzzleManager가 연결되지 않았습니다!");
+                Debug.LogWarning("⚠️ MolePuzzleFailManager.Instance 없음!");
             }
         }
     }
@@ -138,5 +124,4 @@ public class MoleController : MonoBehaviour
         transform.localScale = targetScale;
     }
 }
-
 
