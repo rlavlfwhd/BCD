@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 157714721}
   - component: {fileID: 157714720}
   - component: {fileID: 157714719}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: RedBookSlot2
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 335003739}
   - component: {fileID: 335003738}
   - component: {fileID: 335003737}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: SmallChickenSlot
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 475789620}
   - component: {fileID: 475789619}
   - component: {fileID: 475789618}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: YellowBooKSlot2
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -1225,7 +1225,7 @@ GameObject:
   - component: {fileID: 513365835}
   - component: {fileID: 513365834}
   - component: {fileID: 513365833}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ChickSlot
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -1736,7 +1736,7 @@ GameObject:
   - component: {fileID: 568756684}
   - component: {fileID: 568756683}
   - component: {fileID: 568756682}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: BlueBookSlot1
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -1856,7 +1856,7 @@ GameObject:
   - component: {fileID: 631518667}
   - component: {fileID: 631518666}
   - component: {fileID: 631518665}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MirrorBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2196,7 +2196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 731199126}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ChickSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2273,7 +2273,7 @@ GameObject:
   - component: {fileID: 819830567}
   - component: {fileID: 819830566}
   - component: {fileID: 819830565}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: EggSlot
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -2394,7 +2394,7 @@ GameObject:
   - component: {fileID: 842200403}
   - component: {fileID: 842200402}
   - component: {fileID: 842200401}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: YellowBooKSlot1
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -2511,7 +2511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 937567832}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: BookSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2672,7 +2672,7 @@ GameObject:
   - component: {fileID: 971070279}
   - component: {fileID: 971070278}
   - component: {fileID: 971070277}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: InsideBookshelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2783,7 +2783,7 @@ GameObject:
   - component: {fileID: 990030016}
   - component: {fileID: 990030015}
   - component: {fileID: 990030014}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: BlueBookSlot2
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -3126,7 +3126,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1130406031}
-  - component: {fileID: 1130406033}
   - component: {fileID: 1130406036}
   - component: {fileID: 1130406035}
   - component: {fileID: 1130406034}
@@ -3152,14 +3151,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 548673580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!222 &1130406033
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130406030}
-  m_CullTransparentMesh: 1
 --- !u!64 &1130406034
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3181,7 +3172,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1130406035
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3245,8 +3236,9 @@ GameObject:
   - component: {fileID: 1142258512}
   - component: {fileID: 1142258511}
   - component: {fileID: 1142258514}
+  - component: {fileID: 1142258515}
   m_Layer: 10
-  m_Name: Vanuty
+  m_Name: Vanity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3352,6 +3344,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mirrorObj: {fileID: 690194367}
+--- !u!114 &1142258515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142258509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92b351b9f9af394cb06ba9bbec5ed95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mirrorObj: {fileID: 690194367}
 --- !u!1 &1244574849
 GameObject:
   m_ObjectHideFlags: 0
@@ -3365,7 +3370,7 @@ GameObject:
   - component: {fileID: 1244574853}
   - component: {fileID: 1244574852}
   - component: {fileID: 1244574851}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: YellowBooKSlot3
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -3830,7 +3835,7 @@ GameObject:
   - component: {fileID: 1473760571}
   - component: {fileID: 1473760570}
   - component: {fileID: 1473760569}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: RedBookSlot1
   m_TagString: DropSlot
   m_Icon: {fileID: 0}
@@ -4093,7 +4098,7 @@ GameObject:
   - component: {fileID: 1514882705}
   - component: {fileID: 1514882704}
   - component: {fileID: 1514882703}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: BigChickenSlot
   m_TagString: DropSlot
   m_Icon: {fileID: 0}

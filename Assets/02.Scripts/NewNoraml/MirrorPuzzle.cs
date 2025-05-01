@@ -26,7 +26,7 @@ public class MirrorPuzzle : MonoBehaviour, IClickablePuzzle
     {
         if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
-            // 거울이 깨진 상태로 복구
+            // 거울 상태 복원
             if (mirrorRenderer != null && brokenMirrorMaterial1 != null)
             {
                 mirrorRenderer.material = brokenMirrorMaterial1;
