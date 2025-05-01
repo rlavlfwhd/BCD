@@ -202,7 +202,6 @@ GameObject:
   - component: {fileID: 317973424}
   - component: {fileID: 317973423}
   - component: {fileID: 317973422}
-  - component: {fileID: 317973421}
   m_Layer: 5
   m_Name: F_Image
   m_TagString: Untagged
@@ -230,22 +229,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.000030518}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &317973421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317973419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fcfe4e04405ecb4f836931feeb11575, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeGroup: {fileID: 317973422}
-  failText: {fileID: 689679303}
-  fadeDuration: 1
-  messageDuration: 2
 --- !u!225 &317973422
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -662,7 +645,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4100bd67ffb1c42b7eae1238909711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeController: {fileID: 317973421}
+  nextSceneName: StoryScene
+  nextStoryIndex: -1
+  fadeController: {fileID: 732064996}
 --- !u!4 &336877084
 Transform:
   m_ObjectHideFlags: 0
@@ -1119,8 +1104,6 @@ MonoBehaviour:
   scaleSpeed: 3
   isAnswer: 0
   isGuide: 0
-  nextSceneName: StoryScene
-  puzzleManager: {fileID: 336877083}
 --- !u!1 &689679301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,7 +1121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &689679302
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1155,8 +1138,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 65.11084, y: 0}
+  m_SizeDelta: {x: 330.2216, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &689679303
 MonoBehaviour:
@@ -1178,7 +1161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD14C\uC2A4\uD2B8"
+  m_text: "\uC5B4\uB9BC\uB3C4 \uC5C6\uC9C0 \uC554!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e10574c59d2117f4facbfcaa4604b7ac, type: 2}
   m_sharedMaterial: {fileID: -9155958829429329538, guid: e10574c59d2117f4facbfcaa4604b7ac,
@@ -1206,8 +1189,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1256,6 +1239,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689679301}
   m_CullTransparentMesh: 1
+--- !u!1 &732064995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 732064997}
+  - component: {fileID: 732064996}
+  m_Layer: 0
+  m_Name: FadeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &732064996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732064995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fcfe4e04405ecb4f836931feeb11575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadePanel: {fileID: 317973419}
+  fadeGroup: {fileID: 317973422}
+  failText: {fileID: 689679303}
+  failMessage: "\uC5B4\uB9BC\uB3C4 \uC5C6\uC9C0 \uC554!"
+  fadeDuration: 3
+  messageDelay: 1
+--- !u!4 &732064997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732064995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -368.30957, y: 24.402582, z: -4.6306562}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740584084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,8 +1671,6 @@ MonoBehaviour:
   scaleSpeed: 3
   isAnswer: 0
   isGuide: 0
-  nextSceneName: StoryScene
-  puzzleManager: {fileID: 336877083}
 --- !u!1 &1427797766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,8 +1880,6 @@ MonoBehaviour:
   scaleSpeed: 3
   isAnswer: 0
   isGuide: 1
-  nextSceneName: StoryScene
-  puzzleManager: {fileID: 336877083}
 --- !u!1 &1699741802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,8 +2169,6 @@ MonoBehaviour:
   scaleSpeed: 3
   isAnswer: 1
   isGuide: 0
-  nextSceneName: StoryScene
-  puzzleManager: {fileID: 336877083}
 --- !u!1 &2012758986
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,3 +2413,4 @@ SceneRoots:
   - {fileID: 2012758987}
   - {fileID: 644075880}
   - {fileID: 336877084}
+  - {fileID: 732064997}
