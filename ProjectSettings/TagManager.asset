@@ -20,9 +20,9 @@ TagManager:
   - UI
   - Crop
   - Tile
-  - blockerMask
-  - clickable2DMask
-  - clickable3DMask
+  - Block
+  - Item
+  - PuzzleObj
   - 
   - 
   - 

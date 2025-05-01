@@ -208,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &321502017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 639683729}
   - component: {fileID: 639683728}
   - component: {fileID: 639683727}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BedCurtainL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1109,7 +1109,7 @@ Transform:
   m_GameObject: {fileID: 708127201}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37, y: 102.5, z: -1}
+  m_LocalPosition: {x: 37, y: 102.5, z: -2}
   m_LocalScale: {x: 482, y: 221, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1291,7 +1291,7 @@ GameObject:
   - component: {fileID: 950093829}
   - component: {fileID: 950093828}
   - component: {fileID: 950093827}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: CurtainR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1527,7 +1527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1362072661}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PrincesRoomObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1568,7 +1568,7 @@ GameObject:
   - component: {fileID: 1454567745}
   - component: {fileID: 1454567744}
   - component: {fileID: 1454567743}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: CurtainL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1691,7 +1691,7 @@ GameObject:
   - component: {fileID: 1574228285}
   - component: {fileID: 1574228284}
   - component: {fileID: 1574228283}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Blanket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1814,7 +1814,7 @@ GameObject:
   - component: {fileID: 1577844332}
   - component: {fileID: 1577844331}
   - component: {fileID: 1577844330}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BedCurtainR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2230,7 +2230,7 @@ GameObject:
   - component: {fileID: 2104830523}
   - component: {fileID: 2104830526}
   - component: {fileID: 2104830527}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -33,7 +33,7 @@ public class SaveSystem
             sceneName = SceneManager.GetActiveScene().name
         };
 
-        if (saveData.sceneName.Contains("PWindowScene") || saveData.sceneName.Contains("PBookShelfScene"))
+        if (saveData.sceneName.StartsWith("P"))
         {
             PuzzleSceneBackground bg = GameObject.FindObjectOfType<PuzzleSceneBackground>();
             if (bg != null && bg.backgroundSprite != null)

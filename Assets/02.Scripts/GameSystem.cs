@@ -87,6 +87,11 @@ public class GameSystem : MonoBehaviour
 
     public void RestoreGameState(SaveSystem.SaveData saveData)
     {
+        if (saveData.sceneName == "StoryScene")
+        {
+            StartCoroutine(WaitForStorySystemAndShowStory(saveData.currentStoryIndex));
+        }
+
         SceneDataManager.Instance.Data = saveData.sceneState;
 
         PuzzleManager.Instance.SetCompletedPuzzleList(saveData.completedPuzzles);
@@ -110,5 +115,8 @@ public class GameSystem : MonoBehaviour
             Debug.Log("스토리 시스템 준비중 :)");
             yield return null;
         }
+
+        StorySystem.Instance.currentStoryIndex = storyIndex;
+        StorySystem.Instance.StoryShow(storyIndex);
     }
 }

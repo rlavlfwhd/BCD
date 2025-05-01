@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MirrorPuzzle : MonoBehaviour
+public class MirrorPuzzle : MonoBehaviour, IClickablePuzzle
 {
     public AudioClip mirrorBreakClip;
     public AudioMixerGroup sfxMixerGroup;
@@ -37,7 +37,7 @@ public class MirrorPuzzle : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
+    public void OnClickPuzzle()
     {
         if (!isPuzzleCompleted)
         {

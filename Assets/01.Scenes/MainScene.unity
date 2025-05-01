@@ -2672,6 +2672,7 @@ GameObject:
   - component: {fileID: 1386248753}
   - component: {fileID: 1386248754}
   - component: {fileID: 1386248755}
+  - component: {fileID: 1386248756}
   m_Layer: 0
   m_Name: ClickManager
   m_TagString: Untagged
@@ -2711,12 +2712,9 @@ MonoBehaviour:
   blockerMask:
     serializedVersion: 2
     m_Bits: 256
-  clickable2DMask:
-    serializedVersion: 2
-    m_Bits: 512
   clickable3DMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 512
 --- !u!114 &1386248754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2746,6 +2744,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48439a0f168ffd4e8af1973eda042d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1386248756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386248750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa236bdc7c0934c48a2e399cc5da6212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  puzzleLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &1449648045
 GameObject:
   m_ObjectHideFlags: 0
