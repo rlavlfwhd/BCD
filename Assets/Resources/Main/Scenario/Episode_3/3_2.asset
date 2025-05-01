@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3_2
   m_EditorClassIdentifier: 
   storyNumber: 303
-  MainImage: {fileID: 2800000, guid: 515d68bccbcc1944397930af91b45803, type: 3}
+  MainImage: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
   MainImage2: {fileID: 2800000, guid: 19f0e92262c078c408fb16bc6a0ef3ad, type: 3}
   storyText: "\uB098\uB808\uC774\uC158 : \uACF5\uC8FC\uB294 \uB0AF\uC120 \uD48D\uACBD\uC5D0
     \uAC10\uD0C4\uD558\uBA70 \uC8FC\uC704\uB97C \uB458\uB7EC\uBCF4\uB2E4 \uBC18\uB300\uD3B8\uC774
@@ -21,15 +21,9 @@ MonoBehaviour:
     \uD1B5\uB85C\uB97C \uB9C9\uACE0 \uC788\uB294 \uB610 \uB2E4\uB978 \uCCA0\uBB38\uC744
     \uBC1C\uACAC\uD588\uB2E4."
   options:
-  - buttonText: "A) [\uC950\uB97C \uCE7C\uB85C \uCC14\uB7EC \uC8FD\uC778\uB2E4.]"
-    eventCheck:
-      sucessResult:
-      - resultType: 0
-        value: 14
-        changeSceneName: 
   - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 15
+        value: 304
         changeSceneName: 

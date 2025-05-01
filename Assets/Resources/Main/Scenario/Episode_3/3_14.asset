@@ -13,22 +13,16 @@ MonoBehaviour:
   m_Name: 3_14
   m_EditorClassIdentifier: 
   storyNumber: 315
-  MainImage: {fileID: 2800000, guid: b9606deffe0b5f74bab0542b5fbbae7b, type: 3}
+  MainImage: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
   MainImage2: {fileID: 2800000, guid: 19f0e92262c078c408fb16bc6a0ef3ad, type: 3}
   storyText: "\uB098\uB808\uC774\uC158 : \uACF5\uC8FC\uAC00 \uB300\uC7A5\uB450\uB354\uC9C0\uC758
     \uB9D0\uC5D0 \uADF8 \uAC8C\uC784\uC774 \uBB50\uB0D0\uB294 \uB4EF \uACE0\uAC1C\uB97C
     \uAC38\uC6C3\uAC70\uB838\uACE0, \uB300\uC7A5\uB450\uB354\uB294 \uACF5\uC8FC\uB97C
     \uBCF4\uACE0 \uD55C\uC228\uC744 \uC26C\uB354\uB2C8, \uB9D0\uD588\uB2E4."
   options:
-  - buttonText: "A) [\uC950\uB97C \uCE7C\uB85C \uCC14\uB7EC \uC8FD\uC778\uB2E4.]"
-    eventCheck:
-      sucessResult:
-      - resultType: 0
-        value: 14
-        changeSceneName: 
   - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 15
+        value: 316
         changeSceneName: 

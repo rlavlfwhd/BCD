@@ -22,15 +22,9 @@ MonoBehaviour:
     \uD55C\uBA85\uC529 \uC788\uB2E4. \uB10C \uAC70\uAE30\uC11C \uAC70\uC9D3\uB9D0\uC7C1\uC774\uAC00
     \uB204\uAD6C\uC778\uC9C0\uB9CC \uB9D0\uD558\uBA74 \uB41C\uB2E4 \uD64D!"
   options:
-  - buttonText: "A) [\uC950\uB97C \uCE7C\uB85C \uCC14\uB7EC \uC8FD\uC778\uB2E4.]"
-    eventCheck:
-      sucessResult:
-      - resultType: 0
-        value: 14
-        changeSceneName: 
   - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 15
+        value: 321
         changeSceneName: 

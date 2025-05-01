@@ -19,15 +19,9 @@ MonoBehaviour:
     1\uD638\uC774\uC790 \uB300\uC7A5\uC778 \uB300\uC7A5\uB450\uB354\uC9C0!! \uD569\uCCD0\uC11C
     \uD64D\uD64D\uBE0C\uB77C\uB354\uC2A4!!"
   options:
-  - buttonText: "A) [\uC950\uB97C \uCE7C\uB85C \uCC14\uB7EC \uC8FD\uC778\uB2E4.]"
-    eventCheck:
-      sucessResult:
-      - resultType: 0
-        value: 14
-        changeSceneName: 
   - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 15
+        value: 311
         changeSceneName: 

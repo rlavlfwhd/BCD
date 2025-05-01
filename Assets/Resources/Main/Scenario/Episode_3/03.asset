@@ -25,5 +25,5 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 0
+        value: 301
         changeSceneName: 
