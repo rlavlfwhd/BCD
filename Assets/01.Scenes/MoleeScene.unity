@@ -1271,7 +1271,8 @@ MonoBehaviour:
   fadePanel: {fileID: 317973419}
   fadeGroup: {fileID: 317973422}
   failText: {fileID: 689679303}
-  failMessage: "\uC5B4\uB9BC\uB3C4 \uC5C6\uC9C0 \uC554!"
+  failMessage: "\uD64D\uD64D...\uB2E4\uC2DC \uD55C \uBC88 \uC0DD\uAC01\uD574\uBD10\uB77C
+    \uD64D\uD64D..."
   fadeDuration: 3
   messageDelay: 1
 --- !u!4 &732064997
