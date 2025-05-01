@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SecretPath : MonoBehaviour
+public class SecretPath : MonoBehaviour, IClickablePuzzle
 {
     public AudioClip openDoorClip;
     public AudioMixerGroup sfxMixerGroup;
@@ -40,7 +40,7 @@ public class SecretPath : MonoBehaviour
             isDoorOpened = true;
         }
     }
-    private void OnMouseDown()
+    public void OnClickPuzzle()
     {
         if (isDoorOpened)
         {

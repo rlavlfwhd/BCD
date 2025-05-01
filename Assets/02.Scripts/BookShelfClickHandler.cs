@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class BookShelfClickHandler : MonoBehaviour
+public class BookShelfClickHandler : MonoBehaviour, IClickablePuzzle
 {
-    public GameObject BookShelfChild;
+    public GameObject bookShelfChild;
 
-    void OnMouseDown()
+    public void OnClickPuzzle()
     {
-        BookShelfChild.SetActive(true);        
-        
+        if(bookShelfChild != null)
+        {
+            bookShelfChild.SetActive(true);
+        }
     }
 }

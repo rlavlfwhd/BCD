@@ -21,7 +21,6 @@ public class PuzzleManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -80,11 +79,13 @@ public class PuzzleManager : MonoBehaviour
         StartCoroutine(GoToNextStory(nextStoryIndex));
     }
 
+
     private IEnumerator GoToNextStory(int storyIndex)
     {
         yield return new WaitForSeconds(2f);
         StorySystem.Instance.StoryShow(storyIndex);
     }
+
 
     public void RestoreItemState()
     {

@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class WindowPuzzle : MonoBehaviour
+public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
 {
     public AudioClip openWindowClip;
     public AudioMixerGroup sfxMixerGroup;
@@ -41,11 +41,11 @@ public class WindowPuzzle : MonoBehaviour
             {
                 gameObject.SetActive(false);
             }
-        }
+        }        
     }
 
 
-    private void OnMouseDown()
+    public void OnClickPuzzle()
     {
         if (!isWindowOpened)
         {
@@ -97,7 +97,6 @@ public class WindowPuzzle : MonoBehaviour
         yield return new WaitForSeconds(0.5f); // 약간의 지연 후 비활성화
         PuzzleUtils.DisableAcquiredItemObjects();
     }
-
     private IEnumerator GoToStoryAfterDelay(float delay)
     {
         if (overlayImage != null)

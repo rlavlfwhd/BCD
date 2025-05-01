@@ -18,12 +18,12 @@ EditorBuildSettings:
     path: Assets/01.Scenes/PBookshelfScene.unity
     guid: 9f32c6b798eb8624ca4fe89e962f7ddd
   - enabled: 1
-    path: Assets/01.Scenes/GardenScene.unity
+    path: Assets/01.Scenes/PGardenScene.unity
     guid: 89ae6ed6dada9404e903a18937926a62
   - enabled: 1
-    path: Assets/01.Scenes/FlowerScene.unity
+    path: Assets/01.Scenes/PFlowerScene.unity
     guid: df1de4a770e37404f9bd91c996ef2bfc
   - enabled: 1
-    path: Assets/01.Scenes/MoleeScene.unity
+    path: Assets/01.Scenes/PMoleeScene.unity
     guid: 1c8bf198648a47245b90dc7f83cac156
   m_configObjects: {}

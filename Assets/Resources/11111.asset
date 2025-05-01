@@ -22,16 +22,16 @@ MonoBehaviour:
       sucessResult:
       - resultType: 2
         value: 0
-        changeSceneName: FlowerScene
+        changeSceneName: PFlowerScene
   - buttonText: "\uD143\uBC2D"
     eventCheck:
       sucessResult:
       - resultType: 2
         value: 0
-        changeSceneName: GardenScene
+        changeSceneName: PGardenScene
   - buttonText: "\uB450\uB354\uC9C0"
     eventCheck:
       sucessResult:
       - resultType: 2
         value: 0
-        changeSceneName: MoleeScene
+        changeSceneName: PMoleeScene

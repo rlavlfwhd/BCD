@@ -61,17 +61,22 @@ public class SaveLoadUI : MonoBehaviour
             int slot = i + 1;
             SaveSystem.SaveData saveData = SaveSystem.LoadGame(slot);
 
-            // 저장용 첫 번째 이미지
-            if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath))
+            // 저장용 첫 번째 이미지 (퍼즐이면 puzzleImagePath 사용)
+            if (saveData != null)
             {
-                Sprite loadedSprite = LoadSpriteFromPath(saveData.mainImagePath);
-                if (loadedSprite != null)
+                string imagePath = saveData.sceneName.StartsWith("P") ? saveData.puzzleImagePath : saveData.mainImagePath;
+
+                if (!string.IsNullOrEmpty(imagePath))
                 {
-                    saveSlotImages1[i].sprite = loadedSprite;
+                    Sprite loadedSprite = LoadSpriteFromPath(imagePath);
+                    if (loadedSprite != null && saveSlotImages1.Length > i)
+                    {
+                        saveSlotImages1[i].sprite = loadedSprite;
+                    }
                 }
             }
 
-            // 저장용 두 번째 이미지
+            // 저장용 두 번째 이미지는 그대로 유지
             if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath2))
             {
                 Sprite loadedSprite2 = LoadSpriteFromPath(saveData.mainImagePath2);
@@ -81,17 +86,22 @@ public class SaveLoadUI : MonoBehaviour
                 }
             }
 
-            // 불러오기용 첫 번째 이미지
-            if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath))
+            // 불러오기용 첫 번째 이미지도 동일하게 처리
+            if (saveData != null)
             {
-                Sprite loadedSprite = LoadSpriteFromPath(saveData.mainImagePath);
-                if (loadedSprite != null && loadSlotImages1.Length > i)
+                string imagePath = saveData.sceneName.StartsWith("P") ? saveData.puzzleImagePath : saveData.mainImagePath;
+
+                if (!string.IsNullOrEmpty(imagePath))
                 {
-                    loadSlotImages1[i].sprite = loadedSprite;
+                    Sprite loadedSprite = LoadSpriteFromPath(imagePath);
+                    if (loadedSprite != null && loadSlotImages1.Length > i)
+                    {
+                        loadSlotImages1[i].sprite = loadedSprite;
+                    }
                 }
             }
 
-            // 불러오기용 두 번째 이미지
+            // 불러오기용 두 번째 이미지는 그대로 유지
             if (saveData != null && !string.IsNullOrEmpty(saveData.mainImagePath2))
             {
                 Sprite loadedSprite2 = LoadSpriteFromPath(saveData.mainImagePath2);
@@ -101,7 +111,7 @@ public class SaveLoadUI : MonoBehaviour
                 }
             }
 
-            // load 버튼 자체 이미지도 첫 번째 이미지로 업데이트
+            // 버튼 썸네일도 업데이트
             if (loadButtons[i].GetComponent<Image>() != null && loadSlotImages1.Length > i)
             {
                 loadButtons[i].GetComponent<Image>().sprite = loadSlotImages1[i].sprite;
