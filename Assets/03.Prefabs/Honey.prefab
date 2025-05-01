@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 256201402723121230}
   - component: {fileID: 2445983882850452652}
-  - component: {fileID: -5679078101868212300}
   - component: {fileID: 2931016679053375948}
-  - component: {fileID: 4577404980667469555}
   m_Layer: 0
   m_Name: Honey
   m_TagString: Untagged
@@ -87,21 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-5679078101868212300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8789634466768351228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c876febaff8287142b4e13b17b79bbdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puzzleID: FlowerPuzzleSet
-  nextStoryIndex: 1
-  nextSceneName: StoryScene
 --- !u!114 &2931016679053375948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,38 +100,3 @@ MonoBehaviour:
   initialScale: {x: 1, y: 1, z: 1}
   targetScale: {x: 120, y: 120, z: 1}
   growTime: 1
---- !u!58 &4577404980667469555
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8789634466768351228}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.48760986, y: 0.68263245}
-  serializedVersion: 2
-  m_Radius: 28.087143
