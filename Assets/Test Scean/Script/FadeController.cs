@@ -1,82 +1,71 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using System.Collections;
 
 public class FadeController : MonoBehaviour
 {
-    [Header("🎬 페이드 관련 UI")]
-    public CanvasGroup fadeGroup;              // 화면 어둡게 처리할 CanvasGroup
-    public TextMeshProUGUI failText;           // 실패 메시지 출력용 Text
-    public float fadeDuration = 1f;            // 어두워지는 시간
-    public float messageDuration = 2f;         // 메시지를 보여주는 시간
+    [Header("🎬 페이드 이미지 패널 (F_Image)")]
+    public GameObject fadePanel;       // F_Image 패널
+    public CanvasGroup fadeGroup;      // F_Image 안의 CanvasGroup
+    public TMP_Text failText;          // F_Image 안의 텍스트
+    public string failMessage = "퍼즐 실패! 다시 도전하세요!";
 
-    /// <summary>
-    /// 페이드 아웃 후 씬을 재시작 (대사 없이 바로 전환)
-    /// </summary>
+    public float fadeDuration = 1.5f;
+    public float messageDelay = 1f;
+
+    private void Awake()
+    {
+        if (fadePanel != null) fadePanel.SetActive(false);  // 시작 시 꺼두기
+    }
+
     public void FadeOutAndRestart()
     {
-        if (!gameObject.activeInHierarchy)
-            gameObject.SetActive(true);
+        Debug.Log("✅ FadeOutAndRestart 호출됨");
 
-        if (fadeGroup != null && !fadeGroup.gameObject.activeSelf)
-            fadeGroup.gameObject.SetActive(true);
-
-        StartCoroutine(FadeAndReload());
-    }
-
-    /// <summary>
-    /// 페이드 아웃 후 대사 출력 → 일정 시간 대기 → 씬 재시작
-    /// </summary>
-    public void ShowFailureDialogueThenRestart(string message)
-    {
-        if (!gameObject.activeInHierarchy)
-            gameObject.SetActive(true);
-
-        if (fadeGroup != null && !fadeGroup.gameObject.activeSelf)
-            fadeGroup.gameObject.SetActive(true);
-
-        StartCoroutine(FadeAndShowMessage(message));
-    }
-
-    /// <summary>
-    /// 단순 페이드 아웃 + 씬 재시작
-    /// </summary>
-    private IEnumerator FadeAndReload()
-    {
-        float t = 0f;
-        while (t < 1f)
+        if (fadePanel != null && !fadePanel.activeInHierarchy)
         {
-            t += Time.deltaTime / fadeDuration;
-            fadeGroup.alpha = Mathf.Clamp01(t);
-            yield return null;
+            fadePanel.SetActive(true);  // 패널 켜주기
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    /// <summary>
-    /// 페이드 아웃 → 텍스트 표시 → 대기 → 씬 재시작
-    /// </summary>
-    private IEnumerator FadeAndShowMessage(string message)
-    {
-        float t = 0f;
-        while (t < 1f)
+        if (fadeGroup != null)
         {
-            t += Time.deltaTime / fadeDuration;
-            fadeGroup.alpha = Mathf.Clamp01(t);
-            yield return null;
+            fadeGroup.alpha = 0f;       // alpha 초기화
         }
 
         if (failText != null)
         {
-            failText.text = message;
+            failText.gameObject.SetActive(false);  // 텍스트 숨기기
+        }
+
+        StartCoroutine(FadeAndShowText());
+    }
+
+    private IEnumerator FadeAndShowText()
+    {
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / fadeDuration;
+            if (fadeGroup != null)
+            {
+                fadeGroup.alpha = Mathf.Clamp01(t);
+            }
+            yield return null;
+        }
+
+        Debug.Log("✅ 페이드 완료 → 텍스트 표시");
+
+        if (failText != null)
+        {
+            failText.text = failMessage;
             failText.gameObject.SetActive(true);
         }
 
-        yield return new WaitForSeconds(messageDuration);
+        yield return new WaitForSeconds(messageDelay);
 
+        Debug.Log("✅ 씬 다시 로드");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
-
