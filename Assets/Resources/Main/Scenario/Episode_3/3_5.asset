@@ -18,15 +18,9 @@ MonoBehaviour:
   storyText: "\uACF5\uC8FC : \uC5E5? \uB450\uB354..\uC9C0? \uC544\uB2C8 \uC7A0\uAE50,
     4\uB9C8\uB9AC\uB098 \uC788\uC796\uC544?"
   options:
-  - buttonText: "A) [\uC950\uB97C \uCE7C\uB85C \uCC14\uB7EC \uC8FD\uC778\uB2E4.]"
-    eventCheck:
-      sucessResult:
-      - resultType: 0
-        value: 14
-        changeSceneName: 
   - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 15
+        value: 307
         changeSceneName: 
