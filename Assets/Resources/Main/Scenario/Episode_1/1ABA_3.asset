@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 1ABA_3
   m_EditorClassIdentifier: 
   storyNumber: 21
-  MainImage: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
-  MainImage2: {fileID: 2800000, guid: 886b03c8759394d4b96231a492d268c3, type: 3}
+  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
+  MainImage2: {fileID: 2800000, guid: 6d27dc9bade5a594a9ee890fe788804f, type: 3}
   storyText: "    \uBF40\uC090 : \uC544\uB974\uC544... \uC544\uB974\uC544\uB974\uC544\uB974...."
   options:
   - buttonText: "\uC774\uC5B4\uC11C"
