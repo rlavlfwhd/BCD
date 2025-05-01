@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c876febaff8287142b4e13b17b79bbdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleID: FlowerPuzzleSet
+  nextStoryIndex: 1
   nextSceneName: StoryScene
 --- !u!114 &2931016679053375948
 MonoBehaviour:
