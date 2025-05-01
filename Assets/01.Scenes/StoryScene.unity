@@ -1269,17 +1269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraParallax: {fileID: 330585549}
-  chapters:
-  - {fileID: 1211757045}
-  - {fileID: 1488344807}
-  - {fileID: 1872405111}
-  - {fileID: 544794071}
-  - {fileID: 1602927142}
-  - {fileID: 491777869}
-  - {fileID: 1893972200}
-  - {fileID: 2146983932}
-  - {fileID: 1329703034}
-  activeChapter: {fileID: 0}
   storyModels:
   - {fileID: 11400000, guid: 2e8b301315f6f58418b00e9d70dfeb60, type: 2}
   - {fileID: 11400000, guid: e194222a999cdcf4ca10b2e0a23c1faa, type: 2}
@@ -3758,7 +3747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1292497046
 Transform:
   m_ObjectHideFlags: 0
@@ -4352,7 +4341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1521003685
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,14 +11,14 @@ public class StorySystem : MonoBehaviour
     public static StorySystem Instance;
 
     public CameraParallax cameraParallax;
-    public GameObject[] chapters;
-    public GameObject activeChapter;
+    //public GameObject[] chapters;
+    //public GameObject activeChapter;
 
     public StoryModel[] storyModels;
     public int currentStoryIndex = 1;
     public StoryModel currentStoryModel;
 
-    public float delay = 0.1f;
+    public float delay = 0.01f;
     public string fullText;
     private string currentText = "";
 
@@ -44,10 +44,10 @@ public class StorySystem : MonoBehaviour
             buttonWay[i].onClick.AddListener(() => OnWayClick(wayIndex));
         }
 
-        if (chapters == null || chapters.Length == 0)
+        /*if (chapters == null || chapters.Length == 0)
         {
             chapters = GameObject.FindGameObjectsWithTag("Chapter");
-        }
+        }*/
 
         int overrideStoryIndex = SceneDataManager.Instance.Data.nextStoryIndex;
         if (overrideStoryIndex > 0)
@@ -172,13 +172,13 @@ public class StorySystem : MonoBehaviour
         if (currentStoryModel != null)
         {
             CoShowText();
-            int chapterIndex = GetChapterIndex(number);
-            ChangeChapter(chapterIndex);
+            //int chapterIndex = GetChapterIndex(number);
+            //ChangeChapter(chapterIndex);
 
-            if (chapterIndex == -1 || chapters[chapterIndex].GetComponent<PlayableDirector>() == null)
-            {
+            //if (chapterIndex == -1 || chapters[chapterIndex].GetComponent<PlayableDirector>() == null)
+            //{
                 StartCoroutine(ShowText());
-            }
+            //}
         }
         else
         {
@@ -186,7 +186,7 @@ public class StorySystem : MonoBehaviour
         }
     }
 
-    int GetChapterIndex(int storyNumber)
+    /*int GetChapterIndex(int storyNumber)
     {
         if (storyNumber == 1) return 0;
         if (storyNumber >= 46 && storyNumber < 47) return 1;
@@ -200,9 +200,9 @@ public class StorySystem : MonoBehaviour
         if (storyNumber >= 500 && storyNumber < 501) return 9;
         if (storyNumber >= 500 && storyNumber < 501) return 10;
         return -1;
-    }
+    }*/
 
-    void ChangeChapter(int chapterIndex)
+    /*void ChangeChapter(int chapterIndex)
     {
         if (chapterIndex == -1 || chapters == null || chapters.Length == 0 || chapterIndex >= chapters.Length)
         {
@@ -235,12 +235,12 @@ public class StorySystem : MonoBehaviour
         {
             StartCoroutine(DisableChapterAfterSeconds(activeChapter, 2.0f));
         }
-    }
+    }*/
 
     private IEnumerator DisableChapterAfterTimeline(PlayableDirector director, GameObject chapter)
     {
         yield return new WaitForSeconds((float)director.duration);
-        chapter.SetActive(false);
+        //chapter.SetActive(false);
         cameraParallax.enabled = true;
 
         if (currentStoryModel != null)
@@ -249,7 +249,7 @@ public class StorySystem : MonoBehaviour
         }
     }
 
-    private IEnumerator DisableChapterAfterSeconds(GameObject chapter, float seconds)
+    /*private IEnumerator DisableChapterAfterSeconds(GameObject chapter, float seconds)
     {
         yield return new WaitForSeconds(seconds);
         chapter.SetActive(false);
@@ -258,7 +258,7 @@ public class StorySystem : MonoBehaviour
         {
             StartCoroutine(ShowText());
         }
-    }
+    }*/
 
     StoryModel FindStoryModel(int number)
     {
