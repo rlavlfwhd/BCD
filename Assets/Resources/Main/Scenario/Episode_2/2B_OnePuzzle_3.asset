@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: 2B_OnePuzzle_3
   m_EditorClassIdentifier: 
-  storyNumber: 8
-  MainImage: {fileID: 2800000, guid: 4b430a21987d2264d986320a0e30f739, type: 3}
-  MainImage2: {fileID: 2800000, guid: cb9524506bec2194d9aadc0d933eb09a, type: 3}
-  storyText: "\uACF5\uC8FC : \uADF8\uB798 \uACE0\uB9C8\uC6CC, \uD1A0\uB07C\uC57C!
-    \uC774 \uC740\uD61C \uC78A\uC9C0 \uC54A\uC744\uAED8."
+  storyNumber: 56
+  MainImage: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
+  MainImage2: {fileID: 2800000, guid: be7fed7c41125a140bd89ce2ced4d434, type: 3}
+  storyText: "    \uACF5\uC8FC : \uADF8\uB798 \uACE0\uB9C8\uC6CC, \uD1A0\uB07C\uC57C!
+    \uC774 \uC740\uD61C \uC78A\uC9C0 \uC54A\uC744\uAED8.  (\uC774\uD6C4 \uCEE8\uD150\uCE20\uB294
+    \uCD94\uD6C4\uC5D0 \uC81C\uC791)"
   options:
-  - buttonText: "A) \uC774\uC5B4\uC11C"
+  - buttonText: "A. \uD1A0\uB07C\uC5D0\uAC8C \uB458\uB2E4 \uB0B4\uC8FC\uC5C8\uC744\uB54C."
     eventCheck:
-      sucessResult: []
+      sucessResult:
+      - resultType: 0
+        value: 54
+        changeSceneName: 

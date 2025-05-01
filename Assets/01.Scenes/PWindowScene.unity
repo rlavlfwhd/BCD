@@ -1137,7 +1137,7 @@ MonoBehaviour:
   clickableWindowObject: {fileID: 708127201}
   overlayImage: {fileID: 1101422439}
   puzzleID: window_rope
-  nextStoryIndex: 1345
+  nextStoryIndex: 46
 --- !u!1 &740584084
 GameObject:
   m_ObjectHideFlags: 0

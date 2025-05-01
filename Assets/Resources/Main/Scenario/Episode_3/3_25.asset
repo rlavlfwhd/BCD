@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: 3_25
   m_EditorClassIdentifier: 
-  storyNumber: 326
+  storyNumber: 88
   MainImage: {fileID: 2800000, guid: 92e5f6811ac3dca42a0474fe08fd562b, type: 3}
   MainImage2: {fileID: 2800000, guid: 19f0e92262c078c408fb16bc6a0ef3ad, type: 3}
-  storyText: "\uACF5\uC8FC : \uC544\uC557, \uC7A0\uAE50\uB9CC!"
+  storyText: "    \uACF5\uC8FC : \uC544\uC557, \uC7A0\uAE50\uB9CC!"
   options:
   - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 327
+        value: 89
         changeSceneName: 

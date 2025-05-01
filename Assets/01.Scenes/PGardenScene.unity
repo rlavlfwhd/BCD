@@ -19661,7 +19661,7 @@ MonoBehaviour:
   resultImage: {fileID: 0}
   successSprite: {fileID: 0}
   puzzleID: PuzzleSet_1
-  nextStoryIndex: 1345
+  nextStoryIndex: 57
   puzzleSets:
   - tiles:
     - {fileID: 382657881}

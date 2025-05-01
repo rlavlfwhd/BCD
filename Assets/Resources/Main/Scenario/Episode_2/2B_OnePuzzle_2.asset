@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: 2B_OnePuzzle_2
   m_EditorClassIdentifier: 
-  storyNumber: 8
-  MainImage: {fileID: 0}
-  MainImage2: {fileID: 2800000, guid: cb9524506bec2194d9aadc0d933eb09a, type: 3}
-  storyText: "\uD1A0\uB07C : \uADF8\uB798 \uC54C\uC558\uC5B4\u2026 \uB108\uAC00 \uADF8\uB807\uB2E4\uBA74
-    \uBB50.. \uC77C\uB2E8 \uC57D\uC18D\uD55C\uB300\uB85C \uB9C8\uBC95\uB85C\uBE0C\uC57C.
-    \uAC00\uC838\uAC00."
+  storyNumber: 55
+  MainImage: {fileID: 2800000, guid: af3fe821c91220b428a49bf4d4b2d003, type: 3}
+  MainImage2: {fileID: 2800000, guid: b00bf9eb724b05443abc7aad0bd92ce0, type: 3}
+  storyText: "    \uD1A0\uB07C : \uADF8\uB798 \uC54C\uC558\uC5B4\u2026 \uB108\uAC00
+    \uADF8\uB807\uB2E4\uBA74 \uBB50.. \uC77C\uB2E8 \uC57D\uC18D\uD55C\uB300\uB85C
+    \uC8FC\uACA0\uC9C0\uB9CC \uB9C8\uBC95\uB85C\uBE0C\uAE4C\uC9C0\uB294 \uC880 \uADF8\uB7F4
+    \uAC83 \uAC19\uACE0, \n\n             \uBA54\uC774\uB4DC\uBCF5\uC774\uC57C. \uBA54\uC774\uB4DC\uB85C
+    \uBCC0\uC7A5\uD558\uACE0 \uCD9C\uC785\uAD6C\uB97C \uD1B5\uD574 \uBC97\uC5B4\uB098\uB3C4\uB85D
+    \uD574."
   options:
-  - buttonText: "A) \uC774\uC5B4\uC11C"
+  - buttonText: "A. \uC774\uC5B4\uC11C"
     eventCheck:
-      sucessResult: []
+      sucessResult:
+      - resultType: 0
+        value: 56
+        changeSceneName: 

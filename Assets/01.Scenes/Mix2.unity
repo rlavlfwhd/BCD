@@ -1353,7 +1353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab41bae6e196844587399fd68541b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: GardenScene
+  sceneToLoad: PGardenScene
 --- !u!212 &1821849303
 SpriteRenderer:
   m_ObjectHideFlags: 0

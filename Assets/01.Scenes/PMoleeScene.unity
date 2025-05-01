@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: StoryScene
-  nextStoryIndex: -1
+  nextStoryIndex: 85
   fadeController: {fileID: 732064996}
 --- !u!4 &336877084
 Transform:

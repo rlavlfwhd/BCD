@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: 2B_AllPuzzle_1
   m_EditorClassIdentifier: 
-  storyNumber: 8
-  MainImage: {fileID: 0}
-  MainImage2: {fileID: 2800000, guid: cb9524506bec2194d9aadc0d933eb09a, type: 3}
-  storyText: "\uD1A0\uB07C : \uC624 \uBC8C\uC368? \uD655\uC778\uD574 \uBCFC\uAC8C.
+  storyNumber: 58
+  MainImage: {fileID: 2800000, guid: 3cc73cb904c69d04bb529743fa543492, type: 3}
+  MainImage2: {fileID: 2800000, guid: b00bf9eb724b05443abc7aad0bd92ce0, type: 3}
+  storyText: "    \uD1A0\uB07C : \uC624 \uBC8C\uC368? \uD655\uC778\uD574 \uBCFC\uAC8C.
     \uB2EC\uB2EC\uD55C \uAFC0\uC774\uB791\u2026 \uC544\uC0AD\uC544\uC0AD\uD55C \uD669\uAE08\uB2F9\uADFC\u2026
-    \uC88B\uC544, \uB2E4 \uAD6C\uD574\uC654\uB124.\n\uBCF4\uC0C1\uC73C\uB85C \uC57D\uC18D\uD588\uB358
-    \uB9C8\uBC95\uB85C\uBE0C\uC640 \uC655\uAD6D \uC6B0\uC120 \uD1B5\uD589\uAD8C\uC774\uC57C."
+    \uC88B\uC544, \uB2E4 \uAD6C\uD574\uC654\uB124.\n  \n             \uBCF4\uC0C1\uC73C\uB85C
+    \uC57D\uC18D\uD588\uB358 \uB9C8\uBC95\uB85C\uBE0C\uC640 \uC655\uAD6D \uC6B0\uC120
+    \uD1B5\uD589\uAD8C\uC774\uC57C."
   options:
-  - buttonText: "A) \uC774\uC5B4\uC11C"
+  - buttonText: "A. \uC774\uC5B4\uC11C"
     eventCheck:
-      sucessResult: []
+      sucessResult:
+      - resultType: 0
+        value: 59
+        changeSceneName: 

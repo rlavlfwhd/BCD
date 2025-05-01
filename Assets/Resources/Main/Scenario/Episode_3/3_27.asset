@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: 3_27
   m_EditorClassIdentifier: 
-  storyNumber: 328
+  storyNumber: 90
   MainImage: {fileID: 2800000, guid: b390126b860cf4a4ea83dbd77adc613f, type: 3}
   MainImage2: {fileID: 2800000, guid: 19f0e92262c078c408fb16bc6a0ef3ad, type: 3}
-  storyText: "\uACF5\uC8FC : \uC774\uB7F0, \uC655\uAD6D\uC5D0 \uBB34\uC2A8 \uC77C\uC774
+  storyText: "    \uACF5\uC8FC : \uC774\uB7F0, \uC655\uAD6D\uC5D0 \uBB34\uC2A8 \uC77C\uC774
     \uC77C\uC5B4\uB0AC\uC5C8\uB358\uAC74\uC9C0 \uC790\uC138\uD788 \uC54C\uB824\uB2EC\uB77C\uACE0
     \uBB3C\uC5B4\uBCF4\uB824 \uD588\uB294\uB370 \uBC8C\uC368 \uAC00\uBC84\uB838\uB124..
-    \uC5B4\uCA54 \uC218 \uC5C6\uC9C0, \uC77C\uB2E8 \uBB38\uBD80\uD130 \uC5F4\uACE0
-    \uD1B5\uB85C \uBC16\uC73C\uB85C \uB098\uAC00\uC790."
+    \n\n            \uC5B4\uCA54 \uC218 \uC5C6\uC9C0, \uC77C\uB2E8 \uBB38\uBD80\uD130
+    \uC5F4\uACE0 \uD1B5\uB85C \uBC16\uC73C\uB85C \uB098\uAC00\uC790."
   options:
   - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 329
+        value: 91
         changeSceneName: 

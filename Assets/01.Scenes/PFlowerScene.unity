@@ -2543,7 +2543,7 @@ MonoBehaviour:
   honeySpawnPoint: {fileID: 425047467}
   fadeController: {fileID: 241835708}
   nextSceneName: StoryScene
-  nextStoryIndex: 1
+  nextStoryIndex: 53
 --- !u!4 &2061411689
 Transform:
   m_ObjectHideFlags: 0
