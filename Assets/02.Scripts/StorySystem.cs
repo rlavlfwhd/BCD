@@ -189,7 +189,7 @@ public class StorySystem : MonoBehaviour
     int GetChapterIndex(int storyNumber)
     {
         if (storyNumber == 1) return 0;
-        if (storyNumber >= 500 && storyNumber < 501) return 1;
+        if (storyNumber >= 46 && storyNumber < 47) return 1;
         if (storyNumber >= 500 && storyNumber < 501) return 2;
         if (storyNumber >= 500 && storyNumber < 501) return 3;
         if (storyNumber >= 500 && storyNumber < 501) return 4;

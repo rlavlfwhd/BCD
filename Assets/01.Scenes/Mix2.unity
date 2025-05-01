@@ -673,7 +673,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "     \uACF5\uC8FC :  \uC74C.. \uB2F9\uADFC\uC740 \uC5B4\uB514\uC11C \uAD6C\uD560
+    \uC218 \uC788\uC744\uAE4C?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f022945ce3fd3af48bf5456a9cf2730f, type: 2}
   m_sharedMaterial: {fileID: -8592929152113110068, guid: f022945ce3fd3af48bf5456a9cf2730f,
@@ -1063,7 +1064,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d6a9c1707e281a542ae99cc1eeb486a4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 515d68bccbcc1944397930af91b45803, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

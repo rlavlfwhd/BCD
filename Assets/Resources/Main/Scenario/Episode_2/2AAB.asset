@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: 2AAB
   m_EditorClassIdentifier: 
-  storyNumber: 8
+  storyNumber: 789789
   MainImage: {fileID: 2800000, guid: 1e4edbab527e3a94f9f9376c9c268779, type: 3}
   MainImage2: {fileID: 2800000, guid: f00e5eabff04179448ae444039352f1d, type: 3}
   storyText: "\uB098\uB808\uC774\uC158 : \uACF5\uC8FC\uB294 \uC5B4\uB5BB\uAC8C\uB4E0
