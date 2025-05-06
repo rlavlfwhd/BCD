@@ -11,8 +11,8 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
     public AudioMixerGroup sfxMixerGroup;
 
     public Item neededItem; // Rope4
-    public MeshRenderer windowRenderer;
-    public Material openedWindowMaterial;
+    public SpriteRenderer windowRenderer;
+    public Sprite openedWindowSprite;
     public GameObject clickableWindowObject;
     public GameObject overlayImage;
     public string puzzleID = "window_rope";
@@ -24,9 +24,9 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
     {
         if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
-            if (windowRenderer != null && openedWindowMaterial != null)
+            if (windowRenderer != null && openedWindowSprite != null)
             {
-                windowRenderer.material = openedWindowMaterial;
+                windowRenderer.sprite = openedWindowSprite;
             }
 
             if (clickableWindowObject != null)
@@ -74,9 +74,11 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
 
             SceneDataManager.Instance.Data.acquiredItemIDs.Add(itemName);  // 동적으로 아이템 이름 추가
 
-            if (windowRenderer != null && openedWindowMaterial != null)
+            if (windowRenderer != null && openedWindowSprite != null)
             {
-                windowRenderer.material = openedWindowMaterial;
+                windowRenderer.sprite = openedWindowSprite;
+
+                SoundManager.PlayOneShot(gameObject, openWindowClip, sfxMixerGroup);
             }
 
             if (clickableWindowObject != null)
@@ -102,29 +104,26 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
         if (overlayImage != null)
         {
             overlayImage.SetActive(true);
-
-            Renderer renderer = overlayImage.GetComponent<Renderer>();
-            if (renderer == null)
-                renderer = overlayImage.GetComponentInChildren<Renderer>();
-
-            Material mat = renderer.material;
-            Color color = mat.color;
-
-            color.a = 0f;
-            mat.color = color;
-
-            float timer = 0f;
-            float fadeDuration = 1f;
-
-            while (timer < fadeDuration)
+            SpriteRenderer overlay = overlayImage.GetComponent<SpriteRenderer>();
+            if (overlay != null)
             {
-                timer += Time.deltaTime;
-                color.a = Mathf.Lerp(0f, 1f, timer / fadeDuration);
-                mat.color = color;
-                yield return null;
+                Color color = overlay.color;
+                color.a = 0f;
+                overlay.color = color;
+
+                float timer = 0f;
+                float fadeDuration = 1f;
+
+                while (timer < fadeDuration)
+                {
+                    timer += Time.deltaTime;
+                    color.a = Mathf.Lerp(0f, 1f, timer / fadeDuration);
+                    overlay.color = color;
+                    yield return null;
+                }
+                color.a = 1f;
+                overlay.color = color;
             }
-            color.a = 1f;
-            mat.color = color;
         }
 
         yield return new WaitForSeconds(delay);

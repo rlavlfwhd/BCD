@@ -14,44 +14,48 @@ public class PuzzleClickHandler : MonoBehaviour
         {
             if (IsPointerOverUI())
             {
-                Debug.Log("[PuzzleClickHandler] UI 위 클릭 감지됨 → 무시");
                 return;
             }
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            bool hasBlock = Physics.Raycast(ray, out RaycastHit blockHit, Mathf.Infinity, blockerMask);
+            RaycastHit2D blockHit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, blockerMask);
+            RaycastHit2D[] puzzleHits = Physics2D.RaycastAll(mousePos, Vector2.zero, Mathf.Infinity, puzzleLayer);
 
-            // 퍼즐 레이어 검사
-            bool hasHitPuzzle = Physics.Raycast(ray, out RaycastHit puzzleHit, Mathf.Infinity, puzzleLayer);
+            RaycastHit2D targetHit = default;
+            bool hasTarget = false;
+            int highestOrder = int.MinValue;
 
-            if (hasBlock)
+            foreach (var hit in puzzleHits)
             {
-                if (!hasHitPuzzle || blockHit.distance < puzzleHit.distance)
+                SpriteRenderer sr = hit.collider.GetComponent<SpriteRenderer>();
+                if (sr != null && sr.sortingOrder > highestOrder)
                 {
-                    Debug.Log("Block 레이어에 의해 퍼즐 클릭 차단됨");
+                    highestOrder = sr.sortingOrder;
+                    targetHit = hit;
+                    hasTarget = true;
+                }
+            }
+
+            // 클릭 막기
+            if (blockHit.collider != null)
+            {
+                SpriteRenderer blockSR = blockHit.collider.GetComponent<SpriteRenderer>();
+                if (blockSR != null && blockSR.sortingOrder >= highestOrder)
+                {
+                    Debug.Log("Block 오브젝트에 의해 클릭 차단됨");
                     return;
                 }
             }
 
-            if (hasHitPuzzle)
+            // 퍼즐 클릭 실행
+            if (hasTarget)
             {
-                Debug.Log($" 퍼즐 충돌: {puzzleHit.collider.name}");
-
-                IClickablePuzzle puzzle = puzzleHit.collider.GetComponentInParent<IClickablePuzzle>();
+                IClickablePuzzle puzzle = targetHit.collider.GetComponentInParent<IClickablePuzzle>();
                 if (puzzle != null)
                 {
                     puzzle.OnClickPuzzle();
-                    Debug.Log(" 퍼즐 인터페이스 실행됨");
                 }
-                else
-                {
-                    Debug.LogWarning(" IClickablePuzzle 인터페이스 못 찾음");
-                }
-            }
-            else
-            {
-                Debug.Log(" 퍼즐 레이어에 아무것도 안 맞음");
             }
         }
     }

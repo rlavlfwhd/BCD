@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class SecretPath : MonoBehaviour, IClickablePuzzle
 {
@@ -11,9 +10,9 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
     public AudioMixerGroup sfxMixerGroup;
 
     public Item neededItem; // Pendant
-    public MeshRenderer doorRenderer;
-    public Material insertedPendantMaterial;
-    public Material openedDoorMaterial;
+    public SpriteRenderer doorRenderer;
+    public Sprite insertedPendantSprite;
+    public Sprite openedDoorSprite;
     public GameObject clickableDoorObject;
     public GameObject overlayImage;
     public string puzzleID = "SecretPath";
@@ -27,9 +26,9 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
         if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
             // 문 열린 상태로 복원
-            if (doorRenderer != null && openedDoorMaterial != null)
+            if (doorRenderer != null && openedDoorSprite != null)
             {
-                doorRenderer.material = openedDoorMaterial;
+                doorRenderer.sprite = openedDoorSprite;
             }
 
             if (clickableDoorObject != null)
@@ -61,9 +60,9 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
     {
         PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, neededItem);
 
-        if (doorRenderer != null && openedDoorMaterial != null)
+        if (doorRenderer != null && openedDoorSprite != null)
         {
-            doorRenderer.material = openedDoorMaterial;
+            doorRenderer.sprite = openedDoorSprite;
             SoundManager.PlayOneShot(gameObject, openDoorClip, sfxMixerGroup);
         }
 
@@ -84,9 +83,9 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
         {
             isPendantInserted = true;
 
-            if (doorRenderer != null && insertedPendantMaterial != null)
+            if (doorRenderer != null && insertedPendantSprite != null)
             {
-                doorRenderer.material = insertedPendantMaterial;
+                doorRenderer.sprite = openedDoorSprite;
             }
 
             Debug.Log("펜던트가 문에 꽂혔습니다. 1초 후 문이 열립니다.");
@@ -101,9 +100,9 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
 
         PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, neededItem);
 
-        if (doorRenderer != null && openedDoorMaterial != null)
+        if (doorRenderer != null && openedDoorSprite != null)
         {
-            doorRenderer.material = openedDoorMaterial;
+            doorRenderer.sprite = openedDoorSprite;
             SoundManager.PlayOneShot(gameObject, openDoorClip, sfxMixerGroup);
         }
 

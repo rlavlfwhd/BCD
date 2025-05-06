@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class VanityClickHandler : MonoBehaviour, IClickablePuzzle
 {
-    [SerializeField] private GameObject mirrorObject;
+    [Header("Mirror 관련 부모 오브젝트")]
+    public GameObject mirrorRoot;
 
     public void OnClickPuzzle()
     {
-        if (mirrorObject != null)
+        if (mirrorRoot != null)
         {
-            mirrorObject.SetActive(true);
-            Debug.Log("Vanity 클릭 → Mirror 퍼즐 켜짐");
+            mirrorRoot.SetActive(true);
+            Debug.Log(" 거울 부모 오브젝트 활성화됨");
         }
     }
 }

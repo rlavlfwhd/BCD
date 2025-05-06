@@ -7,7 +7,6 @@ public class DraggableBook3D : MonoBehaviour
     public string bookName;
 
     private Vector3 offset;
-    private float zCoord;
     private Vector3 originalPosition;
     private bool isLocked = false;
 
@@ -22,11 +21,13 @@ public class DraggableBook3D : MonoBehaviour
     {
         if (isLocked) return;
 
-        zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
-        Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = zCoord;
+        Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePoint.z = 0;
+        offset = transform.position - mousePoint;
+        offset.z = 0;
 
-        offset = transform.position - Camera.main.ScreenToWorldPoint(mousePoint);
+
+        offset = transform.position - mousePoint;
 
         if (currentSlot != null)
         {
@@ -35,17 +36,17 @@ public class DraggableBook3D : MonoBehaviour
             currentSlot = null;
         }
 
-        Debug.Log("🖱️ 드래그 시작 (3D)");
+        Debug.Log(" 드래그 시작 (2D)");
     }
 
     void OnMouseDrag()
     {
         if (isLocked) return;
 
-        Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = zCoord;
+        Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePoint.z = 0;
 
-        Vector3 targetPos = Camera.main.ScreenToWorldPoint(mousePoint) + offset;
+        Vector3 targetPos = mousePoint + offset;
         transform.position = targetPos;
     }
 
@@ -53,12 +54,12 @@ public class DraggableBook3D : MonoBehaviour
     {
         if (isLocked) return;
 
-        Debug.Log("🖱️ 드래그 종료 (3D)");
+        Debug.Log(" 드래그 종료 (2D)");
 
         float detectionRadius = 1.0f;
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
 
-        foreach (Collider hit in hitColliders)
+        foreach (Collider2D hit in hitColliders)
         {
             if (hit.CompareTag("DropSlot"))
             {
@@ -70,20 +71,14 @@ public class DraggableBook3D : MonoBehaviour
                     if (success)
                     {
                         Vector3 slotPosition = hit.transform.position;
-                        slotPosition.z -= 0.1f;
+                        slotPosition.z = transform.position.z;
 
                         StartCoroutine(SmoothMove(transform.position, slotPosition, 0.2f));
 
                         currentSlot = slot;
                         isLocked = false;
 
-                        Renderer r = GetComponent<Renderer>();
-                        if (r != null)
-                        {
-                            r.sortingLayerName = "Default";
-                            r.sortingOrder = 10;
-                            r.material.renderQueue = 2501;
-                        }
+                        originalPosition = slotPosition;
 
                         return;
                     }

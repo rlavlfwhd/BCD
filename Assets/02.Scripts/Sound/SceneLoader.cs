@@ -23,23 +23,30 @@ public class SceneLoader : MonoBehaviour
             { "PBookshelfScene", pBookshelfSceneBGM},
             { "MainScene", mainSceneBGM }
         };
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Start()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        string sceneName = SceneManager.GetActiveScene().name;
+        string sceneName = scene.name;
+        Debug.Log("¾À ÀüÈ¯ °¨Áö: " + sceneName); // µð¹ö±ë¿ë
 
-        if(SoundManager.instance != null)
+        if (SoundManager.instance != null)
         {
-            if (sceneBGMMap.ContainsKey(sceneName))
+            if (sceneBGMMap.TryGetValue(sceneName, out AudioClip clip))
             {
-                SoundManager.instance.PlayBGM(sceneBGMMap[sceneName]);
+                SoundManager.instance.PlayBGM(clip);
             }
             else
             {
-
                 SoundManager.instance.PlayBGM(defaultBGM);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
