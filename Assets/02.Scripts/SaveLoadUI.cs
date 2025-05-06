@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SaveLoadUI : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class SaveLoadUI : MonoBehaviour
     public Image[] saveSlotImages1;
     public Image[] saveSlotImages2;
     public Image[] loadSlotImages1;
-    public Image[] loadSlotImages2;    
+    public Image[] loadSlotImages2;
 
+    [SerializeField] private TMP_Text[] saveSlotTimeTexts;
+    [SerializeField] private TMP_Text[] loadSlotTimeTexts;
 
     private void Awake()
     {
@@ -44,14 +47,20 @@ public class SaveLoadUI : MonoBehaviour
 
     public void SaveGame(int slot)
     {
-        GameSystem.Instance.SaveGame(slot);
-        UpdateSlotImages();
+        OptionManager.Instance.ShowConfirmPopup("저장하시겠습니까?", () =>
+        {
+            GameSystem.Instance.SaveGame(slot);
+            UpdateSlotImages();
+        });
     }
 
     public void LoadGame(int slot)
     {
-        GameSystem.Instance.LoadGame(slot);
-        UpdateSlotImages();
+        OptionManager.Instance.ShowConfirmPopup("불러오시겠습니까?", () =>
+        {
+            GameSystem.Instance.LoadGame(slot);
+            UpdateSlotImages();
+        });
     }
 
     private void UpdateSlotImages()
@@ -112,6 +121,18 @@ public class SaveLoadUI : MonoBehaviour
             }
 
             // 버튼 썸네일도 업데이트
+            if (loadButtons[i].GetComponent<Image>() != null && loadSlotImages1.Length > i)
+            {
+                loadButtons[i].GetComponent<Image>().sprite = loadSlotImages1[i].sprite;
+            }
+
+            if (saveData != null && !string.IsNullOrEmpty(saveData.savedTime))
+            {
+                if (saveSlotTimeTexts.Length > i) saveSlotTimeTexts[i].text = saveData.savedTime;
+                if (loadSlotTimeTexts.Length > i) loadSlotTimeTexts[i].text = saveData.savedTime;
+            }
+
+            // 버튼 이미지도 동기화
             if (loadButtons[i].GetComponent<Image>() != null && loadSlotImages1.Length > i)
             {
                 loadButtons[i].GetComponent<Image>().sprite = loadSlotImages1[i].sprite;

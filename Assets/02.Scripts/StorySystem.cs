@@ -10,7 +10,6 @@ public class StorySystem : MonoBehaviour
 {
     public static StorySystem Instance;
 
-    public CameraParallax cameraParallax;
     //public GameObject[] chapters;
     //public GameObject activeChapter;
 
@@ -241,7 +240,6 @@ public class StorySystem : MonoBehaviour
     {
         yield return new WaitForSeconds((float)director.duration);
         //chapter.SetActive(false);
-        cameraParallax.enabled = true;
 
         if (currentStoryModel != null)
         {

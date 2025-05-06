@@ -14,6 +14,7 @@ public class SaveSystem
         public string mainImagePath2;
         public string puzzleImagePath;
         public string sceneName;
+        public string savedTime;
 
         public List<string> inventoryItemNames;
         public List<string> completedPuzzles;
@@ -26,11 +27,12 @@ public class SaveSystem
         {
             currentStoryIndex = storyIndex,
             mainImagePath = imagePath,
-            mainImagePath2 = imagePath2,            
+            mainImagePath2 = imagePath2,
             inventoryItemNames = inventoryItems,
             completedPuzzles = completedPuzzles,
             sceneState = SceneDataManager.Instance.Data,
-            sceneName = SceneManager.GetActiveScene().name
+            sceneName = SceneManager.GetActiveScene().name,
+            savedTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")
         };
 
         if (saveData.sceneName.StartsWith("P"))

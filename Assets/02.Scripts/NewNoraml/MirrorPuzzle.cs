@@ -12,9 +12,9 @@ public class MirrorPuzzle : MonoBehaviour, IClickablePuzzle
 
     public string puzzleID = "MirrorPuzzle";
     public Item neededItem;          // 사용할 아이템 (ChickenStatue)
-    public MeshRenderer mirrorRenderer;
-    public Material brokenMirrorMaterial1;
-    public Material brokenMirrorMaterial2;
+    public SpriteRenderer mirrorRenderer;
+    public Sprite brokenMirrorSprite1;
+    public Sprite brokenMirrorSprite2;
 
     public Item pendantItem;         // 지급할 아이템 (Pendant)
     public GameObject mirrorPanel;   // Pendant 지급 시 표시할 패널
@@ -27,9 +27,9 @@ public class MirrorPuzzle : MonoBehaviour, IClickablePuzzle
         if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
             // 거울 상태 복원
-            if (mirrorRenderer != null && brokenMirrorMaterial1 != null)
+            if (mirrorRenderer != null && brokenMirrorSprite1 != null)
             {
-                mirrorRenderer.material = brokenMirrorMaterial1;
+                mirrorRenderer.sprite = brokenMirrorSprite1;
             }
 
             isPuzzleCompleted = true;
@@ -57,9 +57,9 @@ public class MirrorPuzzle : MonoBehaviour, IClickablePuzzle
         {
             PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, selected);
 
-            if (mirrorRenderer != null && brokenMirrorMaterial1 != null)
+            if (mirrorRenderer != null && brokenMirrorSprite1 != null)
             {
-                mirrorRenderer.material = brokenMirrorMaterial1;
+                mirrorRenderer.sprite = brokenMirrorSprite1;
                 Debug.Log("거울 머테리얼 변경 완료!");
 
                 SoundManager.PlayOneShot(gameObject, mirrorBreakClip, sfxMixerGroup);
@@ -78,9 +78,9 @@ public class MirrorPuzzle : MonoBehaviour, IClickablePuzzle
             isItemGiven = true;
             Debug.Log("Pendant 아이템 지급 완료!");
 
-            if (mirrorRenderer != null && brokenMirrorMaterial2 != null)
+            if (mirrorRenderer != null && brokenMirrorSprite2 != null)
             {
-                mirrorRenderer.material = brokenMirrorMaterial2;
+                mirrorRenderer.sprite = brokenMirrorSprite2;
                 Debug.Log("거울 최종 상태로 변경 완료!");
             }
         }

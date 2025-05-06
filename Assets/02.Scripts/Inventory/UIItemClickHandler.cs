@@ -7,39 +7,35 @@ public class UIItemClickHandler : MonoBehaviour
     public Inventory inventory;
     public GameObject invent;
 
-    [SerializeField] LayerMask blockerMask;      // ClickBlocker    
-    [SerializeField] LayerMask clickable3DMask;  // Clickable3D
+    [SerializeField] LayerMask blockerMask;
+    [SerializeField] LayerMask clickable2DMask;
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mousePos = Input.mousePosition;            
-            Ray ray3D = Camera.main.ScreenPointToRay(mousePos);
+            if (IsPointerOverUI())
+            {                                
+                return;
+            }
 
-            // === 3D √≥∏Æ ===
-            bool hasHit3D = Physics.Raycast(ray3D, out RaycastHit hit3D, Mathf.Infinity, clickable3DMask);
-            bool hasBlock3D = Physics.Raycast(ray3D, out RaycastHit block3D, Mathf.Infinity, blockerMask);
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if (hasBlock3D)
+            RaycastHit2D blockHit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, blockerMask);
+            RaycastHit2D itemHit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, clickable2DMask);
+
+            if (blockHit.collider != null)
             {
-                if (!hasHit3D || block3D.distance < hit3D.distance)
+                if (itemHit.collider == null || blockHit.distance < itemHit.distance)
                 {
-                    Debug.Log("3D ≈¨∏Ø ¬˜¥‹µ ");
+                    Debug.Log("2D ≈¨∏Ø ¬˜¥‹µ ");
                     return;
                 }
             }
 
-            if (hasHit3D)
+            if (itemHit.collider != null)
             {
-                GameObject target = hit3D.collider.gameObject;
-
-                // ∆€¡Ò ø¿∫Í¡ß∆Æ¥¬ π´Ω√
-                if (target.GetComponent<WindowPuzzle>() != null ||
-                    target.GetComponent<SecretPath>() != null)
-                {
-                    return;
-                }
+                GameObject target = itemHit.collider.gameObject;
 
                 IObjectItem objectItem = target.GetComponent<IObjectItem>();
                 if (objectItem != null)
@@ -48,7 +44,7 @@ public class UIItemClickHandler : MonoBehaviour
                     if (item != null)
                     {
                         Inventory.Instance.AddItem(item);
-                        Debug.Log($"[3D] æ∆¿Ã≈€ »πµÊ: {item.itemName}");
+                        Debug.Log($"[2D] æ∆¿Ã≈€ »πµÊ: {item.itemName}");
 
                         SceneDataManager.Instance.Data.acquiredItemIDs.Add(target.name);
                         target.SetActive(false);
@@ -56,5 +52,23 @@ public class UIItemClickHandler : MonoBehaviour
                 }
             }
         }
+    }
+
+    private bool IsPointerOverUI()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        foreach (var result in results)
+        {
+            var graphic = result.gameObject.GetComponent<UnityEngine.UI.Graphic>();
+            if (graphic != null && graphic.raycastTarget)
+                return true;
+        }
+
+        return false;
     }
 }
