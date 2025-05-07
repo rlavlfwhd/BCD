@@ -38,10 +38,17 @@ public class SlotManager : MonoBehaviour
             allSlotsCorrect = true;
             Debug.Log("🎉 모든 슬롯이 정답 책으로 채워졌습니다!");
 
-            Inventory.Instance.AddItem(chickenStatueItem);
-            Door.SetActive(true);
-            StartCoroutine(SlideOutBookshelf());
+            StartCoroutine(TriggerPuzzleSuccessWithDelay());
         }
+    }
+
+    private System.Collections.IEnumerator TriggerPuzzleSuccessWithDelay()
+    {
+        yield return new WaitForSeconds(1f); // ⏱️ 1초 대기
+
+        Inventory.Instance.AddItem(chickenStatueItem);
+        Door.SetActive(true);
+        StartCoroutine(SlideOutBookshelf());
     }
 
     bool AreAllSlotsCorrect()

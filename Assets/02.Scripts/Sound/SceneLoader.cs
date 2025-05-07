@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [Header("¾Àº° BGM ¼³Á¤")]
+    [Header("ì”¬ë³„ BGM ì„¤ì •")]
     public AudioClip storySceneBGM;
     public AudioClip pWindowSceneBGM;
     public AudioClip pBookshelfSceneBGM;
@@ -30,7 +30,7 @@ public class SceneLoader : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         string sceneName = scene.name;
-        Debug.Log("¾À ÀüÈ¯ °¨Áö: " + sceneName); // µğ¹ö±ë¿ë
+        Debug.Log("ì”¬ ì „í™˜ ê°ì§€: " + sceneName); // ë””ë²„ê¹…ìš©
 
         if (SoundManager.instance != null)
         {

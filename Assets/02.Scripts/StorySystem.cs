@@ -10,6 +10,7 @@ public class StorySystem : MonoBehaviour
 {
     public static StorySystem Instance;
 
+    public CameraParallax cameraParallax;
     //public GameObject[] chapters;
     //public GameObject activeChapter;
 
@@ -128,6 +129,12 @@ public class StorySystem : MonoBehaviour
 
     public void OnWayClick(int index)
     {
+        // ✅ 선택지 클릭 시 효과음 재생
+        if (currentStoryModel.choiceSfxClip != null)
+        {
+            SoundManager.instance.PlaySFX(currentStoryModel.choiceSfxClip);
+        }
+
         StoryModel playStoryModel = currentStoryModel;
         StoryModel.Option selectedOption = playStoryModel.options[index];
 
@@ -170,13 +177,25 @@ public class StorySystem : MonoBehaviour
 
         if (currentStoryModel != null)
         {
+            // ✅ 스토리 시작 시 BGM 재생
+            if (currentStoryModel.bgmClip != null)
+            {
+                SoundManager.instance.PlayBGM(currentStoryModel.bgmClip);
+            }
+
+            // ✅ 스토리 시작 시 효과음 재생
+            if (currentStoryModel.sfxClip != null)
+            {
+                SoundManager.instance.PlaySFX(currentStoryModel.sfxClip);
+            }
+
             CoShowText();
             //int chapterIndex = GetChapterIndex(number);
             //ChangeChapter(chapterIndex);
 
             //if (chapterIndex == -1 || chapters[chapterIndex].GetComponent<PlayableDirector>() == null)
             //{
-                StartCoroutine(ShowText());
+            StartCoroutine(ShowText());
             //}
         }
         else
@@ -240,6 +259,7 @@ public class StorySystem : MonoBehaviour
     {
         yield return new WaitForSeconds((float)director.duration);
         //chapter.SetActive(false);
+        cameraParallax.enabled = true;
 
         if (currentStoryModel != null)
         {

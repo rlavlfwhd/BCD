@@ -10,6 +10,9 @@ public class SoundManager : MonoBehaviour
     [Header("Default SFX")]
     public AudioClip defaultButtonClickSFX;
 
+    [Header("Default BGM")]
+    public AudioClip defaultBGM; // ✅ 추가: 기본 BGM
+
     [Header("BGM 및 SFX 관리자")]
     public BGMManager bgmManager;
     public SFXManager sfxManager;

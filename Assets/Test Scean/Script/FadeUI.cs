@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class FadeUI : MonoBehaviour
 {
@@ -6,26 +6,42 @@ public class FadeUI : MonoBehaviour
     public float fadeDuration = 1f;
     public float waitBeforeFadeOut = 2f;
 
+    private Coroutine fadeCoroutine;
+
     void Start()
     {
-        canvasGroup.alpha = 0f; // ½ÃÀÛÇÒ ¶§ ¿ÏÀüÈ÷ Åõ¸íÇÏ°Ô
-        StartCoroutine(FadeInOut());
+        canvasGroup.alpha = 0f; // ì‹œì‘í•  ë•Œ ì™„ì „íˆ íˆ¬ëª…í•˜ê²Œ
+        Play(); // ìë™ ì‹¤í–‰
+    }
+
+    public void Play()
+    {
+        if (fadeCoroutine != null)
+            StopCoroutine(fadeCoroutine);
+
+        gameObject.SetActive(true);
+        canvasGroup.alpha = 0f;
+
+        // ğŸ”¥ ì´ ë‘ ì¤„ ê¼­ í•„ìš”!
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+
+        fadeCoroutine = StartCoroutine(FadeInOut());
     }
 
     System.Collections.IEnumerator FadeInOut()
     {
-        // ÆäÀÌµå ÀÎ
         yield return StartCoroutine(Fade(0f, 1f));
-
-        // ÆäÀÌµå ÀÎ ¿Ï·á ÈÄ ´ë±â
         yield return new WaitForSeconds(waitBeforeFadeOut);
-
-        // ÆäÀÌµå ¾Æ¿ô
         yield return StartCoroutine(Fade(1f, 0f));
 
-        // ¿ÏÀüÈ÷ »ç¶óÁö¸é ºñÈ°¼ºÈ­
+        // ğŸ”¥ í˜ì´ë“œ ì•„ì›ƒ í›„ UI ìƒí˜¸ì‘ìš© ë§‰ê¸°
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+
         canvasGroup.gameObject.SetActive(false);
     }
+
 
     System.Collections.IEnumerator Fade(float startAlpha, float endAlpha)
     {
