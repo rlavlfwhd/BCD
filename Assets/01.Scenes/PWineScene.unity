@@ -319,6 +319,7 @@ MonoBehaviour:
   wineBottleUprightRenderer: {fileID: 262835582}
   wineBottleTiltedRenderer: {fileID: 591089040}
   bottleFadeDuration: 0.5
+  wineColor: Green
 --- !u!212 &262835582
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2097,6 +2098,7 @@ MonoBehaviour:
   wineBottleUprightRenderer: {fileID: 1276904973}
   wineBottleTiltedRenderer: {fileID: 576223321}
   bottleFadeDuration: 0.5
+  wineColor: White
 --- !u!212 &1276904973
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2273,6 +2275,7 @@ MonoBehaviour:
   wineBottleUprightRenderer: {fileID: 1358389985}
   wineBottleTiltedRenderer: {fileID: 1111522057}
   bottleFadeDuration: 0.5
+  wineColor: Gold
 --- !u!212 &1358389985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2418,6 +2421,7 @@ MonoBehaviour:
   wineBottleUprightRenderer: {fileID: 1533341474}
   wineBottleTiltedRenderer: {fileID: 80607861}
   bottleFadeDuration: 0.5
+  wineColor: Purple
 --- !u!212 &1533341474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2521,6 +2525,57 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.68, y: 6.69}
   m_Direction: 0
+--- !u!1 &1540369857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1540369859}
+  - component: {fileID: 1540369858}
+  m_Layer: 0
+  m_Name: WinePuzzleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1540369858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540369857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd49fd50d90c574288f762afc7f9035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctOrder:
+  - Gold
+  shakerTransform: {fileID: 2000976854}
+  shakeDuration: 3
+  shakeMagnitude: 20
+  shakeSpeed: 10
+  liftHeight: 100
+--- !u!4 &1540369859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540369857}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -664.1731, y: -19.354914, z: -4.927474}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1595379803
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,6 +3171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2000976854}
   - component: {fileID: 2000976853}
+  - component: {fileID: 2000976855}
   m_Layer: 0
   m_Name: Shaker
   m_TagString: Untagged
@@ -3190,6 +3246,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2000976855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000976851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4484940997d607546bd79882dba925fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 1
+  shakeMagnitude: 0.1
+  shakeSpeed: 10
+  tiltAngle: 10
+  liftHeight: 0.2
 --- !u!1 &2030750167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3263,6 +3336,7 @@ MonoBehaviour:
   wineBottleUprightRenderer: {fileID: 2096639839}
   wineBottleTiltedRenderer: {fileID: 1857477465}
   bottleFadeDuration: 0.5
+  wineColor: Red
 --- !u!212 &2096639839
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3691,3 +3765,4 @@ SceneRoots:
   - {fileID: 1853308198}
   - {fileID: 1316945839}
   - {fileID: 838255445}
+  - {fileID: 1540369859}
