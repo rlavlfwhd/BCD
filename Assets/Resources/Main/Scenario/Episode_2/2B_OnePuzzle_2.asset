@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 2B_OnePuzzle_2
   m_EditorClassIdentifier: 
   storyNumber: 55
-  MainImage: {fileID: 2800000, guid: af3fe821c91220b428a49bf4d4b2d003, type: 3}
-  MainImage2: {fileID: 2800000, guid: b00bf9eb724b05443abc7aad0bd92ce0, type: 3}
+  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
+  MainImage2: {fileID: 2800000, guid: c10b1019db6d58646b712972f029d9d9, type: 3}
   storyText: "    \uD1A0\uB07C : \uADF8\uB798 \uC54C\uC558\uC5B4\u2026 \uB108\uAC00
     \uADF8\uB807\uB2E4\uBA74 \uBB50.. \uC77C\uB2E8 \uC57D\uC18D\uD55C\uB300\uB85C
     \uC8FC\uACA0\uC9C0\uB9CC \uB9C8\uBC95\uB85C\uBE0C\uAE4C\uC9C0\uB294 \uC880 \uADF8\uB7F4

@@ -20,9 +20,15 @@ MonoBehaviour:
     \uC788\uB294 \uAC83\uC744 \uBCF4\uB2C8 \uC655\uAD6D\uC744 \uB098\uAC00\uB824\uB294
     \uAC70\uC9C0? \uB3C4\uC640\uC904\uAE4C?"
   options:
-  - buttonText: "A. \uC774\uC5B4\uC11C"
+  - buttonText: "A. \uD1A0\uB07C\uC5D0\uAC8C \uB3C4\uC730\uC744 \uAD6C\uD55C\uB2E4."
     eventCheck:
       sucessResult:
       - resultType: 0
         value: 50
+        changeSceneName: 
+  - buttonText: "B. \uD1A0\uB07C\uC5D0\uAC8C \uCE6D\uCC2C\uC744 \uD55C\uB2E4."
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 60
         changeSceneName: 

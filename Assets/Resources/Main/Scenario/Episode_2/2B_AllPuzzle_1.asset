@@ -21,7 +21,7 @@ MonoBehaviour:
     \uC57D\uC18D\uD588\uB358 \uB9C8\uBC95\uB85C\uBE0C\uC640 \uC655\uAD6D \uC6B0\uC120
     \uD1B5\uD589\uAD8C\uC774\uC57C."
   options:
-  - buttonText: "A. \uC774\uC5B4\uC11C"
+  - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0

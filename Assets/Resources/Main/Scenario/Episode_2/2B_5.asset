@@ -19,7 +19,7 @@ MonoBehaviour:
     \uC815\uB3C4\uC57C \uBC29\uC5D0\uC11C \uB098\uC624\uB294 \uAC83\uBCF4\uB2E4 \uC27D\uC9C0.
     \uAE30\uB2E4\uB824, \uAE08\uBC29 \uAD6C\uD574\uB2E4\uC904\uAED8!\r"
   options:
-  - buttonText: "A. \uD143\uBC2D\uC73C\uB85C \uC774\uB3D9\uD55C\uB2E4"
+  - buttonText: "\uD143\uBC2D\uC73C\uB85C \uC774\uB3D9\uD55C\uB2E4."
     eventCheck:
       sucessResult:
       - resultType: 2

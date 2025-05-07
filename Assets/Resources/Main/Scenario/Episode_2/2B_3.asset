@@ -19,7 +19,7 @@ MonoBehaviour:
     \uD0C8\uCD9C\uD558\uB824\uB294 \uAC78 \uB3C4\uC640\uC8FC\uB824\uB294 \uAC70\uC57C?
     \uADF8\uB7FC \uB108\uBB34 \uACE0\uB9D9\uC9C0!"
   options:
-  - buttonText: "A. \uC774\uC5B4\uC11C"
+  - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0

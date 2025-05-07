@@ -17,7 +17,7 @@ MonoBehaviour:
   MainImage2: {fileID: 2800000, guid: cb7ecba861568ac49a29e81938038deb, type: 3}
   storyText: "    \uACF5\uC8FC : \uD1A0\uB07C\uC57C, \uB0B4\uAC00  \uB2E4 \uAD6C\uD574\uC654\uC5B4!"
   options:
-  - buttonText: "A. \uC774\uC5B4\uC11C"
+  - buttonText: "\uC774\uC5B4\uC11C"
     eventCheck:
       sucessResult:
       - resultType: 0
