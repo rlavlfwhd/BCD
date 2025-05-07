@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyNumber: 23
   MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
-  MainImage2: {fileID: 2800000, guid: 886b03c8759394d4b96231a492d268c3, type: 3}
+  MainImage2: {fileID: 2800000, guid: 6d27dc9bade5a594a9ee890fe788804f, type: 3}
   storyText: "    \uBF40\uC090 : \uC544\uB974\uB974.. \uC54C! \uC54C\uC54C!"
   options:
   - buttonText: "A. \uBF40\uC090\uB97C \uC4F0\uB2E4\uB4EC\uC73C\uBA70 \uB2EC\uB79C\uB2E4."
@@ -35,3 +35,6 @@ MonoBehaviour:
       - resultType: 0
         value: 30
         changeSceneName: 
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 8300000, guid: de6f9544bce154942b7dd3822a9b367d, type: 3}
+  choiceSfxClip: {fileID: 0}

@@ -886,6 +886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookShelfChild: {fileID: 548673579}
+  fadeUI: {fileID: 0}
 --- !u!212 &179342205
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2689,7 +2690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d460d60106ba445ac03cca5b37730c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openDoorClip: {fileID: 0}
+  openDoorClip: {fileID: 8300000, guid: 17bfea8956416f2418a2c8e5050f4067, type: 3}
   sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
     type: 2}
   neededItem: {fileID: 11400000, guid: f9284bf4cac7fff4f86f7e741ab89768, type: 2}

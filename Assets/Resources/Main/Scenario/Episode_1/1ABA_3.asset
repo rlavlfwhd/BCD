@@ -23,3 +23,6 @@ MonoBehaviour:
       - resultType: 0
         value: 22
         changeSceneName: 
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 8300000, guid: de6f9544bce154942b7dd3822a9b367d, type: 3}
+  choiceSfxClip: {fileID: 0}
