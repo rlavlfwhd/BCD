@@ -30,5 +30,8 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 60
+        value: 92
         changeSceneName: 
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 0}
+  choiceSfxClip: {fileID: 0}

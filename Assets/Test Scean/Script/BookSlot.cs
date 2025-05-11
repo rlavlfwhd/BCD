@@ -13,17 +13,19 @@ public class BookSlot : MonoBehaviour
         DraggableBook3D draggable = book.GetComponent<DraggableBook3D>();
         if (draggable == null) return false;
 
-        // 기존 책 제거
-        if (isOccupied && currentBook != null)
+        // 슬롯이 이미 점유된 경우: 새 책은 넣지 못하게 함
+        if (isOccupied)
         {
-            DraggableBook3D previous = currentBook.GetComponent<DraggableBook3D>();
-            if (previous != null) previous.ReturnToOriginalPosition();
+            Debug.Log("📕 슬롯이 이미 사용 중입니다!");
+            return false;
         }
 
         currentBook = book;
-        book.transform.position = transform.position;
-        isOccupied = true;
 
+        // ❌ 즉시 위치 덮어쓰기 제거 (책의 움직임은 DraggableBook3D에서 처리함)
+        // book.transform.position = transform.position;
+
+        isOccupied = true;
         isCorrect = (draggable.bookName == correctBookName);
 
         SlotManager slotManager = FindObjectOfType<SlotManager>();

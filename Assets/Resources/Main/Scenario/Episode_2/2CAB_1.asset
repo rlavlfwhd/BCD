@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: 2CAB_1
   m_EditorClassIdentifier: 
-  storyNumber: 60
+  storyNumber: 92
   MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
   MainImage2: {fileID: 2800000, guid: 584ab9aa9d974c14c8b2519eb290df39, type: 3}
   storyText: "    \uD1A0\uB07C : \uB098 \uC548 \uADC0\uC5EC\uC6CC!!!!!"
@@ -21,5 +21,8 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 61
+        value: 93
         changeSceneName: 
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 0}
+  choiceSfxClip: {fileID: 0}
