@@ -46,7 +46,7 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
+  alignment: 7
   spritePivot: {x: 0.50692284, y: 0.11751469}
   spritePixelsToUnits: 100
   spriteBorder: {x: 21, y: 21, z: 22, w: 57}
@@ -110,22 +110,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChickenStatue
+      name: ChickenStatue_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 22
-        width: 211
-        height: 164
+        x: 0
+        y: 0
+        width: 205
+        height: 168
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5f712a5e58b6164dab2cad87816367a
-      internalID: -2144464708
+      spriteID: b32771627e6b5424eb05ed608bad3ea2
+      internalID: -1669543434
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ChickenStatue: -2144464708
+      ChickenStatue_0: -1669543434
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
