@@ -1253,6 +1253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9ecaa440662764b94679fab571438b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chapters:
+  - {fileID: 1211757045}
+  - {fileID: 1488344807}
+  - {fileID: 1872405111}
+  activeChapter: {fileID: 0}
   storyModels:
   - {fileID: 11400000, guid: 2e8b301315f6f58418b00e9d70dfeb60, type: 2}
   - {fileID: 11400000, guid: e194222a999cdcf4ca10b2e0a23c1faa, type: 2}
@@ -4327,7 +4332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1521003685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4377,8 +4382,8 @@ Canvas:
   m_GameObject: {fileID: 1521003684}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 330585545}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -4389,7 +4394,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1521003688
 RectTransform:

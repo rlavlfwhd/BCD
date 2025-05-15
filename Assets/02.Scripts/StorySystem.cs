@@ -10,13 +10,13 @@ public class StorySystem : MonoBehaviour
 {
     public static StorySystem Instance;
 
-    public CameraParallax cameraParallax;
-    //public GameObject[] chapters;
-    //public GameObject activeChapter;
+    public GameObject[] chapters;
+    public GameObject activeChapter;
 
     public StoryModel[] storyModels;
     public int currentStoryIndex = 1;
     public StoryModel currentStoryModel;
+    private int lastPlayedChapterIndex = -1;
 
     public float delay = 0.01f;
     public string fullText;
@@ -28,6 +28,8 @@ public class StorySystem : MonoBehaviour
 
     public Button[] buttonWay = new Button[3];
     public TMP_Text[] buttonWayText = new TMP_Text[3];
+
+    private bool chapterPlayedThisScene = false;
 
     private void Awake()
     {
@@ -44,10 +46,10 @@ public class StorySystem : MonoBehaviour
             buttonWay[i].onClick.AddListener(() => OnWayClick(wayIndex));
         }
 
-        /*if (chapters == null || chapters.Length == 0)
+        if (chapters == null || chapters.Length == 0)
         {
             chapters = GameObject.FindGameObjectsWithTag("Chapter");
-        }*/
+        }
 
         int overrideStoryIndex = SceneDataManager.Instance.Data.nextStoryIndex;
         if (overrideStoryIndex > 0)
@@ -62,7 +64,6 @@ public class StorySystem : MonoBehaviour
     public void StoryModelInit()
     {
         fullText = currentStoryModel.storyText;
-
         for (int i = 0; i < currentStoryModel.options.Length; i++)
         {
             buttonWayText[i].text = currentStoryModel.options[i].buttonText;
@@ -79,7 +80,6 @@ public class StorySystem : MonoBehaviour
     public void ResetShow()
     {
         textComponent.text = "";
-
         for (int i = 0; i < buttonWay.Length; i++)
         {
             buttonWay[i].gameObject.SetActive(false);
@@ -129,15 +129,12 @@ public class StorySystem : MonoBehaviour
 
     public void OnWayClick(int index)
     {
-        // ✅ 선택지 클릭 시 효과음 재생
         if (currentStoryModel.choiceSfxClip != null)
         {
             SoundManager.instance.PlaySFX(currentStoryModel.choiceSfxClip);
         }
 
-        StoryModel playStoryModel = currentStoryModel;
-        StoryModel.Option selectedOption = playStoryModel.options[index];
-
+        StoryModel.Option selectedOption = currentStoryModel.options[index];
         if (selectedOption.eventCheck.sucessResult.Length > 0)
         {
             ProcessResult(selectedOption.eventCheck.sucessResult);
@@ -177,26 +174,26 @@ public class StorySystem : MonoBehaviour
 
         if (currentStoryModel != null)
         {
-            // ✅ 스토리 시작 시 BGM 재생
             if (currentStoryModel.bgmClip != null)
-            {
                 SoundManager.instance.PlayBGM(currentStoryModel.bgmClip);
-            }
 
-            // ✅ 스토리 시작 시 효과음 재생
             if (currentStoryModel.sfxClip != null)
-            {
                 SoundManager.instance.PlaySFX(currentStoryModel.sfxClip);
-            }
 
             CoShowText();
-            //int chapterIndex = GetChapterIndex(number);
-            //ChangeChapter(chapterIndex);
 
-            //if (chapterIndex == -1 || chapters[chapterIndex].GetComponent<PlayableDirector>() == null)
-            //{
-            StartCoroutine(ShowText());
-            //}
+            int chapterIndex = GetChapterIndexForStoryNumber(number);
+
+            if (chapterIndex != lastPlayedChapterIndex)
+            {
+                ChangeChapter(chapterIndex);
+                lastPlayedChapterIndex = chapterIndex;
+            }
+            else
+            {
+                StartCoroutine(ShowText());
+            }
+
         }
         else
         {
@@ -204,36 +201,22 @@ public class StorySystem : MonoBehaviour
         }
     }
 
-    /*int GetChapterIndex(int storyNumber)
+    int GetChapterIndexForStoryNumber(int number)
     {
-        if (storyNumber == 1) return 0;
-        if (storyNumber >= 46 && storyNumber < 47) return 1;
-        if (storyNumber >= 500 && storyNumber < 501) return 2;
-        if (storyNumber >= 500 && storyNumber < 501) return 3;
-        if (storyNumber >= 500 && storyNumber < 501) return 4;
-        if (storyNumber >= 500 && storyNumber < 501) return 5;
-        if (storyNumber >= 500 && storyNumber < 501) return 6;
-        if (storyNumber >= 500 && storyNumber < 501) return 7;
-        if (storyNumber >= 500 && storyNumber < 501) return 8;
-        if (storyNumber >= 500 && storyNumber < 501) return 9;
-        if (storyNumber >= 500 && storyNumber < 501) return 10;
-        return -1;
-    }*/
+        if (number >= 50) return 2;
+        if (number >= 20) return 1;
+        return 0;
+    }
 
-    /*void ChangeChapter(int chapterIndex)
+    void ChangeChapter(int chapterIndex)
     {
         if (chapterIndex == -1 || chapters == null || chapters.Length == 0 || chapterIndex >= chapters.Length)
-        {
             return;
-        }
 
         if (activeChapter != null)
         {
             PlayableDirector prevDirector = activeChapter.GetComponent<PlayableDirector>();
-            if (prevDirector != null)
-            {
-                prevDirector.Stop();
-            }
+            if (prevDirector != null) prevDirector.Stop();
             activeChapter.SetActive(false);
         }
 
@@ -245,47 +228,39 @@ public class StorySystem : MonoBehaviour
         {
             newDirector.playOnAwake = false;
             newDirector.Play();
-            cameraParallax.ResetToInitialPosition();
-            cameraParallax.enabled = false;
             StartCoroutine(DisableChapterAfterTimeline(newDirector, activeChapter));
         }
         else
         {
             StartCoroutine(DisableChapterAfterSeconds(activeChapter, 2.0f));
         }
-    }*/
+    }
 
     private IEnumerator DisableChapterAfterTimeline(PlayableDirector director, GameObject chapter)
     {
         yield return new WaitForSeconds((float)director.duration);
-        //chapter.SetActive(false);
-        cameraParallax.enabled = true;
-
+        chapter.SetActive(false);
         if (currentStoryModel != null)
         {
             StartCoroutine(ShowText());
         }
     }
 
-    /*private IEnumerator DisableChapterAfterSeconds(GameObject chapter, float seconds)
+    private IEnumerator DisableChapterAfterSeconds(GameObject chapter, float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        chapter.SetActive(false);
-
         if (currentStoryModel != null)
         {
             StartCoroutine(ShowText());
         }
-    }*/
+    }
 
     StoryModel FindStoryModel(int number)
     {
         foreach (var model in storyModels)
         {
             if (model.storyNumber == number)
-            {
                 return model;
-            }
         }
         return null;
     }
