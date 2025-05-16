@@ -163,6 +163,3 @@ public class WineBottle : MonoBehaviour
         toRenderer.color = new Color(1, 1, 1, 1);
     }
 }
-
-
-

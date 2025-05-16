@@ -1,77 +1,158 @@
-﻿// 🍷 WinePuzzleManager.cs 완성본 (주석 하나하나 매우 자세하게 달림)
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-/// <summary>
-/// 퍼즐의 정답 와인 순서를 관리하고, 플레이어 입력을 검사하는 매니저 스크립트
-/// </summary>
 public class WinePuzzleManager : MonoBehaviour
 {
-    [Header("✅ 정답 와인 순서 (Inspector에서 순서대로 넣기)")]
-    public List<string> correctWineOrder; // 정답 순서를 색상 이름(string)으로 보관 (예: "Gold", "Red", "Green")
+    [Header("✅ 쉐이커 컨트롤러")]
+    public ShakeController shakeController;
 
-    // 👉 플레이어가 선택한 와인 순서를 저장할 리스트
+    [Header("📖 퍼즐 완료 후 이동할 스토리 번호")]
+    public int nextStoryIndex = 0;
+
+    [Header("🖼️ 오버레이 페이드 이미지")]
+    public GameObject overlayImage;
+
+    [Header("🎯 와인 선택 횟수 제한")]
+    public int maxTries = 5;
+    private int currentTries = 0;
+
+    private readonly List<string> correctWineOrder = new List<string>
+    {
+        "Green", "Yellow", "Orange", "Red", "Blue"
+    };
+
     private List<string> selectedWineOrder = new List<string>();
 
-    [Header("✅ 쉐이커 컨트롤러 (흔들림 연출용)")]
-    public ShakeController shakeController; // 쉐이커 움직임 담당 스크립트 연결
+    private bool isPuzzleCompleted = false;
+    private bool isWeirdWineCreated = false;
 
-    /// <summary>
-    /// 플레이어가 와인 병 하나를 클릭할 때마다 호출 (색상 이름을 전달받음)
-    /// </summary>
-    /// <param name="wineColor">선택된 와인의 색상 이름</param>
     public void SelectWine(string wineColor)
     {
-        // 👉 선택한 색상 이름을 리스트에 추가
+        if (currentTries >= maxTries || isPuzzleCompleted || isWeirdWineCreated)
+        {
+            Debug.Log("🚫 퍼즐 입력 불가 상태입니다.");
+            return;
+        }
+
         selectedWineOrder.Add(wineColor);
+        currentTries++;
 
-        // 👉 현재까지 선택된 순서 디버그 출력
-        Debug.Log($"현재 선택 순서: {string.Join(", ", selectedWineOrder)}");
+        Debug.Log($"📦 현재 선택 순서: {string.Join(", ", selectedWineOrder)} / 시도 {currentTries}/{maxTries}");
 
-        // 👉 선택된 갯수가 정답 갯수와 같으면 정답 검사 실행
         if (selectedWineOrder.Count == correctWineOrder.Count)
         {
             CheckSequence();
         }
     }
 
-    /// <summary>
-    /// 선택된 와인 순서가 정답과 일치하는지 검사하는 메서드
-    /// </summary>
     private void CheckSequence()
     {
-        bool isCorrect = true; // 초기엔 맞다고 가정
+        bool isCorrect = true;
 
-        // 👉 선택한 순서와 정답 순서를 하나하나 비교
         for (int i = 0; i < correctWineOrder.Count; i++)
         {
             if (selectedWineOrder[i] != correctWineOrder[i])
             {
-                isCorrect = false; // 하나라도 틀리면 false
-                break; // 반복 중단
+                isCorrect = false;
+                break;
             }
         }
 
         if (isCorrect)
         {
-            Debug.Log("🎉 정답입니다! 쉐이커를 흔듭니다.");
-
-            // 👉 쉐이커 흔들기 실행 (연결된 ShakeController가 있으면)
-            if (shakeController != null)
-            {
-                shakeController.StartShaking();
-            }
-            else
-            {
-                Debug.LogWarning("⚠ ShakeController가 Inspector에 연결되지 않았습니다.");
-            }
+            Debug.Log("🎉 퍼즐 정답! 연출 시작");
+            StartCoroutine(HandleSuccessSequence());
         }
         else
         {
-            Debug.Log("❌ 틀렸습니다. 다시 시도하세요.");
+            Debug.Log("🍷 순서가 틀렸습니다. 이상한 와인을 생성합니다.");
+            StartCoroutine(HandleWeirdWineSequence());
+        }
+    }
+
+    private IEnumerator HandleSuccessSequence()
+    {
+        if (shakeController != null)
+        {
+            yield return StartCoroutine(shakeController.StartShaking());
         }
 
-        // 👉 선택 리스트 초기화 (다음 시도 준비)
+        isPuzzleCompleted = true;
         selectedWineOrder.Clear();
+    }
+
+    private IEnumerator HandleWeirdWineSequence()
+    {
+        isWeirdWineCreated = true;
+
+        // 👉 여기서 이상한 와인 연출 넣기
+        Debug.Log("🧪 이상한 와인이 만들어졌습니다!");
+
+        // TODO: 이상한 와인 이펙트, 사운드 등 넣을 수 있음
+
+        yield return null;
+    }
+
+    public void ResetTries()
+    {
+        currentTries = 0;
+        selectedWineOrder.Clear();
+        isPuzzleCompleted = false;
+        isWeirdWineCreated = false;
+        Debug.Log("🔄 모든 상태 초기화 완료");
+    }
+
+    public void TryGoToStory()
+    {
+        if (isPuzzleCompleted || isWeirdWineCreated)
+        {
+            StartCoroutine(GoToStoryAfterDelay(2f));
+        }
+    }
+
+    private IEnumerator GoToStoryAfterDelay(float delay)
+    {
+        if (overlayImage != null)
+        {
+            overlayImage.SetActive(true);
+            SpriteRenderer overlay = overlayImage.GetComponent<SpriteRenderer>();
+            if (overlay != null)
+            {
+                Color color = overlay.color;
+                color.a = 0f;
+                overlay.color = color;
+
+                float timer = 0f;
+                float fadeDuration = 1f;
+
+                while (timer < fadeDuration)
+                {
+                    timer += Time.deltaTime;
+                    color.a = Mathf.Lerp(0f, 1f, timer / fadeDuration);
+                    overlay.color = color;
+                    yield return null;
+                }
+
+                color.a = 1f;
+                overlay.color = color;
+            }
+        }
+
+        yield return new WaitForSeconds(delay);
+
+        SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
+        SceneManager.LoadScene("StoryScene");
+    }
+
+    public bool IsPuzzleCompleted()
+    {
+        return isPuzzleCompleted;
+    }
+
+    public bool IsWeirdWineCreated()
+    {
+        return isWeirdWineCreated;
     }
 }

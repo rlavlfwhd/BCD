@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: Story 4_A
   m_EditorClassIdentifier: 
-  storyNumber: 19
-  MainImage: {fileID: 2800000, guid: c8149402375669b4c8bcb7a3a2c59f5e, type: 3}
-  MainImage2: {fileID: 2800000, guid: a89a8d9f96533b747beed04ddd2abd86, type: 3}
-  storyType: 1
+  storyNumber: 500
+  MainImage: {fileID: 2800000, guid: f68b4497821fdbe4bbf4245600359c90, type: 3}
+  MainImage2: {fileID: 2800000, guid: 2956c8e3d6e458a49b4df4cfb32bf1a3, type: 3}
   storyText: "\n-4\uC77C\uCC28-\n\n\"\uC751 \uC54C\uC558\uC5B4... \uBC1C\uCF54\uB2C8\uC5D0\uC11C
     \uBCFC\uAC8C...\"\n\n\uACF5\uC8FC\uB294 \uBC1C\uCF54\uB2C8\uC5D0 \uAE30\uB300\uC5B4
     \uACE0\uAC1C\uB97C \uB4E4\uC5B4 \uBCC4\uC744 \uB2E4\uC2DC \uBCF4\uC558\uC9C0\uB9CC,
@@ -26,5 +25,8 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 23
+        value: 1
         changeSceneName: 
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 0}
+  choiceSfxClip: {fileID: 0}

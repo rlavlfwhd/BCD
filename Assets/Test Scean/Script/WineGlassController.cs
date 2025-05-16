@@ -1,97 +1,112 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-/// <summary>
-/// 와인잔 상태 관리 + 디버그 로그 출력용 컨트롤러
-/// </summary>
 public class WineGlassController : MonoBehaviour
 {
-    [Header("🍷 유리잔 본체")]
-    public SpriteRenderer glassRenderer; // 유리잔 테두리 SpriteRenderer
+    [Header("🍷 유리잔")]
+    public SpriteRenderer glassRenderer;
 
-    [Header("🍷 내용물 (빈 상태/채워진 상태)")]
-    public SpriteRenderer emptyGlassRenderer; // 빈 잔 SpriteRenderer
-    public SpriteRenderer filledGlassRenderer; // 채워진 잔 SpriteRenderer
+    [Header("🍷 스프라이트")]
+    public Sprite emptyGlassSprite;
+    public Sprite filledGlassSprite;
 
-    [Header("🍷 채우기 연출 속도")]
-    public float fadeDuration = 1f; // 페이드 인/아웃 속도
+    [Header("🕐 페이드 설정")]
+    public float fadeDuration = 1f;
+
+    [Header("📖 퍼즐 성공 시 이동할 스토리 번호")]
+    public int nextStoryIndex = 0;
+
+    [Header("🖼️ 오버레이 이미지 (페이드용)")]
+    public GameObject overlayImage;
+
+    private bool isFilled = false;
 
     private void Start()
     {
-        Debug.Log("==== WineGlassController 디버그 시작 ====");
-
-        // 1️⃣ SpriteRenderer 활성 상태 체크
-        Debug.Log($"[빈 잔] enabled: {emptyGlassRenderer.enabled}");
-        Debug.Log($"[채운 잔] enabled: {filledGlassRenderer.enabled}");
-
-        // 2️⃣ Sprite 연결 상태 체크
-        Debug.Log($"[빈 잔] Sprite 연결됨: {(emptyGlassRenderer.sprite != null)}");
-        Debug.Log($"[채운 잔] Sprite 연결됨: {(filledGlassRenderer.sprite != null)}");
-
-        // 3️⃣ Sorting Layer & Order 체크
-        Debug.Log($"[빈 잔] Sorting Layer: {emptyGlassRenderer.sortingLayerName}, Order: {emptyGlassRenderer.sortingOrder}");
-        Debug.Log($"[채운 잔] Sorting Layer: {filledGlassRenderer.sortingLayerName}, Order: {filledGlassRenderer.sortingOrder}");
-
-        Debug.Log("========================================");
-
-        // 빈 잔만 켜고 채운 잔은 처음에 꺼놓기
-        emptyGlassRenderer.enabled = true;
-        filledGlassRenderer.enabled = true; // 반드시 켜야 알파로 페이드가 작동함
-        SetAlpha(emptyGlassRenderer, 1f);
-        SetAlpha(filledGlassRenderer, 0f);
+        if (glassRenderer != null && emptyGlassSprite != null)
+        {
+            glassRenderer.sprite = emptyGlassSprite;
+            glassRenderer.color = new Color(1, 1, 1, 1);
+        }
     }
 
-    /// <summary>
-    /// 외부에서 호출: 잔 채우기 페이드 인
-    /// </summary>
-    public void FadeInFilledGlass()
+    public void StartFadeInFilledGlass()
     {
-        StartCoroutine(FadeSprites(emptyGlassRenderer, filledGlassRenderer, fadeDuration));
+        StartCoroutine(FadeInFilledGlass());
     }
 
-    /// <summary>
-    /// 페이드 아웃 & 인 코루틴
-    /// </summary>
-    private System.Collections.IEnumerator FadeSprites(SpriteRenderer fromRenderer, SpriteRenderer toRenderer, float duration)
+    private IEnumerator FadeInFilledGlass()
     {
+        if (glassRenderer == null || filledGlassSprite == null)
+            yield break;
+
+        glassRenderer.sprite = filledGlassSprite;
+
+        Color color = glassRenderer.color;
+        color.a = 0f;
+        glassRenderer.color = color;
+
         float elapsed = 0f;
-
-        // ✅ 반드시 SpriteRenderer.enabled가 true여야 페이드가 보임
-        fromRenderer.enabled = true;
-        toRenderer.enabled = true;
-
-        while (elapsed < duration)
+        while (elapsed < fadeDuration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / duration;
-
-            SetAlpha(fromRenderer, Mathf.Lerp(1, 0, t));
-            SetAlpha(toRenderer, Mathf.Lerp(0, 1, t));
-
-            Debug.Log($"페이드 진행 중... t={t:F2}, fromAlpha={Mathf.Lerp(1, 0, t):F2}, toAlpha={Mathf.Lerp(0, 1, t):F2}");
-
+            color.a = Mathf.Lerp(0f, 1f, elapsed / fadeDuration);
+            glassRenderer.color = color;
             yield return null;
         }
 
-        SetAlpha(fromRenderer, 0f);
-        SetAlpha(toRenderer, 1f);
-
-        Debug.Log("✅ 페이드 완료!");
+        glassRenderer.color = new Color(1, 1, 1, 1);
+        isFilled = true; // ✅ 클릭 활성화 조건
     }
 
-    /// <summary>
-    /// SpriteRenderer 알파값 설정
-    /// </summary>
-    private void SetAlpha(SpriteRenderer renderer, float alpha)
+    private void OnMouseDown()
     {
-        if (renderer != null)
+        // ✅ 퍼즐이 완료되어 잔이 채워졌을 때만 반응
+        if (!isFilled) return;
+
+        var manager = FindObjectOfType<WinePuzzleManager>();
+        if (manager != null && manager.IsPuzzleCompleted())
         {
-            Color c = renderer.color;
-            c.a = alpha;
-            renderer.color = c;
+            StartCoroutine(GoToStoryAfterDelay(2f));
+        }
+        else
+        {
+            Debug.Log("⚠ 퍼즐이 아직 완료되지 않았습니다.");
         }
     }
+
+    private IEnumerator GoToStoryAfterDelay(float delay)
+    {
+        if (overlayImage != null)
+        {
+            overlayImage.SetActive(true);
+            SpriteRenderer overlay = overlayImage.GetComponent<SpriteRenderer>();
+            if (overlay != null)
+            {
+                Color color = overlay.color;
+                color.a = 0f;
+                overlay.color = color;
+
+                float timer = 0f;
+                float fadeDuration = 1f;
+
+                while (timer < fadeDuration)
+                {
+                    timer += Time.deltaTime;
+                    color.a = Mathf.Lerp(0f, 1f, timer / fadeDuration);
+                    overlay.color = color;
+                    yield return null;
+                }
+
+                color.a = 1f;
+                overlay.color = color;
+            }
+        }
+
+        yield return new WaitForSeconds(delay);
+
+        SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
+        SceneManager.LoadScene("StoryScene");
+    }
 }
-
-
-
-

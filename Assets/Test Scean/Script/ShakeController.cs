@@ -7,26 +7,29 @@ using UnityEngine;
 public class ShakeController : MonoBehaviour
 {
     [Header("💫 흔들림 설정")]
-    public float shakeDuration = 1f;       // 흔들리는 총 시간
-    public float shakeMagnitude = 0.1f;    // X축 기준 흔들림 강도
-    public float shakeSpeed = 20f;         // 흔들림 속도 (진동 주기)
-    public float tiltAngle = 10f;          // 흔들림 시 Z축 회전 각도
+    public float shakeDuration = 1f;
+    public float shakeMagnitude = 0.1f;
+    public float shakeSpeed = 20f;
+    public float tiltAngle = 10f;
 
     [Header("📈 위로 이동 설정")]
-    public float riseHeight = 0.5f;        // 흔들기 전에 위로 뜨는 높이
-    public float riseSpeed = 3f;           // 위로 올라가는 속도 (Lerp 계수)
+    public float riseHeight = 0.5f;
+    public float riseSpeed = 3f;
 
     [Header("🍷 따를 잔 위치")]
-    public Transform glassTarget;          // 따를 대상 잔의 위치
+    public Transform glassTarget;
 
     [Header("🍾 따르기 연출 설정")]
-    public GameObject pourEffect;          // 따르기 연출용 오브젝트 (파티클 등)
-    public float pourDuration = 1f;        // 따르기 유지 시간
-    public float moveDuration = 1f;        // 잔으로 이동 및 복귀 소요 시간
-    public float pourTiltAngle = -30f;     // 따를 때 기울이는 각도 (Z축 음수)
+    public GameObject pourEffect;
+    public float pourDuration = 1f;
+    public float moveDuration = 1f;
+    public float pourTiltAngle = -30f;
 
-    private Vector3 originalPosition;      // 쉐이커 초기 위치
-    private Quaternion originalRotation;   // 쉐이커 초기 회전값
+    [Header("🍷 잔 컨트롤러 (잔 채우기 페이드 인용)")]
+    public WineGlassController wineGlassController;
+
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
 
     void Start()
     {
@@ -38,16 +41,13 @@ public class ShakeController : MonoBehaviour
     }
 
     /// <summary>
-    /// 외부에서 호출되는 쉐이커 흔들기 함수
+    /// 외부에서 호출되는 쉐이커 흔들기 (코루틴)
     /// </summary>
-    public void StartShaking()
+    public IEnumerator StartShaking()
     {
-        StartCoroutine(ShakeRoutine());
+        yield return StartCoroutine(ShakeRoutine());
     }
 
-    /// <summary>
-    /// 흔들기 코루틴 (위로 올라간 후 흔들림)
-    /// </summary>
     private IEnumerator ShakeRoutine()
     {
         float elapsed = 0f;
@@ -60,11 +60,10 @@ public class ShakeController : MonoBehaviour
             yield return null;
         }
 
-        // 흔들림 실행
+        // 흔들기
         while (elapsed < shakeDuration)
         {
             elapsed += Time.deltaTime;
-
             float xOffset = Mathf.Sin(elapsed * shakeSpeed) * shakeMagnitude;
             float zRotation = Mathf.Sin(elapsed * shakeSpeed) * tiltAngle;
 
@@ -74,16 +73,12 @@ public class ShakeController : MonoBehaviour
             yield return null;
         }
 
-        // 회전 원상복구
         transform.rotation = originalRotation;
 
-        // 잔으로 이동 및 따르기 실행
-        StartCoroutine(MoveAndPourRoutine());
+        // 따르기 시작
+        yield return StartCoroutine(MoveAndPourRoutine());
     }
 
-    /// <summary>
-    /// 잔으로 이동 → 따르기 → 복귀 루틴
-    /// </summary>
     private IEnumerator MoveAndPourRoutine()
     {
         Vector3 startPos = transform.position;
@@ -99,20 +94,23 @@ public class ShakeController : MonoBehaviour
         }
 
         transform.position = targetPos;
-        transform.rotation = Quaternion.Euler(0, 0, pourTiltAngle); // 따르기용 기울이기
+        transform.rotation = Quaternion.Euler(0, 0, pourTiltAngle);
 
-        // 따르기 연출 시작
+        // ⭐ 따르기 연출 + 잔 채우기 페이드 인 동기화
         if (pourEffect != null)
             pourEffect.SetActive(true);
+
+        if (wineGlassController != null)
+            wineGlassController.StartFadeInFilledGlass();
 
         yield return new WaitForSeconds(pourDuration);
 
         if (pourEffect != null)
             pourEffect.SetActive(false);
 
-        transform.rotation = originalRotation; // 회전 원상복귀
+        transform.rotation = originalRotation;
 
-        // 원래 위치로 돌아감
+        // 원래 위치로 복귀
         elapsed = 0f;
         while (elapsed < moveDuration)
         {
@@ -124,7 +122,3 @@ public class ShakeController : MonoBehaviour
         transform.position = originalPosition;
     }
 }
-
-
-
-

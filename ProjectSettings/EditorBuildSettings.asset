@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/PMoleeScene.unity
     guid: 1c8bf198648a47245b90dc7f83cac156
+  - enabled: 1
+    path: Assets/01.Scenes/PWineScene.unity
+    guid: 109efa97c23626d40bf9f8b77610a6b1
   m_configObjects: {}
