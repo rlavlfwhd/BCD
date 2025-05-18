@@ -1,5 +1,4 @@
-
-using System.Collections;
+癤퓎sing System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,7 +8,7 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance;
 
     public List<Item> items = new List<Item>();
-    
+
     public Item firstSelectedItem;
     public Item secondSelectedItem;
 
@@ -55,7 +54,6 @@ public class Inventory : MonoBehaviour
         if (item != null)
         {
             items.Remove(item);
-            Debug.Log($"인벤토리에서 제거됨: {itemName}");
             FreshSlot();
         }
     }
@@ -64,7 +62,6 @@ public class Inventory : MonoBehaviour
     {
         if (firstSelectedItem == item || secondSelectedItem == item)
         {
-            Debug.Log($"선택 해제됨: {item.itemName}");
             ClearSelection();
             return;
         }
@@ -72,12 +69,10 @@ public class Inventory : MonoBehaviour
         if (firstSelectedItem == null)
         {
             firstSelectedItem = item;
-            Debug.Log($"첫 번째 선택: {item.itemName}");
         }
         else if (secondSelectedItem == null)
         {
             secondSelectedItem = item;
-            Debug.Log($"두 번째 선택: {item.itemName}");
             CombineItems(firstSelectedItem, secondSelectedItem);
             ClearSelection();
         }
@@ -120,8 +115,7 @@ public class Inventory : MonoBehaviour
         {
             if (!HasCreatedRope("Rope"))
                 TryCreateCombinedItem(new string[] { name1, name2 }, "Items/Rope");
-            else
-                Debug.Log("이미 Rope 생성됨. 다시 만들 수 없음.");
+            else                
             return;
         }
 
@@ -130,7 +124,6 @@ public class Inventory : MonoBehaviour
             if (!HasCreatedRope("Rope2"))
                 TryCreateCombinedItem(new string[] { name1, name2 }, "Items/Rope2");
             else
-                Debug.Log("이미 Rope2 생성됨. 다시 만들 수 없음.");
             return;
         }
 
@@ -139,7 +132,6 @@ public class Inventory : MonoBehaviour
             if (!HasCreatedRope("Rope3"))
                 TryCreateCombinedItem(new string[] { name1, name2 }, "Items/Rope3");
             else
-                Debug.Log("이미 Rope3 생성됨. 다시 만들 수 없음.");
             return;
         }
 
@@ -148,11 +140,8 @@ public class Inventory : MonoBehaviour
             if (!HasCreatedRope("Rope4"))
                 TryCreateCombinedItem(new string[] { name1, name2 }, "Items/Rope4");
             else
-                Debug.Log("이미 Rope4 생성됨. 다시 만들 수 없음.");
             return;
         }
-
-        Debug.Log("조합 실패: 조건 불일치");
     }
 
     private bool IsRopeMaterial(string name)
@@ -178,7 +167,6 @@ public class Inventory : MonoBehaviour
             if (found != null)
             {
                 items.Remove(found);
-                Debug.Log($"제거된 아이템: {found.itemName}");
             }
         }
 
@@ -187,11 +175,6 @@ public class Inventory : MonoBehaviour
         {
             AddItem(newItem);
             RegisterCreatedRope(newItem.itemName);
-            Debug.Log($"조합 성공: {newItem.itemName}");
-        }
-        else
-        {
-            Debug.LogError($"조합 아이템 로드 실패: {resultItemPath}");
         }
 
         FreshSlot();

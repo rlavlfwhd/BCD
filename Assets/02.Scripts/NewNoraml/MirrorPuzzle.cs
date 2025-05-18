@@ -22,19 +22,25 @@ public class MirrorPuzzle : MonoBehaviour, IClickablePuzzle
     private bool isPuzzleCompleted = false;
     private bool isItemGiven = false;
 
-    private void Start()
+    void OnEnable()
     {
-        if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
-        {
-            // 거울 상태 복원
-            if (mirrorRenderer != null && brokenMirrorSprite1 != null)
-            {
-                mirrorRenderer.sprite = brokenMirrorSprite1;
-            }
+        StartCoroutine(InitializePuzzleState());
+    }
 
-            isPuzzleCompleted = true;
-            isItemGiven = true;
+    IEnumerator InitializePuzzleState()
+    {
+        yield return new WaitUntil(() => PuzzleManager.Instance != null);
+        yield return null;
+
+        if (!SceneDataManager.Instance.Data.completedPuzzles.Contains(puzzleID)) yield break;
+
+        if (mirrorRenderer != null && brokenMirrorSprite1 != null)
+        {
+            mirrorRenderer.sprite = brokenMirrorSprite1;
         }
+
+        isPuzzleCompleted = true;
+        isItemGiven = true;
     }
 
     public void OnClickPuzzle()

@@ -10,9 +10,6 @@ public class StorySystem : MonoBehaviour
 {
     public static StorySystem Instance;
 
-    public GameObject[] chapters;
-    public GameObject activeChapter;
-
     public StoryModel[] storyModels;
     public int currentStoryIndex = 1;
     public StoryModel currentStoryModel;
@@ -29,14 +26,12 @@ public class StorySystem : MonoBehaviour
     public Button[] buttonWay = new Button[3];
     public TMP_Text[] buttonWayText = new TMP_Text[3];
 
-    private bool chapterPlayedThisScene = false;
-
     private void Awake()
     {
         Instance = this;
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
         Instance = this;
 
@@ -46,10 +41,7 @@ public class StorySystem : MonoBehaviour
             buttonWay[i].onClick.AddListener(() => OnWayClick(wayIndex));
         }
 
-        if (chapters == null || chapters.Length == 0)
-        {
-            chapters = GameObject.FindGameObjectsWithTag("Chapter");
-        }
+        yield return new WaitUntil(() => SceneDataManager.Instance != null && SceneDataManager.Instance.Data != null);
 
         int overrideStoryIndex = SceneDataManager.Instance.Data.nextStoryIndex;
         if (overrideStoryIndex > 0)
@@ -64,10 +56,35 @@ public class StorySystem : MonoBehaviour
     public void StoryModelInit()
     {
         fullText = currentStoryModel.storyText;
-        for (int i = 0; i < currentStoryModel.options.Length; i++)
+
+        for (int i = 0; i < buttonWay.Length; i++)
         {
-            buttonWayText[i].text = currentStoryModel.options[i].buttonText;
+            bool show = i < currentStoryModel.options.Length;
+
+            if (show)
+            {
+                var option = currentStoryModel.options[i];
+                show = IsOptionVisible(option);
+
+                if (show)
+                    buttonWayText[i].text = option.buttonText;
+            }
+
+            buttonWay[i].gameObject.SetActive(show);
         }
+    }
+
+    private bool IsOptionVisible(StoryModel.Option option)
+    {
+        if (option.requiredStoryNumbers == null || option.requiredStoryNumbers.Count == 0)
+            return true;
+
+        foreach (int required in option.requiredStoryNumbers)
+        {
+            if (!SceneDataManager.Instance.Data.seenStoryNumbers.Contains(required))
+                return false;
+        }
+        return true;
     }
 
     public void CoShowText()
@@ -101,10 +118,14 @@ public class StorySystem : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
 
-        for (int i = 0; i < currentStoryModel.options.Length; i++)
+        for (int i = 0; i < currentStoryModel.options.Length && i < buttonWay.Length; i++)
         {
-            buttonWay[i].gameObject.SetActive(true);
-            yield return new WaitForSeconds(delay);
+            var option = currentStoryModel.options[i];
+            if (IsOptionVisible(option))
+            {
+                buttonWay[i].gameObject.SetActive(true);
+                yield return new WaitForSeconds(delay);
+            }
         }
     }
 
@@ -170,6 +191,9 @@ public class StorySystem : MonoBehaviour
 
     public void StoryShow(int number)
     {
+        if (!SceneDataManager.Instance.Data.seenStoryNumbers.Contains(number))
+            SceneDataManager.Instance.Data.seenStoryNumbers.Add(number);
+
         currentStoryModel = FindStoryModel(number);
 
         if (currentStoryModel != null)
@@ -182,18 +206,23 @@ public class StorySystem : MonoBehaviour
 
             CoShowText();
 
-            int chapterIndex = GetChapterIndexForStoryNumber(number);
+            int chapterIndex = ChapterController.GetChapterIndexForStoryNumber(number);
 
             if (chapterIndex != lastPlayedChapterIndex)
             {
-                ChangeChapter(chapterIndex);
+                ChapterController.Instance.OnChapterFinished = () =>
+                {
+                    StartCoroutine(ShowText());
+                    ChapterController.Instance.OnChapterFinished = null;
+                };
+
+                ChapterController.Instance.ChangeChapter(chapterIndex);
                 lastPlayedChapterIndex = chapterIndex;
             }
             else
             {
                 StartCoroutine(ShowText());
             }
-
         }
         else
         {
@@ -201,59 +230,7 @@ public class StorySystem : MonoBehaviour
         }
     }
 
-    int GetChapterIndexForStoryNumber(int number)
-    {
-        if (number >= 50) return 2;
-        if (number >= 20) return 1;
-        return 0;
-    }
 
-    void ChangeChapter(int chapterIndex)
-    {
-        if (chapterIndex == -1 || chapters == null || chapters.Length == 0 || chapterIndex >= chapters.Length)
-            return;
-
-        if (activeChapter != null)
-        {
-            PlayableDirector prevDirector = activeChapter.GetComponent<PlayableDirector>();
-            if (prevDirector != null) prevDirector.Stop();
-            activeChapter.SetActive(false);
-        }
-
-        activeChapter = chapters[chapterIndex];
-        activeChapter.SetActive(true);
-
-        PlayableDirector newDirector = activeChapter.GetComponent<PlayableDirector>();
-        if (newDirector != null)
-        {
-            newDirector.playOnAwake = false;
-            newDirector.Play();
-            StartCoroutine(DisableChapterAfterTimeline(newDirector, activeChapter));
-        }
-        else
-        {
-            StartCoroutine(DisableChapterAfterSeconds(activeChapter, 2.0f));
-        }
-    }
-
-    private IEnumerator DisableChapterAfterTimeline(PlayableDirector director, GameObject chapter)
-    {
-        yield return new WaitForSeconds((float)director.duration);
-        chapter.SetActive(false);
-        if (currentStoryModel != null)
-        {
-            StartCoroutine(ShowText());
-        }
-    }
-
-    private IEnumerator DisableChapterAfterSeconds(GameObject chapter, float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        if (currentStoryModel != null)
-        {
-            StartCoroutine(ShowText());
-        }
-    }
 
     StoryModel FindStoryModel(int number)
     {

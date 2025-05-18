@@ -58,6 +58,7 @@ public class SaveSystem
         string path = Application.persistentDataPath + "/saveSlot" + slot + ".json";
         File.WriteAllText(path, json);
     }
+
     public static string CapturePuzzleSceneScreenshot(int slot)
     {
         string path = Application.persistentDataPath + $"/puzzleSlot{slot}_image.png";

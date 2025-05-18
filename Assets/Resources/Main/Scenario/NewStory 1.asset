@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: NewStory 1
   m_EditorClassIdentifier: 
-  storyNumber: 301
+  storyNumber: 1235
   MainImage: {fileID: 0}
   MainImage2: {fileID: 0}
   storyText: "\uB118\uC5B4\uAC00"
   options:
-  - buttonText: "\uCC45\uC7A5"
+  - buttonText: "\uC774\uAC70\uBCF4\uBA74 \uBCF4\uC784"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 1
+        value: 1234
         changeSceneName: 
+    requiredStoryNumbers: 
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 0}
+  choiceSfxClip: {fileID: 0}

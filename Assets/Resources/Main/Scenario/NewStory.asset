@@ -12,14 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: NewStory
   m_EditorClassIdentifier: 
-  storyNumber: 200
+  storyNumber: 1234
   MainImage: {fileID: 0}
   MainImage2: {fileID: 0}
   storyText: "\uB118\uC5B4\uAC00"
   options:
-  - buttonText: "\uCC45\uC7A5"
+  - buttonText: "\uB2E4\uC74C\uAC70 \uBD10\uC57C\uB428"
     eventCheck:
       sucessResult:
-      - resultType: 2
-        value: 0
-        changeSceneName: PBookShelfScene
+      - resultType: 0
+        value: 1235
+        changeSceneName: 
+    requiredStoryNumbers: 
+  - buttonText: "\uB530\uB780"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 1235
+        changeSceneName: 
+    requiredStoryNumbers: d3040000
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 0}
+  choiceSfxClip: {fileID: 0}

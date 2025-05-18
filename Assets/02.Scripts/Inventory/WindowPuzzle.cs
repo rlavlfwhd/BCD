@@ -20,8 +20,18 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
 
     private bool isWindowOpened = false;
 
-    void Start()
+    private void OnEnable()
     {
+        StartCoroutine(InitializeWindowState());
+    }
+
+    private IEnumerator InitializeWindowState()
+    {
+        yield return new WaitUntil(() => PuzzleManager.Instance != null);
+
+        // 퍼즐 완료 정보 복원 이후까지 기다림
+        yield return null;
+
         if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
             if (windowRenderer != null && openedWindowSprite != null)
@@ -41,9 +51,8 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
             {
                 gameObject.SetActive(false);
             }
-        }        
+        }
     }
-
 
     public void OnClickPuzzle()
     {
@@ -65,19 +74,17 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
         {
             PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, selected);
 
-            // 퍼즐 완료 후 아이템을 획득 리스트에 추가
-            string itemName = "WindowPuzzleItem"; // 기본 아이템 이름을 수동으로 지정
+            string itemName = "WindowPuzzleItem";
             if (GetComponent<IObjectItem>() != null)
             {
-                itemName = GetComponent<IObjectItem>().ClickItem().itemName; // null 체크 후 아이템 이름 동적으로 가져오기
+                itemName = GetComponent<IObjectItem>().ClickItem().itemName;
             }
 
-            SceneDataManager.Instance.Data.acquiredItemIDs.Add(itemName);  // 동적으로 아이템 이름 추가
+            SceneDataManager.Instance.Data.acquiredItemIDs.Add(itemName);
 
             if (windowRenderer != null && openedWindowSprite != null)
             {
                 windowRenderer.sprite = openedWindowSprite;
-
                 SoundManager.PlayOneShot(gameObject, openWindowClip, sfxMixerGroup);
             }
 
@@ -88,17 +95,16 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
 
             isWindowOpened = true;
 
-            // 일정 지연 후 아이템 비활성화
             StartCoroutine(DisableItemAfterDelay());
         }
     }
 
-
     private IEnumerator DisableItemAfterDelay()
     {
-        yield return new WaitForSeconds(0.5f); // 약간의 지연 후 비활성화
+        yield return new WaitForSeconds(0.5f);
         PuzzleUtils.DisableAcquiredItemObjects();
     }
+
     private IEnumerator GoToStoryAfterDelay(float delay)
     {
         if (overlayImage != null)

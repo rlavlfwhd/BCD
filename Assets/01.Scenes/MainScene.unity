@@ -1024,6 +1024,7 @@ MonoBehaviour:
     isRopeUsed: 0
     inventoryItemNames: []
     acquiredItemIDs: []
+    seenStoryNumbers: 
 --- !u!4 &506150821
 Transform:
   m_ObjectHideFlags: 0
@@ -2849,6 +2850,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DontdestroyCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 709314964340265219, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1386248754}
     - target: {fileID: 4246312240042098229, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
         type: 3}
       propertyPath: m_Pivot.x

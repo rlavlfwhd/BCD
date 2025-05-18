@@ -33,7 +33,7 @@ public class PuzzleManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded; // 씬 로드 이벤트 해제
     }
-        
+
     // 퍼즐 완료 등록
     public void CompletePuzzle(string puzzleID)
     {

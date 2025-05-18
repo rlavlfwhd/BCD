@@ -32,7 +32,7 @@ public class GameSystem : MonoBehaviour
     {
         if (slot < 1 || slot > 6) return;
 
-        StoryModel currentStory = StorySystem.Instance.currentStoryModel;
+        StoryModel currentStory = StorySystem.Instance != null ? StorySystem.Instance.currentStoryModel : null;
         string imagePath = "";
         string imagePath2 = "";
 
@@ -57,7 +57,7 @@ public class GameSystem : MonoBehaviour
             itemNames.Add(item.itemName);
         }
 
-        SaveSystem.SaveGame(slot, StorySystem.Instance.currentStoryIndex, imagePath, imagePath2, itemNames, PuzzleManager.Instance.GetCompletedPuzzleList());
+        SaveSystem.SaveGame(slot, StorySystem.Instance != null ? StorySystem.Instance.currentStoryIndex : 1, imagePath, imagePath2, itemNames, PuzzleManager.Instance.GetCompletedPuzzleList());
     }
 
     public void LoadGame(int slot)

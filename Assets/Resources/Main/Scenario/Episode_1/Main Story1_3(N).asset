@@ -25,7 +25,8 @@ MonoBehaviour:
       sucessResult:
       - resultType: 2
         value: 0
-        changeSceneName: PWineScene
+        changeSceneName: PBookshelfScene
+    requiredStoryNumbers: 
   - buttonText: "B. \uBC29 \uC548\uC5D0\uC11C \uD0C8\uCD9C\uC5D0 \uC4F8\uB9CC\uD55C
       \uBB3C\uAC74\uC744 \uCC3E\uB294\uB2E4."
     eventCheck:
@@ -33,6 +34,7 @@ MonoBehaviour:
       - resultType: 2
         value: 0
         changeSceneName: PWindowScene
+    requiredStoryNumbers: 
   bgmClip: {fileID: 0}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}

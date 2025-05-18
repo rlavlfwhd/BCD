@@ -21,24 +21,31 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
     private bool isPendantInserted = false;
     private bool isDoorOpened = false;
 
-    void Start()
+    void OnEnable()
     {
-        if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
-        {
-            // 문 열린 상태로 복원
-            if (doorRenderer != null && openedDoorSprite != null)
-            {
-                doorRenderer.sprite = openedDoorSprite;
-            }
-
-            if (clickableDoorObject != null)
-            {
-                clickableDoorObject.SetActive(true);
-            }
-
-            isDoorOpened = true;
-        }
+        StartCoroutine(InitializePuzzleState());
     }
+
+    IEnumerator InitializePuzzleState()
+    {
+        yield return new WaitUntil(() => PuzzleManager.Instance != null);
+        yield return null;
+
+        if (!PuzzleManager.Instance.IsPuzzleCompleted(puzzleID)) yield break;
+
+        if (doorRenderer != null && openedDoorSprite != null)
+        {
+            doorRenderer.sprite = openedDoorSprite;
+        }
+
+        if (clickableDoorObject != null)
+        {
+            clickableDoorObject.SetActive(true);
+        }
+
+        isDoorOpened = true;
+    }
+
     public void OnClickPuzzle()
     {
         if (isDoorOpened)

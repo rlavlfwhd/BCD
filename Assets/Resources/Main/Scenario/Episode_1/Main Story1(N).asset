@@ -25,3 +25,7 @@ MonoBehaviour:
       - resultType: 0
         value: 2
         changeSceneName: 
+    requiredStoryNumbers: 
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 0}
+  choiceSfxClip: {fileID: 0}
