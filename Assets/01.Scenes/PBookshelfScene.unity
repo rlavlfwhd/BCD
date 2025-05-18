@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 39689514}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -747, y: 304, z: -0.01}
+  m_LocalPosition: {x: 76, y: 102, z: -0.01}
   m_LocalScale: {x: 131, y: 105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: RedBook2
+  itemType: 0
 --- !u!61 &39689518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -294,7 +295,7 @@ Transform:
   m_GameObject: {fileID: 53264587}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -875, y: 307, z: -0.01}
+  m_LocalPosition: {x: -457, y: 103, z: -0.01}
   m_LocalScale: {x: 131, y: 105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -365,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: RedBook1
+  itemType: 0
 --- !u!61 &53264591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -438,8 +440,8 @@ Transform:
   m_GameObject: {fileID: 128555201}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -154, y: -352, z: -1}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalPosition: {x: -399, y: -367, z: -1}
+  m_LocalScale: {x: 100, y: 100, z: 1.1777798}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1275292160}
@@ -485,12 +487,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: d0804da598e94fe49914a38fd95b605b, type: 3}
+  m_Sprite: {fileID: 763175374, guid: d0804da598e94fe49914a38fd95b605b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.05, y: 1.68}
+  m_Size: {x: 1.49, y: 1.03}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -509,6 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: Chick
+  itemType: 1
 --- !u!61 &128555206
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -545,14 +548,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.49, y: 1.06}
-    newSize: {x: 2.05, y: 1.68}
+    oldSize: {x: 1.49, y: 1.03}
+    newSize: {x: 1.49, y: 1.03}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.49, y: 1.06}
+  m_Size: {x: 1.49, y: 1.03}
   m_EdgeRadius: 0
 --- !u!1 &131622093
 GameObject:
@@ -592,10 +595,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "    \uACF5\uC8FC : (\uCE68\uCC29\uD55C \uD45C\uC815) \uBCF5\uB3C4\uB85C
-    \uBAB0\uB798 \uB098\uAC00\uB824\uB2E4\uAC00 \uC6B4\uC774 \uC548 \uC88B\uC544\uC11C
-    \uB4E4\uD0AC \uC218\uB3C4 \uC788\uC744\uAC70\uC57C. \n                \n            
-    \uBE44\uBC00\uD1B5\uB85C\uB97C \uCC3E\uC544\uC11C \uC548\uC804\uD558\uAC8C \uAC00\uBCF4\uC790."
+  m_text: "    \uACF5\uC8FC : \uBCF5\uB3C4\uB85C \uBAB0\uB798 \uB098\uAC00\uB824\uB2E4\uAC00
+    \uC6B4\uC774 \uC548 \uC88B\uC544\uC11C \uB4E4\uD0AC \uC218\uB3C4 \uC788\uC744\uAC70\uC57C.
+    \uBE44\uBC00\uD1B5\uB85C\uB97C \uCC3E\uC544\uC11C \uC548\uC804\uD558\uAC8C \uB098\uAC00\uC790."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f022945ce3fd3af48bf5456a9cf2730f, type: 2}
   m_sharedMaterial: {fileID: -8592929152113110068, guid: f022945ce3fd3af48bf5456a9cf2730f,
@@ -623,8 +625,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 37
+  m_fontSizeBase: 37
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -702,8 +704,8 @@ GameObject:
   m_Component:
   - component: {fileID: 164660970}
   - component: {fileID: 164660972}
-  - component: {fileID: 164660971}
   - component: {fileID: 164660973}
+  - component: {fileID: 164660971}
   m_Layer: 10
   m_Name: ChickSlot
   m_TagString: DropSlot
@@ -721,7 +723,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -163, y: -370, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalScale: {x: 200, y: 200, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731199126}
@@ -836,6 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 1
   correctBookName: Chick
   isOccupied: 0
   isCorrect: 0
@@ -867,7 +870,7 @@ Transform:
   m_GameObject: {fileID: 177506426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 815, y: -302, z: -0.01}
+  m_LocalPosition: {x: -12, y: 103, z: -0.01}
   m_LocalScale: {x: 140, y: 105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -886,6 +889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: GreenBook4
+  itemType: 0
 --- !u!212 &177506430
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1138,8 +1142,8 @@ GameObject:
   m_Component:
   - component: {fileID: 198404434}
   - component: {fileID: 198404437}
-  - component: {fileID: 198404436}
   - component: {fileID: 198404435}
+  - component: {fileID: 198404436}
   m_Layer: 10
   m_Name: GreenBookSlot3
   m_TagString: DropSlot
@@ -1156,8 +1160,8 @@ Transform:
   m_GameObject: {fileID: 198404433}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 431, y: 241, z: 0}
-  m_LocalScale: {x: 71.54, y: 280, z: 1}
+  m_LocalPosition: {x: 387.86023, y: 224.1189, z: 0}
+  m_LocalScale: {x: 63.42021, y: 248.22, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937567832}
@@ -1174,6 +1178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 0
   correctBookName: GreenBook3
   isOccupied: 0
   isCorrect: 0
@@ -1355,7 +1360,7 @@ GameObject:
   - component: {fileID: 263589310}
   - component: {fileID: 263589311}
   m_Layer: 8
-  m_Name: Background
+  m_Name: BookShelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1370,14 +1375,14 @@ Transform:
   m_GameObject: {fileID: 263589308}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: 48, z: -3}
-  m_LocalScale: {x: 112.5, y: 110.59515, z: 1}
+  m_LocalPosition: {x: 0, y: 20, z: -3}
+  m_LocalScale: {x: 107.20999, y: 105.394714, z: 0.95297766}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 811768618}
+  - {fileID: 937567832}
   - {fileID: 1275292160}
   - {fileID: 731199126}
-  - {fileID: 937567832}
   m_Father: {fileID: 1395276774}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &263589310
@@ -1611,7 +1616,7 @@ Transform:
   m_GameObject: {fileID: 349417409}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -866, y: -315, z: -0.01}
+  m_LocalPosition: {x: 256, y: 101.4, z: -0.01}
   m_LocalScale: {x: 131, y: 105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1682,6 +1687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: YellowBook1
+  itemType: 0
 --- !u!61 &349417413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1755,7 +1761,7 @@ Transform:
   m_GameObject: {fileID: 366315440}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 579, y: -317, z: -0.01}
+  m_LocalPosition: {x: -362, y: 101.6, z: -0.01}
   m_LocalScale: {x: 140, y: 105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1774,6 +1780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: GreenBook1
+  itemType: 0
 --- !u!212 &366315444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1899,7 +1906,7 @@ Transform:
   m_GameObject: {fileID: 446554520}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 736.5158, y: -299, z: -0.01}
+  m_LocalPosition: {x: 163, y: 102, z: -0.01}
   m_LocalScale: {x: 140, y: 105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1918,6 +1925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: GreenBook3
+  itemType: 0
 --- !u!212 &446554524
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2370,7 +2378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 522672429}
   fadeDuration: 1
-  waitBeforeFadeOut: 2
+  waitBeforeFadeOut: 3
 --- !u!1 &548673579
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,7 +2439,7 @@ Transform:
   m_GameObject: {fileID: 551156936}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 765, y: 96, z: -0.01}
+  m_LocalPosition: {x: -101, y: 104, z: -0.01}
   m_LocalScale: {x: 131, y: 105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2502,6 +2510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: BlueBook1
+  itemType: 0
 --- !u!61 &551156940
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2557,8 +2566,8 @@ GameObject:
   m_Component:
   - component: {fileID: 581471316}
   - component: {fileID: 581471319}
-  - component: {fileID: 581471318}
   - component: {fileID: 581471317}
+  - component: {fileID: 581471318}
   m_Layer: 10
   m_Name: GreenBookSlot2
   m_TagString: DropSlot
@@ -2575,8 +2584,8 @@ Transform:
   m_GameObject: {fileID: 581471315}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 343, y: 241, z: 0}
-  m_LocalScale: {x: 71.54, y: 280, z: 1}
+  m_LocalPosition: {x: 309.85202, y: 224.1189, z: 0}
+  m_LocalScale: {x: 63.42021, y: 248.22, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937567832}
@@ -2593,6 +2602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 0
   correctBookName: GreenBook2
   isOccupied: 0
   isCorrect: 0
@@ -2722,7 +2732,7 @@ Transform:
   m_GameObject: {fileID: 592027086}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 110, y: -303, z: -1}
+  m_LocalPosition: {x: 339, y: -347, z: -1}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2774,7 +2784,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.66, y: 1.51}
+  m_Size: {x: 1.66, y: 1.54}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2793,6 +2803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: SmallChicken
+  itemType: 1
 --- !u!61 &592027091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2829,8 +2840,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.66, y: 1.51}
-    newSize: {x: 1.66, y: 1.51}
+    oldSize: {x: 1.66, y: 1.54}
+    newSize: {x: 1.66, y: 1.54}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -2848,8 +2859,8 @@ GameObject:
   m_Component:
   - component: {fileID: 614246708}
   - component: {fileID: 614246711}
-  - component: {fileID: 614246710}
   - component: {fileID: 614246709}
+  - component: {fileID: 614246710}
   m_Layer: 10
   m_Name: BlueBookSlot1
   m_TagString: DropSlot
@@ -2866,8 +2877,8 @@ Transform:
   m_GameObject: {fileID: 614246707}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -185, y: 241, z: 0}
-  m_LocalScale: {x: 71.54, y: 280, z: 1}
+  m_LocalPosition: {x: -158.19696, y: 224.1189, z: 0}
+  m_LocalScale: {x: 63.42021, y: 248.22, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937567832}
@@ -2884,6 +2895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 0
   correctBookName: BlueBook1
   isOccupied: 0
   isCorrect: 0
@@ -3256,7 +3268,7 @@ Transform:
   m_GameObject: {fileID: 704504501}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 848, y: 97, z: -0.01}
+  m_LocalPosition: {x: -274, y: 102.9, z: -0.01}
   m_LocalScale: {x: 131, y: 105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3327,6 +3339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: BlueBook2
+  itemType: 0
 --- !u!61 &704504505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3400,8 +3413,8 @@ Transform:
   m_GameObject: {fileID: 711631879}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -25, z: -2}
-  m_LocalScale: {x: 94.117645, y: 95, z: 1}
+  m_LocalPosition: {x: 0, y: -44.8037, z: -2}
+  m_LocalScale: {x: 101.91113, y: 91.3314, z: 0.9613832}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1395276774}
@@ -3556,7 +3569,6 @@ Transform:
   m_LocalScale: {x: 0.008366013, y: 0.009041987, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1939603926}
   - {fileID: 164660970}
   - {fileID: 1626211534}
   - {fileID: 1663937162}
@@ -3587,8 +3599,8 @@ Transform:
   m_GameObject: {fileID: 811768617}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08888888, y: -0.4340154, z: -1}
-  m_LocalScale: {x: 0.008366013, y: 0.009041987, z: 1}
+  m_LocalPosition: {x: 0.1, y: -0.481935, z: -1}
+  m_LocalScale: {x: 0.0074161026, y: 0.008015324, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 53264588}
@@ -3632,7 +3644,7 @@ Transform:
   m_GameObject: {fileID: 855775900}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -749, y: -317, z: -0.01}
+  m_LocalPosition: {x: -192, y: 103, z: -0.01}
   m_LocalScale: {x: 131, y: 105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3703,6 +3715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: YellowBook2
+  itemType: 0
 --- !u!61 &855775904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3773,7 +3786,7 @@ Transform:
   m_GameObject: {fileID: 937567831}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.68078417, y: -1.6908517, z: -1}
+  m_LocalPosition: {x: -0.63078415, y: -1.6908517, z: -1}
   m_LocalScale: {x: 0.008366013, y: 0.009041987, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3800,8 +3813,8 @@ GameObject:
   m_Component:
   - component: {fileID: 954876580}
   - component: {fileID: 954876583}
-  - component: {fileID: 954876582}
   - component: {fileID: 954876581}
+  - component: {fileID: 954876582}
   m_Layer: 10
   m_Name: GreenBookSlot4
   m_TagString: DropSlot
@@ -3818,8 +3831,8 @@ Transform:
   m_GameObject: {fileID: 954876579}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 519, y: 241, z: 0}
-  m_LocalScale: {x: 71.54, y: 280, z: 1}
+  m_LocalPosition: {x: 465.86844, y: 224.1189, z: 0}
+  m_LocalScale: {x: 63.42021, y: 248.22, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937567832}
@@ -3836,6 +3849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 0
   correctBookName: GreenBook4
   isOccupied: 0
   isCorrect: 0
@@ -3947,8 +3961,8 @@ GameObject:
   m_Component:
   - component: {fileID: 955727795}
   - component: {fileID: 955727796}
-  - component: {fileID: 955727797}
   - component: {fileID: 955727798}
+  - component: {fileID: 955727797}
   m_Layer: 10
   m_Name: RedBookSlot1
   m_TagString: DropSlot
@@ -3965,8 +3979,8 @@ Transform:
   m_GameObject: {fileID: 955727794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -361, y: 241, z: 0}
-  m_LocalScale: {x: 71.54, y: 280, z: 1}
+  m_LocalPosition: {x: -314.21326, y: 224.1189, z: 0}
+  m_LocalScale: {x: 63.42021, y: 248.22, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937567832}
@@ -4081,6 +4095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 0
   correctBookName: RedBook1
   isOccupied: 0
   isCorrect: 0
@@ -4298,8 +4313,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1083641210}
   - component: {fileID: 1083641213}
-  - component: {fileID: 1083641212}
   - component: {fileID: 1083641211}
+  - component: {fileID: 1083641212}
   m_Layer: 10
   m_Name: YellowBookSlot2
   m_TagString: DropSlot
@@ -4316,8 +4331,8 @@ Transform:
   m_GameObject: {fileID: 1083641209}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79, y: 241, z: 0}
-  m_LocalScale: {x: 71.54, y: 280, z: 1}
+  m_LocalPosition: {x: 75.82762, y: 224.1189, z: 0}
+  m_LocalScale: {x: 63.42021, y: 248.22, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937567832}
@@ -4334,6 +4349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 0
   correctBookName: YellowBook2
   isOccupied: 0
   isCorrect: 0
@@ -4463,8 +4479,8 @@ Transform:
   m_GameObject: {fileID: 1121153232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 341, y: -325, z: -1}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalPosition: {x: 117, y: -340, z: -1}
+  m_LocalScale: {x: 100, y: 100, z: 1.139}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1275292160}
@@ -4510,7 +4526,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 5502dbe3108c13c4ea40842d2f215a0f, type: 3}
+  m_Sprite: {fileID: -1669543434, guid: 5502dbe3108c13c4ea40842d2f215a0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4534,6 +4550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: BigChicken
+  itemType: 1
 --- !u!61 &1121153236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4568,7 +4585,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.21, y: 0.21, z: 0.22, w: 0.57}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.05, y: 1.68}
     newSize: {x: 2.05, y: 1.68}
@@ -4608,7 +4625,7 @@ Transform:
   m_LocalScale: {x: 0.008366013, y: 0.009041987, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1521655381}
+  - {fileID: 1939603926}
   - {fileID: 128555202}
   - {fileID: 592027087}
   - {fileID: 1121153233}
@@ -4737,7 +4754,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e79d0e5208d6f204db88e8bd5933ef27, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cadfa4b701521ef45b31518974fbfc1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4972,12 +4989,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521655380}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -384, y: -325, z: -1}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.1, y: -0.029999847, z: -1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1275292160}
+  m_Father: {fileID: 1939603926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1521655382
 SpriteRenderer:
@@ -5044,6 +5061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: Egg
+  itemType: 1
 --- !u!61 &1521655384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5099,8 +5117,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1545114653}
   - component: {fileID: 1545114656}
-  - component: {fileID: 1545114655}
   - component: {fileID: 1545114654}
+  - component: {fileID: 1545114655}
   m_Layer: 10
   m_Name: RedBookSlot2
   m_TagString: DropSlot
@@ -5117,8 +5135,8 @@ Transform:
   m_GameObject: {fileID: 1545114652}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -273, y: 241, z: 0}
-  m_LocalScale: {x: 71.54, y: 280, z: 1}
+  m_LocalPosition: {x: -236.20508, y: 224.1189, z: 0}
+  m_LocalScale: {x: 63.42021, y: 248.22, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937567832}
@@ -5135,6 +5153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 0
   correctBookName: RedBook2
   isOccupied: 0
   isCorrect: 0
@@ -5366,8 +5385,8 @@ Transform:
   m_GameObject: {fileID: 1610690947}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 255, y: 241, z: 0}
-  m_LocalScale: {x: 71.54, y: 280, z: 1}
+  m_LocalPosition: {x: 231.84393, y: 224.1189, z: 0}
+  m_LocalScale: {x: 63.42021, y: 248.22, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937567832}
@@ -5384,6 +5403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 0
   correctBookName: GreenBook1
   isOccupied: 0
   isCorrect: 0
@@ -5495,8 +5515,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1626211534}
   - component: {fileID: 1626211536}
-  - component: {fileID: 1626211535}
   - component: {fileID: 1626211537}
+  - component: {fileID: 1626211535}
   m_Layer: 10
   m_Name: SmallChickenSlot
   m_TagString: DropSlot
@@ -5513,8 +5533,8 @@ Transform:
   m_GameObject: {fileID: 1626211533}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 117, y: -370, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalPosition: {x: 117, y: -350, z: 0}
+  m_LocalScale: {x: 200, y: 200, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731199126}
@@ -5629,6 +5649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 1
   correctBookName: SmallChicken
   isOccupied: 0
   isCorrect: 0
@@ -5642,8 +5663,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1663937162}
   - component: {fileID: 1663937164}
-  - component: {fileID: 1663937163}
   - component: {fileID: 1663937165}
+  - component: {fileID: 1663937163}
   m_Layer: 10
   m_Name: BigChickenSlot
   m_TagString: DropSlot
@@ -5660,8 +5681,8 @@ Transform:
   m_GameObject: {fileID: 1663937161}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 343, y: -370, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalPosition: {x: 343, y: -340, z: 0}
+  m_LocalScale: {x: 200, y: 200, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731199126}
@@ -5776,6 +5797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 1
   correctBookName: BigChicken
   isOccupied: 0
   isCorrect: 0
@@ -5807,7 +5829,7 @@ Transform:
   m_GameObject: {fileID: 1700562327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -620, y: -314, z: -0.01}
+  m_LocalPosition: {x: 429, y: 102, z: -0.01}
   m_LocalScale: {x: 131, y: 105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5878,6 +5900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: YellowBook3
+  itemType: 0
 --- !u!61 &1700562331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5942,7 +5965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1817283314
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6412,8 +6435,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1939603926}
   - component: {fileID: 1939603927}
-  - component: {fileID: 1939603928}
   - component: {fileID: 1939603929}
+  - component: {fileID: 1939603928}
   m_Layer: 10
   m_Name: EggSlot
   m_TagString: DropSlot
@@ -6429,12 +6452,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939603925}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -384, y: -370, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -384, y: -366, z: 0}
+  m_LocalScale: {x: 200, y: 200, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 731199126}
+  m_Children:
+  - {fileID: 1521655381}
+  m_Father: {fileID: 1275292160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1939603927
 SpriteRenderer:
@@ -6546,6 +6570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 1
   correctBookName: Egg
   isOccupied: 0
   isCorrect: 0
@@ -6657,8 +6682,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1954865789}
   - component: {fileID: 1954865792}
-  - component: {fileID: 1954865791}
   - component: {fileID: 1954865790}
+  - component: {fileID: 1954865791}
   m_Layer: 10
   m_Name: YellowBookSlot3
   m_TagString: DropSlot
@@ -6675,8 +6700,8 @@ Transform:
   m_GameObject: {fileID: 1954865788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 167, y: 241, z: 0}
-  m_LocalScale: {x: 71.54, y: 280, z: 1}
+  m_LocalPosition: {x: 153.83572, y: 224.1189, z: 0}
+  m_LocalScale: {x: 63.42021, y: 248.22, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937567832}
@@ -6693,6 +6718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 0
   correctBookName: YellowBook3
   isOccupied: 0
   isCorrect: 0
@@ -6804,8 +6830,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2010653367}
   - component: {fileID: 2010653370}
-  - component: {fileID: 2010653369}
   - component: {fileID: 2010653368}
+  - component: {fileID: 2010653369}
   m_Layer: 10
   m_Name: BlueBookSlot2
   m_TagString: DropSlot
@@ -6822,8 +6848,8 @@ Transform:
   m_GameObject: {fileID: 2010653366}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -97, y: 241, z: 0}
-  m_LocalScale: {x: 71.54, y: 280, z: 1}
+  m_LocalPosition: {x: -80.188774, y: 224.1189, z: 0}
+  m_LocalScale: {x: 63.42021, y: 248.22, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937567832}
@@ -6840,6 +6866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 0
   correctBookName: BlueBook2
   isOccupied: 0
   isCorrect: 0
@@ -7006,7 +7033,7 @@ Transform:
   m_GameObject: {fileID: 2091990156}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 656, y: -301, z: -0.01}
+  m_LocalPosition: {x: 344, y: 102, z: -0.01}
   m_LocalScale: {x: 140, y: 105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7025,6 +7052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookName: GreenBook2
+  itemType: 0
 --- !u!212 &2091990160
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7132,8 +7160,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2120443041}
   - component: {fileID: 2120443044}
-  - component: {fileID: 2120443043}
   - component: {fileID: 2120443042}
+  - component: {fileID: 2120443043}
   m_Layer: 10
   m_Name: YellowBookSlot1
   m_TagString: DropSlot
@@ -7150,8 +7178,8 @@ Transform:
   m_GameObject: {fileID: 2120443040}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: 241, z: 0}
-  m_LocalScale: {x: 71.54, y: 280, z: 1}
+  m_LocalPosition: {x: -2.1805763, y: 224.1189, z: 0}
+  m_LocalScale: {x: 63.42021, y: 248.22, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937567832}
@@ -7168,6 +7196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07164bfd0976be48a5bdbc85c6af2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotType: 0
   correctBookName: YellowBook1
   isOccupied: 0
   isCorrect: 0

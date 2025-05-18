@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DraggableBook3D : MonoBehaviour
+public enum ItemType { Book, Statue } // ✅ 아이템 타입 정의
+
+public class DraggableItem : MonoBehaviour
 {
     [Header("이 책의 고유 이름 (예: BlueBook, RedBook 등)")]
     public string bookName;
+
+    [Header("이 오브젝트의 타입")]
+    public ItemType itemType = ItemType.Book; // ✅ Inspector에서 타입 설정 가능
 
     private Vector3 offset;
     private Vector3 originalPosition;
@@ -25,7 +30,6 @@ public class DraggableBook3D : MonoBehaviour
         mousePoint.z = 0;
         offset = transform.position - mousePoint;
         offset.z = 0;
-
 
         offset = transform.position - mousePoint;
 
@@ -85,7 +89,6 @@ public class DraggableBook3D : MonoBehaviour
                 }
             }
         }
-        // 슬롯 못 찾았을 때 아무 것도 안 함
     }
 
     public void ReturnToOriginalPosition()

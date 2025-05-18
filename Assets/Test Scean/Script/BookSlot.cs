@@ -1,30 +1,41 @@
 ﻿using UnityEngine;
 
+public enum SlotType { Book, Statue }
+
 public class BookSlot : MonoBehaviour
 {
+    public SlotType slotType = SlotType.Book;
     public string correctBookName;
+
     public bool isOccupied = false;
     public bool isCorrect = false;
 
-    private GameObject currentBook;
+    private GameObject currentItem;
 
-    public bool TryInsertBook(GameObject book)
+    public bool TryInsertBook(GameObject item)
     {
-        DraggableBook3D draggable = book.GetComponent<DraggableBook3D>();
-        if (draggable == null) return false;
-
-        // 슬롯이 이미 점유된 경우: 새 책은 넣지 못하게 함
-        if (isOccupied)
+        DraggableItem draggable = item.GetComponent<DraggableItem>();
+        if (draggable == null)
         {
-            Debug.Log("📕 슬롯이 이미 사용 중입니다!");
+            Debug.Log("❌ 드래그 가능한 아이템이 아닙니다.");
             return false;
         }
 
-        currentBook = book;
+        // 🧠 슬롯과 아이템 타입이 일치하지 않으면 거부
+        if ((slotType == SlotType.Book && draggable.itemType != ItemType.Book) ||
+            (slotType == SlotType.Statue && draggable.itemType != ItemType.Statue))
+        {
+            Debug.Log("🚫 슬롯 타입과 아이템 타입이 일치하지 않습니다!");
+            return false;
+        }
 
-        // ❌ 즉시 위치 덮어쓰기 제거 (책의 움직임은 DraggableBook3D에서 처리함)
-        // book.transform.position = transform.position;
+        if (isOccupied)
+        {
+            Debug.Log("📦 슬롯이 이미 사용 중입니다!");
+            return false;
+        }
 
+        currentItem = item;
         isOccupied = true;
         isCorrect = (draggable.bookName == correctBookName);
 

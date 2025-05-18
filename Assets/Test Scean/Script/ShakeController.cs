@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// 쉐이커 흔들림 및 잔으로 이동 후 따르기 연출을 담당하는 컨트롤러
-/// </summary>
 public class ShakeController : MonoBehaviour
 {
     [Header("💫 흔들림 설정")]
@@ -25,7 +22,7 @@ public class ShakeController : MonoBehaviour
     public float moveDuration = 1f;
     public float pourTiltAngle = -30f;
 
-    [Header("🍷 잔 컨트롤러 (잔 채우기 페이드 인용)")]
+    [Header("🍷 잔 컨트롤러")]
     public WineGlassController wineGlassController;
 
     private Vector3 originalPosition;
@@ -41,14 +38,14 @@ public class ShakeController : MonoBehaviour
     }
 
     /// <summary>
-    /// 외부에서 호출되는 쉐이커 흔들기 (코루틴)
+    /// 퍼즐 결과에 따라 쉐이크 + 따르기 연출을 실행함
     /// </summary>
-    public IEnumerator StartShaking()
+    public IEnumerator StartShaking(bool isSuccess)
     {
-        yield return StartCoroutine(ShakeRoutine());
+        yield return StartCoroutine(ShakeRoutine(isSuccess));
     }
 
-    private IEnumerator ShakeRoutine()
+    private IEnumerator ShakeRoutine(bool isSuccess)
     {
         float elapsed = 0f;
         Vector3 targetPos = originalPosition + Vector3.up * riseHeight;
@@ -76,10 +73,10 @@ public class ShakeController : MonoBehaviour
         transform.rotation = originalRotation;
 
         // 따르기 시작
-        yield return StartCoroutine(MoveAndPourRoutine());
+        yield return StartCoroutine(MoveAndPourRoutine(isSuccess));
     }
 
-    private IEnumerator MoveAndPourRoutine()
+    private IEnumerator MoveAndPourRoutine(bool isSuccess)
     {
         Vector3 startPos = transform.position;
         Vector3 targetPos = glassTarget.position;
@@ -96,12 +93,18 @@ public class ShakeController : MonoBehaviour
         transform.position = targetPos;
         transform.rotation = Quaternion.Euler(0, 0, pourTiltAngle);
 
-        // ⭐ 따르기 연출 + 잔 채우기 페이드 인 동기화
+        // 따르기 이펙트 실행
         if (pourEffect != null)
             pourEffect.SetActive(true);
 
+        // 🍷 퍼즐 결과에 따라 잔 이미지 변경
         if (wineGlassController != null)
-            wineGlassController.StartFadeInFilledGlass();
+        {
+            if (isSuccess)
+                wineGlassController.StartFadeInFilledGlass(); // 무지개
+            else
+                wineGlassController.ShowWeirdWine();          // 보라색
+        }
 
         yield return new WaitForSeconds(pourDuration);
 

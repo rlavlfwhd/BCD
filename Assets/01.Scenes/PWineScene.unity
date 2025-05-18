@@ -311,10 +311,10 @@ MonoBehaviour:
   pourTargetTransform: {fileID: 1316945839}
   shakerClosedRenderer: {fileID: 2000976853}
   shakerOpenRenderer: {fileID: 838255444}
-  shakerFadeDuration: 0.5
+  shakerFadeDuration: 0.1
   pourEffect: {fileID: 955945198}
-  pourTime: 1
-  moveSpeed: 1
+  pourTime: 0.1
+  moveSpeed: 3
   arcHeight: 300
   wineBottleUprightRenderer: {fileID: 262835582}
   wineBottleTiltedRenderer: {fileID: 591089040}
@@ -1846,6 +1846,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 998132949}
+  - {fileID: 1241593551}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2294,6 +2295,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1241593548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1241593551}
+  - component: {fileID: 1241593550}
+  - component: {fileID: 1241593549}
+  m_Layer: 5
+  m_Name: Image2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1241593549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241593548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e27c7414fe1355545b9906b515552f9d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1241593550
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241593548}
+  m_CullTransparentMesh: 1
+--- !u!224 &1241593551
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241593548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 834550416}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1276904971
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,10 +2404,10 @@ MonoBehaviour:
   pourTargetTransform: {fileID: 1316945839}
   shakerClosedRenderer: {fileID: 2000976853}
   shakerOpenRenderer: {fileID: 838255444}
-  shakerFadeDuration: 0.5
+  shakerFadeDuration: 0.1
   pourEffect: {fileID: 1974329762}
-  pourTime: 1
-  moveSpeed: 1
+  pourTime: 0.1
+  moveSpeed: 3
   arcHeight: 300
   wineBottleUprightRenderer: {fileID: 1276904973}
   wineBottleTiltedRenderer: {fileID: 576223321}
@@ -2505,10 +2581,10 @@ MonoBehaviour:
   pourTargetTransform: {fileID: 1316945839}
   shakerClosedRenderer: {fileID: 2000976853}
   shakerOpenRenderer: {fileID: 838255444}
-  shakerFadeDuration: 0.5
+  shakerFadeDuration: 0.1
   pourEffect: {fileID: 1844234420}
-  pourTime: 1
-  moveSpeed: 1
+  pourTime: 0.1
+  moveSpeed: 3
   arcHeight: 300
   wineBottleUprightRenderer: {fileID: 1358389985}
   wineBottleTiltedRenderer: {fileID: 1111522057}
@@ -2718,9 +2794,7 @@ MonoBehaviour:
   glassRenderer: {fileID: 1472530570}
   emptyGlassSprite: {fileID: 21300000, guid: 4f50c9e5577305945bb19caff22bccf3, type: 3}
   filledGlassSprite: {fileID: 21300000, guid: 331ffec630020e846ab07c67fc6d960d, type: 3}
-  fadeDuration: 0.01
-  nextStoryIndex: 0
-  overlayImage: {fileID: 998132948}
+  weirdWineSprite: {fileID: 21300000, guid: 2ca83d78cb073d747a516a9f308b6dec, type: 3}
 --- !u!61 &1472530573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2800,10 +2874,10 @@ MonoBehaviour:
   pourTargetTransform: {fileID: 1316945839}
   shakerClosedRenderer: {fileID: 2000976853}
   shakerOpenRenderer: {fileID: 838255444}
-  shakerFadeDuration: 0.5
+  shakerFadeDuration: 0.1
   pourEffect: {fileID: 1595379803}
-  pourTime: 1
-  moveSpeed: 1
+  pourTime: 0.1
+  moveSpeed: 3
   arcHeight: 300
   wineBottleUprightRenderer: {fileID: 1533341474}
   wineBottleTiltedRenderer: {fileID: 80607861}
@@ -2942,8 +3016,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeController: {fileID: 2000976855}
-  nextStoryIndex: 500
-  overlayImage: {fileID: 998132948}
+  successStoryIndex: 500
+  failureStoryIndex: 501
+  successOverlayImage: {fileID: 998132948}
+  failureOverlayImage: {fileID: 1241593548}
   maxTries: 5
 --- !u!4 &1540369859
 Transform:
@@ -2987,7 +3063,7 @@ Transform:
   m_GameObject: {fileID: 1595379803}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5, w: 0.8660254}
-  m_LocalPosition: {x: 0.889, y: 1.486, z: -2}
+  m_LocalPosition: {x: 0.94, y: 1.477, z: -2}
   m_LocalScale: {x: 0.52937394, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3510,7 +3586,7 @@ Transform:
   m_GameObject: {fileID: 1974329762}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.4974256, w: 0.8675066}
-  m_LocalPosition: {x: 0.971466, y: 1.623137, z: -2}
+  m_LocalPosition: {x: 0.998, y: 1.631, z: -2}
   m_LocalScale: {x: 0.5313283, y: 1.3500134, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3789,10 +3865,10 @@ MonoBehaviour:
   pourTargetTransform: {fileID: 1316945839}
   shakerClosedRenderer: {fileID: 2000976853}
   shakerOpenRenderer: {fileID: 838255444}
-  shakerFadeDuration: 0.5
+  shakerFadeDuration: 0.1
   pourEffect: {fileID: 2116049826}
-  pourTime: 1
-  moveSpeed: 1
+  pourTime: 0.1
+  moveSpeed: 3
   arcHeight: 300
   wineBottleUprightRenderer: {fileID: 2096639839}
   wineBottleTiltedRenderer: {fileID: 1857477465}

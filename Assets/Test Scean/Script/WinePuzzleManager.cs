@@ -8,11 +8,15 @@ public class WinePuzzleManager : MonoBehaviour
     [Header("✅ 쉐이커 컨트롤러")]
     public ShakeController shakeController;
 
-    [Header("📖 퍼즐 완료 후 이동할 스토리 번호")]
-    public int nextStoryIndex = 0;
+    [Header("📖 퍼즐 성공 시 이동할 스토리 번호")]
+    public int successStoryIndex = 0;
 
-    [Header("🖼️ 오버레이 페이드 이미지")]
-    public GameObject overlayImage;
+    [Header("📖 퍼즐 실패 시 이동할 스토리 번호")]
+    public int failureStoryIndex = 0;
+
+    [Header("🖼️ 성공/실패 오버레이 이미지")]
+    public GameObject successOverlayImage;
+    public GameObject failureOverlayImage;
 
     [Header("🎯 와인 선택 횟수 제한")]
     public int maxTries = 5;
@@ -63,36 +67,32 @@ public class WinePuzzleManager : MonoBehaviour
         if (isCorrect)
         {
             Debug.Log("🎉 퍼즐 정답! 연출 시작");
-            StartCoroutine(HandleSuccessSequence());
+            StartCoroutine(HandleResultSequence(true)); // 성공
         }
         else
         {
-            Debug.Log("🍷 순서가 틀렸습니다. 이상한 와인을 생성합니다.");
-            StartCoroutine(HandleWeirdWineSequence());
+            Debug.Log("🍷 틀린 순서입니다. 이상한 와인을 생성합니다.");
+            StartCoroutine(HandleResultSequence(false)); // 실패
         }
     }
 
-    private IEnumerator HandleSuccessSequence()
+    private IEnumerator HandleResultSequence(bool isSuccess)
     {
         if (shakeController != null)
         {
-            yield return StartCoroutine(shakeController.StartShaking());
+            yield return StartCoroutine(shakeController.StartShaking(isSuccess));
         }
 
-        isPuzzleCompleted = true;
+        if (isSuccess)
+        {
+            isPuzzleCompleted = true;
+        }
+        else
+        {
+            isWeirdWineCreated = true;
+        }
+
         selectedWineOrder.Clear();
-    }
-
-    private IEnumerator HandleWeirdWineSequence()
-    {
-        isWeirdWineCreated = true;
-
-        // 👉 여기서 이상한 와인 연출 넣기
-        Debug.Log("🧪 이상한 와인이 만들어졌습니다!");
-
-        // TODO: 이상한 와인 이펙트, 사운드 등 넣을 수 있음
-
-        yield return null;
     }
 
     public void ResetTries()
@@ -101,23 +101,27 @@ public class WinePuzzleManager : MonoBehaviour
         selectedWineOrder.Clear();
         isPuzzleCompleted = false;
         isWeirdWineCreated = false;
-        Debug.Log("🔄 모든 상태 초기화 완료");
+        Debug.Log("🔄 상태 초기화 완료");
     }
 
     public void TryGoToStory()
     {
-        if (isPuzzleCompleted || isWeirdWineCreated)
+        if (isPuzzleCompleted)
         {
-            StartCoroutine(GoToStoryAfterDelay(2f));
+            StartCoroutine(GoToStoryAfterDelay(successStoryIndex, successOverlayImage));
+        }
+        else if (isWeirdWineCreated)
+        {
+            StartCoroutine(GoToStoryAfterDelay(failureStoryIndex, failureOverlayImage));
         }
     }
 
-    private IEnumerator GoToStoryAfterDelay(float delay)
+    private IEnumerator GoToStoryAfterDelay(int storyIndex, GameObject overlayObj)
     {
-        if (overlayImage != null)
+        if (overlayObj != null)
         {
-            overlayImage.SetActive(true);
-            SpriteRenderer overlay = overlayImage.GetComponent<SpriteRenderer>();
+            overlayObj.SetActive(true);
+            SpriteRenderer overlay = overlayObj.GetComponent<SpriteRenderer>();
             if (overlay != null)
             {
                 Color color = overlay.color;
@@ -140,19 +144,12 @@ public class WinePuzzleManager : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(1f); // 추가 지연 시간
 
-        SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
+        SceneDataManager.Instance.Data.nextStoryIndex = storyIndex;
         SceneManager.LoadScene("StoryScene");
     }
 
-    public bool IsPuzzleCompleted()
-    {
-        return isPuzzleCompleted;
-    }
-
-    public bool IsWeirdWineCreated()
-    {
-        return isWeirdWineCreated;
-    }
+    public bool IsPuzzleCompleted() => isPuzzleCompleted;
+    public bool IsWeirdWineCreated() => isWeirdWineCreated;
 }

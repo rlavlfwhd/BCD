@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class WineGlassController : MonoBehaviour
 {
@@ -9,18 +8,8 @@ public class WineGlassController : MonoBehaviour
 
     [Header("🍷 스프라이트")]
     public Sprite emptyGlassSprite;
-    public Sprite filledGlassSprite;
-
-    [Header("🕐 페이드 설정")]
-    public float fadeDuration = 1f;
-
-    [Header("📖 퍼즐 성공 시 이동할 스토리 번호")]
-    public int nextStoryIndex = 0;
-
-    [Header("🖼️ 오버레이 이미지 (페이드용)")]
-    public GameObject overlayImage;
-
-    private bool isFilled = false;
+    public Sprite filledGlassSprite;    // 무지개 와인
+    public Sprite weirdWineSprite;      // 실패 시 보라색 와인
 
     private void Start()
     {
@@ -31,82 +20,43 @@ public class WineGlassController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 퍼즐 성공 시: 무지개 와인 즉시 표시
+    /// </summary>
     public void StartFadeInFilledGlass()
     {
-        StartCoroutine(FadeInFilledGlass());
-    }
-
-    private IEnumerator FadeInFilledGlass()
-    {
-        if (glassRenderer == null || filledGlassSprite == null)
-            yield break;
-
-        glassRenderer.sprite = filledGlassSprite;
-
-        Color color = glassRenderer.color;
-        color.a = 0f;
-        glassRenderer.color = color;
-
-        float elapsed = 0f;
-        while (elapsed < fadeDuration)
+        if (glassRenderer != null && filledGlassSprite != null)
         {
-            elapsed += Time.deltaTime;
-            color.a = Mathf.Lerp(0f, 1f, elapsed / fadeDuration);
-            glassRenderer.color = color;
-            yield return null;
+            glassRenderer.sprite = filledGlassSprite;
+            glassRenderer.color = new Color(1, 1, 1, 1);
         }
-
-        glassRenderer.color = new Color(1, 1, 1, 1);
-        isFilled = true; // ✅ 클릭 활성화 조건
     }
 
+    /// <summary>
+    /// 퍼즐 실패 시: 보라색 와인 즉시 표시
+    /// </summary>
+    public void ShowWeirdWine()
+    {
+        if (glassRenderer != null && weirdWineSprite != null)
+        {
+            glassRenderer.sprite = weirdWineSprite;
+            glassRenderer.color = new Color(1, 1, 1, 1);
+        }
+    }
+
+    /// <summary>
+    /// 잔 클릭 시 → 퍼즐이 완료되었으면 스토리 이동 시도
+    /// </summary>
     private void OnMouseDown()
     {
-        // ✅ 퍼즐이 완료되어 잔이 채워졌을 때만 반응
-        if (!isFilled) return;
-
-        var manager = FindObjectOfType<WinePuzzleManager>();
-        if (manager != null && manager.IsPuzzleCompleted())
+        WinePuzzleManager manager = FindObjectOfType<WinePuzzleManager>();
+        if (manager != null && (manager.IsPuzzleCompleted() || manager.IsWeirdWineCreated()))
         {
-            StartCoroutine(GoToStoryAfterDelay(2f));
+            manager.TryGoToStory();
         }
         else
         {
-            Debug.Log("⚠ 퍼즐이 아직 완료되지 않았습니다.");
+            Debug.Log("⚠ 퍼즐이 아직 완료되지 않아 스토리 이동 불가");
         }
-    }
-
-    private IEnumerator GoToStoryAfterDelay(float delay)
-    {
-        if (overlayImage != null)
-        {
-            overlayImage.SetActive(true);
-            SpriteRenderer overlay = overlayImage.GetComponent<SpriteRenderer>();
-            if (overlay != null)
-            {
-                Color color = overlay.color;
-                color.a = 0f;
-                overlay.color = color;
-
-                float timer = 0f;
-                float fadeDuration = 1f;
-
-                while (timer < fadeDuration)
-                {
-                    timer += Time.deltaTime;
-                    color.a = Mathf.Lerp(0f, 1f, timer / fadeDuration);
-                    overlay.color = color;
-                    yield return null;
-                }
-
-                color.a = 1f;
-                overlay.color = color;
-            }
-        }
-
-        yield return new WaitForSeconds(delay);
-
-        SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
-        SceneManager.LoadScene("StoryScene");
     }
 }
