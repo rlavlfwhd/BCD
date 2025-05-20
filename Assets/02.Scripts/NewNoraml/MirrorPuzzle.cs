@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -22,25 +21,20 @@ public class MirrorPuzzle : MonoBehaviour, IClickablePuzzle
     private bool isPuzzleCompleted = false;
     private bool isItemGiven = false;
 
-    void OnEnable()
-    {
-        StartCoroutine(InitializePuzzleState());
-    }
-
-    IEnumerator InitializePuzzleState()
+    private IEnumerator Start()
     {
         yield return new WaitUntil(() => PuzzleManager.Instance != null);
-        yield return null;
+        yield return null; // 퍼즐 완료 상태가 복원된 뒤 1프레임 대기
 
-        if (!SceneDataManager.Instance.Data.completedPuzzles.Contains(puzzleID)) yield break;
-
-        if (mirrorRenderer != null && brokenMirrorSprite1 != null)
-        {
-            mirrorRenderer.sprite = brokenMirrorSprite1;
-        }
+        if (!PuzzleManager.Instance.IsPuzzleCompleted(puzzleID)) yield break;
 
         isPuzzleCompleted = true;
         isItemGiven = true;
+
+        if (mirrorRenderer != null && brokenMirrorSprite2 != null)
+        {
+            mirrorRenderer.sprite = brokenMirrorSprite2;
+        }
     }
 
     public void OnClickPuzzle()
@@ -66,13 +60,10 @@ public class MirrorPuzzle : MonoBehaviour, IClickablePuzzle
             if (mirrorRenderer != null && brokenMirrorSprite1 != null)
             {
                 mirrorRenderer.sprite = brokenMirrorSprite1;
-                Debug.Log("거울 머테리얼 변경 완료!");
-
                 SoundManager.PlayOneShot(gameObject, mirrorBreakClip, sfxMixerGroup);
             }
 
             isPuzzleCompleted = true;
-            Debug.Log("거울 퍼즐 완료! 닭동상 사용됨");
         }
     }
 
@@ -87,7 +78,6 @@ public class MirrorPuzzle : MonoBehaviour, IClickablePuzzle
             if (mirrorRenderer != null && brokenMirrorSprite2 != null)
             {
                 mirrorRenderer.sprite = brokenMirrorSprite2;
-                Debug.Log("거울 최종 상태로 변경 완료!");
             }
         }
     }

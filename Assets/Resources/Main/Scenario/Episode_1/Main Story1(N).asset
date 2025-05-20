@@ -23,7 +23,7 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 2
+        value: 1234
         changeSceneName: 
     requiredStoryNumbers: 
   bgmClip: {fileID: 0}

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -21,12 +20,7 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
     private bool isPendantInserted = false;
     private bool isDoorOpened = false;
 
-    void OnEnable()
-    {
-        StartCoroutine(InitializePuzzleState());
-    }
-
-    IEnumerator InitializePuzzleState()
+    private IEnumerator Start()
     {
         yield return new WaitUntil(() => PuzzleManager.Instance != null);
         yield return null;
@@ -54,7 +48,6 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
         }
         else if (isPendantInserted)
         {
-            // 중간 상태에서 문 클릭 시 열림
             OpenDoorFully();
         }
         else
