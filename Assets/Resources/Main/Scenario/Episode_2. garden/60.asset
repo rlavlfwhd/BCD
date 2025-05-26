@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: 60
+  m_EditorClassIdentifier: 
+  storyNumber: 60
+  MainImage: {fileID: 2800000, guid: 4b430a21987d2264d986320a0e30f739, type: 3}
+  MainImage2: {fileID: 2800000, guid: 96d57fdc51145344a9ed4731908298a6, type: 3}
+  storyText: "    \uD1A0\uB07C : \"\uD37C\uC990\uC758 \uD78C\uD2B8\uB294 \uB0B4\uAC00
+    \uC544\uB2C8\uB290 \uC815\uC6D0\uC0AC\uC5D0\uAC8C \uC788\uC5B4.\""
+  options:
+  - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 61
+        changeSceneName: 
+    requiredStoryNumbers: 
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 0}
+  choiceSfxClip: {fileID: 0}

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: 5(Choice)
+  m_EditorClassIdentifier: 
+  storyNumber: 5
+  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
+  MainImage2: {fileID: 2800000, guid: b967c3e30461b5440bb94634eaf8cf37, type: 3}
+  storyText: "    \uB098\uB808\uC774\uC158 : \uADF8\uB9AC\uACE0 \uC774\uC81C, \uC5B4\uB5A4
+    \uBC29\uBC95\uC73C\uB85C \uC774 \uBC29\uC744 \uB098\uAC08\uC9C0 \uACE0\uBBFC\uD558\uAE30
+    \uC2DC\uC791\uD55C\uB2E4."
+  options:
+  - buttonText: "\uC120\uD0DD\uC9C0 1: \uBC29\uC5D0\uC11C \uD0C8\uCD9C\uD560 \uBB3C\uAC74\uC744
+      \uC870\uC0AC\uD55C\uB2E4."
+    eventCheck:
+      sucessResult:
+      - resultType: 2
+        value: 0
+        changeSceneName: PWindowScene
+    requiredStoryNumbers: 
+  - buttonText: "\uC120\uD0DD\uC9C0 2: \uBCF5\uB3C4\uB85C \uB098\uAC04\uB2E4."
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 6
+        changeSceneName: 
+    requiredStoryNumbers: 
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 0}
+  choiceSfxClip: {fileID: 0}
