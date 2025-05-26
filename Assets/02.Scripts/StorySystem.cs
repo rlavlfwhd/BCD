@@ -76,16 +76,36 @@ public class StorySystem : MonoBehaviour
 
     private bool IsOptionVisible(StoryModel.Option option)
     {
-        if (option.requiredStoryNumbers == null || option.requiredStoryNumbers.Count == 0)
+        bool hasCondition = false;
+
+        if (option.requiredStoryNumbers != null && option.requiredStoryNumbers.Count > 0)
+        {
+            hasCondition = true;
+            foreach (int required in option.requiredStoryNumbers)
+            {
+                if (!SceneDataManager.Instance.Data.seenStoryNumbers.Contains(required))
+                    return false;
+            }
+        }
+
+        if (option.requiredCompletedPuzzles != null && option.requiredCompletedPuzzles.Count > 0)
+        {
+            hasCondition = true;
+            foreach (string puzzleID in option.requiredCompletedPuzzles)
+            {
+                if (!SceneDataManager.Instance.Data.completedPuzzles.Contains(puzzleID))
+                    return false;
+            }
+        }
+
+        // 조건이 없으면 그냥 true
+        if (!hasCondition)
             return true;
 
-        foreach (int required in option.requiredStoryNumbers)
-        {
-            if (!SceneDataManager.Instance.Data.seenStoryNumbers.Contains(required))
-                return false;
-        }
         return true;
     }
+
+
 
     public void CoShowText()
     {

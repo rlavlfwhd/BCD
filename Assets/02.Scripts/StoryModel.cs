@@ -25,6 +25,7 @@ public class StoryModel : ScriptableObject
         public string buttonText;
         public EventCheck eventCheck;
         public List<int> requiredStoryNumbers;
+        public List<string> requiredCompletedPuzzles;
     }
 
     [System.Serializable]

@@ -41,6 +41,11 @@ public class PuzzleManager : MonoBehaviour
         {
             completedPuzzles.Add(puzzleID);
             Debug.Log($"ÆÛÁñ ¿Ï·á µî·ÏµÊ: {puzzleID}");
+
+            if (!SceneDataManager.Instance.Data.completedPuzzles.Contains(puzzleID))
+            {
+                SceneDataManager.Instance.Data.completedPuzzles.Add(puzzleID);
+            }
         }
     }
 

@@ -12,11 +12,10 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
 
     public Item neededItem; // Rope4
     public SpriteRenderer windowRenderer;
-    public Sprite openedWindowSprite;
-    public GameObject clickableWindowObject;
+    public Sprite openedWindowSprite;    
     public GameObject overlayImage;
     public string puzzleID = "window_rope";
-    public int nextStoryIndex = 200;
+    public int nextStoryIndex = 46;
 
     private bool isWindowOpened = false;
 
@@ -37,11 +36,6 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
             if (windowRenderer != null && openedWindowSprite != null)
             {
                 windowRenderer.sprite = openedWindowSprite;
-            }
-
-            if (clickableWindowObject != null)
-            {
-                clickableWindowObject.SetActive(true);
             }
 
             isWindowOpened = true;
@@ -74,23 +68,10 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
         {
             PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, selected);
 
-            string itemName = "WindowPuzzleItem";
-            if (GetComponent<IObjectItem>() != null)
-            {
-                itemName = GetComponent<IObjectItem>().ClickItem().itemName;
-            }
-
-            SceneDataManager.Instance.Data.acquiredItemIDs.Add(itemName);
-
             if (windowRenderer != null && openedWindowSprite != null)
             {
                 windowRenderer.sprite = openedWindowSprite;
                 SoundManager.PlayOneShot(gameObject, openWindowClip, sfxMixerGroup);
-            }
-
-            if (clickableWindowObject != null)
-            {
-                clickableWindowObject.SetActive(true);
             }
 
             isWindowOpened = true;

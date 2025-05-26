@@ -25,6 +25,8 @@ MonoBehaviour:
         value: 47
         changeSceneName: 
     requiredStoryNumbers: 
+    requiredCompletedPuzzles:
+    - window_rope
   - buttonText: "\uC120\uD0DD\uC9C0 2: \uC815\uC6D0\uC0AC\uC758 \uC624\uB450\uB9C9\uC73C\uB85C
       \uC774\uB3D9\uD55C\uB2E4."
     eventCheck:
@@ -33,6 +35,8 @@ MonoBehaviour:
         value: 60
         changeSceneName: 
     requiredStoryNumbers: 
+    requiredCompletedPuzzles:
+    - PBookshelfScene
   bgmClip: {fileID: 0}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}
