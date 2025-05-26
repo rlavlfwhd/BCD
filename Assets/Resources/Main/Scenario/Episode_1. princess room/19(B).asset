@@ -24,6 +24,7 @@ MonoBehaviour:
         value: 21
         changeSceneName: 
     requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
   - buttonText: "\uC120\uD0DD\uC9C0 2: \uAC11\uC637 \uC548\uC73C\uB85C \uB4E4\uC5B4\uAC04\uB2E4"
     eventCheck:
       sucessResult:
@@ -31,6 +32,7 @@ MonoBehaviour:
         value: 19
         changeSceneName: 
     requiredStoryNumbers: 
-  bgmClip: {fileID: 0}
-  sfxClip: {fileID: 0}
+    requiredCompletedPuzzles: []
+  bgmClip: {fileID: 8300000, guid: 3acc4e036d9ea8c4ca98ffb4a8a66030, type: 3}
+  sfxClip: {fileID: 8300000, guid: cd9d54cb9bd02f346a1047b6243fef5b, type: 3}
   choiceSfxClip: {fileID: 0}

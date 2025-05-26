@@ -18,13 +18,14 @@ MonoBehaviour:
   storyText: "     \uB098\uB808\uC774\uC158 : 16\uB144 \uB9CC\uC5D0 \uCC98\uC74C\uC73C\uB85C
     \uD759\uB0C4\uC0C8\uAC00 \uBC1C\uB05D\uC5D0 \uB2FF\uC558\uB2E4. "
   options:
-  - buttonText: "B) \uC628\uC2E4\uB85C \uC774\uB3D9\uD55C\uB2E4"
+  - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
       sucessResult:
       - resultType: 0
         value: 43
         changeSceneName: 
     requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}

@@ -17,13 +17,14 @@ MonoBehaviour:
   MainImage2: {fileID: 2800000, guid: 96d57fdc51145344a9ed4731908298a6, type: 3}
   storyText: "     \uACF5\uC8FC :  \"\uC774\uAC8C... \uBC14\uAE65 \uACF5\uAE30\uC57C?\""
   options:
-  - buttonText: "B) \uC628\uC2E4\uB85C \uC774\uB3D9\uD55C\uB2E4"
+  - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
       sucessResult:
       - resultType: 0
         value: 44
         changeSceneName: 
     requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}

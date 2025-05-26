@@ -19,13 +19,14 @@ MonoBehaviour:
     \uC78E\uB4E4 \uC0AC\uC774\uB85C \uD55C \uB9C8\uB9AC\uC758 \uD770 \uD1A0\uB07C\uAC00
     \uBAA8\uC2B5\uC744 \uB4DC\uB7EC\uB0C8\uB2E4.\n"
   options:
-  - buttonText: "\uB2E4\uC74C\uC73C"
+  - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
       sucessResult:
       - resultType: 0
         value: 50
         changeSceneName: 
     requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}
