@@ -10,11 +10,11 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
     public AudioClip openWindowClip;
     public AudioMixerGroup sfxMixerGroup;
 
+    public string puzzleID = "Window";
     public Item neededItem; // Rope4
     public SpriteRenderer windowRenderer;
     public Sprite openedWindowSprite;    
-    public GameObject overlayImage;
-    public string puzzleID = "window_rope";
+    public GameObject overlayImage;    
     public int nextStoryIndex = 46;
 
     private bool isWindowOpened = false;

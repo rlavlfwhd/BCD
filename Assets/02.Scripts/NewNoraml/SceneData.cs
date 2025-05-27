@@ -7,9 +7,9 @@ public class SceneData
     [System.NonSerialized]
     public int nextStoryIndex = 0;
 
-    public List<string> completedPuzzles = new List<string>();
-    public List<string> inventoryItemNames = new List<string>();
+    public List<string> completedPuzzles = new List<string>();    
     public List<string> acquiredItemIDs = new List<string>();
     public List<string> createdRopes = new List<string>();    
     public List<int> seenStoryNumbers = new List<int>();
+    public List<string> mirrorItemGiven = new List<string>();
 }

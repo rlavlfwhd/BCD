@@ -66,15 +66,6 @@ public class SpeechBubbleManager : MonoBehaviour
         {
             Vector3 direction = currentBubble.transform.position - cam.position;
             direction.y = 0f;
-
-            if (direction.sqrMagnitude > 0.01f)
-            {
-                Quaternion lookRotation = Quaternion.LookRotation(direction);
-                currentBubble.transform.rotation = lookRotation;
-
-                // 필요 시 정면 보정 (뒷면을 보는 경우)
-                // currentBubble.transform.rotation *= Quaternion.Euler(0f, 180f, 0f);
-            }
         }
 
         // Canvas 카메라 연결

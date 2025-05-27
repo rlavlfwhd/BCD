@@ -1,20 +1,30 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Audio;
 
 public class SlotManager : MonoBehaviour
 {
+    public string puzzleID = "BookShelf";
     public BookSlot[] slots;
     public GameObject backgroundObject;
     public GameObject Door;
     public Item chickenStatueItem;
     public AudioClip bookshelfSlideClip;
-    public AudioMixerGroup sfxMixerGroup;
+    public AudioMixerGroup sfxMixerGroup;    
 
     private bool allSlotsCorrect = false;
 
-    void Start()
+    void OnEnable()
     {
-        if (PuzzleManager.Instance.IsPuzzleCompleted("BookShelfPuzzle")) // 퍼즐 ID 설정 필요!
+        StartCoroutine(InitializePuzzleState());
+    }
+
+    private IEnumerator InitializePuzzleState()
+    {
+        yield return new WaitUntil(() => PuzzleManager.Instance != null);
+        yield return null;
+
+        if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
             if (backgroundObject != null)
             {
@@ -38,13 +48,14 @@ public class SlotManager : MonoBehaviour
             allSlotsCorrect = true;
             Debug.Log("🎉 모든 슬롯이 정답 책으로 채워졌습니다!");
 
+            PuzzleManager.Instance.CompletePuzzle(puzzleID);
             StartCoroutine(TriggerPuzzleSuccessWithDelay());
         }
     }
 
-    private System.Collections.IEnumerator TriggerPuzzleSuccessWithDelay()
+    private IEnumerator TriggerPuzzleSuccessWithDelay()
     {
-        yield return new WaitForSeconds(1f); // ⏱️ 1초 대기
+        yield return new WaitForSeconds(1f);
 
         Inventory.Instance.AddItem(chickenStatueItem);
         Door.SetActive(true);
@@ -61,7 +72,7 @@ public class SlotManager : MonoBehaviour
         return true;
     }
 
-    System.Collections.IEnumerator SlideOutBookshelf()
+    IEnumerator SlideOutBookshelf()
     {
         float distance = 1100f;
         float speed = 165f; // 초당 이동 속도

@@ -24,6 +24,7 @@ public class GameSystem : MonoBehaviour
     public void NewGame()
     {
         SceneDataManager.Instance.Data = new SceneData();
+        PuzzleManager.Instance.SetCompletedPuzzleList(new List<string>());
         SceneManager.LoadScene("StoryScene");
     }
 

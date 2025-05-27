@@ -8,36 +8,42 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
     public AudioClip openDoorClip;
     public AudioMixerGroup sfxMixerGroup;
 
+    public string puzzleID = "SecretPath";
     public Item neededItem; // Pendant
     public SpriteRenderer doorRenderer;
     public Sprite insertedPendantSprite;
     public Sprite openedDoorSprite;
     public GameObject clickableDoorObject;
     public GameObject overlayImage;
-    public string puzzleID = "SecretPath";
     public int nextStoryIndex = 301;
 
     private bool isPendantInserted = false;
     private bool isDoorOpened = false;
 
-    private IEnumerator Start()
+    void OnEnable()
+    {
+        StartCoroutine(InitializePuzzleState());
+    }
+
+    private IEnumerator InitializePuzzleState()
     {
         yield return new WaitUntil(() => PuzzleManager.Instance != null);
         yield return null;
 
-        if (!PuzzleManager.Instance.IsPuzzleCompleted(puzzleID)) yield break;
-
-        if (doorRenderer != null && openedDoorSprite != null)
+        if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
         {
-            doorRenderer.sprite = openedDoorSprite;
-        }
+            if (doorRenderer != null && openedDoorSprite != null)
+            {
+                doorRenderer.sprite = openedDoorSprite;
+            }
 
-        if (clickableDoorObject != null)
-        {
-            clickableDoorObject.SetActive(true);
-        }
+            if (clickableDoorObject != null)
+            {
+                clickableDoorObject.SetActive(true);
+            }
 
-        isDoorOpened = true;
+            isDoorOpened = true;
+        }
     }
 
     public void OnClickPuzzle()
@@ -85,12 +91,12 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
 
             if (doorRenderer != null && insertedPendantSprite != null)
             {
-                doorRenderer.sprite = openedDoorSprite;
+                doorRenderer.sprite = insertedPendantSprite;
             }
 
             Debug.Log("펜던트가 문에 꽂혔습니다. 1초 후 문이 열립니다.");
 
-            StartCoroutine(OpenDoorAfterDelay(1f)); // 1초 후 문 열림
+            StartCoroutine(OpenDoorAfterDelay(1f));
         }
     }
 
@@ -98,21 +104,7 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
     {
         yield return new WaitForSeconds(delay);
 
-        PuzzleManager.Instance.CompletePuzzleAndConsumeItem(puzzleID, neededItem);
-
-        if (doorRenderer != null && openedDoorSprite != null)
-        {
-            doorRenderer.sprite = openedDoorSprite;
-            SoundManager.PlayOneShot(gameObject, openDoorClip, sfxMixerGroup);
-        }
-
-        if (clickableDoorObject != null)
-        {
-            clickableDoorObject.SetActive(true);
-        }
-
-        isDoorOpened = true;
-        Debug.Log("문이 열렸습니다!");
+        OpenDoorFully();
     }
 
     private IEnumerator GoToStoryAfterDelay(float delay)
@@ -141,6 +133,7 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
                 mat.color = color;
                 yield return null;
             }
+
             color.a = 1f;
             mat.color = color;
         }

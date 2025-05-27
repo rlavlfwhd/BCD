@@ -4,17 +4,13 @@ public class MolePuzzleManager : MonoBehaviour
 {
     public static MolePuzzleManager Instance;
 
-    [Header("정답 선택 가능 여부")]
     public bool canChooseAnswer = false;
-
     private MoleController selectedMole;
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     public void SelectMole(MoleController mole)
@@ -31,7 +27,7 @@ public class MolePuzzleManager : MonoBehaviour
         if (!canChooseAnswer)
         {
             canChooseAnswer = true;
-            Debug.Log("✅ 정답 선택 가능 상태로 전환됨 (가이드의 3번째 대사 출력)");
+            Debug.Log("확인 가능한 상황으로 전환되었습니다.");
         }
     }
 
@@ -41,4 +37,3 @@ public class MolePuzzleManager : MonoBehaviour
         selectedMole = null;
     }
 }
-

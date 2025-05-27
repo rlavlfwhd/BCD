@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 657964111}
   - component: {fileID: 657964113}
   - component: {fileID: 657964112}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: MoleBig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1531,7 +1531,7 @@ GameObject:
   - component: {fileID: 1261099507}
   - component: {fileID: 1261099509}
   - component: {fileID: 1261099508}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: MoleGlasses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1731,7 +1731,7 @@ GameObject:
   - component: {fileID: 1500703850}
   - component: {fileID: 1500703852}
   - component: {fileID: 1500703851}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: MoleCaptian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2029,7 +2029,7 @@ GameObject:
   - component: {fileID: 1915254266}
   - component: {fileID: 1915254268}
   - component: {fileID: 1915254267}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: MoleSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2213,7 +2213,7 @@ GameObject:
   - component: {fileID: 2104830525}
   - component: {fileID: 2104830526}
   - component: {fileID: 2104830527}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MolePuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

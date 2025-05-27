@@ -1,38 +1,59 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.Collections;
 
-public class MoleController : MonoBehaviour
+public class MoleController : MonoBehaviour, IClickablePuzzle
 {
     [Header("💬 대사 목록")]
     [TextArea]
     public string[] dialogueLines;
 
-    [Header("💬 말풍선 기준 위치")]
+    [Header("💬 말푸선 기준 위치")]
     public Transform speechBubbleAnchor;
 
-    [Header("🎯 커지는 비율 & 속도")]
+    [Header("🎯 컨퍼질 비율 & 속도")]
     public float selectedScale = 1.3f;
     public float scaleSpeed = 5f;
 
-    [Header("🧩 정답인지 여부")]
+    [Header("🧩 정답인지 여분")]
     public bool isAnswer = false;
 
-    [Header("👓 가이드인지 여부")]
+    [Header("🕳️ 가이드인지 여분")]
     public bool isGuide = false;
+
+    private static readonly string puzzleID = "MolePuzzle";
 
     private int currentDialogueIndex = 0;
     private bool isDialogueFinished = false;
     private Vector3 originalScale;
     private Coroutine scaleRoutine;
+    private bool isPuzzleCompleted = false;
+
+    private void OnEnable()
+    {
+        StartCoroutine(InitializePuzzleState());
+    }
+
+    private IEnumerator InitializePuzzleState()
+    {
+        yield return new WaitUntil(() => PuzzleManager.Instance != null);
+        yield return null;
+
+        if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
+        {
+            isPuzzleCompleted = true;
+        }
+    }
 
     private void Start()
     {
         originalScale = transform.localScale;
     }
 
-    private void OnMouseDown()
+    public void OnClickPuzzle()
     {
-        MolePuzzleManager.Instance.SelectMole(this); // 크기 선택
+        if (isPuzzleCompleted) return;
+
+        MolePuzzleManager.Instance.SelectMole(this);
         ShowDialogue();
 
         if (isGuide) return;
@@ -66,37 +87,19 @@ public class MoleController : MonoBehaviour
 
     private void CheckIfCorrect()
     {
-        if (!MolePuzzleManager.Instance.canChooseAnswer)
-        {
-            Debug.Log("⚠️ 아직 정답 선택 불가 (가이드의 대사 필요)");
-            return;
-        }
+        if (!MolePuzzleManager.Instance.canChooseAnswer) return;
 
         if (isAnswer)
         {
             Debug.Log("정답! 🎯");
-
-            if (MolePuzzleFailManager.Instance != null)
-            {
-                MolePuzzleFailManager.Instance.HandleSuccess(); // ✅ 성공 → 여기로 위임
-            }
-            else
-            {
-                Debug.LogWarning("⚠️ MolePuzzleFailManager.Instance 없음!");
-            }
+            PuzzleManager.Instance.CompletePuzzle(puzzleID);
+            isPuzzleCompleted = true;
+            MolePuzzleFailManager.Instance?.HandleSuccess();
         }
         else
         {
-            Debug.Log("❌ 오답! 실패 처리 실행");
-
-            if (MolePuzzleFailManager.Instance != null)
-            {
-                MolePuzzleFailManager.Instance.HandleFail(); // ✅ 실패 → 여기로 위임
-            }
-            else
-            {
-                Debug.LogWarning("⚠️ MolePuzzleFailManager.Instance 없음!");
-            }
+            Debug.Log("오단! 패익!");
+            MolePuzzleFailManager.Instance?.HandleFail();
         }
     }
 
@@ -114,7 +117,7 @@ public class MoleController : MonoBehaviour
         scaleRoutine = StartCoroutine(ScaleTo(originalScale));
     }
 
-    private System.Collections.IEnumerator ScaleTo(Vector3 targetScale)
+    private IEnumerator ScaleTo(Vector3 targetScale)
     {
         while (Vector3.Distance(transform.localScale, targetScale) > 0.01f)
         {
@@ -124,4 +127,3 @@ public class MoleController : MonoBehaviour
         transform.localScale = targetScale;
     }
 }
-
