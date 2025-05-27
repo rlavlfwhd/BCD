@@ -1894,10 +1894,9 @@ MonoBehaviour:
   neededItem: {fileID: 11400000, guid: 6d87c82a5cffb8241b6e380d9262366f, type: 2}
   windowRenderer: {fileID: 1369368397}
   openedWindowSprite: {fileID: 21300000, guid: 2f403786665f9314dacbd8bc9e1e4ea8, type: 3}
-  clickableWindowObject: {fileID: 1369368394}
   overlayImage: {fileID: 1101422439}
   puzzleID: window_rope
-  nextStoryIndex: 46
+  nextStoryIndex: 40
 --- !u!212 &1369368397
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1986,7 +1985,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 30.640001, y: 28.24625}
+    oldSize: {x: 19.2, y: 10.8}
     newSize: {x: 30.640001, y: 28.24625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

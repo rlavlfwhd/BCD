@@ -3442,7 +3442,7 @@ MonoBehaviour:
   clickableDoorObject: {fileID: 711631879}
   overlayImage: {fileID: 1044726594}
   puzzleID: Pendant
-  nextStoryIndex: 61
+  nextStoryIndex: 99
 --- !u!212 &711631882
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -12,23 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: MainStory 4
   m_EditorClassIdentifier: 
-  storyNumber: 499
+  storyNumber: 126
   MainImage: {fileID: 2800000, guid: 8df3ed7736650ac4dae5969fcf4becf1, type: 3}
   MainImage2: {fileID: 2800000, guid: 904eb0cb90dfc2c4589b994c4dd39f95, type: 3}
-  storyText: "\n-4\uC77C\uCC28-\n\n\uC5B4\uB290 \uBC24, \uBC29\uC758 \uBC1C\uCF54\uB2C8\uC5D0\uC11C
-    \uBC24\uD558\uB298\uC744 \uAC10\uC0C1\uD558\uB358 \uACF5\uC8FC\uB294 \uCC2C\uB780\uD558\uAC8C
-    \uBE5B\uB098\uB294 \uBCC4\uC744 \uBCF4\uACE0 \uBC16\uC5D0 \uB098\uAC00\uC11C
-    \uBCF4\uACE0 \uC2F6\uB2E4\uB294 \uC0DD\uAC01\uC774 \uB4E4\uC5C8\uC2B5\uB2C8\uB2E4.\n\n\"\uD14C\uC624\uB3C4\uB974,
-    \uBC16\uC5D0 \uB098\uAC00\uBA74 \uBCC4\uC774 \uB354 \uBE5B\uB098\uAC8C \uBCF4\uC77C
-    \uAC83 \uAC19\uC544. \uC7A0\uAE50\uC774\uB77C\uB3C4 \uB098\uAC14\uB2E4 \uC624\uBA74
-    \uC548\uB420\uAE4C?\"\n\n"
+  storyText: "    \uB098\uB808\uC774\uC158 : \uACC4\uB2E8 \uC704, \uC655\uBE44\uC758
+    \uD754\uC801\uC774 \uACE0\uC2A4\uB780\uD788 \uB0A8\uC544 \uC788\uB294 \uBC29."
   options:
   - buttonText: "\uC640\uC778 \uD37C\uC990\uB85C \uC774\uB3D9\uD558\uAE30."
     eventCheck:
       sucessResult:
-      - resultType: 2
-        value: 0
-        changeSceneName: PWineScene
+      - resultType: 0
+        value: 127
+        changeSceneName: 
+    requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}
