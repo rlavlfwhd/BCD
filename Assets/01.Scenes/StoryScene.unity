@@ -982,6 +982,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 32899d01e52eea341a28cad9c6a19c70, type: 2}
   - {fileID: 11400000, guid: 718fe53efffde7e4aa79bbf975fa239e, type: 2}
   - {fileID: 11400000, guid: 33e64fea33eae1b4da4814b42f5472f9, type: 2}
+  - {fileID: 11400000, guid: b75e6b72712f56d409bf4bb5a07722c0, type: 2}
   currentStoryIndex: 1
   currentStoryModel: {fileID: 0}
   delay: 0.01

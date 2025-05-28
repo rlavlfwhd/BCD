@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: 29(Choice)
   m_EditorClassIdentifier: 
-  storyNumber: 29
+  storyNumber: 30
   MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
   MainImage2: {fileID: 2800000, guid: 2956c8e3d6e458a49b4df4cfb32bf1a3, type: 3}
   storyText: '-'
@@ -37,7 +37,7 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 30
+        value: 31
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
