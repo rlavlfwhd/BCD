@@ -15,7 +15,7 @@ MonoBehaviour:
   storyNumber: 30
   MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
   MainImage2: {fileID: 2800000, guid: b967c3e30461b5440bb94634eaf8cf37, type: 3}
-  storyText: "\uB2E4\uC2DC\uB3CC\uC544\uC654\uB2E4.. \uD734\uAEF5\u3131\uACA8\uACA9"
+  storyText: "    \uACF5\uC8FC : \uC74C \uB2E4\uB978 \uBC29\uBC95\uC774 \uC5C6\uC744\uAE4C..."
   options:
   - buttonText: "i : \uBC29\uC548\uC5D0\uC11C \uD0C8\uCD9C\uD560 \uAC83\uC744 \uCC3E\uB294\uB2E4"
     eventCheck:
@@ -29,7 +29,7 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 28
+        value: 31
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []

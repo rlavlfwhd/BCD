@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 78
   m_EditorClassIdentifier: 
   storyNumber: 78
-  MainImage: {fileID: 2800000, guid: 4b430a21987d2264d986320a0e30f739, type: 3}
+  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
   MainImage2: {fileID: 2800000, guid: 96d57fdc51145344a9ed4731908298a6, type: 3}
   storyText: "    \uC815\uC6D0\uC0AC :  \"\uACF5\uC8FC\uB2D8\uC774 \uD78C\uD2B8\uB97C
     \uC5BB\uC744 \uC218 \uC788\uB294 \uACF3\uC740 \uC54C\uACE0 \uC788\uC2B5\uB2C8\uB2E4.\""
@@ -25,6 +25,7 @@ MonoBehaviour:
         value: 79
         changeSceneName: 
     requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}

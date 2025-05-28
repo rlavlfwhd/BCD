@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyNumber: 28
   MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
-  MainImage2: {fileID: 2800000, guid: 6d27dc9bade5a594a9ee890fe788804f, type: 3}
+  MainImage2: {fileID: 2800000, guid: 2956c8e3d6e458a49b4df4cfb32bf1a3, type: 3}
   storyText: "    \uACF5\uC8FC : \uC544\uC9C1 \uC774\uACF3\uC740 \uAC00\uBA74 \uC548\uB420
     \uAC83 \uAC19\uC5D0.."
   options:

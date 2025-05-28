@@ -67,8 +67,8 @@ public class ChapterController : MonoBehaviour
 
     public static int GetChapterIndexForStoryNumber(int number)
     {
-        if (number >= 50) return 2;
-        if (number >= 20) return 1;
+        if (number >= 99) return 2;
+        if (number >= 40) return 1;
         return 0;
     }
 
