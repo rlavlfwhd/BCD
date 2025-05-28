@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: MainStory 5
   m_EditorClassIdentifier: 
-  storyNumber: 140
+  storyNumber: 27
   MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
   MainImage2: {fileID: 2800000, guid: 17c350171f7a3ca479f830547c66d187, type: 3}
   storyText: "    \uB098\uB808\uC774\uC158 : \uBCF5\uB3C4 \uC544\uB798\uCABD, \uC5B4\uB451\uD55C
@@ -23,7 +23,7 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 141
+        value: 28
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []

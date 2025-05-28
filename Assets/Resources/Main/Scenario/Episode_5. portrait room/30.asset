@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
-  m_Name: 140
+  m_Name: 30
   m_EditorClassIdentifier: 
-  storyNumber: 140
+  storyNumber: 30
   MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
   MainImage2: {fileID: 2800000, guid: 17c350171f7a3ca479f830547c66d187, type: 3}
-  storyText: "    \uB098\uB808\uC774\uC158 : \uBCF5\uB3C4 \uC544\uB798\uCABD, \uC5B4\uB451\uD55C
-    \uBB38 \uB4A4\uB85C \uC624\uB798\uB41C \uCD08\uC0C1\uD654\uB4E4\uC774 \uC904\uC9C0\uC5B4
-    \uC788\uC5C8\uB2E4."
+  storyText: "    \uACF5\uC8FC : \"\uAC89\uBAA8\uC2B5\uC5D0 \uC18D\uC9C0 \uB9D0\uB7AC\uC9C0...\uC5EC\uAE30\uB3C4
+    \uD568\uC815\uC77C \uC218 \uC788\uC5B4.\""
   options:
   - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 141
+        value: 31
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []

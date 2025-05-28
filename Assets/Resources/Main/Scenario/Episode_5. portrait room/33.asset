@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
-  m_Name: 142
+  m_Name: 33
   m_EditorClassIdentifier: 
-  storyNumber: 142
+  storyNumber: 33
   MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
   MainImage2: {fileID: 2800000, guid: 17c350171f7a3ca479f830547c66d187, type: 3}
-  storyText: "    \uACF5\uC8FC : \"\uAC89\uBAA8\uC2B5\uC5D0 \uC18D\uC9C0 \uB9D0\uB7AC\uC9C0...\uC5EC\uAE30\uB3C4
-    \uD568\uC815\uC77C \uC218 \uC788\uC5B4.\""
+  storyText: "    \uACF5\uC8FC : \"\uBB54\uAC00 \uBE60\uC9C4 \uB290\uB08C\uC774\uC57C.
+    \uC544\uC9C1 \uC774\uAC78 \uD480 \uC218 \uC5C6\uC5B4.\""
   options:
   - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 143
+        value: 34
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []

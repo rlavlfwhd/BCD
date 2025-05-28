@@ -10,19 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
-  m_Name: 92
+  m_Name: 30
   m_EditorClassIdentifier: 
-  storyNumber: 92
+  storyNumber: 30
   MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
-  MainImage2: {fileID: 2800000, guid: 6d27dc9bade5a594a9ee890fe788804f, type: 3}
-  storyText: "     \uD558\uC9C0\uB9CC \uC774\uBC88\uC5D4 \uB2E8\uC21C\uD788 \uAC07\uD798\uC774
-    \uC544\uB2C8\uB77C \uC2A4\uC2A4\uB85C \uCC3E\uC73C\uB7EC \uB3CC\uC544\uC628 \uC7A5\uC18C\uC600\uB2E4."
+  MainImage2: {fileID: 2800000, guid: b967c3e30461b5440bb94634eaf8cf37, type: 3}
+  storyText: "\uB2E4\uC2DC\uB3CC\uC544\uC654\uB2E4.. \uD734\uAEF5\u3131\uACA8\uACA9"
   options:
-  - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
+  - buttonText: "i : \uBC29\uC548\uC5D0\uC11C \uD0C8\uCD9C\uD560 \uAC83\uC744 \uCC3E\uB294\uB2E4"
+    eventCheck:
+      sucessResult:
+      - resultType: 2
+        value: 0
+        changeSceneName: PWindowScene
+    requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
+  - buttonText: "ii : \uBCF5\uB3C4\uB85C \uB098\uAC04\uB2E4"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 93
+        value: 28
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []

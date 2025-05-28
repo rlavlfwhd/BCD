@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
-  m_Name: 145
+  m_Name: 28
   m_EditorClassIdentifier: 
-  storyNumber: 145
-  MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
-  MainImage2: {fileID: 2800000, guid: 17c350171f7a3ca479f830547c66d187, type: 3}
-  storyText: "    \uB098\uB808\uC774\uC158 : \uD55C \uAC78\uC74C, \uAC78\uC74C\uB9C8\uB2E4
-    \uD78C\uD2B8\uC758 \uC758\uBBF8\uAC00 \uBA38\uB9BF\uC18D\uC744 \uB9F4\uB3CC\uC558\uB2E4."
+  storyNumber: 28
+  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
+  MainImage2: {fileID: 2800000, guid: 6d27dc9bade5a594a9ee890fe788804f, type: 3}
+  storyText: "    \uACF5\uC8FC : \uC544\uC9C1 \uC774\uACF3\uC740 \uAC00\uBA74 \uC548\uB420
+    \uAC83 \uAC19\uC5D0.."
   options:
   - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 145
+        value: 29
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
