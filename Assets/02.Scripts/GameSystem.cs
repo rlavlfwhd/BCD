@@ -25,7 +25,7 @@ public class GameSystem : MonoBehaviour
     {
         SceneDataManager.Instance.Data = new SceneData();
         PuzzleManager.Instance.SetCompletedPuzzleList(new List<string>());
-        SceneManager.LoadScene("StoryScene");
+        StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
     }
 
 
@@ -63,21 +63,36 @@ public class GameSystem : MonoBehaviour
 
     public void LoadGame(int slot)
     {
-        var saveData = SaveSystem.LoadGame(slot);
-        if (saveData == null) return;
+        StartCoroutine(LoadGameWithFade(slot));
+    }
 
+    private IEnumerator LoadGameWithFade(int slot)
+    {
+        var saveData = SaveSystem.LoadGame(slot);
+        if (saveData == null) yield break;
+
+        
         SceneDataManager.Instance.Data = new SceneData();
         SceneDataManager.Instance.Data = saveData.sceneState;
 
-        if (SceneManager.GetActiveScene().name != saveData.sceneName)
+        // 3. 씬 전환(필요시)
+        if (saveData.sceneName == "StoryScene")
         {
-            SceneManager.LoadScene(saveData.sceneName);
-            StartCoroutine(DeferredLoadAfterScene(saveData));
-            return;
+            // 스토리씬(스토리번호 기준 챕터 연출)
+            yield return FadeManager.Instance.FadeToStoryScene("StoryScene");
+        }
+        else
+        {
+            // 퍼즐씬(씬 이름 기준 챕터 연출)
+            yield return FadeManager.Instance.FadeToChoiceScene(saveData.sceneName);
         }
 
-        SceneManager.LoadScene(saveData.sceneName);
-        StartCoroutine(DeferredLoadAfterScene(saveData));
+        // 씬 완전히 전환되고 한 프레임 대기
+        yield return null;
+
+
+        // 5. 게임 상태 복원
+        yield return DeferredLoadAfterScene(saveData);
     }
 
     private IEnumerator DeferredLoadAfterScene(SaveSystem.SaveData saveData)
@@ -119,5 +134,5 @@ public class GameSystem : MonoBehaviour
 
         StorySystem.Instance.currentStoryIndex = storyIndex;
         StorySystem.Instance.StoryShow(storyIndex);
-    }
+    }    
 }

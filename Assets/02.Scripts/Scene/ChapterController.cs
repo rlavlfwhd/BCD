@@ -1,30 +1,39 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class ChapterController : MonoBehaviour
 {
     public static ChapterController Instance;
 
+    // 각 챕터용 GameObject 배열 (기존에는 PlayableDirector를 포함한 Timeline 오브젝트였으나, 이제는 단순 GameObject로 처리)
     public GameObject[] chapters;
+    // 현재 활성화된 챕터 GameObject
     public GameObject activeChapter;
+    // 챕터 연출이 완료되었을 때 호출될 콜백
     public System.Action OnChapterFinished;
 
-    //  ����� �̸� �� é�� �ε��� ����
+    // 퍼즐 씬 이름과 매칭되는 챕터 인덱스를 정의 (필요에 따라 수정 가능)
     private Dictionary<string, int> puzzleSceneChapterMap = new Dictionary<string, int>()
-    {        
+    {
         { "PBookshelfScene", 8 },
         { "PWindowScene", 9 }
     };
 
+    private Dictionary<string, int> storySceneChapterMap = new Dictionary<string, int>()
+    {
+        { "StoryScene", 0 }, // or whatever chapter index you want
+    };
+
+
     private void Awake()
     {
+        // 싱글톤 패턴 설정
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // �� ��ȯ �� ����
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -44,86 +53,89 @@ public class ChapterController : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"[ChapterController] �� �ε��: {scene.name}");
+        Debug.Log("[ChapterController] 씬 로드됨: " + scene.name);
 
         string sceneName = scene.name;
 
-        if (activeChapter != null)
-        {
-            activeChapter.SetActive(false);
-            activeChapter = null;
-        }
+        // 이전에 활성화된 챕터가 있으면 비활성화
+        
 
-        if (puzzleSceneChapterMap.TryGetValue(sceneName, out int chapterIndex))
+        // 퍼즐 씬인지 매핑 테이블에서 확인
+        int chapterIndex;
+        if (puzzleSceneChapterMap.TryGetValue(sceneName, out chapterIndex))
         {
-            Debug.Log($"[ChapterController] ����� ������: {sceneName} �� é�� {chapterIndex}");
+            Debug.Log("[ChapterController] 퍼즐씬 발견, 챕터 인덱스: " + chapterIndex);
             ChangeChapter(chapterIndex);
         }
         else
         {
-            Debug.Log($"[ChapterController] ����������� é�� ���� ����: {sceneName}");
+            Debug.Log("[ChapterController] 일반 스토리 씬: " + sceneName);
         }
     }
 
+    public bool TryGetChapterIndexForScene(string sceneName, out int chapterIndex)
+{
+    return puzzleSceneChapterMap.TryGetValue(sceneName, out chapterIndex);
+}
+
+    public bool TryGetChapterIndexForStoryScene(string sceneName, out int chapterIndex)
+    {
+        return storySceneChapterMap.TryGetValue(sceneName, out chapterIndex);
+    }
+
+
+    // 스토리 번호에 따라 챕터 인덱스를 반환 (필요 시 조정)
     public static int GetChapterIndexForStoryNumber(int number)
     {
-        if (number >= 99) return 2;
-        if (number >= 40) return 1;
+        if (number >= 99)
+        {
+            return 2;
+        }
+        if (number >= 40)
+        {
+            return 1;
+        }
         return 0;
     }
 
+    // 챕터를 전환하고 페이드인 연출만 실행
     public void ChangeChapter(int chapterIndex)
     {
-        if (activeChapter != null)
-        {
-            PlayableDirector prevDirector = activeChapter.GetComponent<PlayableDirector>();
-            if (prevDirector != null)
-                prevDirector.Stop();
-
-            activeChapter.SetActive(false);
-        }
-
-        if (chapterIndex < 0 || chapters == null || chapterIndex >= chapters.Length)
-        {
-            Debug.LogWarning($"[ChapterController] ��ȿ���� ���� é�� �ε���: {chapterIndex}");
-            return;
-        }
+        var go = ShowChapterObjectOnly(chapterIndex);
+        if (go != null)
+            StartCoroutine(ChapterFadeFlow(go));
+    }
+    public GameObject ShowChapterObjectOnly(int chapterIndex)
+    {
+        if (chapters == null || chapterIndex < 0 || chapterIndex >= chapters.Length)
+            return null;
 
         activeChapter = chapters[chapterIndex];
         activeChapter.SetActive(true);
-
-        PlayableDirector newDirector = activeChapter.GetComponent<PlayableDirector>();
-        if (newDirector != null)
-        {
-            newDirector.playOnAwake = false;
-            newDirector.Play();
-            StartCoroutine(DisableChapterAfterTimeline(newDirector));
-        }
-        else
-        {
-            StartCoroutine(DisableChapterAfterSeconds(2.0f));
-        }
+        return activeChapter;
     }
 
-    private IEnumerator DisableChapterAfterTimeline(PlayableDirector director)
+    
+    private IEnumerator ChapterFadeFlow(GameObject chapterGO)
     {
-        yield return new WaitForSeconds((float)director.duration);
+        yield return new WaitForSeconds(2.0f);
 
-        if (activeChapter != null)
-            activeChapter.SetActive(false);
+        // 1) FadeManager가 있으면 페이드인 실행
+        if (FadeManager.Instance != null)
+        {
+            yield return FadeManager.Instance.FadeIn();
+        }
 
+        // 3) 화면에서 챕터 비활성화 (페이드 아웃 없이 바로 꺼짐)
+        if (chapterGO != null)
+        {
+            chapterGO.SetActive(false);
+        }
+
+        // 4) 챕터 연출이 끝났을 때 콜백 호출
         if (OnChapterFinished != null)
         {
             OnChapterFinished();
-        }
-    }
-
-    private IEnumerator DisableChapterAfterSeconds(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        if (activeChapter != null)
-        {
-            activeChapter.SetActive(false);
         }
     }
 }

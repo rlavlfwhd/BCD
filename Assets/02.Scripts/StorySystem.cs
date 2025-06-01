@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
@@ -160,9 +159,9 @@ public class StorySystem : MonoBehaviour
 
         if (currentStoryModel.MainImage2 != null)
         {
-            Rect rect = new Rect(0, 0, currentStoryModel.MainImage2.width, currentStoryModel.MainImage2.height);
-            Sprite sprite = Sprite.Create(currentStoryModel.MainImage2, rect, new Vector2(0.5f, 0.5f));
-            imageComponent2.sprite = sprite;
+            Rect rect2 = new Rect(0, 0, currentStoryModel.MainImage2.width, currentStoryModel.MainImage2.height);
+            Sprite sprite2 = Sprite.Create(currentStoryModel.MainImage2, rect2, new Vector2(0.5f, 0.5f));
+            imageComponent2.sprite = sprite2;
         }
 
         yield return new WaitForSeconds(delay);
@@ -200,7 +199,7 @@ public class StorySystem : MonoBehaviour
                 break;
 
             case StoryModel.Result.ResultType.GoToChoiceScene:
-                SceneManager.LoadScene(result.changeSceneName);
+                StartCoroutine(FadeManager.Instance.FadeToChoiceScene(result.changeSceneName));
                 break;
 
             default:
@@ -249,8 +248,6 @@ public class StorySystem : MonoBehaviour
             Debug.LogError($"스토리 모델을 찾을 수 없음: {number}");
         }
     }
-
-
 
     StoryModel FindStoryModel(int number)
     {
