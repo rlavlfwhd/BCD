@@ -48,8 +48,6 @@ public class InventoryToggleUI : MonoBehaviour
         {
             return;
         }
-
-        
     }
 
     public void ToggleInventory()

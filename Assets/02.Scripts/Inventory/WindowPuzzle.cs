@@ -116,6 +116,6 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
         yield return new WaitForSeconds(delay);
 
         SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
-        SceneManager.LoadScene("StoryScene");
+        StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
     }
 }
