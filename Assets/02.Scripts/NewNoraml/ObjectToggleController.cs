@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ObjectToggleController : MonoBehaviour
 {
-    public GameObject buttonObject;
+    public GameObject buttonObject;       // backHam 버튼
     public Button toggleButton;           // 버튼 연결
     public GameObject[] targets;          // 토글할 오브젝트들
 

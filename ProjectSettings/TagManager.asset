@@ -18,11 +18,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Crop
   - Tile
   - Block
   - Item
   - PuzzleObj
+  - DragLayer
   - 
   - 
   - 

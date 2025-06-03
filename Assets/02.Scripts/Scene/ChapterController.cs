@@ -17,15 +17,13 @@ public class ChapterController : MonoBehaviour
     // 퍼즐 씬 이름과 매칭되는 챕터 인덱스를 정의 (필요에 따라 수정 가능)
     private Dictionary<string, int> puzzleSceneChapterMap = new Dictionary<string, int>()
     {
+        { "PGardenScene", 4 },
+        { "PWineScene", 5 },
+        { "PFlowerScene", 6 },
+        { "PMoleeScene", 7 },
         { "PBookshelfScene", 8 },
         { "PWindowScene", 9 }
     };
-
-    private Dictionary<string, int> storySceneChapterMap = new Dictionary<string, int>()
-    {
-        { "StoryScene", 0 }, // or whatever chapter index you want
-    };
-
 
     private void Awake()
     {
@@ -57,9 +55,6 @@ public class ChapterController : MonoBehaviour
 
         string sceneName = scene.name;
 
-        // 이전에 활성화된 챕터가 있으면 비활성화
-        
-
         // 퍼즐 씬인지 매핑 테이블에서 확인
         int chapterIndex;
         if (puzzleSceneChapterMap.TryGetValue(sceneName, out chapterIndex))
@@ -67,22 +62,12 @@ public class ChapterController : MonoBehaviour
             Debug.Log("[ChapterController] 퍼즐씬 발견, 챕터 인덱스: " + chapterIndex);
             ChangeChapter(chapterIndex);
         }
-        else
-        {
-            Debug.Log("[ChapterController] 일반 스토리 씬: " + sceneName);
-        }
     }
 
     public bool TryGetChapterIndexForScene(string sceneName, out int chapterIndex)
-{
-    return puzzleSceneChapterMap.TryGetValue(sceneName, out chapterIndex);
-}
-
-    public bool TryGetChapterIndexForStoryScene(string sceneName, out int chapterIndex)
     {
-        return storySceneChapterMap.TryGetValue(sceneName, out chapterIndex);
+        return puzzleSceneChapterMap.TryGetValue(sceneName, out chapterIndex);
     }
-
 
     // 스토리 번호에 따라 챕터 인덱스를 반환 (필요 시 조정)
     public static int GetChapterIndexForStoryNumber(int number)

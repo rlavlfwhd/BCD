@@ -72,25 +72,7 @@ public class PuzzleManager : MonoBehaviour
     {
         completedPuzzles = new HashSet<string>(list);
     }
-    public void HandlePuzzleSuccess(Image targetImage, Sprite newSprite, int nextStoryIndex, string puzzleID)
-    {
-        if (IsPuzzleCompleted(puzzleID)) return;
-
-        CompletePuzzle(puzzleID);
-
-        if (targetImage != null && newSprite != null)
-            targetImage.sprite = newSprite;
-
-        StartCoroutine(GoToNextStory(nextStoryIndex));
-    }
-
-
-    private IEnumerator GoToNextStory(int storyIndex)
-    {
-        yield return new WaitForSeconds(2f);
-        StorySystem.Instance.StoryShow(storyIndex);
-    }
-
+    
 
     public void RestoreItemState()
     {

@@ -67,6 +67,7 @@ public class FlowerPuzzleController : MonoBehaviour
         {
             Debug.Log("🎉 퍼즐 클리어!");
             isCleared = true;
+            PuzzleManager.Instance.CompletePuzzle("FlowerPuzzle");
 
             MoveFairyToHoney();
         }
@@ -119,10 +120,9 @@ public class FlowerPuzzleController : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         Debug.Log($"🚪 씬 이동: {nextSceneName}, 스토리 인덱스: {nextStoryIndex}");
-        SceneManager.LoadScene(nextSceneName);
 
-        // 스토리 인덱스 정보 전달
         SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
+        StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
     }
 
     public void FailPuzzle()
@@ -139,6 +139,15 @@ public class FlowerPuzzleController : MonoBehaviour
             Debug.LogWarning("⚠️ FadeController 없음. 씬 재시작");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+        public bool IsPuzzleCleared()
+    {
+        return isCleared;
+    }
+
+    public bool IsFairyMoving()
+    {
+        return fairy != null && fairy.IsMoving();
     }
 }
 

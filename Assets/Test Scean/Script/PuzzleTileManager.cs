@@ -42,6 +42,7 @@ public class PuzzleTileManager : MonoBehaviour
     public string nextSceneName;
 
     private bool isPuzzleCleared = false;
+    
 
     private void Update()
     {
@@ -120,7 +121,7 @@ public class PuzzleTileManager : MonoBehaviour
             {
                 Debug.Log($"📦 nextStoryIndex({nextStoryIndex}) 저장 후 StoryScene으로 이동");
                 SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
-                SceneManager.LoadScene("StoryScene");
+                StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
             }
             else if (!string.IsNullOrEmpty(nextSceneName))
             {

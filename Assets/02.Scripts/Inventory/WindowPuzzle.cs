@@ -15,7 +15,7 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
     public SpriteRenderer windowRenderer;
     public Sprite openedWindowSprite;    
     public GameObject overlayImage;    
-    public int nextStoryIndex = 46;
+    public int nextStoryIndex = 40;
 
     private bool isWindowOpened = false;
 

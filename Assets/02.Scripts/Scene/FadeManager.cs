@@ -55,12 +55,7 @@ public class FadeManager : MonoBehaviour
             timer += Time.deltaTime;
             fadeCanvasGroup.alpha = Mathf.Lerp(0f, 1f, timer / fadeDuration);
             yield return null;
-        }
-
-        // 페이드아웃이 끝난 뒤에는 비활성화
-        fadeCanvasGroup.alpha = 1f;
-        fadeCanvasGroup.interactable = false;
-        fadeCanvasGroup.blocksRaycasts = false;
+        }        
     }
 
     // 페이드인: alpha가 1 → 0 으로 변경되어 검은 화면에서 해제
@@ -69,11 +64,7 @@ public class FadeManager : MonoBehaviour
         if (fadeCanvasGroup == null)
         {
             yield break;
-        }
-
-        // 연출 시작 시점: 상호작용 차단 활성화
-        fadeCanvasGroup.interactable = true;
-        fadeCanvasGroup.blocksRaycasts = true;
+        }        
 
         float timer = 0f;
         while (timer < fadeDuration)
@@ -93,6 +84,17 @@ public class FadeManager : MonoBehaviour
     {
         int nextStoryIndex = SceneDataManager.Instance.Data.nextStoryIndex;
         int chapterIndex = ChapterController.GetChapterIndexForStoryNumber(nextStoryIndex);
+
+        ChapterController.Instance.ShowChapterObjectOnly(chapterIndex);
+
+        yield return FadeManager.Instance.FadeOut();
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public IEnumerator FadeToLoadStoryScene(string sceneName)
+    {
+        int currentStoryIndex = SceneDataManager.Instance.Data.currentStoryIndex;
+        int chapterIndex = ChapterController.GetChapterIndexForStoryNumber(currentStoryIndex);
 
         ChapterController.Instance.ShowChapterObjectOnly(chapterIndex);
 

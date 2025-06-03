@@ -3161,11 +3161,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -3654,8 +3654,9 @@ GameObject:
   - component: {fileID: 1386248754}
   - component: {fileID: 1386248755}
   - component: {fileID: 1386248756}
+  - component: {fileID: 1386248757}
   m_Layer: 0
-  m_Name: ClickManager
+  m_Name: InteractManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3692,10 +3693,10 @@ MonoBehaviour:
   invent: {fileID: 580354446}
   blockerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 128
   clickable2DMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
 --- !u!114 &1386248754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3739,8 +3740,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 128
   puzzleLayer:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!114 &1386248757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386248750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cbf925c9c48b840ab3e0564dc2a5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  dragLayer:
     serializedVersion: 2
     m_Bits: 1024
 --- !u!1 &1387575355
@@ -5163,6 +5182,7 @@ MonoBehaviour:
   - {fileID: 1387575355}
   - {fileID: 471840062}
   - {fileID: 952024178}
+  activeChapter: {fileID: 0}
 --- !u!114 &1930539877
 MonoBehaviour:
   m_ObjectHideFlags: 0

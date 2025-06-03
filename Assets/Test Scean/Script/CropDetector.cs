@@ -5,29 +5,19 @@
 /// </summary>
 public class CropDetector : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("PlaceSlot"))
         {
-            PuzzleTile tile = other.GetComponent<PuzzleTile>();
-            if (tile != null)
-            {
-                tile.isOn = true;
-                tile.UpdateVisual();
-            }
+            PuzzleTile tile = other.GetComponent<PuzzleTile>();            
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("PlaceSlot"))
         {
             PuzzleTile tile = other.GetComponent<PuzzleTile>();
-            if (tile != null)
-            {
-                tile.isOn = false;
-                tile.UpdateVisual();
-            }
         }
     }
 }

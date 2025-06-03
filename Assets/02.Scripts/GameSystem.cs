@@ -51,6 +51,7 @@ public class GameSystem : MonoBehaviour
                 File.WriteAllBytes(imagePath2, currentStory.MainImage2.EncodeToPNG());
             }
         }
+        SceneDataManager.Instance.Data.currentStoryIndex = StorySystem.Instance.currentStoryIndex;
 
         List<string> itemNames = new List<string>();
         foreach (var item in Inventory.Instance.items)
@@ -79,7 +80,7 @@ public class GameSystem : MonoBehaviour
         if (saveData.sceneName == "StoryScene")
         {
             // 스토리씬(스토리번호 기준 챕터 연출)
-            yield return FadeManager.Instance.FadeToStoryScene("StoryScene");
+            yield return FadeManager.Instance.FadeToLoadStoryScene("StoryScene");
         }
         else
         {
@@ -133,6 +134,7 @@ public class GameSystem : MonoBehaviour
         }
 
         StorySystem.Instance.currentStoryIndex = storyIndex;
+        SceneDataManager.Instance.Data.currentStoryIndex = storyIndex;
         StorySystem.Instance.StoryShow(storyIndex);
     }    
 }

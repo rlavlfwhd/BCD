@@ -1,31 +1,32 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PuzzleClickHandler : MonoBehaviour
+public class PuzzleDragHandler : MonoBehaviour
 {
-    [SerializeField] private LayerMask blockerMask;
-    [SerializeField] private LayerMask puzzleLayer;
+    [SerializeField] private LayerMask blockLayer;
+    [SerializeField] private LayerMask dragLayer;
+
+    private DraggableObj2D draggingObject = null;
+    private Vector3 dragOffset;
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (IsPointerOverUI())
-            {
-                return;
-            }
+            if (IsPointerOverUI()) return;
 
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            RaycastHit2D blockHit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, blockerMask);
-            RaycastHit2D[] puzzleHits = Physics2D.RaycastAll(mousePos, Vector2.zero, Mathf.Infinity, puzzleLayer);
+            RaycastHit2D blockHit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, blockLayer);
+            RaycastHit2D[] dragHits = Physics2D.RaycastAll(mousePos, Vector2.zero, Mathf.Infinity, dragLayer);
 
             RaycastHit2D targetHit = default;
             bool hasTarget = false;
             int highestOrder = int.MinValue;
 
-            foreach (var hit in puzzleHits)
+            foreach (var hit in dragHits)
             {
                 SpriteRenderer sr = hit.collider.GetComponent<SpriteRenderer>();
                 if (sr != null && sr.sortingOrder > highestOrder)
@@ -36,26 +37,39 @@ public class PuzzleClickHandler : MonoBehaviour
                 }
             }
 
-            // 클릭 막기
             if (blockHit.collider != null)
             {
                 SpriteRenderer blockSR = blockHit.collider.GetComponent<SpriteRenderer>();
                 if (blockSR != null && blockSR.sortingOrder >= highestOrder)
                 {
-                    Debug.Log("Block 오브젝트에 의해 클릭 차단됨");
+                    Debug.Log("Block 오브젝트에 의해 드래그 차단됨");
                     return;
                 }
             }
 
-            // 퍼즐 클릭 실행
             if (hasTarget)
             {
-                IClickablePuzzle puzzle = targetHit.collider.GetComponentInParent<IClickablePuzzle>();
-                if (puzzle != null)
+                draggingObject = targetHit.collider.GetComponent<DraggableObj2D>();
+                if (draggingObject != null)
                 {
-                    Debug.Log("IClickablePuzzle 클릭 호출: " + targetHit.collider.gameObject.name);
-                    puzzle.OnClickPuzzle();
+                    dragOffset = draggingObject.transform.position - (Vector3)mousePos;
+                    draggingObject.OnDragStart();
                 }
+            }
+        }
+
+        if (draggingObject != null)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePoint.z = 0;
+                draggingObject.OnDragMove(mousePoint + dragOffset);
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                draggingObject.OnDragEnd();
+                draggingObject = null;
             }
         }
     }
@@ -74,7 +88,6 @@ public class PuzzleClickHandler : MonoBehaviour
             if (graphic != null && graphic.raycastTarget)
                 return true;
         }
-
         return false;
     }
 }

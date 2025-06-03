@@ -146,8 +146,8 @@ public class WinePuzzleManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f); // 추가 지연 시간
 
-        SceneDataManager.Instance.Data.nextStoryIndex = storyIndex;
-        SceneManager.LoadScene("StoryScene");
+        SceneDataManager.Instance.Data.nextStoryIndex = successStoryIndex;
+        StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
     }
 
     public bool IsPuzzleCompleted() => isPuzzleCompleted;

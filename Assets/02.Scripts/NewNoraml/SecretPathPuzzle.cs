@@ -15,7 +15,7 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
     public Sprite openedDoorSprite;
     public GameObject clickableDoorObject;
     public GameObject overlayImage;
-    public int nextStoryIndex = 301;
+    public int nextStoryIndex = 99;
 
     private bool isPendantInserted = false;
     private bool isDoorOpened = false;
@@ -141,6 +141,6 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
         yield return new WaitForSeconds(delay);
 
         SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
-        SceneManager.LoadScene("StoryScene");
+        StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
     }
 }

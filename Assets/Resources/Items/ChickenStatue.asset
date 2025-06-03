@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ChickenStatue
   m_EditorClassIdentifier: 
   itemName: ChickenStatue
-  itemImage: {fileID: 21300000, guid: 5502dbe3108c13c4ea40842d2f215a0f, type: 3}
+  itemImage: {fileID: -1669543434, guid: 5502dbe3108c13c4ea40842d2f215a0f, type: 3}

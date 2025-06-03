@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FlowerController : MonoBehaviour
+public class FlowerController : MonoBehaviour, IClickablePuzzle
 {
     [Header("🌸 꽃 스프라이트 설정")]
     public SpriteRenderer flowerSprite;          // 꽃 이미지를 표시하는 SpriteRenderer
@@ -21,6 +21,12 @@ public class FlowerController : MonoBehaviour
 
     private Coroutine fadeCoroutine;               // 현재 실행 중인 페이드 코루틴 (중복 방지용)
 
+    private FlowerPuzzleController flowerPuzzleController;
+
+    private void Start()
+    {
+        flowerPuzzleController = FindObjectOfType<FlowerPuzzleController>();
+    }
     /// <summary>
     /// 꽃잎을 하나 떨어뜨리는 함수 (페이드 전환 + 꽃잎 이펙트 생성)
     /// </summary>
@@ -81,6 +87,17 @@ public class FlowerController : MonoBehaviour
 
         // 마지막에는 완전히 불투명하게 고정
         flowerSprite.color = Color.white;
+    }
+    public void OnClickPuzzle()
+    {
+        if (flowerPuzzleController == null)
+            return;
+
+        // 퍼즐 클리어 상태 또는 페어리 이동 중일 때 클릭 막기
+        if (flowerPuzzleController.IsPuzzleCleared() || flowerPuzzleController.IsFairyMoving())
+            return;
+
+        flowerPuzzleController.OnFlowerClicked(this);
     }
 }
 
