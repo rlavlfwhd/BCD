@@ -639,8 +639,7 @@ GameObject:
   - component: {fileID: 4463503805812157314}
   - component: {fileID: 9146421670131297912}
   - component: {fileID: 7569191428501191720}
-  - component: {fileID: 4499298032603560641}
-  - component: {fileID: 2034908110023249138}
+  - component: {fileID: 9053861779903653478}
   m_Layer: 5
   m_Name: DontDestroyCanvas
   m_TagString: Untagged
@@ -791,7 +790,7 @@ MonoBehaviour:
   confirmPopup: {fileID: 3272623309242427249}
   confirmText: {fileID: 1950724670661153079}
   confirmPopupCanvasGroup: {fileID: 8909977898727674455}
---- !u!114 &4499298032603560641
+--- !u!114 &9053861779903653478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -800,32 +799,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 353158077234402635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8a74c4be4a04364f83b69ed0c3fca65, type: 3}
+  m_Script: {fileID: 11500000, guid: bd3d5ebb6c49d5146bdae989b0d45f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &2034908110023249138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353158077234402635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97fa77ef4f914654d98bd75b66373d71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  inventoryPanelObj: {fileID: 2297777323840061331}
+  inventoryPanel: {fileID: 8037745239085627787}
+  slideDuration: 2
+  hiddenPosition: {x: 200, y: 0}
+  visiblePosition: {x: 0, y: 0}
 --- !u!1 &463089794779105930
 GameObject:
   m_ObjectHideFlags: 0
@@ -4153,7 +4134,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 9053861779903653478}
         m_TargetAssemblyTypeName: InventoryToggleUI, Assembly-CSharp
         m_MethodName: ToggleInventory
         m_Mode: 1

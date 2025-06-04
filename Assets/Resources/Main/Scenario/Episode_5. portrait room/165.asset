@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
-  m_Name: 128
+  m_Name: 165
   m_EditorClassIdentifier: 
-  storyNumber: 128
-  MainImage: {fileID: 2800000, guid: 8df3ed7736650ac4dae5969fcf4becf1, type: 3}
-  MainImage2: {fileID: 2800000, guid: 904eb0cb90dfc2c4589b994c4dd39f95, type: 3}
-  storyText: "    \uACF5\uC8FC :  \"\uC775\uC219\uD568\uC774 \uAC00\uC7A5 \uC704\uD5D8\uD560
-    \uC218 \uC788\uC5B4...\""
+  storyNumber: 165
+  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
+  MainImage2: {fileID: 2800000, guid: ab615e0cedf70ee47a6ab3f5e68c401b, type: 3}
+  storyText: "    \uB098\uB808\uC774\uC158 : \uD55C \uAC78\uC74C, \uAC78\uC74C\uB9C8\uB2E4
+    \uD78C\uD2B8\uC758 \uC758\uBBF8\uAC00 \uBA38\uB9BF\uC18D\uC744 \uB9F4\uB3CC\uC558\uB2E4."
   options:
   - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
       sucessResult:
-      - resultType: 0
-        value: 129
-        changeSceneName: 
+      - resultType: 2
+        value: 1
+        changeSceneName: PortraiScene
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}

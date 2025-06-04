@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
-  m_Name: 31
+  m_Name: 163
   m_EditorClassIdentifier: 
-  storyNumber: 31
-  MainImage: {fileID: 2800000, guid: e9d49f00cbbdcd64fb1d089cb6c42920, type: 3}
-  MainImage2: {fileID: 2800000, guid: 17c350171f7a3ca479f830547c66d187, type: 3}
+  storyNumber: 163
+  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
+  MainImage2: {fileID: 2800000, guid: ab615e0cedf70ee47a6ab3f5e68c401b, type: 3}
   storyText: "    \uACF5\uC8FC : \"\uD558\uC9C0\uB9CC \uC774\uCABD\uC774 \uB354 \uC9C0\uC2E4\uC5D0
     \uAC00\uAE4C\uC6CC \uBCF4\uC774\uAE34 \uD574.\""
   options:
@@ -22,7 +22,7 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 32
+        value: 164
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []

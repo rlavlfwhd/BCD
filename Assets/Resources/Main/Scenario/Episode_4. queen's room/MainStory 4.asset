@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
   m_Name: MainStory 4
   m_EditorClassIdentifier: 
-  storyNumber: 126
-  MainImage: {fileID: 2800000, guid: 8df3ed7736650ac4dae5969fcf4becf1, type: 3}
-  MainImage2: {fileID: 2800000, guid: 904eb0cb90dfc2c4589b994c4dd39f95, type: 3}
+  storyNumber: 132
+  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
+  MainImage2: {fileID: 2800000, guid: ab615e0cedf70ee47a6ab3f5e68c401b, type: 3}
   storyText: "    \uB098\uB808\uC774\uC158 : \uACC4\uB2E8 \uC704, \uC655\uBE44\uC758
     \uD754\uC801\uC774 \uACE0\uC2A4\uB780\uD788 \uB0A8\uC544 \uC788\uB294 \uBC29."
   options:
@@ -22,7 +22,7 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 127
+        value: 133
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []

@@ -15,9 +15,9 @@ MonoBehaviour:
   storyNumber: 131
   MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
   MainImage2: {fileID: 2800000, guid: 2956c8e3d6e458a49b4df4cfb32bf1a3, type: 3}
-  storyText: .
+  storyText: '-'
   options:
-  - buttonText: "i : \uC717\uCE35\uC73C\uB85C \uC774\uB3D9"
+  - buttonText: "i : \uC655\uBE44\uC758 \uBC29\uC73C\uB85C \uC774\uB3D9"
     eventCheck:
       sucessResult:
       - resultType: 0
@@ -25,11 +25,11 @@ MonoBehaviour:
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
-  - buttonText: "ii : \uC544\uB7AB\uCE35\uC73C\uB85C \uC774\uB3D9"
+  - buttonText: "ii : \uCD08\uC0C1\uD654\uC2E4\uB85C \uC774\uB3D9"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 0
+        value: 159
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []

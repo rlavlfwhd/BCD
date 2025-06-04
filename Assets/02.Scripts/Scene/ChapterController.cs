@@ -22,7 +22,9 @@ public class ChapterController : MonoBehaviour
         { "PFlowerScene", 6 },
         { "PMoleeScene", 7 },
         { "PBookshelfScene", 8 },
-        { "PWindowScene", 9 }
+        { "PWindowScene", 9 },
+        { "PortraiScene", 10 },
+        { "PQueenScene", 11 }
     };
 
     private void Awake()

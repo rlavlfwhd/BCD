@@ -24,6 +24,7 @@ MonoBehaviour:
         value: 1235
         changeSceneName: 
     requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
   - buttonText: "\uB530\uB780"
     eventCheck:
       sucessResult:
@@ -31,6 +32,7 @@ MonoBehaviour:
         value: 1235
         changeSceneName: 
     requiredStoryNumbers: d3040000
+    requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}

@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
-  m_Name: 127
+  m_Name: 160
   m_EditorClassIdentifier: 
-  storyNumber: 127
-  MainImage: {fileID: 2800000, guid: 8df3ed7736650ac4dae5969fcf4becf1, type: 3}
-  MainImage2: {fileID: 2800000, guid: 904eb0cb90dfc2c4589b994c4dd39f95, type: 3}
-  storyText: "    \uB098\uB808\uC774\uC158 : \uC775\uC219\uD55C \uD5A5\uAE30\uAC00
-    \uBB38 \uB108\uBA38\uB85C \uC2A4\uBA70\uB4E4\uC5B4\uC654\uB2E4."
+  storyNumber: 160
+  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
+  MainImage2: {fileID: 2800000, guid: ab615e0cedf70ee47a6ab3f5e68c401b, type: 3}
+  storyText: "    \uB098\uB808\uC774\uC158 : \uBCF5\uB3C4 \uC544\uB798\uCABD, \uC5B4\uB451\uD55C
+    \uBB38 \uB4A4\uB85C \uC624\uB798\uB41C \uCD08\uC0C1\uD654\uB4E4\uC774 \uC904\uC9C0\uC5B4
+    \uC788\uC5C8\uB2E4."
   options:
   - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 128
+        value: 161
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []

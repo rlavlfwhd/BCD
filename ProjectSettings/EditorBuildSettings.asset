@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/PWineScene.unity
     guid: 109efa97c23626d40bf9f8b77610a6b1
+  - enabled: 1
+    path: Assets/01.Scenes/PortraiScene.unity
+    guid: 57e3d73a9eb427f4ca8045bef973c0b7
+  - enabled: 1
+    path: Assets/01.Scenes/PQueenScene.unity
+    guid: a082b4ec7572bf740857a56411c12506
   m_configObjects: {}
