@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 284672527}
   - component: {fileID: 284672529}
   - component: {fileID: 284672530}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CurtainR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 310634725}
   - component: {fileID: 310634727}
   - component: {fileID: 310634728}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CurtainL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1323,7 +1323,7 @@ GameObject:
   - component: {fileID: 669317329}
   - component: {fileID: 669317332}
   - component: {fileID: 669317333}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: BedCurtainR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1942,7 +1942,7 @@ GameObject:
   - component: {fileID: 1369368397}
   - component: {fileID: 1369368396}
   - component: {fileID: 1369368398}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2094,7 +2094,7 @@ GameObject:
   - component: {fileID: 1408976741}
   - component: {fileID: 1408976740}
   - component: {fileID: 1408976742}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Blanket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2457,7 +2457,7 @@ GameObject:
   - component: {fileID: 1672548622}
   - component: {fileID: 1672548624}
   - component: {fileID: 1672548623}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: BedCurtainL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

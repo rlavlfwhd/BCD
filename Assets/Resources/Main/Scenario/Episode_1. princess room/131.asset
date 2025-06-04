@@ -10,22 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
-  m_Name: 121
+  m_Name: 131
   m_EditorClassIdentifier: 
-  storyNumber: 121
+  storyNumber: 131
   MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
-  MainImage2: {fileID: 2800000, guid: 0c6db4ba467b9d642ae6df58c99cc638, type: 3}
-  storyText: "     \uB450\uB354\uC9C0 : \"\uC6B0\uB9B0 \uC774\uBBF8 \uCDA9\uBD84\uD788
-    \uB9D0\uD588\uC73C\uB2C8\uAE4C.\""
+  MainImage2: {fileID: 2800000, guid: 2956c8e3d6e458a49b4df4cfb32bf1a3, type: 3}
+  storyText: .
   options:
-  - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
+  - buttonText: "i : \uC717\uCE35\uC73C\uB85C \uC774\uB3D9"
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 122
+        value: 132
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
-  bgmClip: {fileID: 0}
+  - buttonText: "ii : \uC544\uB7AB\uCE35\uC73C\uB85C \uC774\uB3D9"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 0
+        changeSceneName: 
+    requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
+  bgmClip: {fileID: 8300000, guid: 5b73025d72cd3544ebe24c398d30db03, type: 3}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}

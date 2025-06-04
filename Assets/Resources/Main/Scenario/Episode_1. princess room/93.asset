@@ -26,6 +26,14 @@ MonoBehaviour:
         changeSceneName: PBookshelfScene
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
+  - buttonText: "\uCC45\uC7A5 \uD37C\uC990 \uC2A4\uD0B5"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 99
+        changeSceneName: 
+    requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}

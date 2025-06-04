@@ -25,8 +25,7 @@ MonoBehaviour:
         value: 47
         changeSceneName: 
     requiredStoryNumbers: 
-    requiredCompletedPuzzles:
-    - Window
+    requiredCompletedPuzzles: []
   - buttonText: "ii : \uC624\uB450\uB9C9\uC73C\uB85C \uC774\uB3D9\uD55C\uB2E4."
     eventCheck:
       sucessResult:

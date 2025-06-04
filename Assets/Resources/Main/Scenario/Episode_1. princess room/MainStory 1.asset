@@ -21,25 +21,9 @@ MonoBehaviour:
   - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
       sucessResult:
-      - resultType: 2
+      - resultType: 0
         value: 2
-        changeSceneName: PGardenScene
-    requiredStoryNumbers: 
-    requiredCompletedPuzzles: []
-  - buttonText: "\uCC45"
-    eventCheck:
-      sucessResult:
-      - resultType: 2
-        value: 2
-        changeSceneName: PBookshelfScene
-    requiredStoryNumbers: 
-    requiredCompletedPuzzles: []
-  - buttonText: "\uC640\uC778"
-    eventCheck:
-      sucessResult:
-      - resultType: 2
-        value: 2
-        changeSceneName: PWineScene
+        changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
   bgmClip: {fileID: 8300000, guid: 5b73025d72cd3544ebe24c398d30db03, type: 3}
