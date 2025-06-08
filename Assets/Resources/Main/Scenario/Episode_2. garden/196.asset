@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: 196
+  m_EditorClassIdentifier: 
+  storyNumber: 196
+  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
+  MainImage2: {fileID: 2800000, guid: c1130d8b529c4b940a039ad9598b5cda, type: 3}
+  storyText: "\uC815\uC6D0\uC0AC : \"\uAD1C\uD788 \uB3CC\uC544\uB2E4\uB2C8\uB2E4
+    \uC2DC\uAC04\uB9CC \uB0AD\uBE44\uD558\uC9C0 \uB9D0\uACE0, \uBC14\uB85C \uADF8
+    \uD37C\uC990\uB85C\uBD80\uD130 \uD480\uC5B4\uBCF4\uC138\uC694.\""
+  options:
+  - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 197
+        changeSceneName: 
+    requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 0}
+  choiceSfxClip: {fileID: 0}

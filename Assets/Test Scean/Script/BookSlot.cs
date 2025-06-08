@@ -39,8 +39,13 @@ public class BookSlot : MonoBehaviour
         isOccupied = true;
         isCorrect = (draggable.bookName == correctBookName);
 
+        // ✅ 기존 SlotManager용 검사
         SlotManager slotManager = FindObjectOfType<SlotManager>();
         if (slotManager != null) slotManager.CheckSlotsNow();
+
+        // ✅ 추가: PortraiManager용 검사
+        PortraiManager portraiManager = FindObjectOfType<PortraiManager>();
+        if (portraiManager != null) portraiManager.CheckSlotsNow();
 
         return true;
     }

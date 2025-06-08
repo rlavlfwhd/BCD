@@ -26,6 +26,14 @@ MonoBehaviour:
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
+  - buttonText: "\uCD08\uC0C1\uD654 \uD37C\uC990\uD14C\uC2A4\uD2B8"
+    eventCheck:
+      sucessResult:
+      - resultType: 2
+        value: 0
+        changeSceneName: PortraiScene
+    requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
   bgmClip: {fileID: 8300000, guid: 5b73025d72cd3544ebe24c398d30db03, type: 3}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}

@@ -3016,8 +3016,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeController: {fileID: 2000976855}
-  successStoryIndex: 500
-  failureStoryIndex: 501
+  successStoryIndex: 180
+  failureStoryIndex: 190
   successOverlayImage: {fileID: 998132948}
   failureOverlayImage: {fileID: 1241593548}
   maxTries: 5
