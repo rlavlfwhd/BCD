@@ -8,7 +8,11 @@ public class PortraiManager : MonoBehaviour
     public BookSlot[] allSlots;
 
     [Header("🎯 퍼즐 성공 시 활성화할 오브젝트")]
-    public GameObject objectToActivateOnSuccess; // 🎯 apt 오브젝트 할당 예정
+    public GameObject objectToActivateOnSuccess;
+
+    [Header("🖼️ 퍼즐 성공 시 교체할 배경 오브젝트")]
+    public GameObject backgroundObject;
+    public Sprite newBackgroundSprite;
 
     private bool isPuzzleCompleted = false;
 
@@ -32,19 +36,30 @@ public class PortraiManager : MonoBehaviour
 
     void TriggerReward()
     {
+        // ✅ 오브젝트 활성화
         if (objectToActivateOnSuccess != null)
         {
             objectToActivateOnSuccess.SetActive(true);
 
-            // SpriteRenderer 강제 표시 보장
             SpriteRenderer sr = objectToActivateOnSuccess.GetComponent<SpriteRenderer>();
             if (sr != null) sr.enabled = true;
 
-            Debug.Log("🏆 퍼즐 성공! 오브젝트가 활성화되었습니다: " + objectToActivateOnSuccess.name);
+            Debug.Log("🏆 퍼즐 성공! 오브젝트가 활성화됨: " + objectToActivateOnSuccess.name);
         }
         else
         {
             Debug.LogWarning("⚠️ 활성화할 오브젝트가 비어 있습니다.");
+        }
+
+        // ✅ 배경 스프라이트 교체 추가
+        if (backgroundObject != null && newBackgroundSprite != null)
+        {
+            SpriteRenderer bgSr = backgroundObject.GetComponent<SpriteRenderer>();
+            if (bgSr != null)
+            {
+                bgSr.sprite = newBackgroundSprite;
+                Debug.Log("🖼️ 배경 이미지가 새 이미지로 교체되었습니다!");
+            }
         }
     }
 }
