@@ -1772,6 +1772,8 @@ MonoBehaviour:
     createdRopes: []
     seenStoryNumbers: 
     mirrorItemGiven: []
+    acquiredLetterSeasons: []
+    allLettersViewed: 0
 --- !u!4 &506150821
 Transform:
   m_ObjectHideFlags: 0
@@ -6271,6 +6273,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4463503805812157314, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
+        type: 3}
+      propertyPath: letterViewPrefab
+      value: 
+      objectReference: {fileID: 3835583385129634291, guid: bc85d690ed1553b469a10422bb29f62b,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

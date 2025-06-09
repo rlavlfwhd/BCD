@@ -18,6 +18,8 @@ public class WinePuzzleManager : MonoBehaviour
     public GameObject successOverlayImage;
     public GameObject failureOverlayImage;
 
+    public string puzzleID = "Wine";
+
     [Header("🎯 와인 선택 횟수 제한")]
     public int maxTries = 5;
     private int currentTries = 0;
@@ -85,6 +87,7 @@ public class WinePuzzleManager : MonoBehaviour
 
         if (isSuccess)
         {
+            PuzzleManager.Instance.CompletePuzzle(puzzleID);
             isPuzzleCompleted = true;
         }
         else

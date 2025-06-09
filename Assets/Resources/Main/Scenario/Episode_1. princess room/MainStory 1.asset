@@ -30,8 +30,8 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 2
-        value: 0
-        changeSceneName: PortraiScene
+        value: 1
+        changeSceneName: PQueenScene
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
   bgmClip: {fileID: 8300000, guid: 5b73025d72cd3544ebe24c398d30db03, type: 3}
