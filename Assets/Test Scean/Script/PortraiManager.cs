@@ -10,7 +10,14 @@ public class PortraiManager : MonoBehaviour
     [Header("🎯 퍼즐 성공 시 활성화할 오브젝트")]
     public GameObject objectToActivateOnSuccess;
 
-    [Header("🖼️ 퍼즐 성공 시 교체할 배경 오브젝트")]
+    [Header("🖼️ 교체할 스프라이트")]
+    public Sprite firstSprite;          // 퍼즐 성공 직후 보여줄 이미지
+    public Sprite secondSprite;         // 몇 초 후 교체될 이미지
+
+    [Header("🕐 두 번째 이미지로 교체될 시간 (초)")]
+    public float delayBeforeSecondSprite = 2f;
+
+    [Header("🌄 배경 이미지 관련")]
     public GameObject backgroundObject;
     public Sprite newBackgroundSprite;
 
@@ -36,15 +43,29 @@ public class PortraiManager : MonoBehaviour
 
     void TriggerReward()
     {
-        // ✅ 오브젝트 활성화
         if (objectToActivateOnSuccess != null)
         {
             objectToActivateOnSuccess.SetActive(true);
 
             SpriteRenderer sr = objectToActivateOnSuccess.GetComponent<SpriteRenderer>();
-            if (sr != null) sr.enabled = true;
+            if (sr != null)
+            {
+                if (firstSprite != null)
+                {
+                    sr.sprite = firstSprite;
+                    sr.enabled = true;
+                    Debug.Log("🏆 퍼즐 성공! 첫 번째 이미지 적용됨: " + firstSprite.name);
+                }
 
-            Debug.Log("🏆 퍼즐 성공! 오브젝트가 활성화됨: " + objectToActivateOnSuccess.name);
+                if (secondSprite != null)
+                {
+                    StartCoroutine(SwapToSecondSpriteAfterDelay(sr));
+                }
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ SpriteRenderer가 대상 오브젝트에 없습니다.");
+            }
         }
         else
         {
@@ -60,6 +81,18 @@ public class PortraiManager : MonoBehaviour
                 bgSr.sprite = newBackgroundSprite;
                 Debug.Log("🖼️ 배경 이미지가 새 이미지로 교체되었습니다!");
             }
+            else
+            {
+                Debug.LogWarning("⚠️ backgroundObject에 SpriteRenderer가 없습니다.");
+            }
         }
+    }
+
+    IEnumerator SwapToSecondSpriteAfterDelay(SpriteRenderer sr)
+    {
+        yield return new WaitForSeconds(delayBeforeSecondSprite);
+
+        sr.sprite = secondSprite;
+        Debug.Log("🔄 두 번째 이미지로 교체됨: " + secondSprite.name);
     }
 }

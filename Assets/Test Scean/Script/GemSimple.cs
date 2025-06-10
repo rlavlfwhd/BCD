@@ -1,8 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class GemSimple : MonoBehaviour
 {
-    [Header("º¸¼® ÀÌ¸§ (\"Spring\", \"Summer\", \"Fall\", \"Winter\")")]
+    [Header("ë³´ì„ ì´ë¦„ (\"Spring\", \"Summer\", \"Fall\", \"Winter\")")]
     public string gemName;
 
     private GemBoxPuzzleSimple puzzleManager;
@@ -17,14 +17,22 @@ public class GemSimple : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log($"[GemSimple] OnMouseDown fired on {this.gameObject.name}");
-        if (puzzleManager != null)
+
+        if (puzzleManager == null) return;
+
+        // âœ… Shift í‚¤ë¥¼ ëˆ„ë¥´ë©´ ìŠ¤ì™‘ ëª¨ë“œ, ì•ˆ ëˆ„ë¥´ë©´ ìŠ¬ë¡¯ ëª¨ë“œ
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            puzzleManager.SelectGemForSwap(this);
+        }
+        else
         {
             puzzleManager.SelectGem(this);
         }
     }
 
     /// <summary>
-    /// ½½·ÔÀ¸·Î ÀÌµ¿ÇÏ±â Àü¿¡ Àá½Ã ¼û±æ ¶§ »ç¿ë
+    /// ìŠ¬ë¡¯ìœ¼ë¡œ ì´ë™í•˜ê¸° ì „ì— ì ì‹œ ìˆ¨ê¸¸ ë•Œ ì‚¬ìš©
     /// </summary>
     public void HideGem()
     {
@@ -32,15 +40,13 @@ public class GemSimple : MonoBehaviour
     }
 
     /// <summary>
-    /// ½½·Ô À§Ä¡·Î ÀÌµ¿ ÈÄ ´Ù½Ã º¸ÀÌµµ·Ï. 
-    /// ½½·ÔÀÇ X/Y¸¦ »ç¿ëÇÏ°í, Z´Â ¿ø·¡ ±×´ë·Î À¯ÁöÇÕ´Ï´Ù.
+    /// ìŠ¬ë¡¯ ìœ„ì¹˜ë¡œ ì´ë™ í›„ ë‹¤ì‹œ ë³´ì´ë„ë¡. 
+    /// ìŠ¬ë¡¯ì˜ X/Yë¥¼ ì‚¬ìš©í•˜ê³ , ZëŠ” ì›ë˜ ê·¸ëŒ€ë¡œ ìœ ì§€í•©ë‹ˆë‹¤.
     /// </summary>
     public void ShowAtSlot(Transform slotTransform)
     {
-        // ¿ø·¡ º¸¼®ÀÇ Z °ªÀ» ÀúÀå
         float originalZ = this.transform.position.z;
 
-        // ½½·ÔÀÇ X/Y¸¸ °¡Á®¿À°í Z´Â ±âÁ¸ °ª À¯Áö
         Vector3 newPos = new Vector3(
             slotTransform.position.x,
             slotTransform.position.y,

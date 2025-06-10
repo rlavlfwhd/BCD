@@ -1,45 +1,39 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// º¸¼®ÇÔ ÆÛÁñ ¸Å´ÏÀú (¼öÁ¤µÊ)
-/// - º¸¼® ÇÏ³ª¸¦ Å¬¸¯ÇØ¼­ SelectGem(¡¦)À¸·Î ¼±ÅÃ
-/// - ½½·ÔÀ» Å¬¸¯ÇØ¼­ PlaceGemInSlot(¡¦)À¸·Î ½½·Ô¿¡ ÀÌµ¿
-/// - ³× °³ ½½·ÔÀ» ¸ğµÎ Ã¤¿î µÚ ÇÑ ¹ø¿¡ ¼ø¼­ °Ë»ç
-/// - ¼ø¼­°¡ ¸ÂÀ¸¸é ¹Ú½º ¿­±â(º¸¼® ºñÈ°¼ºÈ­)
-/// - ¼ø¼­°¡ Æ²¸®¸é ÃÊ±âÈ­
+/// ë³´ì„í•¨ í¼ì¦ ë§¤ë‹ˆì € (ìŠ¬ë¡¯ í¼ì¦ + í´ë¦­ ìŠ¤ì™‘ ê°€ëŠ¥)
 /// </summary>
 public class GemBoxPuzzleSimple : MonoBehaviour
 {
-    [Header("½½·Ô ¿ÀºêÁ§Æ® 4°³¸¦ ¼ø¼­ »ó°ü ¾øÀÌ µå·¡±×ÇØ¼­ ¿¬°á")]
+    [Header("ìŠ¬ë¡¯ ì˜¤ë¸Œì íŠ¸ 4ê°œë¥¼ ìˆœì„œ ìƒê´€ ì—†ì´ ë“œë˜ê·¸í•´ì„œ ì—°ê²°")]
     public GemSlotSimple[] slots;
 
-    [Header("ÆÛÁñ¿¡ »ç¿ëÇÒ º¸¼® ¿ÀºêÁ§Æ® 4°³¸¦ ¿¬°á (Inspector¿¡¼­ µå·¡±×)")]
+    [Header("í¼ì¦ì— ì‚¬ìš©í•  ë³´ì„ ì˜¤ë¸Œì íŠ¸ 4ê°œë¥¼ ì—°ê²° (Inspectorì—ì„œ ë“œë˜ê·¸)")]
     public GemSimple[] gems;
 
-    [Header("´İÈù º¸¼®ÇÔ / ¿­¸° º¸¼®ÇÔ")]
+    [Header("ë‹«íŒ ë³´ì„í•¨ / ì—´ë¦° ë³´ì„í•¨")]
     public GameObject boxClosed;
     public GameObject boxOpen;
 
-    // º¸¼® ¿ø·¡ À§Ä¡ ÀúÀå¿ë
     private Vector3[] originalGemPositions;
 
-    // ÇöÀç ¼±ÅÃµÈ º¸¼®
+    // í˜„ì¬ ìŠ¬ë¡¯ìš©ìœ¼ë¡œ ì„ íƒëœ ë³´ì„
     private GemSimple selectedGem = null;
+
+    // âœ… ë³´ì„ë¼ë¦¬ ìŠ¤ì™‘ìš© ì„ íƒ ìƒíƒœ
+    private GemSimple firstSwapGem = null;
 
     private void Start()
     {
-        // ¿­¸° ¹Ú½º´Â ºñÈ°¼º, ´İÈù ¹Ú½º´Â È°¼º
         if (boxOpen != null) boxOpen.SetActive(false);
         if (boxClosed != null) boxClosed.SetActive(true);
 
-        // gems ¹è¿­¿¡ µé¾î ÀÖ´Â ¸ğµç º¸¼®ÀÇ original positions ±â·Ï
         originalGemPositions = new Vector3[gems.Length];
         for (int i = 0; i < gems.Length; i++)
         {
             originalGemPositions[i] = gems[i].transform.position;
         }
 
-        // ½½·ÔµéÀÇ currentGemName ÃÊ±âÈ­
         foreach (var slot in slots)
         {
             slot.currentGemName = "";
@@ -47,7 +41,7 @@ public class GemBoxPuzzleSimple : MonoBehaviour
     }
 
     /// <summary>
-    /// GemSimple¿¡¼­ È£Ãâ: Å¬¸¯ÇÑ º¸¼®À» ¼±ÅÃ
+    /// ë³´ì„ì„ í´ë¦­í•˜ë©´ í˜¸ì¶œë¨ (ìŠ¬ë¡¯ ë°°ì¹˜ìš©)
     /// </summary>
     public void SelectGem(GemSimple gem)
     {
@@ -56,48 +50,35 @@ public class GemBoxPuzzleSimple : MonoBehaviour
     }
 
     /// <summary>
-    /// GemSlotSimple¿¡¼­ È£Ãâ: ¼±ÅÃµÈ º¸¼®À» ÀÌ ½½·Ô¿¡ ²È¾Æ ÁÜ
+    /// ìŠ¬ë¡¯ì„ í´ë¦­í•˜ë©´ í˜¸ì¶œë¨ â†’ ì„ íƒëœ ë³´ì„ì„ í•´ë‹¹ ìŠ¬ë¡¯ìœ¼ë¡œ ì´ë™
     /// </summary>
     public void PlaceGemInSlot(GemSlotSimple slot)
     {
-        // 1) º¸¼®À» ¸ÕÀú ¼±ÅÃÇÏÁö ¾Ê¾ÒÀ¸¸é ¾È³» ÈÄ Á¾·á
         if (selectedGem == null)
         {
-            Debug.Log("[GemBoxPuzzleSimple] ½½·ÔÀ» ´©¸£±â Àü¿¡ º¸¼®À» ¸ÕÀú ¼±ÅÃÇÏ¼¼¿ä.");
+            Debug.Log("[GemBoxPuzzleSimple] ìŠ¬ë¡¯ì„ ëˆ„ë¥´ê¸° ì „ì— ë³´ì„ì„ ë¨¼ì € ì„ íƒí•˜ì„¸ìš”.");
             return;
         }
 
-        // 2) ÀÌ¹Ì ÀÌ ½½·Ô¿¡ º¸¼®ÀÌ ²ÈÇô ÀÖ´ÂÁö È®ÀÎ
         if (!string.IsNullOrEmpty(slot.currentGemName))
         {
-            Debug.Log("[GemBoxPuzzleSimple] ÀÌ ½½·Ô¿£ ÀÌ¹Ì º¸¼®ÀÌ ÀÖ½À´Ï´Ù.");
+            Debug.Log("[GemBoxPuzzleSimple] ì´ ìŠ¬ë¡¯ì—” ì´ë¯¸ ë³´ì„ì´ ìˆìŠµë‹ˆë‹¤.");
             selectedGem = null;
             return;
         }
 
-        // 3) ½½·Ô À§Ä¡·Î º¸¼®À» ¼ø°£ ÀÌµ¿½ÃÅ°±â Àü, Àá½Ã ¼û±è
         selectedGem.HideGem();
-
-        // 4) ½½·Ô À§Ä¡·Î ÀÌµ¿ÇÑ µÚ, ´Ù½Ã È°¼ºÈ­ (¿ø·¡ Z °ª À¯Áö)
         selectedGem.ShowAtSlot(slot.transform);
-        Debug.Log($"[GemBoxPuzzleSimple] {slot.correctGemName} ½½·Ô¿¡ {selectedGem.gemName} º¸¼® ¹èÄ¡µÊ.");
 
-        // 5) ½½·Ô µ¥ÀÌÅÍ¿¡ º¸¼® ÀÌ¸§ ±â·Ï
         slot.currentGemName = selectedGem.gemName;
-
-        // 6) ¼±ÅÃµÈ º¸¼® Á¤º¸ ÃÊ±âÈ­
         selectedGem = null;
 
-        // 7) ³× °³ ½½·ÔÀÌ ¸ğµÎ Ã¤¿öÁ³´ÂÁö È®ÀÎ, Ã¤¿öÁ³À¸¸é ÇÑ ¹ø¿¡ ¼ø¼­ °Ë»ç
         if (AreAllSlotsFilled())
         {
             CheckAllSlotsOrder();
         }
     }
 
-    /// <summary>
-    /// ³× °³ ½½·ÔÀÌ ¸ğµÎ ºñ¾î ÀÖÁö ¾ÊÀºÁö(= º¸¼®ÀÌ ¸ğµÎ Ã¤¿öÁ³´ÂÁö) È®ÀÎ
-    /// </summary>
     private bool AreAllSlotsFilled()
     {
         foreach (var slot in slots)
@@ -108,9 +89,6 @@ public class GemBoxPuzzleSimple : MonoBehaviour
         return true;
     }
 
-    /// <summary>
-    /// ½½·Ô ¼ø¼­´ë·Î(currentGemName) ÀüÃ¼°¡ ¸ğµÎ correctGemName°ú ÀÏÄ¡ÇÏ´ÂÁö °Ë»ç
-    /// </summary>
     private void CheckAllSlotsOrder()
     {
         bool allCorrect = true;
@@ -125,30 +103,22 @@ public class GemBoxPuzzleSimple : MonoBehaviour
 
         if (allCorrect)
         {
-            // ¸ğµç ¼ø¼­°¡ Á¤´äÀÌ¸é ¹Ú½º ¿­±â
             OpenBox();
         }
         else
         {
-            // ÇÏ³ª¶óµµ Æ²¸®¸é ÆÛÁñ ÃÊ±âÈ­
-            Debug.Log("[GemBoxPuzzleSimple] Àß¸øµÈ ¼ø¼­! ÆÛÁñÀ» ÃÊ±âÈ­ÇÕ´Ï´Ù.");
+            Debug.Log("[GemBoxPuzzleSimple] ì˜ëª»ëœ ìˆœì„œ! í¼ì¦ì„ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.");
             ResetPuzzle();
         }
     }
 
-    /// <summary>
-    /// ÆÛÁñ ¿Ï¼º ½Ã È£Ãâ: ´İÈù ¹Ú½º¸¦ ¼û±â°í ¿­¸° ¹Ú½º¸¦ º¸¿© ÁÖ¸ç,
-    /// µ¿½Ã¿¡ ¸ğµç º¸¼®À» ºñÈ°¼ºÈ­ÇÏ¿© ¾È º¸ÀÌ°Ô ¸¸µì´Ï´Ù.
-    /// </summary>
     private void OpenBox()
     {
-        Debug.Log("[GemBoxPuzzleSimple] ÆÛÁñ ¼º°ø! º¸¼®ÇÔÀÌ ¿­·È½À´Ï´Ù.");
+        Debug.Log("[GemBoxPuzzleSimple] í¼ì¦ ì„±ê³µ! ë³´ì„í•¨ì´ ì—´ë ¸ìŠµë‹ˆë‹¤.");
 
-        // 1) º¸¼®ÇÔ ¿­°í ´İ±â Ã³¸®
         if (boxClosed != null) boxClosed.SetActive(false);
         if (boxOpen != null) boxOpen.SetActive(true);
 
-        // 2) ÆÛÁñ¿¡ »ç¿ëµÈ ¸ğµç º¸¼®À» ºñÈ°¼ºÈ­ÇØ¼­ È­¸é¿¡¼­ »ç¶óÁö°Ô ÇÔ
         for (int i = 0; i < gems.Length; i++)
         {
             if (gems[i] != null)
@@ -156,18 +126,13 @@ public class GemBoxPuzzleSimple : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Àß¸øµÈ ¼ø¼­·Î º¸¼®À» ²È¾ÒÀ» ¶§ È£Ãâ: ÆÛÁñÀ» Ã¹ »óÅÂ·Î µÇµ¹¸²
-    /// </summary>
     private void ResetPuzzle()
     {
-        // 1) ½½·Ô µ¥ÀÌÅÍ ÃÊ±âÈ­
         foreach (var slot in slots)
         {
             slot.currentGemName = "";
         }
 
-        // 2) ¸ğµç º¸¼®À» ¿ø·¡ À§Ä¡·Î ÀÌµ¿ ¹× È°¼ºÈ­
         for (int i = 0; i < gems.Length; i++)
         {
             var gem = gems[i];
@@ -175,13 +140,43 @@ public class GemBoxPuzzleSimple : MonoBehaviour
             gem.gameObject.SetActive(true);
         }
 
-        // 3) º¸¼®ÇÔÀº ´İÈù »óÅÂ·Î À¯Áö
         if (boxOpen != null) boxOpen.SetActive(false);
         if (boxClosed != null) boxClosed.SetActive(true);
 
-        // 4) ¼±ÅÃµÈ º¸¼® ÃÊ±âÈ­
         selectedGem = null;
+        firstSwapGem = null;
 
-        Debug.Log("[GemBoxPuzzleSimple] ÆÛÁñÀÌ ÃÊ±âÈ­µÇ¾î ¸ğµç º¸¼®ÀÌ ¿ø·¡ À§Ä¡·Î µ¹¾Æ°¬½À´Ï´Ù.");
+        Debug.Log("[GemBoxPuzzleSimple] í¼ì¦ì´ ì´ˆê¸°í™”ë˜ì–´ ëª¨ë“  ë³´ì„ì´ ì›ë˜ ìœ„ì¹˜ë¡œ ëŒì•„ê°”ìŠµë‹ˆë‹¤.");
+    }
+
+    // âœ… ì¶”ê°€: ë³´ì„ë¼ë¦¬ ìœ„ì¹˜ êµí™˜ìš© í´ë¦­ í•¨ìˆ˜
+    public void SelectGemForSwap(GemSimple gem)
+    {
+        if (firstSwapGem == null)
+        {
+            firstSwapGem = gem;
+            Debug.Log($"[ìŠ¤ì™‘ ì„ íƒ] ì²« ë²ˆì§¸ ë³´ì„ ì„ íƒë¨: {gem.gemName}");
+        }
+        else if (firstSwapGem == gem)
+        {
+            Debug.Log("[ìŠ¤ì™‘ ì„ íƒ] ê°™ì€ ë³´ì„ ë‘ ë²ˆ í´ë¦­ â†’ ì„ íƒ ì·¨ì†Œ");
+            firstSwapGem = null;
+        }
+        else
+        {
+            Debug.Log($"[ìŠ¤ì™‘ ì‹¤í–‰] {firstSwapGem.gemName} â†” {gem.gemName}");
+            SwapGemPositions(firstSwapGem, gem);
+            firstSwapGem = null;
+        }
+    }
+
+    // âœ… ë³´ì„ë¼ë¦¬ ìœ„ì¹˜ ìŠ¤ì™‘
+    private void SwapGemPositions(GemSimple gemA, GemSimple gemB)
+    {
+        Vector3 temp = gemA.transform.position;
+        gemA.transform.position = gemB.transform.position;
+        gemB.transform.position = temp;
+
+        Debug.Log("âœ… ë³´ì„ ìœ„ì¹˜ê°€ ì„œë¡œ ìŠ¤ì™‘ë˜ì—ˆìŠµë‹ˆë‹¤!");
     }
 }
