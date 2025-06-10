@@ -12,4 +12,7 @@ public class SceneData
     public List<string> createdRopes = new List<string>();    
     public List<int> seenStoryNumbers = new List<int>();
     public List<string> mirrorItemGiven = new List<string>();
+    public List<int> acquiredLetterPieces = new List<int>(); // 편지조각 번호
+    public bool jewelsGiven = false;
+    public bool letterJewelsGiven = false;  // 추가
 }

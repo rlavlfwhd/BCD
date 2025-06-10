@@ -2,26 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LetterPieceObejct : MonoBehaviour, IObjectItem
+public class LetterPieceObject : MonoBehaviour, IObjectItem
 {
-    [Header("몇 번째 조각인지(1~4)")]
-    public int pieceIndex;
-
-    [Header("편지 아이템 (인벤토리 한 개만 존재)")]
-    public Item letterItem; // 반드시 Inspector에서 "Letter" 할당
+    public int pieceNumber;        // 0~3
+    public Item letterItem;        // 편지 아이템
 
     public Item ClickItem()
     {
-        // 인벤토리에 "Letter"가 없으면 추가
-        if (!Inventory.Instance.items.Contains(letterItem))
+        var data = SceneDataManager.Instance.Data;
+
+        // 이미 조각 얻었으면 아무것도 안 함
+        if (!data.acquiredLetterPieces.Contains(pieceNumber))
         {
-            Inventory.Instance.AddItem(letterItem);
+            data.acquiredLetterPieces.Add(pieceNumber);
+
+            // 인벤토리에 편지 없는 경우에만 추가
+            bool alreadyInInventory = Inventory.Instance.items.Exists(x => x == letterItem);
+            if (!alreadyInInventory)
+            {
+                Inventory.Instance.AddItem(letterItem);
+            }
         }
-        // 획득 조각 등록
-        LetterPieceManager.Instance.RegisterPiece(pieceIndex);
 
-        // 효과음 등 처리 필요시 여기서
+        // 조각 오브젝트 비활성화
+        gameObject.SetActive(false);
 
-        return null; // 인벤토리에 편지 아이템 한 번만 들어가야 하므로 null 반환
+        // 반환값 필요없음
+        return null;
     }
 }
