@@ -41,4 +41,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/PQueenScene.unity
     guid: a082b4ec7572bf740857a56411c12506
+  - enabled: 1
+    path: Assets/01.Scenes/HappyEnding.unity
+    guid: f412b49a26179134e9a2176b7816f770
+  - enabled: 1
+    path: Assets/01.Scenes/BadEnding.unity
+    guid: 800155077510b614b8d1116235b1bca2
   m_configObjects: {}

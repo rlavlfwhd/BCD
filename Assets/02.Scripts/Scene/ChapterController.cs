@@ -24,7 +24,9 @@ public class ChapterController : MonoBehaviour
         { "PBookshelfScene", 8 },
         { "PWindowScene", 9 },
         { "PortraiScene", 10 },
-        { "PQueenScene", 11 }
+        { "PQueenScene", 11 },
+        { "HappyEnding", 12 },
+        { "BadEnding", 13 },
     };
 
     private void Awake()

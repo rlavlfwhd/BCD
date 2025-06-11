@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: 228
   m_EditorClassIdentifier: 
   storyNumber: 228
-  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
-  MainImage2: {fileID: 2800000, guid: b967c3e30461b5440bb94634eaf8cf37, type: 3}
+  MainImage: {fileID: 2800000, guid: 5c785ca2b56dcfa48be09c48cf4e76ae, type: 3}
+  MainImage2: {fileID: 2800000, guid: a84d86ce22873044c903a20880b3b3e6, type: 3}
   storyText: "\uBB38\uC774 \uC5F4\uB9AC\uACE0, \uB9C8\uCE68\uB0B4 \uADF8\uB140\uB294
     \uC131 \uBC16\uC73C\uB85C \uB098\uC130\uB2E4."
   options:
   - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
       sucessResult:
-      - resultType: 0
-        value: 229
-        changeSceneName: 
+      - resultType: 2
+        value: 0
+        changeSceneName: HappyEnding
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}

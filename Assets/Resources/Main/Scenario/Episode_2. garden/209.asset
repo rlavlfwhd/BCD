@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 209
   m_EditorClassIdentifier: 
   storyNumber: 209
-  MainImage: {fileID: 2800000, guid: 0534901d04b9de146abc3a302bc0320e, type: 3}
+  MainImage: {fileID: 2800000, guid: 5c785ca2b56dcfa48be09c48cf4e76ae, type: 3}
   MainImage2: {fileID: 2800000, guid: cb7ecba861568ac49a29e81938038deb, type: 3}
   storyText: "\uACF5\uC8FC\uB294 \uBC1C\uB05D\uC5D0 \uB2FF\uC740 \uBC14\uAE65\uC758
     \uACF5\uAE30\uAC00 \uB530\uB73B\uD558\uAC8C \uB290\uAEF4\uC84C\uB2E4."
@@ -22,7 +22,7 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 210
+        value: 221
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
