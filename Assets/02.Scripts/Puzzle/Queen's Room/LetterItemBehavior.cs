@@ -29,7 +29,6 @@ public class LetterItemBehavior : MonoBehaviour
             letterPaperObjects[i].SetActive(isActive && hasPiece);
         }
 
-        // **여기만 수정**
         if (isActive && data.acquiredLetterPieces.Count == 4 && !data.letterJewelsGiven)
         {
             if (jewelItems != null && jewelItems.Length == 4)

@@ -24,6 +24,17 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         if (existing != null)
             Destroy(existing);
 
+        if (item != null && item.itemName == "Note")
+        {
+            var note = gameObject.AddComponent<NoteItemBehavior>();
+            note.noteViewRoot = GameObject.Find("NoteView");   // 씬 내 쪽지 뷰 오브젝트명
+            note.darkFilterImage = note.noteViewRoot.transform.GetChild(0).gameObject; // 필요시
+
+            var btn = GetComponent<Button>();
+            btn.onClick.RemoveAllListeners();
+            btn.onClick.AddListener(note.OnClickNote);
+        }
+
         if (item != null && item.itemName == "Letter")
         {
             var letter = gameObject.AddComponent<LetterItemBehavior>();
