@@ -673,8 +673,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "     \uACF5\uC8FC :  \uC88B\uC544! \uC774\uC81C \uD558\uB098\uB9CC \uB354
-    \uCC3E\uC73C\uBA74 \uB418\uACA0\uC5B4."
+  m_text: "     \uACF5\uC8FC :  \uD37C\uC990\uC774 \uC5B4\uB514\uC5D0 \uC228\uC5B4\uC838\uC788\uC744\uAE4C?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f022945ce3fd3af48bf5456a9cf2730f, type: 2}
   m_sharedMaterial: {fileID: -8592929152113110068, guid: f022945ce3fd3af48bf5456a9cf2730f,

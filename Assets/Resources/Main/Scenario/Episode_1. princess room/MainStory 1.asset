@@ -22,11 +22,19 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 229
+        value: 2
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
   - buttonText: "\uCD08\uC0C1\uD654 \uD37C\uC990\uD14C\uC2A4\uD2B8"
+    eventCheck:
+      sucessResult:
+      - resultType: 2
+        value: 1
+        changeSceneName: PGardenScene
+    requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
+  - buttonText: "\uC5EC\uC655\uC758\uBC29 \uD37C\uC990\uD14C\uC2A4\uD2B8"
     eventCheck:
       sucessResult:
       - resultType: 2
