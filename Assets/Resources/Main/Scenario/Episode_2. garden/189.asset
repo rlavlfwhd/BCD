@@ -23,7 +23,7 @@ MonoBehaviour:
     eventCheck:
       sucessResult:
       - resultType: 0
-        value: 190
+        value: 199
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []

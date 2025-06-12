@@ -311,10 +311,10 @@ MonoBehaviour:
   pourTargetTransform: {fileID: 1316945839}
   shakerClosedRenderer: {fileID: 2000976853}
   shakerOpenRenderer: {fileID: 838255444}
-  shakerFadeDuration: 0.1
+  shakerFadeDuration: 0.6
   pourEffect: {fileID: 955945198}
-  pourTime: 0.1
-  moveSpeed: 3
+  pourTime: 1
+  moveSpeed: 2
   arcHeight: 300
   wineBottleUprightRenderer: {fileID: 262835582}
   wineBottleTiltedRenderer: {fileID: 591089040}
@@ -2406,12 +2406,12 @@ MonoBehaviour:
   shakerOpenRenderer: {fileID: 838255444}
   shakerFadeDuration: 0.1
   pourEffect: {fileID: 1974329762}
-  pourTime: 0.1
-  moveSpeed: 3
+  pourTime: 0.5
+  moveSpeed: 2
   arcHeight: 300
   wineBottleUprightRenderer: {fileID: 1276904973}
   wineBottleTiltedRenderer: {fileID: 576223321}
-  bottleFadeDuration: 0.5
+  bottleFadeDuration: 1
   wineColor: Blue
 --- !u!212 &1276904973
 SpriteRenderer:
@@ -2581,10 +2581,10 @@ MonoBehaviour:
   pourTargetTransform: {fileID: 1316945839}
   shakerClosedRenderer: {fileID: 2000976853}
   shakerOpenRenderer: {fileID: 838255444}
-  shakerFadeDuration: 0.1
+  shakerFadeDuration: 0.5
   pourEffect: {fileID: 1844234420}
-  pourTime: 0.1
-  moveSpeed: 3
+  pourTime: 1
+  moveSpeed: 2
   arcHeight: 300
   wineBottleUprightRenderer: {fileID: 1358389985}
   wineBottleTiltedRenderer: {fileID: 1111522057}
@@ -2874,10 +2874,10 @@ MonoBehaviour:
   pourTargetTransform: {fileID: 1316945839}
   shakerClosedRenderer: {fileID: 2000976853}
   shakerOpenRenderer: {fileID: 838255444}
-  shakerFadeDuration: 0.1
+  shakerFadeDuration: 0.5
   pourEffect: {fileID: 1595379803}
-  pourTime: 0.1
-  moveSpeed: 3
+  pourTime: 1
+  moveSpeed: 2
   arcHeight: 300
   wineBottleUprightRenderer: {fileID: 1533341474}
   wineBottleTiltedRenderer: {fileID: 80607861}
@@ -3020,7 +3020,6 @@ MonoBehaviour:
   failureStoryIndex: 190
   successOverlayImage: {fileID: 998132948}
   failureOverlayImage: {fileID: 1241593548}
-  puzzleID: Wine
   maxTries: 5
 --- !u!4 &1540369859
 Transform:
@@ -3791,7 +3790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeDuration: 2
   shakeMagnitude: 0.1
-  shakeSpeed: 50
+  shakeSpeed: 30
   tiltAngle: 50
   riseHeight: 100
   riseSpeed: 70
@@ -3866,10 +3865,10 @@ MonoBehaviour:
   pourTargetTransform: {fileID: 1316945839}
   shakerClosedRenderer: {fileID: 2000976853}
   shakerOpenRenderer: {fileID: 838255444}
-  shakerFadeDuration: 0.1
+  shakerFadeDuration: 0.5
   pourEffect: {fileID: 2116049826}
-  pourTime: 0.1
-  moveSpeed: 3
+  pourTime: 1
+  moveSpeed: 2
   arcHeight: 300
   wineBottleUprightRenderer: {fileID: 2096639839}
   wineBottleTiltedRenderer: {fileID: 1857477465}
