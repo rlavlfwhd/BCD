@@ -80,6 +80,7 @@ public class FadeManager : MonoBehaviour
         fadeCanvasGroup.blocksRaycasts = false;
     }
 
+    //인게임
     public IEnumerator FadeToStoryScene(string sceneName)
     {
         int nextStoryIndex = SceneDataManager.Instance.Data.nextStoryIndex;
@@ -87,10 +88,11 @@ public class FadeManager : MonoBehaviour
 
         ChapterController.Instance.ShowChapterObjectOnly(chapterIndex);
 
-        yield return FadeManager.Instance.FadeOut();
+        yield return FadeOut();
         SceneManager.LoadScene(sceneName);
     }
 
+    //로드
     public IEnumerator FadeToLoadStoryScene(string sceneName)
     {
         int currentStoryIndex = SceneDataManager.Instance.Data.currentStoryIndex;
@@ -98,7 +100,7 @@ public class FadeManager : MonoBehaviour
 
         ChapterController.Instance.ShowChapterObjectOnly(chapterIndex);
 
-        yield return FadeManager.Instance.FadeOut();
+        yield return FadeOut();
         SceneManager.LoadScene(sceneName);
     }
 
@@ -110,7 +112,7 @@ public class FadeManager : MonoBehaviour
             ChapterController.Instance.ShowChapterObjectOnly(chapterIndex);
         }
 
-        yield return FadeManager.Instance.FadeOut();
+        yield return FadeOut();
         SceneManager.LoadScene(sceneName);
     }
 }

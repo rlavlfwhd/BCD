@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GemBoxPuzzleManager : MonoBehaviour
 {
@@ -8,8 +9,11 @@ public class GemBoxPuzzleManager : MonoBehaviour
     public GameObject boxOpen;
 
     public Item[] gemItems; // 인벤토리에서 사용하는 보석 4개
-    public Item noteItem;   // 인벤토리로 지급할 쪽지
     public Item letterItem; // 인벤토리에서 제거할 편지
+
+    public string puzzleID = "GemBox";
+
+    private bool isPuzzleCleared = false;
 
     private void Start()
     {
@@ -20,6 +24,51 @@ public class GemBoxPuzzleManager : MonoBehaviour
         {
             slot.currentGemName = "";
             slot.UpdateSlotUI(null);
+        }
+    }
+    private void OnEnable()
+    {
+        StartCoroutine(InitializePuzzleState());
+    }
+
+    private IEnumerator InitializePuzzleState()
+    {
+        yield return new WaitUntil(() => PuzzleManager.Instance != null);
+        yield return null; // 퍼즐 완료 정보 복원까지 대기
+
+        if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
+        {
+            isPuzzleCleared = true;
+
+            boxClosed.SetActive(false);
+            boxOpen.SetActive(true);
+
+            // 슬롯에 정답 보석 이름 세팅
+            for (int i = 0; i < slots.Length; i++)
+            {
+                slots[i].currentGemName = slots[i].correctGemName;
+                Item correctItem = System.Array.Find(gemItems, x => x.itemName == slots[i].correctGemName);
+                slots[i].UpdateSlotUI(correctItem != null ? correctItem.itemImage : null);
+            }
+
+            // 더 이상 상호작용 비활성화
+            foreach (var slot in slots)
+            {
+                slot.enabled = false;
+            }
+        }
+        else
+        {
+            // 퍼즐 미완료면 기본 상태
+            boxClosed.SetActive(true);
+            boxOpen.SetActive(false);
+
+            foreach (var slot in slots)
+            {
+                slot.currentGemName = "";
+                slot.UpdateSlotUI(null);
+                slot.enabled = true;
+            }
         }
     }
 
@@ -88,8 +137,12 @@ public class GemBoxPuzzleManager : MonoBehaviour
 
     void OnPuzzleClear()
     {
+        isPuzzleCleared = true;
+
         boxClosed.SetActive(false);
         boxOpen.SetActive(true);
+
+        PuzzleManager.Instance.CompletePuzzle(puzzleID);
 
         Inventory.Instance.RemoveItem(letterItem);
     }

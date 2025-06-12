@@ -10,26 +10,21 @@ public class LetterItemBehavior : MonoBehaviour
     public Item[] jewelItems;                    // 보석 4개
     public GameObject darkFilterImage;
 
-    private bool isActive = false;
-    private bool jewelsGiven = false; // 한 번만 주도록
-
-
-    public void OnClickLetter()
+    public void SetActiveLetterPanel(bool active)
     {
         var data = SceneDataManager.Instance.Data;
-        isActive = !isActive;
-        //letterPaperRoot.SetActive(isActive);
 
         if (darkFilterImage != null)
-            darkFilterImage.SetActive(isActive);
+            darkFilterImage.SetActive(active);
 
         for (int i = 0; i < letterPaperObjects.Length; i++)
         {
             bool hasPiece = data.acquiredLetterPieces.Contains(i);
-            letterPaperObjects[i].SetActive(isActive && hasPiece);
+            letterPaperObjects[i].SetActive(active && hasPiece);
         }
 
-        if (isActive && data.acquiredLetterPieces.Count == 4 && !data.letterJewelsGiven)
+        // 보석 지급 로직
+        if (active && data.acquiredLetterPieces.Count == 4 && !data.letterJewelsGiven)
         {
             if (jewelItems != null && jewelItems.Length == 4)
             {

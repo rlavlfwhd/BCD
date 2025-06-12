@@ -24,17 +24,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         if (existing != null)
             Destroy(existing);
 
-        if (item != null && item.itemName == "Note")
-        {
-            var note = gameObject.AddComponent<NoteItemBehavior>();
-            note.noteViewRoot = GameObject.Find("NoteView");   // 씬 내 쪽지 뷰 오브젝트명
-            note.darkFilterImage = note.noteViewRoot.transform.GetChild(0).gameObject; // 필요시
-
-            var btn = GetComponent<Button>();
-            btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(note.OnClickNote);
-        }
-
         if (item != null && item.itemName == "Letter")
         {
             var letter = gameObject.AddComponent<LetterItemBehavior>();
@@ -43,22 +32,27 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             for (int i = 0; i < 4; i++)
                 objs[i] = letter.letterPaperRoot.transform.GetChild(i + 1).gameObject;
             letter.letterPaperObjects = objs;
-
-            // DarkFilterImage는 0번
             letter.darkFilterImage = letter.letterPaperRoot.transform.GetChild(0).gameObject;
-
-            // --- 보석 아이템 배열 동적 할당 ---
             Item[] jewels = new Item[4];
-            jewels[0] = Resources.Load<Item>("Items/Gem_Pink"); // 이름과 경로는 실제 프로젝트에 맞게!
+            jewels[0] = Resources.Load<Item>("Items/Gem_Pink");
             jewels[1] = Resources.Load<Item>("Items/Gem_Red");
             jewels[2] = Resources.Load<Item>("Items/Gem_Brown");
             jewels[3] = Resources.Load<Item>("Items/Gem_White");
             letter.jewelItems = jewels;
 
-            // 버튼 OnClick 연결
             var btn = GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(letter.OnClickLetter);
+        }
+        else if (item != null && item.itemName == "Note")
+        {
+            var note = gameObject.AddComponent<NoteItemBehavior>();
+            note.noteViewRoot = GameObject.Find("NoteView");
+            note.darkFilterImage = note.noteViewRoot.transform.GetChild(0).gameObject;
+            note.noteObject = note.noteViewRoot.transform.GetChild(1).gameObject;
+
+            var btn = GetComponent<Button>();
+            btn.onClick.RemoveAllListeners();
+            // 버튼 리스너 없이 아래 OnPointerClick에서 직접 컨트롤
         }
         else
         {
@@ -66,6 +60,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             var btn = GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
         }
+
+        
     }
 
     public void ClearSlot()
@@ -83,6 +79,31 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             bool isAlreadySelected = (Inventory.Instance.firstSelectedItem == item || Inventory.Instance.secondSelectedItem == item);
 
             Inventory.Instance.SelectItem(item);
+
+            if (item.itemName == "Letter")
+            {
+                var letter = GetComponent<LetterItemBehavior>();
+                if (!isAlreadySelected)
+                {
+                    letter.SetActiveLetterPanel(true);   // 퍼스트 셀렉트: 켜기
+                }
+                else
+                {
+                    letter.SetActiveLetterPanel(false);  // 세컨드 셀렉트: 끄기
+                }
+            }
+            else if (item.itemName == "Note")
+            {
+                var note = GetComponent<NoteItemBehavior>();
+                if (!isAlreadySelected)
+                {
+                    note.SetActiveNotePanel(true);   // 퍼스트 셀렉트: 켜기
+                }
+                else
+                {
+                    note.SetActiveNotePanel(false);  // 세컨드 셀렉트: 끄기
+                }
+            }
 
             if (isAlreadySelected)
             {

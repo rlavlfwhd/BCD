@@ -25,6 +25,8 @@ public class GameSystem : MonoBehaviour
     {
         SceneDataManager.Instance.Data = new SceneData();
         PuzzleManager.Instance.SetCompletedPuzzleList(new List<string>());
+        Inventory.Instance.items.Clear();
+        Inventory.Instance.FreshSlot();
         StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
     }
 
@@ -51,7 +53,11 @@ public class GameSystem : MonoBehaviour
                 File.WriteAllBytes(imagePath2, currentStory.MainImage2.EncodeToPNG());
             }
         }
-        SceneDataManager.Instance.Data.currentStoryIndex = StorySystem.Instance.currentStoryIndex;
+
+        if (StorySystem.Instance != null)
+        {
+            SceneDataManager.Instance.Data.currentStoryIndex = StorySystem.Instance.currentStoryIndex;
+        }
 
         List<string> itemNames = new List<string>();
         foreach (var item in Inventory.Instance.items)

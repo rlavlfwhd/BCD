@@ -100,6 +100,18 @@ public class ChapterController : MonoBehaviour
     }
     public GameObject ShowChapterObjectOnly(int chapterIndex)
     {
+        if (activeChapter != null)
+        {
+            // 챕터 배열 범위 체크
+            if (chapterIndex >= 0 && chapterIndex < chapters.Length)
+            {
+                if (activeChapter == chapters[chapterIndex] && activeChapter.activeSelf)
+                    return activeChapter;
+            }
+            // 현재 activeChapter가 지금 켜려는 것과 다르다면 기존 것만 끄고, 새로 킴
+            activeChapter.SetActive(false);
+        }
+
         if (chapters == null || chapterIndex < 0 || chapterIndex >= chapters.Length)
             return null;
 

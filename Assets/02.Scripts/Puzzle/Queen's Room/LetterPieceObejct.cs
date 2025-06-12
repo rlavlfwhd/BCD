@@ -7,6 +7,15 @@ public class LetterPieceObject : MonoBehaviour, IObjectItem
     public int pieceNumber;        // 0~3
     public Item letterItem;        // 편지 아이템
 
+    private void OnEnable()
+    {
+        var data = SceneDataManager.Instance != null ? SceneDataManager.Instance.Data : null;
+        if (data != null && data.acquiredLetterPieces.Contains(pieceNumber))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     public Item ClickItem()
     {
         var data = SceneDataManager.Instance.Data;

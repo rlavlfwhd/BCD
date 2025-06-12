@@ -1909,7 +1909,6 @@ MonoBehaviour:
     seenStoryNumbers: 
     mirrorItemGiven: []
     acquiredLetterPieces: 
-    jewelsGiven: 0
     letterJewelsGiven: 0
 --- !u!4 &506150821
 Transform:
@@ -4495,6 +4494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPanelObj: {fileID: 1460321344}
   inventoryPanel: {fileID: 1460321345}
+  inventoryCanvasGroup: {fileID: 0}
   slideDuration: 2
   hiddenPosition: {x: 200, y: 0}
   visiblePosition: {x: 0, y: 0}
@@ -4881,6 +4881,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 899360685242217375}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &1460321349
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460321344}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &1474994070 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8256944443492590030, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
@@ -7045,10 +7057,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9053861779903653478, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
+        type: 3}
+      propertyPath: inventoryCanvasGroup
+      value: 
+      objectReference: {fileID: 1460321349}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2297777323840061331, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1460321349}
   m_SourcePrefab: {fileID: 100100000, guid: 5112da2effb49f74b87ee3b3fd6f26f0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
