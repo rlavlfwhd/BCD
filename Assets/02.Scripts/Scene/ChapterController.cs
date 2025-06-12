@@ -27,6 +27,8 @@ public class ChapterController : MonoBehaviour
         { "PQueenScene", 11 },
         { "HappyEnding", 12 },
         { "BadEnding", 13 },
+        { "PrincesRoom", 14 }
+
     };
 
     private void Awake()
@@ -68,6 +70,7 @@ public class ChapterController : MonoBehaviour
         }
     }
 
+   
     public bool TryGetChapterIndexForScene(string sceneName, out int chapterIndex)
     {
         return puzzleSceneChapterMap.TryGetValue(sceneName, out chapterIndex);
@@ -86,6 +89,7 @@ public class ChapterController : MonoBehaviour
         }
         return 0;
     }
+   
 
     // 챕터를 전환하고 페이드인 연출만 실행
     public void ChangeChapter(int chapterIndex)

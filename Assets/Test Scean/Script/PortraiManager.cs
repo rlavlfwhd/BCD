@@ -21,6 +21,9 @@ public class PortraiManager : MonoBehaviour
     public GameObject backgroundObject;
     public Sprite newBackgroundSprite;
 
+    [Header("✨ 퍼즐 성공 시 활성화할 오브젝트 목록")]
+    public GameObject[] objectsToEnableOnSuccess;
+
     private bool isPuzzleCompleted = false;
 
     public void CheckSlotsNow()
@@ -72,7 +75,7 @@ public class PortraiManager : MonoBehaviour
             Debug.LogWarning("⚠️ 활성화할 오브젝트가 비어 있습니다.");
         }
 
-        // ✅ 배경 스프라이트 교체 추가
+        // ✅ 배경 스프라이트 교체
         if (backgroundObject != null && newBackgroundSprite != null)
         {
             SpriteRenderer bgSr = backgroundObject.GetComponent<SpriteRenderer>();
@@ -84,6 +87,19 @@ public class PortraiManager : MonoBehaviour
             else
             {
                 Debug.LogWarning("⚠️ backgroundObject에 SpriteRenderer가 없습니다.");
+            }
+        }
+
+        // ✅ 추가된 오브젝트 활성화 기능
+        if (objectsToEnableOnSuccess != null && objectsToEnableOnSuccess.Length > 0)
+        {
+            foreach (GameObject go in objectsToEnableOnSuccess)
+            {
+                if (go != null)
+                {
+                    go.SetActive(true);
+                    Debug.Log("✅ 추가 오브젝트 활성화됨: " + go.name);
+                }
             }
         }
     }

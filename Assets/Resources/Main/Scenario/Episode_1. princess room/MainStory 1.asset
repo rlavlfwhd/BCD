@@ -31,7 +31,7 @@ MonoBehaviour:
       sucessResult:
       - resultType: 2
         value: 1
-        changeSceneName: PGardenScene
+        changeSceneName: PortraiScene
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
   - buttonText: "\uC5EC\uC655\uC758\uBC29 \uD37C\uC990\uD14C\uC2A4\uD2B8"

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042c3ccec534cf041999cc115346a844, type: 3}
+  m_Name: 200 +4
+  m_EditorClassIdentifier: 
+  storyNumber: 403
+  MainImage: {fileID: 2800000, guid: 5c785ca2b56dcfa48be09c48cf4e76ae, type: 3}
+  MainImage2: {fileID: 2800000, guid: cb7ecba861568ac49a29e81938038deb, type: 3}
+  storyText: "\uACF5\uC8FC : \"\uC74C.. \uD655\uC2E4\uD558\uC9C4 \uC54A\uC9C0\uB9CC
+    \uD78C\uD2B8\uB97C \uC5BB\uACE0\uC654\uC5B4.\""
+  options:
+  - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
+    eventCheck:
+      sucessResult:
+      - resultType: 0
+        value: 403
+        changeSceneName: 
+    requiredStoryNumbers: 
+    requiredCompletedPuzzles: []
+  bgmClip: {fileID: 0}
+  sfxClip: {fileID: 0}
+  choiceSfxClip: {fileID: 0}

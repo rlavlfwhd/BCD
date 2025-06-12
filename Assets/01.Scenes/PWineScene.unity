@@ -2126,7 +2126,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1e2caec07170c0344b3d957e2de270a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab615e0cedf70ee47a6ab3f5e68c401b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2333,7 +2333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e27c7414fe1355545b9906b515552f9d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab615e0cedf70ee47a6ab3f5e68c401b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3020,6 +3020,7 @@ MonoBehaviour:
   failureStoryIndex: 190
   successOverlayImage: {fileID: 998132948}
   failureOverlayImage: {fileID: 1241593548}
+  puzzleID: Wine
   maxTries: 5
 --- !u!4 &1540369859
 Transform:

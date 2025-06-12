@@ -15,8 +15,7 @@ MonoBehaviour:
   storyNumber: 133
   MainImage: {fileID: 2800000, guid: 5c785ca2b56dcfa48be09c48cf4e76ae, type: 3}
   MainImage2: {fileID: 2800000, guid: 264e76c70897fe041b4355a1c6a669a5, type: 3}
-  storyText: "    \uB098\uB808\uC774\uC158 : \uC775\uC219\uD55C \uD5A5\uAE30\uAC00
-    \uBB38 \uB108\uBA38\uB85C \uC2A4\uBA70\uB4E4\uC5B4\uC654\uB2E4."
+  storyText: "\uC775\uC219\uD55C \uD5A5\uAE30\uAC00 \uBB38 \uB108\uBA38\uB85C \uC2A4\uBA70\uB4E4\uC5B4\uC654\uB2E4."
   options:
   - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
