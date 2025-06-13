@@ -1109,9 +1109,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 89834acb45479704bb5008ca71617a58, type: 2}
   - {fileID: 11400000, guid: 985cdfa82e474e644b1e83295a1e1481, type: 2}
   - {fileID: 11400000, guid: d40314fd17560f7458ebdb64a93e3cd2, type: 2}
+  - {fileID: 11400000, guid: 3a4a4aae239c18c46aaded81abf3fc75, type: 2}
   - {fileID: 11400000, guid: 330417f80f4d2e24fae3ef4d82868fa3, type: 2}
   - {fileID: 11400000, guid: 6f1016a34567f6a48ad66168734497be, type: 2}
   - {fileID: 11400000, guid: 49236d22b88e90e41899a1a48f040a9c, type: 2}
+  - {fileID: 11400000, guid: a7554963092c7c24eab183b475f2c007, type: 2}
+  - {fileID: 11400000, guid: b2ccebbd4eb75a44ca3c0fb4083c038a, type: 2}
+  - {fileID: 11400000, guid: 41945e2e4d3c01048b70e00c38b11880, type: 2}
+  - {fileID: 11400000, guid: 6450a05b55aff9e46b9bcea1c5d532af, type: 2}
+  - {fileID: 11400000, guid: 7db793ac554939c498f128377c98bdb8, type: 2}
+  - {fileID: 11400000, guid: 9f33f3333f1c6f241bb510bb5e3986c8, type: 2}
   currentStoryIndex: 1
   currentStoryModel: {fileID: 0}
   delay: 0.01

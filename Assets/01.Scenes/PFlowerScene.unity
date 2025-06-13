@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 149482204}
   - component: {fileID: 149482206}
   - component: {fileID: 149482207}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Green2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 339373588}
   - component: {fileID: 339373587}
   - component: {fileID: 339373586}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Rose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1503,7 +1503,7 @@ GameObject:
   - component: {fileID: 1292142832}
   - component: {fileID: 1292142834}
   - component: {fileID: 1292142835}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Blue1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1659,7 +1659,7 @@ GameObject:
   - component: {fileID: 1566891412}
   - component: {fileID: 1566891414}
   - component: {fileID: 1566891415}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Purple3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1813,7 +1813,7 @@ GameObject:
   - component: {fileID: 1580301586}
   - component: {fileID: 1580301587}
   - component: {fileID: 1580301588}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Fairy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2020,7 +2020,7 @@ GameObject:
   - component: {fileID: 2057119915}
   - component: {fileID: 2057119917}
   - component: {fileID: 2057119918}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Yellow4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2212,7 +2212,7 @@ MonoBehaviour:
   honeySpawnPoint: {fileID: 425047467}
   fadeController: {fileID: 241835708}
   nextSceneName: StoryScene
-  nextStoryIndex: 53
+  nextStoryIndex: 210
 --- !u!4 &2061411689
 Transform:
   m_ObjectHideFlags: 0

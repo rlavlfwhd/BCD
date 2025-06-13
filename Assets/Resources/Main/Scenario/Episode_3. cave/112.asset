@@ -26,14 +26,6 @@ MonoBehaviour:
         changeSceneName: PMoleeScene
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
-  - buttonText: "\uAC70\uC9D3\uB9D0\uC7C1\uC774 \uD37C\uC990 \uC2A4\uD0B5"
-    eventCheck:
-      sucessResult:
-      - resultType: 0
-        value: 114
-        changeSceneName: 
-    requiredStoryNumbers: 
-    requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}

@@ -22,9 +22,9 @@ MonoBehaviour:
   - buttonText: "\uB2E4\uC74C\uC73C\uB85C"
     eventCheck:
       sucessResult:
-      - resultType: 2
-        value: 0
-        changeSceneName: Mix2
+      - resultType: 0
+        value: 201
+        changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}

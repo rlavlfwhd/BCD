@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 39689516}
   - component: {fileID: 39689517}
   - component: {fileID: 39689518}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: RedBook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 53264589}
   - component: {fileID: 53264590}
   - component: {fileID: 53264591}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: RedBook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 128555203}
   - component: {fileID: 128555205}
   - component: {fileID: 128555206}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Chick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 177506430}
   - component: {fileID: 177506429}
   - component: {fileID: 177506431}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: GreenBook4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 179342205}
   - component: {fileID: 179342204}
   - component: {fileID: 179342206}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bookshelf_Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1241,7 +1241,11 @@ Transform:
   m_LocalPosition: {x: 0, y: -3.5999, z: -3}
   m_LocalScale: {x: 107.20999, y: 110.24019, z: 0.95297766}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 811768618}
+  - {fileID: 731199126}
+  - {fileID: 1275292160}
+  - {fileID: 937567832}
   m_Father: {fileID: 1395276774}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &263589310
@@ -1353,7 +1357,7 @@ GameObject:
   - component: {fileID: 349417411}
   - component: {fileID: 349417412}
   - component: {fileID: 349417413}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: YellowBook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1634,7 +1638,7 @@ GameObject:
   - component: {fileID: 366315444}
   - component: {fileID: 366315443}
   - component: {fileID: 366315445}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: GreenBook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1779,7 +1783,7 @@ GameObject:
   - component: {fileID: 446554524}
   - component: {fileID: 446554523}
   - component: {fileID: 446554525}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: GreenBook3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2207,7 +2211,7 @@ GameObject:
   - component: {fileID: 551156938}
   - component: {fileID: 551156939}
   - component: {fileID: 551156940}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BlueBook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2500,7 +2504,7 @@ GameObject:
   - component: {fileID: 592027088}
   - component: {fileID: 592027090}
   - component: {fileID: 592027091}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: SmallChicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2793,7 +2797,7 @@ GameObject:
   - component: {fileID: 625774380}
   - component: {fileID: 625774379}
   - component: {fileID: 625774381}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Vanity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3037,7 +3041,7 @@ GameObject:
   - component: {fileID: 704504503}
   - component: {fileID: 704504504}
   - component: {fileID: 704504505}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BlueBook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3182,7 +3186,7 @@ GameObject:
   - component: {fileID: 711631882}
   - component: {fileID: 711631881}
   - component: {fileID: 711631883}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -3350,14 +3354,15 @@ Transform:
   m_GameObject: {fileID: 731199125}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.529777, y: -25.742928, z: -3.9529777}
-  m_LocalScale: {x: 0.8969202, y: 0.95297766, z: 0.95297766}
+  m_LocalPosition: {x: 0.08888888, y: -0.20086166, z: -1}
+  m_LocalScale: {x: 0.008366013, y: 0.008644557, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 164660970}
   - {fileID: 1626211534}
   - {fileID: 1663937162}
-  m_Father: {fileID: 1395276774}
+  - {fileID: 1939603926}
+  m_Father: {fileID: 263589309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &811768617
 GameObject:
@@ -3384,8 +3389,8 @@ Transform:
   m_GameObject: {fileID: 811768617}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.721, y: 1.4134369, z: -3.9529777}
-  m_LocalScale: {x: 0.7950803, y: 0.8447728, z: 0.8448147}
+  m_LocalPosition: {x: 0.10000001, y: 0.04547649, z: -1}
+  m_LocalScale: {x: 0.007416102, y: 0.00766302, z: 0.8865}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 53264588}
@@ -3399,7 +3404,7 @@ Transform:
   - {fileID: 2091990157}
   - {fileID: 446554521}
   - {fileID: 177506427}
-  m_Father: {fileID: 1395276774}
+  m_Father: {fileID: 263589309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &855775900
 GameObject:
@@ -3413,7 +3418,7 @@ GameObject:
   - component: {fileID: 855775902}
   - component: {fileID: 855775903}
   - component: {fileID: 855775904}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: YellowBook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3571,8 +3576,8 @@ Transform:
   m_GameObject: {fileID: 937567831}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -67.626366, y: -126, z: -3.9529777}
-  m_LocalScale: {x: 0.8969202, y: 0.95297766, z: 0.95297766}
+  m_LocalPosition: {x: -0.63078415, y: -1.1103038, z: -1}
+  m_LocalScale: {x: 0.008366013, y: 0.008644557, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 955727795}
@@ -3586,7 +3591,7 @@ Transform:
   - {fileID: 581471316}
   - {fileID: 198404434}
   - {fileID: 954876580}
-  m_Father: {fileID: 1395276774}
+  m_Father: {fileID: 263589309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954876579
 GameObject:
@@ -4294,7 +4299,7 @@ GameObject:
   - component: {fileID: 1121153234}
   - component: {fileID: 1121153235}
   - component: {fileID: 1121153236}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: BigChicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4558,15 +4563,15 @@ Transform:
   m_GameObject: {fileID: 1275292159}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.529777, y: -25.742928, z: -3.9529777}
-  m_LocalScale: {x: 0.8969202, y: 0.95297766, z: 0.95297766}
+  m_LocalPosition: {x: 0.08888888, y: -0.20086166, z: -1}
+  m_LocalScale: {x: 0.008366013, y: 0.008644557, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1939603926}
+  - {fileID: 1521655381}
   - {fileID: 128555202}
   - {fileID: 592027087}
   - {fileID: 1121153233}
-  m_Father: {fileID: 1395276774}
+  m_Father: {fileID: 263589309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1318726432
 GameObject:
@@ -4894,13 +4899,9 @@ Transform:
   m_LocalScale: {x: 1.0625, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 731199126}
-  - {fileID: 1275292160}
-  - {fileID: 937567832}
-  - {fileID: 811768618}
+  - {fileID: 263589309}
   - {fileID: 1356683304}
   - {fileID: 711631880}
-  - {fileID: 263589309}
   m_Father: {fileID: 548673580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1521655380
@@ -4915,7 +4916,7 @@ GameObject:
   - component: {fileID: 1521655382}
   - component: {fileID: 1521655383}
   - component: {fileID: 1521655384}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Egg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4931,11 +4932,11 @@ Transform:
   m_GameObject: {fileID: 1521655380}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1, y: -0.029999847, z: -1}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: -164, y: -371.99997, z: -1}
+  m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1939603926}
+  m_Father: {fileID: 1275292160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1521655382
 SpriteRenderer:
@@ -5829,7 +5830,7 @@ GameObject:
   - component: {fileID: 1700562329}
   - component: {fileID: 1700562330}
   - component: {fileID: 1700562331}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: YellowBook3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6178,7 +6179,7 @@ GameObject:
   - component: {fileID: 1858859814}
   - component: {fileID: 1858859813}
   - component: {fileID: 1858859815}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6469,12 +6470,11 @@ Transform:
   m_GameObject: {fileID: 1939603925}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -384, y: -366, z: 0}
+  m_LocalPosition: {x: -384.00003, y: -366, z: 0}
   m_LocalScale: {x: 200, y: 200, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1521655381}
-  m_Father: {fileID: 1275292160}
+  m_Children: []
+  m_Father: {fileID: 731199126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1939603927
 SpriteRenderer:
@@ -7033,7 +7033,7 @@ GameObject:
   - component: {fileID: 2091990160}
   - component: {fileID: 2091990159}
   - component: {fileID: 2091990161}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: GreenBook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
