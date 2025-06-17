@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MolePuzzleFailManager : MonoBehaviour
 {
     public static MolePuzzleFailManager Instance;
-
-    public string nextSceneName = "StoryScene";
-    public int nextStoryIndex = -1;
+    
+    public int nextStoryIndex = 114;
     public FadeController fadeController;
 
     private void Awake()
@@ -21,19 +21,19 @@ public class MolePuzzleFailManager : MonoBehaviour
         {
             SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
         }
+        StartCoroutine(GoToStoryAfterDelay());
+    }
 
-        if (!string.IsNullOrEmpty(nextSceneName))
-        {
-            SceneManager.LoadScene(nextSceneName);
-        }
-        else
-        {
-            Debug.LogWarning("시름 이동 정보가 비어있습니다.");
-        }
+    private IEnumerator GoToStoryAfterDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
     }
 
     public void HandleFail()
     {
+        ChapterController.skipChapterOnLoad = true;
+
         if (fadeController != null)
         {
             fadeController.FadeOutAndRestart();

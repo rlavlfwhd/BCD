@@ -7,12 +7,9 @@ public class WinePuzzleManager : MonoBehaviour
 {
     [Header("✅ 쉐이커 컨트롤러")] public ShakeController shakeController;
 
-    [Header("📖 퍼즐 성공 시 이동할 스토리 번호")] public int successStoryIndex = 0;
-    [Header("📖 퍼즐 실패 시 이동할 스토리 번호")] public int failureStoryIndex = 0;
+    [Header("📖 퍼즐 성공 시 이동할 스토리 번호")] public int successStoryIndex = 180;
+    [Header("📖 퍼즐 실패 시 이동할 스토리 번호")] public int failureStoryIndex = 190;
 
-    [Header("🖼️ 성공/실패 오버레이 이미지")]
-    public GameObject successOverlayImage;
-    public GameObject failureOverlayImage;
 
     [Header("🎯 와인 선택 횟수 제한")] public int maxTries = 5;
     private int currentTries = 0;
@@ -84,10 +81,16 @@ public class WinePuzzleManager : MonoBehaviour
         }
 
         if (isSuccess)
+        {
             isPuzzleCompleted = true;
-        else
-            isWeirdWineCreated = true;
 
+            Inventory.Instance.RemoveItemByName("Hint_Fake");
+            Inventory.Instance.RemoveItemByName("Hint");
+        }
+        else
+        {
+            isWeirdWineCreated = true;
+        }
         selectedWineOrder.Clear();
     }
 
@@ -113,45 +116,19 @@ public class WinePuzzleManager : MonoBehaviour
     {
         if (isPuzzleCompleted)
         {
-            StartCoroutine(GoToStoryAfterDelay(successStoryIndex, successOverlayImage));
+            StartCoroutine(GoToStoryAfterDelay(successStoryIndex));
         }
         else if (isWeirdWineCreated)
         {
-            StartCoroutine(GoToStoryAfterDelay(failureStoryIndex, failureOverlayImage));
+            StartCoroutine(GoToStoryAfterDelay(failureStoryIndex));
         }
     }
 
-    private IEnumerator GoToStoryAfterDelay(int storyIndex, GameObject overlayObj)
+    private IEnumerator GoToStoryAfterDelay(int storyIndex)
     {
-        if (overlayObj != null)
-        {
-            overlayObj.SetActive(true);
-            SpriteRenderer overlay = overlayObj.GetComponent<SpriteRenderer>();
-            if (overlay != null)
-            {
-                Color color = overlay.color;
-                color.a = 0f;
-                overlay.color = color;
-
-                float timer = 0f;
-                float fadeDuration = 1f;
-
-                while (timer < fadeDuration)
-                {
-                    timer += Time.deltaTime;
-                    color.a = Mathf.Lerp(0f, 1f, timer / fadeDuration);
-                    overlay.color = color;
-                    yield return null;
-                }
-
-                color.a = 1f;
-                overlay.color = color;
-            }
-        }
-
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         SceneDataManager.Instance.Data.nextStoryIndex = storyIndex;
-        SceneManager.LoadScene("StoryScene");
+        StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
     }
 
     public bool IsPuzzleCompleted() => isPuzzleCompleted;

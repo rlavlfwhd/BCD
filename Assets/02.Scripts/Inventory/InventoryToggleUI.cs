@@ -9,7 +9,7 @@ public class InventoryToggleUI : MonoBehaviour
     public GameObject inventoryPanelObj;
     public RectTransform inventoryPanel;  // 인벤토리 패널 RectTransform
     public CanvasGroup inventoryCanvasGroup;
-    public float slideDuration = 2f;    // 슬라이드 시간
+    public float slideDuration = 0.5f;    // 슬라이드 시간
     public Vector2 hiddenPosition = new Vector2(200f, 0); // 오른쪽 바깥 위치
     public Vector2 visiblePosition = new Vector2(0, 0);   // 화면 안쪽 위치
 
@@ -72,9 +72,11 @@ public class InventoryToggleUI : MonoBehaviour
             inventoryCanvasGroup.blocksRaycasts = false;
         }
 
+        Debug.Log("Tween Start: isOpen=" + isOpen + "  duration=" + slideDuration);
+
         if (isOpen)
         {
-            inventoryPanel.DOAnchorPos(visiblePosition, slideDuration).SetEase(Ease.OutCubic)
+            inventoryPanel.DOAnchorPos(visiblePosition, slideDuration).SetEase(Ease.Linear)
                 .OnComplete(() => {
                     if (inventoryCanvasGroup != null)
                     {
@@ -82,11 +84,12 @@ public class InventoryToggleUI : MonoBehaviour
                         inventoryCanvasGroup.blocksRaycasts = true;
                     }
                     isSliding = false;
+                    Debug.Log("Tween Complete: Open");
                 });
         }
         else
         {
-            inventoryPanel.DOAnchorPos(hiddenPosition, slideDuration).SetEase(Ease.InCubic)
+            inventoryPanel.DOAnchorPos(hiddenPosition, slideDuration).SetEase(Ease.Linear)
                 .OnComplete(() => {
                     if (inventoryCanvasGroup != null)
                     {
@@ -94,6 +97,7 @@ public class InventoryToggleUI : MonoBehaviour
                         inventoryCanvasGroup.blocksRaycasts = false;
                     }
                     isSliding = false;
+                    Debug.Log("Tween Complete: Close");
                 });
         }
     }

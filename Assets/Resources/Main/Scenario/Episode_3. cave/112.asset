@@ -23,7 +23,7 @@ MonoBehaviour:
       sucessResult:
       - resultType: 2
         value: 1
-        changeSceneName: PMoleeScene
+        changeSceneName: PMoleScene
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}

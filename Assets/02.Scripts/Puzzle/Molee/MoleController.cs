@@ -94,12 +94,12 @@ public class MoleController : MonoBehaviour, IClickablePuzzle
             Debug.Log("정답! 🎯");
             PuzzleManager.Instance.CompletePuzzle(puzzleID);
             isPuzzleCompleted = true;
-            MolePuzzleFailManager.Instance?.HandleSuccess();
+            MolePuzzleFailManager.Instance.HandleSuccess();
         }
         else
         {
             Debug.Log("오단! 패익!");
-            MolePuzzleFailManager.Instance?.HandleFail();
+            MolePuzzleFailManager.Instance.HandleFail();
         }
     }
 

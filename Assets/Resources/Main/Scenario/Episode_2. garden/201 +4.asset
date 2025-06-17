@@ -24,7 +24,7 @@ MonoBehaviour:
       sucessResult:
       - resultType: 2
         value: 1
-        changeSceneName: Mix
+        changeSceneName: PMix
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}

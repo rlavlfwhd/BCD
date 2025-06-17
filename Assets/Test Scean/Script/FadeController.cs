@@ -6,9 +6,9 @@ using TMPro;
 public class FadeController : MonoBehaviour
 {
     [Header("🎬 페이드 이미지 패널 (F_Image)")]
-    public GameObject fadePanel;       // F_Image 패널
-    public CanvasGroup fadeGroup;      // F_Image 안의 CanvasGroup
-    public TMP_Text failText;          // F_Image 안의 텍스트
+    public GameObject fadePanel;
+    public CanvasGroup fadeGroup;
+    public TMP_Text failText;
     public string failMessage = "퍼즐 실패! 다시 도전하세요!";
 
     public float fadeDuration = 1.5f;
@@ -16,7 +16,22 @@ public class FadeController : MonoBehaviour
 
     private void Awake()
     {
-        if (fadePanel != null) fadePanel.SetActive(false);  // 시작 시 꺼두기
+        if (fadePanel != null)
+        {
+            fadePanel.SetActive(true);          // 페이드 인 위해 켜둠
+        }
+
+        if (fadeGroup != null)
+        {
+            fadeGroup.alpha = 1f;               // 시작은 검게
+        }
+
+        if (failText != null)
+        {
+            failText.gameObject.SetActive(false);
+        }
+
+        StartCoroutine(FadeInFromBlack());
     }
 
     public void FadeOutAndRestart()
@@ -25,17 +40,17 @@ public class FadeController : MonoBehaviour
 
         if (fadePanel != null && !fadePanel.activeInHierarchy)
         {
-            fadePanel.SetActive(true);  // 패널 켜주기
+            fadePanel.SetActive(true);
         }
 
         if (fadeGroup != null)
         {
-            fadeGroup.alpha = 0f;       // alpha 초기화
+            fadeGroup.alpha = 0f;
         }
 
         if (failText != null)
         {
-            failText.gameObject.SetActive(false);  // 텍스트 숨기기
+            failText.gameObject.SetActive(false);
         }
 
         StartCoroutine(FadeAndShowText());
@@ -67,5 +82,34 @@ public class FadeController : MonoBehaviour
 
         Debug.Log("✅ 씬 다시 로드");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private IEnumerator FadeInFromBlack()
+    {
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / fadeDuration;
+            if (fadeGroup != null)
+            {
+                fadeGroup.alpha = Mathf.Clamp01(1f - t);
+            }
+            yield return null;
+        }
+
+        if (fadeGroup != null)
+        {
+            fadeGroup.alpha = 0f;
+            fadeGroup.interactable = false;
+            fadeGroup.blocksRaycasts = false;
+        }
+
+        if (fadePanel != null)
+        {
+            fadePanel.SetActive(false);
+        }
+
+        Debug.Log("✅ 페이드 인 완료");
     }
 }

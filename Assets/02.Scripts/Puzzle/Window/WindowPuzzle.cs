@@ -56,7 +56,7 @@ public class WindowPuzzle : MonoBehaviour, IClickablePuzzle
         }
         else
         {
-            StartCoroutine(GoToStoryAfterDelay(2f));
+            StartCoroutine(GoToStoryAfterDelay(1.5f));
         }
     }
 

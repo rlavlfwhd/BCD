@@ -22,7 +22,7 @@ MonoBehaviour:
       sucessResult:
       - resultType: 2
         value: 0
-        changeSceneName: PrincesRoom
+        changeSceneName: PrincessRoom
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}

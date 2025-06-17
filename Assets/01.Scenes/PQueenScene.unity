@@ -1743,10 +1743,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 513879968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bd861b5c1c2e6549ad32d61e3dde5e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95101e32f7beb6946ab7da681ba43197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteItem: {fileID: 11400000, guid: 4a97a45639f4f6a438a4c5b19add26ce, type: 2}
+  fakeHintItem: {fileID: 11400000, guid: 4a97a45639f4f6a438a4c5b19add26ce, type: 2}
   nextStoryIndex: 136
 --- !u!1 &588075415
 GameObject:

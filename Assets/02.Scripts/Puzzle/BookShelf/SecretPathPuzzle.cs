@@ -50,7 +50,7 @@ public class SecretPath : MonoBehaviour, IClickablePuzzle
     {
         if (isDoorOpened)
         {
-            StartCoroutine(GoToStoryAfterDelay(2f));
+            StartCoroutine(GoToStoryAfterDelay(1.5f));
         }
         else if (isPendantInserted)
         {

@@ -7,6 +7,8 @@ public class ChapterController : MonoBehaviour
 {
     public static ChapterController Instance;
 
+    public static bool skipChapterOnLoad = false;
+
     // 각 챕터용 GameObject 배열 (기존에는 PlayableDirector를 포함한 Timeline 오브젝트였으나, 이제는 단순 GameObject로 처리)
     public GameObject[] chapters;
     // 현재 활성화된 챕터 GameObject
@@ -20,14 +22,16 @@ public class ChapterController : MonoBehaviour
         { "PGardenScene", 4 },
         { "PWineScene", 5 },
         { "PFlowerScene", 6 },
-        { "PMoleeScene", 7 },
+        { "PMoleScene", 7 },
         { "PBookshelfScene", 8 },
         { "PWindowScene", 9 },
-        { "PortraiScene", 10 },
+        { "PortraitScene", 10 },
         { "PQueenScene", 11 },
         { "HappyEnding", 12 },
         { "BadEnding", 13 },
-        { "PrincesRoom", 14 }
+        { "PrincessRoom", 14 },
+        { "Mix", 15 }
+
 
     };
 
@@ -57,15 +61,15 @@ public class ChapterController : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("[ChapterController] 씬 로드됨: " + scene.name);
-
+        if (skipChapterOnLoad)
+        {
+            skipChapterOnLoad = false;
+            return;
+        }
         string sceneName = scene.name;
 
-        // 퍼즐 씬인지 매핑 테이블에서 확인
-        int chapterIndex;
-        if (puzzleSceneChapterMap.TryGetValue(sceneName, out chapterIndex))
+        if (puzzleSceneChapterMap.TryGetValue(sceneName, out int chapterIndex))
         {
-            Debug.Log("[ChapterController] 퍼즐씬 발견, 챕터 인덱스: " + chapterIndex);
             ChangeChapter(chapterIndex);
         }
     }
@@ -123,7 +127,7 @@ public class ChapterController : MonoBehaviour
     
     private IEnumerator ChapterFadeFlow(GameObject chapterGO)
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
 
         // 1) FadeManager가 있으면 페이드인 실행
         if (FadeManager.Instance != null)

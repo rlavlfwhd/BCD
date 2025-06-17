@@ -43,16 +43,26 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             var btn = GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
         }
-        else if (item != null && item.itemName == "Note")
+        else if (item != null && item.itemName == "Hint_Fake")
         {
-            var note = gameObject.AddComponent<NoteItemBehavior>();
-            note.noteViewRoot = GameObject.Find("NoteView");
-            note.darkFilterImage = note.noteViewRoot.transform.GetChild(0).gameObject;
-            note.noteObject = note.noteViewRoot.transform.GetChild(1).gameObject;
+            var fakeHint = gameObject.AddComponent<FakeHintItemBehavior>();
+            fakeHint.fakeHintViewRoot = GameObject.Find("FakeHintView");
+            fakeHint.darkFilterImage = fakeHint.fakeHintViewRoot.transform.GetChild(0).gameObject;
+            fakeHint.fakeHintObject = fakeHint.fakeHintViewRoot.transform.GetChild(1).gameObject;
 
             var btn = GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
-            // 버튼 리스너 없이 아래 OnPointerClick에서 직접 컨트롤
+        }
+
+        else if (item != null && item.itemName == "Hint")
+        {
+            var hint = gameObject.AddComponent<HintItemBehavior>();
+            hint.hintViewRoot = GameObject.Find("HintView");
+            hint.darkFilterImage = hint.hintViewRoot.transform.GetChild(0).gameObject;
+            hint.hintObject = hint.hintViewRoot.transform.GetChild(1).gameObject;
+
+            var btn = GetComponent<Button>();
+            btn.onClick.RemoveAllListeners();
         }
         else
         {
@@ -92,16 +102,28 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                     letter.SetActiveLetterPanel(false);  // 세컨드 셀렉트: 끄기
                 }
             }
-            else if (item.itemName == "Note")
+            else if (item.itemName == "Hint_Fake")
             {
-                var note = GetComponent<NoteItemBehavior>();
+                var fakeHint = GetComponent<FakeHintItemBehavior>();
                 if (!isAlreadySelected)
                 {
-                    note.SetActiveNotePanel(true);   // 퍼스트 셀렉트: 켜기
+                    fakeHint.SetActiveNotePanel(true);   // 퍼스트 셀렉트: 켜기
                 }
                 else
                 {
-                    note.SetActiveNotePanel(false);  // 세컨드 셀렉트: 끄기
+                    fakeHint.SetActiveNotePanel(false);  // 세컨드 셀렉트: 끄기
+                }
+            }
+            else if (item.itemName == "Hint")
+            {
+                var hint = GetComponent<HintItemBehavior>();
+                if (!isAlreadySelected)
+                {
+                    hint.SetActiveNotePanel(true);   // 퍼스트 셀렉트: 켜기
+                }
+                else
+                {
+                    hint.SetActiveNotePanel(false);  // 세컨드 셀렉트: 끄기
                 }
             }
 
