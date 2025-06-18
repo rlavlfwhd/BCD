@@ -26,7 +26,7 @@ public class MolePuzzleFailManager : MonoBehaviour
 
     private IEnumerator GoToStoryAfterDelay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
     }
 

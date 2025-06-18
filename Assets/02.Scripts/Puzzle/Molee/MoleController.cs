@@ -30,9 +30,16 @@ public class MoleController : MonoBehaviour, IClickablePuzzle
 
     private void OnEnable()
     {
-        StartCoroutine(InitializePuzzleState());
-    }
+        if (PuzzleManager.Instance.IsPuzzleCompleted(puzzleID))
+        {
+            MolePuzzleFailManager.Instance.HandleSuccess();
+        }
+        else
+        {
+            StartCoroutine(InitializePuzzleState());
 
+        }
+    }
     private IEnumerator InitializePuzzleState()
     {
         yield return new WaitUntil(() => PuzzleManager.Instance != null);
