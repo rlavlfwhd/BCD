@@ -1,19 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum ItemType { Book, Statue } // ✅ 아이템 타입 정의
+public enum ItemType { Book, Statue }
 
 public class DraggableItem : MonoBehaviour
 {
-    [Header("이 책의 고유 이름 (예: BlueBook, RedBook 등)")]
     public string bookName;
-
-    [Header("이 오브젝트의 타입")]
-    public ItemType itemType = ItemType.Book; // ✅ Inspector에서 타입 설정 가능
+    public ItemType itemType = ItemType.Book;
 
     private Vector3 offset;
     private Vector3 originalPosition;
-    private bool isLocked = false;
+    public bool isLocked = false;
 
     private BookSlot currentSlot = null;
 
@@ -29,9 +26,6 @@ public class DraggableItem : MonoBehaviour
         Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePoint.z = 0;
         offset = transform.position - mousePoint;
-        offset.z = 0;
-
-        offset = transform.position - mousePoint;
 
         if (currentSlot != null)
         {
@@ -40,7 +34,7 @@ public class DraggableItem : MonoBehaviour
             currentSlot = null;
         }
 
-        Debug.Log(" 드래그 시작 (2D)");
+        Debug.Log("드래그 시작 (2D)");
     }
 
     void OnMouseDrag()
@@ -58,7 +52,7 @@ public class DraggableItem : MonoBehaviour
     {
         if (isLocked) return;
 
-        Debug.Log(" 드래그 종료 (2D)");
+        Debug.Log("드래그 종료 (2D)");
 
         float detectionRadius = 1.0f;
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
@@ -80,8 +74,7 @@ public class DraggableItem : MonoBehaviour
                         StartCoroutine(SmoothMove(transform.position, slotPosition, 0.2f));
 
                         currentSlot = slot;
-                        isLocked = false;
-
+                        isLocked = slot.isCorrect; // 정답이면 자동으로 고정
                         originalPosition = slotPosition;
 
                         return;

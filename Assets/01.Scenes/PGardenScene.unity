@@ -23336,7 +23336,7 @@ MonoBehaviour:
   resultImage: {fileID: 0}
   successSprite: {fileID: 0}
   puzzleID: Garden_1
-  nextStoryIndex: 57
+  nextStoryIndex: 201
   puzzleSets:
   - tiles:
     - {fileID: 776136843}

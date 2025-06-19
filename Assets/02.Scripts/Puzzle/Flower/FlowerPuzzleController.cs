@@ -35,7 +35,10 @@ public class FlowerPuzzleController : MonoBehaviour
     public string nextSceneName = "StoryScene";
 
     [Header("📝 퍼즐 완료 후 보여줄 스토리 인덱스")]
-    public int nextStoryIndex = 1; // ⭐ 여기 추가됨
+    public int nextStoryIndex = 1;
+
+    [Header("🔀 스토리 인덱스 사용 여부")]
+    public bool useStoryIndex = true;
 
     private bool isCleared = false;
     private bool isMovingToHoney = false;
@@ -119,10 +122,17 @@ public class FlowerPuzzleController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
-        Debug.Log($"🚪 씬 이동: {nextSceneName}, 스토리 인덱스: {nextStoryIndex}");
-
-        SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
-        StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
+        if (useStoryIndex)
+        {
+            Debug.Log($"🚪 씬 이동: {nextSceneName}, 스토리 인덱스: {nextStoryIndex}");
+            SceneDataManager.Instance.Data.nextStoryIndex = nextStoryIndex;
+            StartCoroutine(FadeManager.Instance.FadeToStoryScene("StoryScene"));
+        }
+        else
+        {
+            Debug.Log($"🚪 씬 이동: {nextSceneName} (스토리 인덱스 없이)");
+            SceneManager.LoadScene(nextSceneName);
+        }
     }
 
     public void FailPuzzle()
@@ -140,7 +150,8 @@ public class FlowerPuzzleController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-        public bool IsPuzzleCleared()
+
+    public bool IsPuzzleCleared()
     {
         return isCleared;
     }
@@ -150,8 +161,3 @@ public class FlowerPuzzleController : MonoBehaviour
         return fairy != null && fairy.IsMoving();
     }
 }
-
-
-
-
-

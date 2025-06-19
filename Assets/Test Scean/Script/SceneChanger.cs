@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-   
+    [Header("ğŸ¬ ì´ë™í•  ì”¬ ì´ë¦„ ì…ë ¥")]
+    public string sceneName = "PFlowerScene";
 
-    // ¸¶¿ì½º·Î Å¬¸¯ÇßÀ» ¶§
+    // ë§ˆìš°ìŠ¤ë¡œ í´ë¦­í–ˆì„ ë•Œ
     private void OnMouseDown()
     {
-
-        StartCoroutine(FadeManager.Instance.FadeToChoiceScene("PFlowerScene"));
+        StartCoroutine(FadeManager.Instance.FadeToChoiceScene(sceneName));
     }
 }

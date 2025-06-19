@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: RedBook2
   itemType: 0
+  isLocked: 0
 --- !u!61 &39689518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -367,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: RedBook1
   itemType: 0
+  isLocked: 0
 --- !u!61 &53264591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -512,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: Chick
   itemType: 1
+  isLocked: 0
 --- !u!61 &128555206
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -753,6 +756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: GreenBook4
   itemType: 0
+  isLocked: 0
 --- !u!212 &177506430
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1445,6 +1449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: YellowBook1
   itemType: 0
+  isLocked: 0
 --- !u!61 &349417413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1547,8 +1552,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "    \uACF5\uC8FC : \uC544\uAE4C \uD1A0\uB07C\uAC00 \uB9D0\uD55C \uD78C\uD2B8\uB294
-    \uC544\uB9C8 \uCC45\uC7A5\uCABD\uC774\uC600\uC9C0?"
+  m_text: "    \uACF5\uC8FC : \"\uC544\uAE4C \uD1A0\uB07C\uAC00 \uB9D0\uD55C \uD78C\uD2B8\uB294
+    \uC544\uB9C8 \uCC45\uC7A5\uCABD\uC774\uC600\uC9C0?\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f022945ce3fd3af48bf5456a9cf2730f, type: 2}
   m_sharedMaterial: {fileID: -8592929152113110068, guid: f022945ce3fd3af48bf5456a9cf2730f,
@@ -1674,6 +1679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: GreenBook1
   itemType: 0
+  isLocked: 0
 --- !u!212 &366315444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1819,6 +1825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: GreenBook3
   itemType: 0
+  isLocked: 0
 --- !u!212 &446554524
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2182,7 +2189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &548673580
 Transform:
   m_ObjectHideFlags: 0
@@ -2299,6 +2306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: BlueBook1
   itemType: 0
+  isLocked: 0
 --- !u!61 &551156940
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2592,6 +2600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: SmallChicken
   itemType: 1
+  isLocked: 0
 --- !u!61 &592027091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3129,6 +3138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: BlueBook2
   itemType: 0
+  isLocked: 0
 --- !u!61 &704504505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3506,6 +3516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: YellowBook2
   itemType: 0
+  isLocked: 0
 --- !u!61 &855775904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4387,6 +4398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: BigChicken
   itemType: 1
+  isLocked: 0
 --- !u!61 &1121153236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4508,7 +4520,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e577a8dc3b65ec24592f97a287c23c02, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5004,6 +5016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: Egg
   itemType: 1
+  isLocked: 0
 --- !u!61 &1521655384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5918,6 +5931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: YellowBook3
   itemType: 0
+  isLocked: 0
 --- !u!61 &1700562331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7069,6 +7083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookName: GreenBook2
   itemType: 0
+  isLocked: 0
 --- !u!212 &2091990160
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -27,6 +27,6 @@ MonoBehaviour:
         changeSceneName: 
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
-  bgmClip: {fileID: 8300000, guid: a778607c08ae32144bb8b847206115f2, type: 3}
+  bgmClip: {fileID: 0}
   sfxClip: {fileID: 0}
   choiceSfxClip: {fileID: 0}

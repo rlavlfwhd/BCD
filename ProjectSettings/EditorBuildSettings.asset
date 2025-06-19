@@ -26,9 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/PMix2.unity
     guid: b588dc29b1ea6bc4985670c68d356294
-  - enabled: 0
-    path: Assets/01.Scenes/Mix3.unity
-    guid: ef71855ef3c864d4a9ad64ac793dd543
   - enabled: 1
     path: Assets/01.Scenes/PFlowerScene.unity
     guid: df1de4a770e37404f9bd91c996ef2bfc
@@ -53,7 +50,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/PrincessRoom.unity
     guid: 5e3f614f41094bd499d23ade7c5f0760
-  - enabled: 0
+  - enabled: 1
+    path: Assets/01.Scenes/PMix3.unity
+    guid: 71c268d552925eb468a6067d9629c5b1
+  - enabled: 1
     path: Assets/01.Scenes/PFlowerScene2.unity
-    guid: 242f2261146913f4092c5ce0109e77e9
+    guid: 0ed58acf37e8c9045a1a2b1c133fc045
   m_configObjects: {}

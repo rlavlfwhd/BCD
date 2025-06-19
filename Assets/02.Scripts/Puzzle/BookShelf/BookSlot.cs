@@ -39,6 +39,13 @@ public class BookSlot : MonoBehaviour
         isOccupied = true;
         isCorrect = (draggable.bookName == correctBookName);
 
+        // ✅ 정답이면 드래그 비활성화
+        if (isCorrect)
+        {
+            draggable.enabled = false;
+            Debug.Log("✅ 정답 아이템이 고정되었습니다!");
+        }
+
         // ✅ 기존 SlotManager용 검사
         SlotManager slotManager = FindObjectOfType<SlotManager>();
         if (slotManager != null) slotManager.CheckSlotsNow();
