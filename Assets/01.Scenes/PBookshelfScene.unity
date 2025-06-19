@@ -1222,7 +1222,7 @@ GameObject:
   - component: {fileID: 263589309}
   - component: {fileID: 263589310}
   - component: {fileID: 263589311}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: BookShelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2182,7 +2182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &548673580
 Transform:
   m_ObjectHideFlags: 0
@@ -4633,7 +4633,7 @@ GameObject:
   - component: {fileID: 1356683304}
   - component: {fileID: 1356683306}
   - component: {fileID: 1356683307}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: BookBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

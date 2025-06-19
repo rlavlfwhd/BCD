@@ -30,7 +30,8 @@ public class ChapterController : MonoBehaviour
         { "HappyEnding", 12 },
         { "BadEnding", 13 },
         { "PrincessRoom", 14 },
-        { "Mix", 15 }
+        { "PMix", 15 },
+        { "PMix2", 16 }
 
 
     };

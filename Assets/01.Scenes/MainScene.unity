@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 13773979}
   - component: {fileID: 13773981}
   - component: {fileID: 13773980}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 19578103}
   - component: {fileID: 19578105}
   - component: {fileID: 19578104}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 68745085}
   - component: {fileID: 68745089}
   - component: {fileID: 68745088}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel6
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 185499058}
   - component: {fileID: 185499060}
   - component: {fileID: 185499059}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1022,7 +1022,7 @@ GameObject:
   - component: {fileID: 260926812}
   - component: {fileID: 260926816}
   - component: {fileID: 260926815}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel2
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -1607,7 +1607,7 @@ GameObject:
   - component: {fileID: 530893458}
   - component: {fileID: 530893460}
   - component: {fileID: 530893459}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1737,6 +1737,82 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 899360685242217375}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &699340896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699340897}
+  - component: {fileID: 699340899}
+  - component: {fileID: 699340898}
+  m_Layer: 7
+  m_Name: ChapterPanel17
+  m_TagString: Chapter
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &699340897
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699340896}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1229695097}
+  m_Father: {fileID: 1477006464}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &699340898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699340896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &699340899
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699340896}
+  m_CullTransparentMesh: 1
 --- !u!114 &700517820 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1884565483715136345, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
@@ -2143,7 +2219,7 @@ GameObject:
   - component: {fileID: 952024179}
   - component: {fileID: 952024183}
   - component: {fileID: 952024182}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel10
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -2231,7 +2307,7 @@ GameObject:
   - component: {fileID: 954125694}
   - component: {fileID: 954125698}
   - component: {fileID: 954125697}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel7
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -2331,7 +2407,7 @@ GameObject:
   - component: {fileID: 961348224}
   - component: {fileID: 961348228}
   - component: {fileID: 961348227}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel3
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -2507,7 +2583,7 @@ GameObject:
   - component: {fileID: 1002010542}
   - component: {fileID: 1002010544}
   - component: {fileID: 1002010543}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2654,7 +2730,7 @@ GameObject:
   - component: {fileID: 1029370714}
   - component: {fileID: 1029370716}
   - component: {fileID: 1029370715}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel1
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -2730,7 +2806,7 @@ GameObject:
   - component: {fileID: 1053455277}
   - component: {fileID: 1053455281}
   - component: {fileID: 1053455280}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel9
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -2806,7 +2882,7 @@ GameObject:
   - component: {fileID: 1081893467}
   - component: {fileID: 1081893471}
   - component: {fileID: 1081893470}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel13
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -2882,7 +2958,7 @@ GameObject:
   - component: {fileID: 1101433299}
   - component: {fileID: 1101433301}
   - component: {fileID: 1101433300}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3017,7 +3093,7 @@ GameObject:
   - component: {fileID: 1112152249}
   - component: {fileID: 1112152253}
   - component: {fileID: 1112152252}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel5
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -3093,7 +3169,7 @@ GameObject:
   - component: {fileID: 1138428249}
   - component: {fileID: 1138428251}
   - component: {fileID: 1138428250}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3228,7 +3304,7 @@ GameObject:
   - component: {fileID: 1142707409}
   - component: {fileID: 1142707413}
   - component: {fileID: 1142707412}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel15
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -3340,7 +3416,7 @@ GameObject:
   - component: {fileID: 1171008786}
   - component: {fileID: 1171008788}
   - component: {fileID: 1171008787}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3475,7 +3551,7 @@ GameObject:
   - component: {fileID: 1215119475}
   - component: {fileID: 1215119477}
   - component: {fileID: 1215119476}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3701,6 +3777,141 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
+--- !u!1 &1229695096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229695097}
+  - component: {fileID: 1229695099}
+  - component: {fileID: 1229695098}
+  m_Layer: 7
+  m_Name: ChapterText17
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1229695097
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229695096}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 699340897}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1500, y: 458}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1229695098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229695096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\uC628\uC2E4 \uC55E \uC815\uC6D0"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: bd50b256db576a442a49b5a136b5de22, type: 2}
+  m_sharedMaterial: {fileID: -5114077578346804859, guid: bd50b256db576a442a49b5a136b5de22,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 90
+  m_fontSizeBase: 90
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1229695099
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229695096}
+  m_CullTransparentMesh: 1
 --- !u!114 &1237862440 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 61141812148703029, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
@@ -3724,7 +3935,7 @@ GameObject:
   - component: {fileID: 1256418937}
   - component: {fileID: 1256418939}
   - component: {fileID: 1256418938}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3871,7 +4082,7 @@ GameObject:
   - component: {fileID: 1287023457}
   - component: {fileID: 1287023459}
   - component: {fileID: 1287023458}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4006,7 +4217,7 @@ GameObject:
   - component: {fileID: 1290855121}
   - component: {fileID: 1290855123}
   - component: {fileID: 1290855122}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel16
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -4506,7 +4717,7 @@ GameObject:
   - component: {fileID: 1387575356}
   - component: {fileID: 1387575360}
   - component: {fileID: 1387575359}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel8
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -4582,7 +4793,7 @@ GameObject:
   - component: {fileID: 1432650607}
   - component: {fileID: 1432650609}
   - component: {fileID: 1432650608}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4828,7 +5039,7 @@ GameObject:
   - component: {fileID: 1477006463}
   - component: {fileID: 1477006462}
   - component: {fileID: 1477006461}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: FadePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4913,6 +5124,7 @@ RectTransform:
   - {fileID: 2102890554}
   - {fileID: 1142707409}
   - {fileID: 1290855121}
+  - {fileID: 699340897}
   m_Father: {fileID: 1218576278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5315,7 +5527,7 @@ GameObject:
   - component: {fileID: 1599314381}
   - component: {fileID: 1599314385}
   - component: {fileID: 1599314384}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel12
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -5391,7 +5603,7 @@ GameObject:
   - component: {fileID: 1604031609}
   - component: {fileID: 1604031611}
   - component: {fileID: 1604031610}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5646,7 +5858,7 @@ GameObject:
   - component: {fileID: 1838977226}
   - component: {fileID: 1838977228}
   - component: {fileID: 1838977227}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5829,6 +6041,8 @@ MonoBehaviour:
   - {fileID: 1081893466}
   - {fileID: 2102890553}
   - {fileID: 1142707408}
+  - {fileID: 1290855120}
+  - {fileID: 699340896}
   activeChapter: {fileID: 0}
 --- !u!114 &1930539877
 MonoBehaviour:
@@ -6023,7 +6237,7 @@ GameObject:
   - component: {fileID: 2067056981}
   - component: {fileID: 2067056985}
   - component: {fileID: 2067056984}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel11
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -6123,7 +6337,7 @@ GameObject:
   - component: {fileID: 2102890554}
   - component: {fileID: 2102890558}
   - component: {fileID: 2102890557}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel14
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -6199,7 +6413,7 @@ GameObject:
   - component: {fileID: 2130823707}
   - component: {fileID: 2130823711}
   - component: {fileID: 2130823710}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterPanel4
   m_TagString: Chapter
   m_Icon: {fileID: 0}
@@ -6275,7 +6489,7 @@ GameObject:
   - component: {fileID: 2135986274}
   - component: {fileID: 2135986276}
   - component: {fileID: 2135986275}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6410,7 +6624,7 @@ GameObject:
   - component: {fileID: 2140879580}
   - component: {fileID: 2140879582}
   - component: {fileID: 2140879581}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ChapterText12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
