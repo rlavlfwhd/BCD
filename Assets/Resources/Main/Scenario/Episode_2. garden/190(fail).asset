@@ -27,5 +27,5 @@ MonoBehaviour:
     requiredStoryNumbers: 
     requiredCompletedPuzzles: []
   bgmClip: {fileID: 0}
-  sfxClip: {fileID: 0}
+  sfxClip: {fileID: 8300000, guid: d47659dff6634c54b9ba9c1ac71fe276, type: 3}
   choiceSfxClip: {fileID: 0}

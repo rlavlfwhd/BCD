@@ -506,6 +506,8 @@ MonoBehaviour:
   pBookshelfSceneBGM: {fileID: 0}
   mainSceneBGM: {fileID: 8300000, guid: 5b73025d72cd3544ebe24c398d30db03, type: 3}
   defaultBGM: {fileID: 0}
+  happyEndingBGM: {fileID: 8300000, guid: dbc5eeafc009a80418e6f83999538666, type: 3}
+  badEndingBGM: {fileID: 8300000, guid: b0627997b631a50499babdc6a4bc9e3c, type: 3}
 --- !u!1 &68745084
 GameObject:
   m_ObjectHideFlags: 0
@@ -7722,6 +7724,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720275541681507372, guid: 5112da2effb49f74b87ee3b3fd6f26f0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

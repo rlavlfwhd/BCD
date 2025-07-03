@@ -340,9 +340,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 3016928786ec62941b10b6a2c8f3a6d8, type: 2}
-  itemClickClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  itemClickClip: {fileID: 8300000, guid: 62fe6d3bce919a343981a16360ed1f90, type: 3}
   sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
     type: 2}
+  puzzleID: Cutton
+  alwaysPlaySoundEvenIfPuzzleCompleted: 1
+  arrowObject: {fileID: 1229523045}
 --- !u!212 &284672528
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -531,9 +534,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 7de9890ed0d78e3419029a6a4ae06163, type: 2}
-  itemClickClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  itemClickClip: {fileID: 8300000, guid: 62fe6d3bce919a343981a16360ed1f90, type: 3}
   sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
     type: 2}
+  puzzleID: Cutton
+  alwaysPlaySoundEvenIfPuzzleCompleted: 1
+  arrowObject: {fileID: 1229523045}
 --- !u!212 &310634726
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1176,9 +1182,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: fb2a81f44a1586a4dabf19f1a0df893d, type: 2}
-  itemClickClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  itemClickClip: {fileID: 8300000, guid: 62fe6d3bce919a343981a16360ed1f90, type: 3}
   sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
     type: 2}
+  puzzleID: Cutton
+  alwaysPlaySoundEvenIfPuzzleCompleted: 1
+  arrowObject: {fileID: 1229523045}
 --- !u!212 &669317330
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1946,6 +1955,106 @@ Transform:
   - {fileID: 1362072661}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1229523045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229523047}
+  - component: {fileID: 1229523046}
+  - component: {fileID: 1229523048}
+  m_Layer: 9
+  m_Name: backham
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!212 &1229523046
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229523045}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 7
+  m_Sprite: {fileID: 21300000, guid: dc96427a853ea70489b3ac67a79899cc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 3.1, y: 3.08}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1229523047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229523045}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalPosition: {x: -754, y: 346, z: -13}
+  m_LocalScale: {x: 31.152946, y: 41.57671, z: 1.1691524}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+--- !u!114 &1229523048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229523045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79f0487dd50ad34d8c7842d23e505d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatSpeed: 10
+  floatHeight: 7
+  autoHideTime: 7
 --- !u!1 &1362072660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,9 +2291,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 323a822c94bee9046a021da9e7de6dfb, type: 2}
-  itemClickClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  itemClickClip: {fileID: 8300000, guid: 62fe6d3bce919a343981a16360ed1f90, type: 3}
   sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
     type: 2}
+  puzzleID: Cutton
+  alwaysPlaySoundEvenIfPuzzleCompleted: 1
+  arrowObject: {fileID: 1229523045}
 --- !u!212 &1408976741
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2461,9 +2573,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 48cb90300b080494e98bad1050693a9c, type: 2}
-  itemClickClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  itemClickClip: {fileID: 8300000, guid: 62fe6d3bce919a343981a16360ed1f90, type: 3}
   sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
     type: 2}
+  puzzleID: Cutton
+  alwaysPlaySoundEvenIfPuzzleCompleted: 1
+  arrowObject: {fileID: 1229523045}
 --- !u!114 &1672548623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2855,3 +2970,4 @@ SceneRoots:
   - {fileID: 1199915934}
   - {fileID: 957444}
   - {fileID: 166662937}
+  - {fileID: 1229523047}

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 public enum ItemType { Book, Statue }
 
@@ -13,6 +14,11 @@ public class DraggableItem : MonoBehaviour
     public bool isLocked = false;
 
     private BookSlot currentSlot = null;
+
+    [Header("🎵 사운드 효과")]
+    public AudioClip dragStartClip;
+    public AudioClip dropSuccessClip;
+    public AudioMixerGroup sfxMixerGroup;
 
     void Start()
     {
@@ -33,6 +39,9 @@ public class DraggableItem : MonoBehaviour
             currentSlot.isCorrect = false;
             currentSlot = null;
         }
+
+        // 🔊 드래그 시작 사운드 재생
+        SoundManager.PlayOneShot(dragStartClip, sfxMixerGroup);
 
         Debug.Log("드래그 시작 (2D)");
     }
@@ -74,8 +83,11 @@ public class DraggableItem : MonoBehaviour
                         StartCoroutine(SmoothMove(transform.position, slotPosition, 0.2f));
 
                         currentSlot = slot;
-                        isLocked = slot.isCorrect; // 정답이면 자동으로 고정
+                        isLocked = slot.isCorrect;
                         originalPosition = slotPosition;
+
+                        // 🔊 드롭 성공 사운드 재생
+                        SoundManager.PlayOneShot(dropSuccessClip, sfxMixerGroup);
 
                         return;
                     }

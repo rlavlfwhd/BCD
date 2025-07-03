@@ -11,6 +11,8 @@ public class SceneLoader : MonoBehaviour
     public AudioClip pBookshelfSceneBGM;
     public AudioClip mainSceneBGM;
     public AudioClip defaultBGM;
+    public AudioClip happyEndingBGM;
+    public AudioClip badEndingBGM;
 
     private Dictionary<string, AudioClip> sceneBGMMap;
 
@@ -21,7 +23,10 @@ public class SceneLoader : MonoBehaviour
             { "StoryScene", storySceneBGM},
             { "PWindowScene", pWindowSceneBGM},
             { "PBookshelfScene", pBookshelfSceneBGM},
-            { "MainScene", mainSceneBGM }
+            { "MainScene", mainSceneBGM },
+            { "HappyEnding", happyEndingBGM},
+            { "BadEnding", badEndingBGM},
+
         };
 
         SceneManager.sceneLoaded += OnSceneLoaded;

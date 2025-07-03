@@ -223,6 +223,10 @@ MonoBehaviour:
   bookName: RedBook2
   itemType: 0
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!61 &39689518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -369,6 +373,10 @@ MonoBehaviour:
   bookName: RedBook1
   itemType: 0
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!61 &53264591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -515,6 +523,10 @@ MonoBehaviour:
   bookName: Chick
   itemType: 1
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!61 &128555206
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -757,6 +769,10 @@ MonoBehaviour:
   bookName: GreenBook4
   itemType: 0
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!212 &177506430
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1248,8 +1264,6 @@ Transform:
   m_Children:
   - {fileID: 811768618}
   - {fileID: 731199126}
-  - {fileID: 1275292160}
-  - {fileID: 937567832}
   m_Father: {fileID: 1395276774}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &263589310
@@ -1450,6 +1464,10 @@ MonoBehaviour:
   bookName: YellowBook1
   itemType: 0
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!61 &349417413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1680,6 +1698,10 @@ MonoBehaviour:
   bookName: GreenBook1
   itemType: 0
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!212 &366315444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1826,6 +1848,10 @@ MonoBehaviour:
   bookName: GreenBook3
   itemType: 0
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!212 &446554524
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2307,6 +2333,10 @@ MonoBehaviour:
   bookName: BlueBook1
   itemType: 0
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!61 &551156940
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2601,6 +2631,10 @@ MonoBehaviour:
   bookName: SmallChicken
   itemType: 1
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!61 &592027091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3139,6 +3173,10 @@ MonoBehaviour:
   bookName: BlueBook2
   itemType: 0
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!61 &704504505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3414,6 +3452,8 @@ Transform:
   - {fileID: 2091990157}
   - {fileID: 446554521}
   - {fileID: 177506427}
+  - {fileID: 937567832}
+  - {fileID: 1275292160}
   m_Father: {fileID: 263589309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &855775900
@@ -3517,6 +3557,10 @@ MonoBehaviour:
   bookName: YellowBook2
   itemType: 0
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!61 &855775904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3587,8 +3631,8 @@ Transform:
   m_GameObject: {fileID: 937567831}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.63078415, y: -1.1103038, z: -1}
-  m_LocalScale: {x: 0.008366013, y: 0.008644557, z: 1}
+  m_LocalPosition: {x: -98.5402, y: -150.82567, z: 0}
+  m_LocalScale: {x: 1.1280876, y: 1.1280874, z: 1.1280316}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 955727795}
@@ -3602,7 +3646,7 @@ Transform:
   - {fileID: 581471316}
   - {fileID: 198404434}
   - {fileID: 954876580}
-  m_Father: {fileID: 263589309}
+  m_Father: {fileID: 811768618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954876579
 GameObject:
@@ -4399,6 +4443,10 @@ MonoBehaviour:
   bookName: BigChicken
   itemType: 1
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!61 &1121153236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4575,15 +4623,15 @@ Transform:
   m_GameObject: {fileID: 1275292159}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08888888, y: -0.20086166, z: -1}
-  m_LocalScale: {x: 0.008366013, y: 0.008644557, z: 1}
+  m_LocalPosition: {x: -1.4982432, y: -32.146355, z: 0}
+  m_LocalScale: {x: 1.1280876, y: 1.1280874, z: 1.1280316}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1521655381}
   - {fileID: 128555202}
   - {fileID: 592027087}
   - {fileID: 1121153233}
-  m_Father: {fileID: 263589309}
+  m_Father: {fileID: 811768618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1318726432
 GameObject:
@@ -5017,6 +5065,10 @@ MonoBehaviour:
   bookName: Egg
   itemType: 1
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!61 &1521655384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5932,6 +5984,10 @@ MonoBehaviour:
   bookName: YellowBook3
   itemType: 0
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!61 &1700562331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6227,7 +6283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704d65d48040e6b4cb8f87530d8d50e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mirrorBreakClip: {fileID: 8300000, guid: 232bd86b1dde8684ea25403349902dae, type: 3}
+  mirrorBreakClip: {fileID: 8300000, guid: 265ace40961bb2a4c8ff761660417613, type: 3}
   sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
     type: 2}
   puzzleID: Mirror
@@ -7084,6 +7140,10 @@ MonoBehaviour:
   bookName: GreenBook2
   itemType: 0
   isLocked: 0
+  dragStartClip: {fileID: 8300000, guid: dd109f438441efd40b97af6fa10d87b6, type: 3}
+  dropSuccessClip: {fileID: 8300000, guid: c1d5d5c19ad0409449350a6d25ae6df8, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!212 &2091990160
 SpriteRenderer:
   m_ObjectHideFlags: 0

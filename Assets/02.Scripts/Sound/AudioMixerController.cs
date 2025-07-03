@@ -57,7 +57,7 @@ public class AudioMixerController : MonoBehaviour
         if (value <= 0.0001f)
         {
             // 슬라이더가 0에 가까우면 강제로 음소거(-80dB)
-            audioMixer.SetFloat(parameterName, -80f);
+            audioMixer.SetFloat(parameterName, -30f);
         }
         else
         {
