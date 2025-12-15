@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ShakeController : MonoBehaviour
 {
@@ -25,6 +26,19 @@ public class ShakeController : MonoBehaviour
     [Header("🍷 잔 컨트롤러")]
     public WineGlassController wineGlassController;
 
+    // 🔊 쉐이크 사운드
+    [Header("🔊 쉐이크 사운드")]
+    public AudioClip shakeSound;
+    public AudioMixerGroup sfxMixerGroup;
+
+    // 🔊 [추가] 따르기 사운드
+    [Header("🔊 따르기 사운드")]
+    public AudioClip pourSound;
+
+
+    private AudioSource audioSource;
+    private AudioSource pourAudioSource; // ← 추가
+
     private Vector3 originalPosition;
     private Quaternion originalRotation;
 
@@ -35,11 +49,20 @@ public class ShakeController : MonoBehaviour
 
         if (pourEffect != null)
             pourEffect.SetActive(false);
+
+        // 🔊 쉐이크 AudioSource
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.loop = true;
+        audioSource.outputAudioMixerGroup = sfxMixerGroup;
+
+        // 🔊 [추가] 따르기 AudioSource
+        pourAudioSource = gameObject.AddComponent<AudioSource>();
+        pourAudioSource.playOnAwake = false;
+        pourAudioSource.loop = true;
+        pourAudioSource.outputAudioMixerGroup = sfxMixerGroup;
     }
 
-    /// <summary>
-    /// 퍼즐 결과에 따라 쉐이크 + 따르기 연출을 실행함
-    /// </summary>
     public IEnumerator StartShaking(bool isSuccess)
     {
         yield return StartCoroutine(ShakeRoutine(isSuccess));
@@ -50,14 +73,19 @@ public class ShakeController : MonoBehaviour
         float elapsed = 0f;
         Vector3 targetPos = originalPosition + Vector3.up * riseHeight;
 
-        // 위로 떠오름
         while (Vector3.Distance(transform.position, targetPos) > 0.01f)
         {
             transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * riseSpeed);
             yield return null;
         }
 
-        // 흔들기
+        // 🔊 쉐이크 사운드 시작
+        if (shakeSound != null)
+        {
+            audioSource.clip = shakeSound;
+            audioSource.Play();
+        }
+
         while (elapsed < shakeDuration)
         {
             elapsed += Time.deltaTime;
@@ -70,9 +98,11 @@ public class ShakeController : MonoBehaviour
             yield return null;
         }
 
+        if (audioSource.isPlaying)
+            audioSource.Stop();
+
         transform.rotation = originalRotation;
 
-        // 따르기 시작
         yield return StartCoroutine(MoveAndPourRoutine(isSuccess));
     }
 
@@ -82,7 +112,6 @@ public class ShakeController : MonoBehaviour
         Vector3 targetPos = glassTarget.position;
         float elapsed = 0f;
 
-        // 잔 위치로 이동
         while (elapsed < moveDuration)
         {
             elapsed += Time.deltaTime;
@@ -93,27 +122,36 @@ public class ShakeController : MonoBehaviour
         transform.position = targetPos;
         transform.rotation = Quaternion.Euler(0, 0, pourTiltAngle);
 
-        // 따르기 이펙트 실행
+        // 🍾 따르기 이펙트
         if (pourEffect != null)
             pourEffect.SetActive(true);
 
-        // 🍷 퍼즐 결과에 따라 잔 이미지 변경
+        // 🔊 [추가] 따르기 사운드 시작
+        if (pourSound != null)
+        {
+            pourAudioSource.clip = pourSound;
+            pourAudioSource.Play();
+        }
+
         if (wineGlassController != null)
         {
             if (isSuccess)
-                wineGlassController.StartFadeInFilledGlass(); // 무지개
+                wineGlassController.StartFadeInFilledGlass();
             else
-                wineGlassController.ShowWeirdWine();          // 보라색
+                wineGlassController.ShowWeirdWine();
         }
 
         yield return new WaitForSeconds(pourDuration);
+
+        // 🔊 [추가] 따르기 사운드 종료
+        if (pourAudioSource.isPlaying)
+            pourAudioSource.Stop();
 
         if (pourEffect != null)
             pourEffect.SetActive(false);
 
         transform.rotation = originalRotation;
 
-        // 원래 위치로 복귀
         elapsed = 0f;
         while (elapsed < moveDuration)
         {

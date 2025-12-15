@@ -1689,8 +1689,9 @@ MonoBehaviour:
   startPoint: {fileID: 395425723}
   endPoint: {fileID: 597048657}
   pourSpeed: 2
-  pourSound: {fileID: 0}
-  sfxMixerGroup: {fileID: 0}
+  pourSound: {fileID: 8300000, guid: a4744cf04c47b0b49bc824f9ec5de4e6, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!212 &955945201
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1928,14 +1929,14 @@ MonoBehaviour:
   pourTargetTransform: {fileID: 1316945839}
   shakerClosedRenderer: {fileID: 2000976853}
   shakerOpenRenderer: {fileID: 838255444}
-  shakerFadeDuration: 0.1
+  shakerFadeDuration: 0.5
   pourEffect: {fileID: 1974329762}
-  pourTime: 0.5
+  pourTime: 1
   moveSpeed: 2
   arcHeight: 300
   wineBottleUprightRenderer: {fileID: 1276904973}
   wineBottleTiltedRenderer: {fileID: 576223321}
-  bottleFadeDuration: 1
+  bottleFadeDuration: 0.5
   wineColor: Blue
 --- !u!212 &1276904973
 SpriteRenderer:
@@ -2606,8 +2607,9 @@ MonoBehaviour:
   startPoint: {fileID: 2030750168}
   endPoint: {fileID: 1679426870}
   pourSpeed: 2
-  pourSound: {fileID: 0}
-  sfxMixerGroup: {fileID: 0}
+  pourSound: {fileID: 8300000, guid: a4744cf04c47b0b49bc824f9ec5de4e6, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!212 &1595379806
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3136,8 +3138,9 @@ MonoBehaviour:
   startPoint: {fileID: 340295118}
   endPoint: {fileID: 1996290836}
   pourSpeed: 2
-  pourSound: {fileID: 0}
-  sfxMixerGroup: {fileID: 0}
+  pourSound: {fileID: 8300000, guid: a4744cf04c47b0b49bc824f9ec5de4e6, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!212 &1974329765
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3331,6 +3334,10 @@ MonoBehaviour:
   moveDuration: 1
   pourTiltAngle: -80
   wineGlassController: {fileID: 1472530572}
+  shakeSound: {fileID: 8300000, guid: 51fced99b4fb85a4d9ea821e97ceb7e0, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
+  pourSound: {fileID: 8300000, guid: a4744cf04c47b0b49bc824f9ec5de4e6, type: 3}
 --- !u!1 &2030750167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3663,8 +3670,9 @@ MonoBehaviour:
   startPoint: {fileID: 701623617}
   endPoint: {fileID: 946126141}
   pourSpeed: 2
-  pourSound: {fileID: 0}
-  sfxMixerGroup: {fileID: 0}
+  pourSound: {fileID: 8300000, guid: a4744cf04c47b0b49bc824f9ec5de4e6, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!212 &2116049829
 SpriteRenderer:
   m_ObjectHideFlags: 0
