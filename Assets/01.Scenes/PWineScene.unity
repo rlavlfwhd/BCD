@@ -1689,6 +1689,8 @@ MonoBehaviour:
   startPoint: {fileID: 395425723}
   endPoint: {fileID: 597048657}
   pourSpeed: 2
+  pourSound: {fileID: 0}
+  sfxMixerGroup: {fileID: 0}
 --- !u!212 &955945201
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2604,6 +2606,8 @@ MonoBehaviour:
   startPoint: {fileID: 2030750168}
   endPoint: {fileID: 1679426870}
   pourSpeed: 2
+  pourSound: {fileID: 0}
+  sfxMixerGroup: {fileID: 0}
 --- !u!212 &1595379806
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2840,6 +2844,8 @@ MonoBehaviour:
   startPoint: {fileID: 340295118}
   endPoint: {fileID: 1996290836}
   pourSpeed: 2
+  pourSound: {fileID: 0}
+  sfxMixerGroup: {fileID: 0}
 --- !u!212 &1826616926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2992,6 +2998,9 @@ MonoBehaviour:
   startPoint: {fileID: 798039422}
   endPoint: {fileID: 491407846}
   pourSpeed: 2
+  pourSound: {fileID: 8300000, guid: a4744cf04c47b0b49bc824f9ec5de4e6, type: 3}
+  sfxMixerGroup: {fileID: 9105634205897684641, guid: 2cefa1679c70d4241909df818cf2adbb,
+    type: 2}
 --- !u!1 &1857477464
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,6 +3136,8 @@ MonoBehaviour:
   startPoint: {fileID: 340295118}
   endPoint: {fileID: 1996290836}
   pourSpeed: 2
+  pourSound: {fileID: 0}
+  sfxMixerGroup: {fileID: 0}
 --- !u!212 &1974329765
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3652,6 +3663,8 @@ MonoBehaviour:
   startPoint: {fileID: 701623617}
   endPoint: {fileID: 946126141}
   pourSpeed: 2
+  pourSound: {fileID: 0}
+  sfxMixerGroup: {fileID: 0}
 --- !u!212 &2116049829
 SpriteRenderer:
   m_ObjectHideFlags: 0

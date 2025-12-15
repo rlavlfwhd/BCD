@@ -116,8 +116,8 @@ public class Inventory : MonoBehaviour
         {
             if (!HasCreatedRope("Rope"))
                 TryCreateCombinedItem(new string[] { name1, name2 }, "Items/Rope");
-            else                
-            return;
+            else
+                return;
         }
 
         if (IsUpgradeCombo(name1, name2, "Rope"))
@@ -125,7 +125,7 @@ public class Inventory : MonoBehaviour
             if (!HasCreatedRope("Rope2"))
                 TryCreateCombinedItem(new string[] { name1, name2 }, "Items/Rope2");
             else
-            return;
+                return;
         }
 
         if (IsUpgradeCombo(name1, name2, "Rope2"))
@@ -133,7 +133,7 @@ public class Inventory : MonoBehaviour
             if (!HasCreatedRope("Rope3"))
                 TryCreateCombinedItem(new string[] { name1, name2 }, "Items/Rope3");
             else
-            return;
+                return;
         }
 
         if (IsUpgradeCombo(name1, name2, "Rope3"))
@@ -141,7 +141,7 @@ public class Inventory : MonoBehaviour
             if (!HasCreatedRope("Rope4"))
                 TryCreateCombinedItem(new string[] { name1, name2 }, "Items/Rope4");
             else
-            return;
+                return;
         }
     }
 

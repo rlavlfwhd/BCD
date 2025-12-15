@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class WinePourLine : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class WinePourLine : MonoBehaviour
     public float pourSpeed = 2f;   // 내려오는 속도
 
     private float currentLength = 0f;
+
+    [Header("?? 와인 붓는 사운드")]
+    public AudioClip pourSound;
+    public AudioMixerGroup sfxMixerGroup;
+
+    private bool isSoundPlayed = false;
 
     void Start()
     {
@@ -30,7 +37,21 @@ public class WinePourLine : MonoBehaviour
             currentLength += Time.deltaTime * pourSpeed;
             Vector3 targetPos = Vector3.Lerp(startPoint.position, endPoint.position, currentLength);
             lineRenderer.SetPosition(1, targetPos);
+
+            // ?? SFX 사운드 처음 한 번만 재생
+            if (!isSoundPlayed && pourSound != null && sfxMixerGroup != null)
+            {
+                AudioSource sfx = gameObject.AddComponent<AudioSource>();
+                sfx.clip = pourSound;
+                sfx.outputAudioMixerGroup = sfxMixerGroup;
+                sfx.playOnAwake = false;
+                sfx.volume = 1f;
+                sfx.Play();
+                Destroy(sfx, pourSound.length + 0.1f);
+
+                isSoundPlayed = true;
+                Debug.Log("[SFX] 와인 붓기 사운드 재생됨 (Mixer 연결)");
+            }
         }
     }
 }
-
